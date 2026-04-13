@@ -1,1 +1,1687 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El corazón de la serpiente — Guía GED</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --espacio: #0b0f1a;
+  --cosmos: #0d1b2a;
+  --nebula: #112240;
+  --estela: #1a3354;
+  --teal: #4ecdc4;
+  --teal-claro: #7fe7e1;
+  --oro: #f5c842;
+  --oro-suave: #f7d97a;
+  --texto: #e8e0d0;
+  --texto-suave: #b8b0a0;
+  --blanco: #f5f0e8;
+  --rojo-alerta: #e06060;
+  --verde-ok: #60c060;
+}
 
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--espacio);
+  color: var(--texto);
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 17px;
+  line-height: 1.78;
+  background-image:
+    radial-gradient(ellipse at 20% 10%, rgba(78,205,196,0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 90%, rgba(245,200,66,0.03) 0%, transparent 50%);
+  min-height: 100vh;
+}
+
+/* ── CABECERA ─────────────────────────────────────────────── */
+header {
+  background: linear-gradient(135deg, #060a12 0%, #0d1b2a 50%, #060a12 100%);
+  border-bottom: 2px solid var(--teal);
+  padding: 48px 32px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 15% 50%, rgba(78,205,196,0.06) 0%, transparent 40%),
+    radial-gradient(circle at 85% 30%, rgba(245,200,66,0.05) 0%, transparent 40%);
+  pointer-events: none;
+}
+.estrella-deco {
+  font-size: 2rem;
+  color: var(--teal);
+  letter-spacing: 1rem;
+  margin-bottom: 12px;
+  opacity: 0.7;
+}
+header h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--blanco);
+  letter-spacing: 0.02em;
+  margin-bottom: 6px;
+}
+header .autor {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--teal-claro);
+  margin-bottom: 14px;
+}
+header .subtitulo {
+  font-size: 0.88rem;
+  color: var(--texto-suave);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ── NAVEGACIÓN RÁPIDA ────────────────────────────────────── */
+.nav-rapida {
+  background: var(--cosmos);
+  border-bottom: 1px solid var(--estela);
+  padding: 14px 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+.nav-rapida a {
+  background: var(--nebula);
+  color: var(--teal-claro);
+  text-decoration: none;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  border: 1px solid var(--estela);
+  transition: all 0.2s;
+}
+.nav-rapida a:hover {
+  background: var(--teal);
+  color: var(--espacio);
+  border-color: var(--teal);
+}
+
+/* ── CONTENEDOR PRINCIPAL ─────────────────────────────────── */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+}
+
+/* ── BLOQUE DE INTRODUCCIÓN ───────────────────────────────── */
+.intro-bloque {
+  background: var(--nebula);
+  border: 1px solid var(--estela);
+  border-left: 4px solid var(--teal);
+  border-radius: 8px;
+  padding: 24px 28px;
+  margin-bottom: 40px;
+}
+.intro-bloque h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.2rem;
+  color: var(--teal-claro);
+  margin-bottom: 12px;
+}
+.intro-bloque p {
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+.intro-bloque p:last-child { margin-bottom: 0; }
+
+/* ── TÍTULOS DE BLOQUE ────────────────────────────────────── */
+.bloque-titulo {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.55rem;
+  color: var(--oro);
+  border-bottom: 1px solid var(--estela);
+  padding-bottom: 10px;
+  margin: 44px 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.bloque-titulo .icono { font-size: 1.4rem; }
+
+/* ── SECCIONES (details principales) ─────────────────────── */
+details.seccion {
+  background: var(--cosmos);
+  border: 1px solid var(--estela);
+  border-radius: 10px;
+  margin-bottom: 14px;
+  overflow: hidden;
+  transition: border-color 0.25s;
+}
+details.seccion[open] {
+  border-color: var(--teal);
+}
+details.seccion > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 16px 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: var(--cosmos);
+  transition: background 0.2s;
+}
+details.seccion > summary:hover {
+  background: var(--nebula);
+}
+details.seccion > summary::-webkit-details-marker { display: none; }
+details.seccion > summary::marker { display: none; }
+
+.sec-num {
+  background: var(--estela);
+  color: var(--teal-claro);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 2px;
+  letter-spacing: 0.06em;
+}
+details.seccion[open] .sec-num {
+  background: var(--teal);
+  color: var(--espacio);
+}
+.sec-texto {
+  flex: 1;
+}
+.sec-titulo {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.05rem;
+  color: var(--blanco);
+  font-weight: 600;
+}
+.sec-desc {
+  font-size: 0.82rem;
+  color: var(--texto-suave);
+  margin-top: 2px;
+  font-style: italic;
+}
+.sec-flecha {
+  color: var(--teal);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: transform 0.25s;
+}
+details.seccion[open] .sec-flecha {
+  transform: rotate(90deg);
+}
+
+.seccion-contenido {
+  padding: 4px 20px 20px;
+  border-top: 1px solid var(--estela);
+}
+
+/* ── TEXTO LITERARIO ──────────────────────────────────────── */
+.texto-literario {
+  background: rgba(0,0,0,0.25);
+  border-left: 3px solid var(--estela);
+  border-radius: 4px;
+  padding: 20px 24px;
+  margin: 16px 0;
+  font-size: 0.96rem;
+  line-height: 1.85;
+  color: var(--texto);
+}
+.texto-literario p {
+  margin-bottom: 14px;
+}
+.texto-literario p:last-child {
+  margin-bottom: 0;
+}
+.texto-literario .dialogo {
+  margin: 10px 0;
+  padding-left: 12px;
+  border-left: 2px solid var(--estela);
+  font-style: italic;
+  color: #c8c0b0;
+}
+.texto-literario em, .texto-literario i {
+  color: var(--teal-claro);
+  font-style: italic;
+}
+
+/* ── PREGUNTAS DE DISCUSIÓN ───────────────────────────────── */
+details.preguntas {
+  margin-top: 16px;
+  background: rgba(78,205,196,0.04);
+  border: 1px solid rgba(78,205,196,0.25);
+  border-radius: 8px;
+  overflow: hidden;
+}
+details.preguntas > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 12px 16px;
+  color: var(--teal-claro);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+details.preguntas > summary:hover {
+  background: rgba(78,205,196,0.08);
+}
+details.preguntas > summary::-webkit-details-marker { display: none; }
+details.preguntas > summary::marker { display: none; }
+
+.preguntas-contenido {
+  padding: 12px 20px 16px;
+  border-top: 1px solid rgba(78,205,196,0.2);
+}
+.preguntas-contenido ol {
+  margin-left: 20px;
+  margin-top: 8px;
+}
+.preguntas-contenido li {
+  margin-bottom: 10px;
+  font-size: 0.93rem;
+  color: var(--texto);
+  line-height: 1.65;
+}
+.preguntas-contenido .eje {
+  font-size: 0.82rem;
+  color: var(--oro-suave);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 12px;
+  margin-bottom: 6px;
+}
+
+/* ── ACTIVIDADES GED ──────────────────────────────────────── */
+details.actividad {
+  background: var(--cosmos);
+  border: 1px solid var(--estela);
+  border-radius: 10px;
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+details.actividad[open] {
+  border-color: var(--oro);
+}
+details.actividad > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.05rem;
+  color: var(--oro-suave);
+  font-weight: 600;
+  transition: background 0.2s;
+}
+details.actividad > summary:hover { background: var(--nebula); }
+details.actividad > summary::-webkit-details-marker { display: none; }
+details.actividad > summary::marker { display: none; }
+details.actividad[open] > summary { border-bottom: 1px solid var(--estela); }
+
+.act-contenido {
+  padding: 20px 24px;
+}
+
+/* ── PREGUNTAS MULTIPLE CHOICE ────────────────────────────── */
+.pregunta-mc {
+  background: rgba(0,0,0,0.2);
+  border-radius: 8px;
+  padding: 16px 18px;
+  margin-bottom: 16px;
+}
+.pregunta-mc .enunciado {
+  font-size: 0.97rem;
+  color: var(--blanco);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.opcion {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  font-size: 0.93rem;
+  color: var(--texto);
+  border: 1px solid transparent;
+  transition: all 0.15s;
+}
+.opcion:hover { background: var(--nebula); border-color: var(--estela); }
+.opcion.correcta { background: rgba(96,192,96,0.15); border-color: var(--verde-ok); color: #a0e0a0; }
+.opcion.incorrecta { background: rgba(224,96,96,0.1); border-color: var(--rojo-alerta); color: #e0a0a0; }
+.opcion-letra {
+  background: var(--nebula);
+  color: var(--teal-claro);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 0px;
+}
+.btn-verificar {
+  background: var(--teal);
+  color: var(--espacio);
+  border: none;
+  padding: 9px 20px;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 10px;
+  letter-spacing: 0.04em;
+  transition: background 0.2s;
+}
+.btn-verificar:hover { background: var(--teal-claro); }
+.feedback {
+  margin-top: 10px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  display: none;
+}
+.feedback.correcto { background: rgba(96,192,96,0.15); color: #a0e0a0; border-left: 3px solid var(--verde-ok); }
+.feedback.incorrecto { background: rgba(224,96,96,0.1); color: #e0a0a0; border-left: 3px solid var(--rojo-alerta); }
+
+/* ── VOCABULARIO ──────────────────────────────────────────── */
+.vocab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+.vocab-card {
+  background: var(--nebula);
+  border: 1px solid var(--estela);
+  border-radius: 8px;
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+.vocab-card:hover { border-color: var(--teal); }
+.vocab-palabra {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.05rem;
+  color: var(--teal-claro);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.vocab-def {
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+  line-height: 1.5;
+  display: none;
+}
+.vocab-def.visible { display: block; }
+.vocab-instruc {
+  font-size: 0.8rem;
+  color: var(--oro-suave);
+  font-style: italic;
+}
+
+/* ── ENSAYO ───────────────────────────────────────────────── */
+.tema-ensayo {
+  background: rgba(245,200,66,0.06);
+  border: 1px solid rgba(245,200,66,0.3);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+}
+.tema-ensayo .tema-num {
+  font-size: 0.78rem;
+  color: var(--oro);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.tema-ensayo .tema-texto {
+  font-size: 0.97rem;
+  color: var(--texto);
+  margin-bottom: 8px;
+}
+.tema-ensayo .guia {
+  font-size: 0.83rem;
+  color: var(--texto-suave);
+  font-style: italic;
+}
+
+/* ── DEBATE ───────────────────────────────────────────────── */
+.pregunta-debate {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--estela);
+  font-size: 0.95rem;
+}
+.pregunta-debate:last-child { border-bottom: none; }
+.debate-icon { color: var(--teal); font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
+
+/* ── CONEXIÓN GED ─────────────────────────────────────────── */
+.ged-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+.skill-tag {
+  background: rgba(78,205,196,0.12);
+  border: 1px solid rgba(78,205,196,0.3);
+  color: var(--teal-claro);
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+}
+
+/* ── NOTAS AL PROFESOR ────────────────────────────────────── */
+.nota-profe {
+  background: rgba(245,200,66,0.05);
+  border: 1px dashed rgba(245,200,66,0.3);
+  border-radius: 8px;
+  padding: 14px 18px;
+  font-size: 0.87rem;
+  color: var(--texto-suave);
+  margin-top: 20px;
+}
+.nota-profe strong { color: var(--oro-suave); }
+
+/* ── RESPONSIVE ───────────────────────────────────────────── */
+@media (max-width: 600px) {
+  header { padding: 32px 20px 28px; }
+  main { padding: 20px 14px 48px; }
+  .sec-desc { display: none; }
+  .nav-rapida { padding: 10px 16px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="estrella-deco">✦ ✦ ✦</div>
+  <h1>El corazón de la serpiente</h1>
+  <div class="autor">Iván Efremov &nbsp;·&nbsp; 1959</div>
+  <div class="subtitulo">Guía de lectura y preparación para el GED &nbsp;·&nbsp; Razonamiento a través de las artes del lenguaje</div>
+</header>
+
+<nav class="nav-rapida" aria-label="Navegación rápida">
+  <a href="#texto">El texto</a>
+  <a href="#comprension">Comprensión global</a>
+  <a href="#opcion-multiple">Preguntas GED</a>
+  <a href="#ensayo">Escritura argumentativa</a>
+  <a href="#vocabulario">Vocabulario académico</a>
+  <a href="#debate">Debate</a>
+  <a href="#conexion-ged">Conexión con el GED</a>
+</nav>
+
+<main>
+
+<!-- INTRODUCCIÓN -->
+<div class="intro-bloque">
+  <h2>📖 Contexto del texto</h2>
+  <p><strong>Iván Efremov</strong> (1908–1972) fue un científico y escritor soviético. Publicó «El corazón de la serpiente» en 1959, en plena <em>carrera espacial</em>. La historia responde deliberadamente a un cuento estadounidense de los años 40 («El Primer Contacto» de Murray Leinster), en el cual dos civilizaciones estelares se encontraban armadas y desconfiadas. Efremov propone una visión opuesta: si una civilización es capaz de alcanzar las estrellas, ya habrá superado la guerra y el egoísmo.</p>
+  <p><strong>La nave Telurio</strong> viaja mediante <em>pulsaciones</em> —saltos por el espacio a velocidad superlumínica— hacia una estrella de carbono en la constelación de Hércules. Durante el viaje, su tripulación hace el primer contacto de la historia humana con seres de otro planeta.</p>
+  <p><strong>Para el estudiante:</strong> Léa cada sección, luego abra las preguntas de discusión. Puede trabajar en pareja o en grupo pequeño.</p>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     BLOQUE I: EL TEXTO DIVIDIDO EN 18 SECCIONES
+     ══════════════════════════════════════════════════════════ -->
+<h2 class="bloque-titulo" id="texto"><span class="icono">🚀</span> El texto: 18 secciones</h2>
+
+<!-- SECCIÓN 1 -->
+<details class="seccion">
+  <summary>
+    <span class="sec-num">§ 01</span>
+    <span class="sec-texto">
+      <span class="sec-titulo">El despertar tras la pulsación</span>
+      <span class="sec-desc">La tripulación del Telurio recobra la conciencia. Se establece el contexto tecnológico.</span>
+    </span>
+    <span class="sec-flecha">▶</span>
+  </summary>
+  <div class="seccion-contenido">
+    <div class="texto-literario">
+      <p>A través del sopor que nublaba el cerebro penetraron sonidos musicales… «¡No duermas! ¡La indiferencia es el triunfo de la negra Entropía…!» Estas palabras de la conocida aria suscitaron en la memoria asociaciones corrientes y arrastraron tras de sí una cadena interminable de recuerdos.</p>
+      <p>La vida retornaba. La inmensa nave trepidaba aún; pero los mecanismos automáticos seguían realizando invariablemente su labor. Torbellinos de energía en torno de cada uno de los tres cascos protectores habían parado el invisible movimiento rotatorio.</p>
+      <p class="dialogo">— ¡Hemos salido de la pulsación! — exclamó uno de ellos con voz segura —. Kari, ¡otra vez ha sido usted el primero en despertarse! ¡Qué salud más ideal para un hombre de su profesión!</p>
+      <p>Kari Ram, mecánico electrónico y piloto del vehículo cósmico <em>Telurio</em>, se volvió instantáneamente y encontróse con la mirada aún turbia del capitán. Mut Ang hizo un gran esfuerzo para levantarse; luego suspiró aliviado y se paró ante el pupitre.</p>
+      <p class="dialogo">— Veinticuatro parsecs… Hemos pasado ante una estrella. Los aparatos nuevos son siempre inexactos… mejor dicho, no sabemos dominarlos…</p>
+      <p>Lo que esto significaba era terrible: las astronaves pulsacionales avanzaban a ciegas mientras sus tripulantes permanecían inconscientes, protegidos dentro de potentes campos magnéticos. Era el más veloz de los métodos de viaje espacial inventados por el hombre —miles de veces más rápido que las antiguas naves de cohetes— pero también el más peligroso: en el momento de la «pulsación», la nave no podía ser dirigida.</p>
+      <p>El astrofísico Tey Eron se acercó al calculador.</p>
+      <p class="dialogo">— Todo sucede con exactitud irreprochable — dijo al cabo de algunos minutos —. Es <em>Cor Serpentis</em> o, como la llamaban los antiguos astrónomos árabes, Unuc al Hai: El Corazón de la Serpiente.</p>
+    </div>
+    <details class="preguntas">
+      <summary>📝 Preguntas de discusión — Sección 1</summary>
+      <div class="preguntas-contenido">
+        <div class="eje">Comprensión</div>
+        <ol>
+          <li>¿Cómo funciona la «pulsación»? ¿Por qué es peligrosa?</li>
+          <li>¿Qué ventaja tiene este método de viaje frente a las naves anteriores?</li>
+        </ol>
+        <div class="eje">Análisis e inferencia</div>
+        <ol start="3">
+          <li>La aria dice: «¡La indiferencia es el triunfo de la negra Entropía!». ¿Qué valor humano está elogiando el autor desde la primera línea del relato?</li>
+          <li>¿Qué simboliza que la nave se llame «Telurio» y la estrella se llame «El Corazón de la Serpiente»?</li>
+        </ol>
+        <div class="eje">Vocabulario</div>
+        <ol start="5">
+          <li>Busque la palabra <strong>entropía</strong> en la sección de vocabulario. ¿Por qué la llaman «negra»?</li>
+        </ol>
+      </div>
+    </details>
+  </div>
+</details>
+
+<!-- SECCIÓN 2 -->
+<details class="seccion">
+  <summary>
+    <span class="sec-num">§ 02</span>
+    <span class="sec-texto">
+      <span class="sec-titulo">El tiempo y la relatividad existencial</span>
+      <span class="sec-desc">Reflexión sobre el paso del tiempo: décadas en la Tierra, minutos para los astronautas.</span>
+    </span>
+    <span class="sec-flecha">▶</span>
+  </summary>
+  <div class="seccion-contenido">
+    <div class="texto-literario">
+      <p class="dialogo">— ¡Veinticuatro parsecs! — exclamó Mut Ang —. Que fueron para nosotros como un minuto…</p>
+      <p class="dialogo">— Un minuto de sueño mortal — replicó sombrío Tey Eron —. Pero en la Tierra…</p>
+      <p class="dialogo">— Es mejor no pensar que en la Tierra han pasado más de setenta y ocho años. Muchos de nuestros amigos y parientes habrán muerto ya, muchas cosas habrán cambiado… ¿Qué será cuando…?</p>
+      <p class="dialogo">— Eso es inevitable al realizar un viaje largo en una astronave de cualquier tipo — dijo sereno el capitán —. Sólo que, en el Telurio, el tiempo transcurre más de prisa para nosotros. Y aunque vayamos más lejos que nadie, volveremos siendo casi los mismos…</p>
+      <p>Nadie más entre la tripulación hablaba. La inmensa nave continuaba su vuelo por la infinita negrura del espacio. Las palabras del capitán flotaban en el silencio. Setenta y ocho años terrestres. Veinticuatro parsecs recorridos como si fuera un instante de sueño. Cuando regresaran a la Tierra, habrían pasado más de setecientos años allá. Sus amigos, sus familias, sus contemporáneos… todos habrían muerto hacía siglos.</p>
+    </div>
+    <details class="preguntas">
+      <summary>📝 Preguntas de discusión — Sección 2</summary>
+      <div class="preguntas-contenido">
+        <div class="eje">Comprensión</div>
+        <ol>
+          <li>¿Cuántos años terrestres equivale una sola «pulsación» del Telurio?</li>
+          <li>¿Cuántos años totales habrán pasado en la Tierra cuando los astronautas regresen?</li>
+        </ol>
+        <div class="eje">Análisis e inferencia</div>
+        <ol start="3">
+          <li>Tey Eron dice «un minuto de sueño mortal». ¿En qué sentido es «mortal» ese sueño, si los astronautas no mueren físicamente?</li>
+          <li>¿Qué tipo de sacrificio exige la exploración espacial según este texto? ¿Lo considera el autor un sacrificio o una ganancia?</li>
+        </ol>
+        <div class="eje">Conexión personal</div>
+        <ol start="5">
+          <li>Si usted pudiera viajar al espacio sabiendo que al regresar todos sus seres queridos habrían muerto, ¿lo haría? Explique su respuesta.</li>
+        </ol>
+      </div>
+    </details>
+  </div>
+</details>
+
+<!-- SECCIÓN 3 -->
+<details class="seccion">
+  <summary>
+    <span class="sec-num">§ 03</span>
+    <span class="sec-texto">
+      <span class="sec-titulo">El objetivo: la estrella de carbono</span>
+      <span class="sec-desc">La misión científica y el ideal del conocimiento como motor del viaje.</span>
+    </span>
+    <span class="sec-flecha">▶</span>
+  </summary>
+  <div class="seccion-contenido">
+    <div class="texto-literario">
+      <p>La nave debía atravesar el espacio casi vacío de las altas latitudes de la Galaxia, junto a la Serpiente, para llegar a la constelación de Hércules, donde se hallaba una estrella de carbono.</p>
+      <p>El vehículo cósmico realizaba este extraordinario vuelo para que su tripulación estudiase, en la propia estrella de carbono, los enigmáticos procesos de transformación de la materia, muy importantes para la energética terrestre. Se sospechaba que dicha estrella estaba ligada a una nube oscura en forma de un disco electromagnético giratorio, vuelto de canto hacia la Tierra.</p>
+      <p>Los centros de los gigantes de carbono, cuya temperatura llegaba hasta a cien millones de grados, eran potentes generadores de neutrones y transformaban los elementos ligeros en pesados, e incluso en transuránicos. Los hombres de ciencia consideraban que las estrellas de carbono eran, por así decirlo, <em>fábricas de los elementos pesados del Universo</em>.</p>
+      <p>La astronave pulsacional había brindado, por fin, al género humano la oportunidad de estudiar de cerca la estrella de carbono y comprender la esencia de los procesos de transformación de la materia. La tripulación se había despertado, y cada cual se entregó a las investigaciones por las cuales había «muerto» para la Tierra por un período de setecientos años.</p>
+    </div>
+    <details class="preguntas">
+      <summary>📝 Preguntas de discusión — Sección 3</summary>
+      <div class="preguntas-contenido">
+        <div class="eje">Comprensión</div>
+        <ol>
+          <li>¿Cuál es la misión científica del Telurio?</li>
+          <li>¿Qué son las estrellas de carbono y por qué son importantes según el texto?</li>
+        </ol>
+        <div class="eje">Análisis</div>
+        <ol start="3">
+          <li>El autor dice que los astronautas se entregaron a sus investigaciones «por las cuales habían muerto para la Tierra». ¿Qué idea está expresando con esta frase?</li>
+          <li>¿Es el conocimiento científico un fin en sí mismo, o solo un medio? Use el texto para apoyar su respuesta.</li>
+        </ol>
+      </div>
+    </details>
+  </div>
+</details>
+
+<!-- SECCIÓN 4 -->
+<details class="seccion">
+  <summary>
+    <span class="sec-num">§ 04</span>
+    <span class="sec-texto">
+      <span class="sec-titulo">La sociedad futura de la Tierra</span>
+      <span class="sec-desc">Visión de la humanidad transformada: sin clases, unificada, racional.</span>
+    </span>
+    <span class="sec-flecha">▶</span>
+  </summary>
+  <div class="seccion-contenido">
+    <div class="texto-literario">
+      <p>Lejos, muy lejos de allí, a una distancia de setenta y ocho años de luz, había quedado la Tierra, tan hermosa y tan bien acondicionada por los hombres para una vida espléndida y una inspirada labor de creación. En aquella sociedad sin clases, cada persona conocía todo el planeta. No sólo sus fábricas y minas, sus plantaciones e industrias pesqueras, sus centros de enseñanza y de investigación, sus museos y cotos, sino también sus gratos rinconcitos de descanso, soledad o aislamiento con el ser querido.</p>
+      <p>El hombre, insaciable de saber, había dejado aquel mundo de maravilla para internarse más y más en los gélidos abismos del Universo, adquirir nuevos conocimientos y descifrar los enigmas de la naturaleza, cada vez más sumisa a él.</p>
+      <p>Las astronaves terrenas visitaron Alfa y Próxima de Centauro, la estrella de Barnard, Sirio, Eta de Erídano y hasta Tau de la Ballena. Pero las naves cósmicas de la Tierra no habían estado aún en planetas donde la vida hubiese llegado ya a su fase superior de desarrollo, donde habitaran seres racionales.</p>
+      <p>La humanidad, que no hacía sino aprender a leer los mensajes del Cosmos, empezó a formarse una idea del vasto océano de conocimientos, la técnica y el arte que fluía entre los mundos poblados de nuestra Galaxia… Mundos aún inaccesibles. Pero eso no hacía sino avivar el deseo de llegar a planetas habitados por hombres que, aunque no se pareciesen a los terrenales, hubieran creado una sociedad sabia, bien desarrollada, donde cada cual tuviese su parte de felicidad.</p>
+    </div>
+    <details class="preguntas">
+      <summary>📝 Preguntas de discusión — Sección 4</summary>
+      <div class="preguntas-contenido">
+        <div class="eje">Comprensión</div>
+        <ol>
+          <li>¿Cómo describe el autor la sociedad futura de la Tierra?</li>
+          <li>¿Qué planetas cercanos ya habían visitado las astronaves terrestres?</li>
+        </ol>
+        <div class="eje">Análisis</div>
+        <ol start="3">
+          <li>El autor escribe que en esa sociedad «cada persona conocía todo el planeta». ¿Qué tipo de cambios sociales habrían sido necesarios para llegar a eso?</li>
+          <li>Esta sección refleja la visión política de Efremov, un escritor soviético. ¿Qué ideas reconoce usted? ¿Está de acuerdo o en desacuerdo? Explique.</li>
+        </ol>
+        <div class="eje">Vocabulario</div>
+        <ol start="5">
+          <li>¿Qué significa «sociedad sin clases»? ¿Qué ideología política defiende ese concepto?</li>
+        </ol>
+      </div>
+    </details>
+  </div>
+</details>
+
+<!-- SECCIÓN 5 -->
+<details class="seccion">
+  <summary>
+    <span class="sec-num">§ 05</span>
+    <span class="sec-texto">
+      <span class="sec-titulo">El «lado opuesto»: nostalgia y progreso</span>
+      <span class="sec-desc">Conversación filosófica entre Kari y Mut Ang sobre el sentido del viaje.</span>
+    </span>
+    <span class="sec-flecha">▶</span>
+  </summary>
+  <div class="seccion-contenido">
+    <div class="texto-literario">
+      <p class="dialogo">— La astronave pulsacional, último triunfo del genio humano, brindaba la posibilidad de acudir a las llamadas de mundos lejanos. Si el vuelo del Telurio daba buen resultado, entonces… Pero este nuevo invento, como todo en la vida, tenía dos lados.</p>
+      <p class="dialogo">— Y aquí tienes el lado opuesto… — murmuró Kari Ram en voz alta sin darse cuenta.</p>
+      <p class="dialogo">— ¿No hemos efectuado más que la primera pulsación, y usted está pensando ya en la vuelta? — dijo el capitán.</p>
+      <p class="dialogo">— ¡Oh, no! ¿Para qué hubiera pedido que me incluyesen en la tripulación? Pero se me ha ocurrido una cosa. Como volveremos a la Tierra al cabo de setecientos años… hasta los biznietos de nuestros hermanos habrán dejado ya de existir. Y mientras realicemos el vuelo, la gente habrá vencido definitivamente el tiempo. Las astronaves irán mucho más lejos que la nuestra, y nosotros regresaremos con un bagaje de conocimientos anticuados e inservibles…</p>
+      <p class="dialogo">— Nos hemos ido de la Tierra como se van de la vida los muertos — dijo lentamente Mut Ang —, y volveremos retrasados en nuestro desarrollo y con reminiscencias del pasado.</p>
+      <p class="dialogo">— ¡Eso era lo que estaba pensando yo!</p>
+      <p class="dialogo">— Usted tiene razón, y al propio tiempo está profundamente equivocado. El acopio de conocimientos y experiencias, la exploración del insondable Universo deben ser constantes. De lo contrario, se atentaría a las leyes del desarrollo, el cual es siempre desigual y contradictorio. Nosotros también, como todos los miembros de la sociedad, estamos llamados a cumplir con nuestro deber. Por ser los primeros en sondear los fondos aún inexplorados del Cosmos, hemos muerto por setecientos años. Quienes hayan quedado en la Tierra no experimentarán jamás las profundas emociones ni el goce de descubrir los secretos más íntimos del Universo.</p>
+    </div>
+    <details class="preguntas">
+      <summary>📝 Preguntas de discusión — Sección 5</summary>
+      <div class="preguntas-contenido">
+        <div class="eje">Comprensión</div>
+        <ol>
+          <li>¿Cuál es la preocupación filosófica de Kari Ram en esta sección?</li>
+          <li>¿Cómo responde Mut Ang a esa preocupación?</li>
+        </ol>
+        <div class="eje">Análisis e inferencia</div>
+        <ol start="3">
+          <li>Mut Ang dice «Usted tiene razón, y al propio tiempo está profundamente equivocado». ¿Cómo pueden las dos cosas ser verdad al mismo tiempo?</li>
+          <li>¿Puede el futuro volver «inútil» el presente? ¿Qué piensa usted?</li>
+          <li>¿Cuál es el «lado opuesto» al que se refiere el título de la sección?</li>
+        </ol>
+      </div>
+    </details>
+  </div>
+</details>
+
+<!-- SECCIÓN 6 -->
+<details class="seccion">
+  <summary>
+    <span class="sec-num">§ 06</span>
+    <span class="sec-texto">
+      <span class="sec-titulo">Vida cotidiana en la nave</span>
+      <span class="sec-desc">Escenas en el gimnasio, la piscina y la biblioteca. Arte, música, amor y amistad.</span>
+    </span>
+    <span class="sec-flecha">▶</span>
+  </summary>
+  <div class="seccion-contenido">
+    <div class="texto-literario">
+      <p>La tripulación de la astronave pasaba sus ratos de ocio en el gimnasio. Ideaban ejercicios dificilísimos, danzas fantásticas o realizaban trucos inauditos en el rincón antigravitacional de la sala. A los astronautas les gustaba nadar en una gran piscina con agua luminosa ionizada, que conservaba el admirable color azul del Mediterráneo, la cuna de los pueblos de la Tierra…</p>
+      <p>Kari y Taina eran los mejores bailarines de la nave. Sólo ellos sabían entregarse tan de lleno a la melodía y al ritmo, olvidándose de todo lo demás. Cuando bailaba, Kari percibía únicamente el placer de los movimientos ligeros coordinados. Sobre su hombro descansaba la mano segura y delicada de la muchacha. Los ojos verdes de Taina habían adquirido una tonalidad más profunda.</p>
+      <p>En la biblioteca, Mut Ang tocaba el PVEM —el piano-violín electromagnético— que hacía tiempo había suplido al piano de resonancia, conservando su riqueza polifónica y con toda la diversidad de matices del violín por añadidura. Los temas armónicamente entrelazados de la unidad de la Tierra y el Cosmos empezaron a desdoblarse y alejarse. El contraste de una apacible melancolía y el lejano retumbar de un trueno iba cobrando cada vez mayor relieve e intensidad, interrumpido por notas sonoras que parecían gritos de desesperación.</p>
+      <p>De súbito, bajo los dedos de Mut Ang nacieron los claros y puros sonidos de una alegría cristalina, fundiéndose con la tenue melancolía del acompañamiento.</p>
+    </div>
+    <details class="preguntas">
+      <summary>📝 Preguntas de discusión — Sección 6</summary>
+      <div class="preguntas-contenido">
+        <div class="eje">Comprensión y análisis</div>
+        <ol>
+          <li>¿Qué actividades ocupan el tiempo libre de la tripulación?</li>
+          <li>¿Por qué cree que Efremov incluye escenas de baile, música y amor en una historia de ciencia ficción espacial?</li>
+        </ol>
+        <div class="eje">Propósito del autor</div>
+        <ol start="3">
+          <li>¿Qué quiere demostrar el autor al describir estas escenas íntimas de humanidad dentro de una máquina en el espacio?</li>
+          <li>La música de Mut Ang pasa de «gritos de desesperación» a «alegría cristalina». ¿Qué emociones del viaje cree que está expresando?</li>
+        </ol>
+      </div>
+    </details>
+  </div>
+</details>
+
+<!-- SECCIÓN 7 -->
+<details class="seccion">
+  <summary>
+    <span class="sec-num">§ 07</span>
+    <span class="sec-texto">
+      <span class="sec-titulo">Enfermedad y fragilidad humana</span>
+      <span class="sec-desc">Operación médica del segundo piloto. Tecnología avanzada y control biológico.</span>
+    </span>
+    <span class="sec-flecha">▶</span>
+  </summary>
+  <div class="seccion-contenido">
+    <div class="texto-literario">
+      <p>Al médico Svet Sim le ocurrió al segundo piloto una desgracia muy rara: un ataque de apendicitis purulenta. La medicina moderna, que dominaba ya los métodos de regulación nerviosa impulsiva del organismo humano, podía acabar con muchas enfermedades. Pero el médico de la astronave se mantuvo inflexible. Había que operar.</p>
+      <p>Afra extrajo del líquido un aparato metálico con articulaciones, parecido a una escolopendra gigantesca. Bastó un ligero chasquido del cierre para que la escolopendra metálica empezase a moverse con un zumbido apenas perceptible.</p>
+      <p>El aparato desapareció por la boca abierta del astronauta, que continuaba respirando con toda calma. Por los órganos internos, cuyos grises contornos adquirieron plena concisión al verdoso resplandor de la pantalla, avanzaba lentamente el aparato articulado. Poco después, la punta roma de la escolopendra se clavaba en la base del apéndice.</p>
+      <p>Minutos después la máquina analítica había esclarecido la causa de la enfermedad; tras de establecer el carácter de la supuración, recomendaba la mezcla necesaria de antibióticos y desinfectantes. Después de absorber el pus, el aparato procedió a un enérgico lavado con soluciones biológicas que restablecieron rápidamente el estado normal de la mucosa.</p>
+      <p>El capitán del Telurio se tranquilizó. Aunque era inmenso el poderío de la medicina, no faltaban casos en que ciertas particularidades imprevistas del organismo provocaban complicaciones inesperadas, que si bien no eran de temer en los enormes establecimientos curativos del planeta, ofrecían peligro en las pequeñas expediciones.</p>
+    </div>
+    <details class="preguntas">
+      <summary>📝 Preguntas de discusión — Sección 7</summary>
+      <div class="preguntas-contenido">
+        <div class="eje">Comprensión</div>
+        <ol>
+          <li>¿Cómo se realiza la operación? Describa el método en sus propias palabras.</li>
+          <li>¿Por qué el capitán se preocupa a pesar del avanzado nivel de la medicina?</li>
+        </ol>
+        <div class="eje">Análisis</div>
+        <ol start="3">
+          <li>¿Qué dice esta sección sobre la relación entre tecnología avanzada y vulnerabilidad humana?</li>
+          <li>¿Puede la ciencia eliminar por completo el riesgo? ¿Qué sugiere el texto al respecto?</li>
+        </ol>
+      </div>
+    </details>
+  </div>
+</details>
+
+<!-- SECCIÓN 8 -->
+<details class="seccion">
+  <summary>
+    <span class="sec-num">§ 08</span>
+    <span class="sec-texto">
+      <span class="sec-titulo">Reflexión histórica: el pasado oscuro</span>
+      <span class="sec-desc">Lectura de «El Primer Contacto». Crítica al capitalismo y la mentalidad bélica del pasado.</span>
+    </span>
+    <span class="sec-flecha">▶</span>
+  </summary>
+  <div class="seccion-contenido">
+    <div class="texto-literario">
+      <p class="dialogo">— ¿Sabe usted cómo nuestros antepasados se representaban, ya en la época inicial del asalto al espacio, el primer encuentro con los habitantes de otros mundos? — dijo Mut Ang —. Como un choque bélico en el que las naves se destruirían brutalmente y los hombres se aniquilarían los unos a los otros.</p>
+      <p class="dialogo">— ¡Increíble! — exclamaron simultáneamente Kari Ram y Tey Eron.</p>
+      <p>El capitán sacó de su bibliofilmoteca el microfilm de «El Primer Contacto», un antiguo relato norteamericano. La obra describía en tonos dramáticos el encuentro de una nave espacial terrena con otra de otro mundo. El capitán terreno había dado la orden de preparar todos los cañones antimeteoríticos y dirigirlos contra la nave desconocida. El encuentro de dos civilizaciones surgidas en diferentes ángulos del Universo debería conducir, a juicio del personaje, a la subordinación de la una por la otra y a la victoria de aquella que poseyese las armas más potentes. El encuentro en el espacio significaría únicamente comercio o guerra. Nada más cabía en su mente.</p>
+      <p>Al llegar al fin de la historia, la biblioteca se llenó de voces de protesta. Los jóvenes astronautas señalaban las contradicciones: si la nave podía estar tan lejos, el tiempo de la acción debería ser posterior al presente… pero el modo de pensar de los personajes no se distinguía de los tiempos del capitalismo.</p>
+      <p class="dialogo">— En los escritos de los defensores de la vieja sociedad que proclamaban el estallido inevitable de la guerra y la existencia perpetua del capitalismo, veo también el corazón de un reptil venenoso — dijo Mut Ang —. El «corazón de la serpiente» es precisamente eso: la quinta esencia del mal, el egoísmo que emponzoña la vida y que, por más que se le cuide, morderá, pues no puede dejar de morder.</p>
+      <p class="dialogo">— ¡El Corazón de la Serpiente! — exclamó Taina.</p>
+    </div>
+    <details class="preguntas">
+      <summary>📝 Preguntas de discusión — Sección 8</summary>
+      <div class="preguntas-contenido">
+        <div class="eje">Comprensión</div>
+        <ol>
+          <li>¿Qué hace el capitán del relato antiguo al encontrar la nave extraterrestre?</li>
+          <li>¿Por qué los jóvenes astronautas del Telurio protestan ante ese relato?</li>
+        </ol>
+        <div class="eje">Propósito del autor / ideología</div>
+        <ol start="3">
+          <li>¿Por qué Efremov introduce este relato antiguo dentro de su propia historia? ¿Qué contraste quiere establecer?</li>
+          <li>Aquí se revela el verdadero significado del título «El corazón de la serpiente». ¿Qué representa ese corazón según Mut Ang?</li>
+        </ol>
+        <div class="eje">Pensamiento crítico</div>
+        <ol start="5">
+          <li>¿Es justo criticar una obra literaria del pasado con los valores del presente? ¿Por qué sí o por qué no?</li>
+        </ol>
+      </div>
+    </details>
+  </div>
+</details>
+
+<!-- SECCIÓN 9 -->
+<details class="seccion">
+  <summary>
+    <span class="sec-num">§ 09</span>
+    <span class="sec-texto">
+      <span class="sec-titulo">Aparición del punto luminoso</span>
+      <span class="sec-desc">El radar detecta otra nave. El instante del descubrimiento.</span>
+    </span>
+    <span class="sec-flecha">▶</span>
+  </summary>
+  <div class="seccion-contenido">
+    <div class="texto-literario">
+      <p>De súbito, un punto luminoso se encendió y vaciló en la pantalla del radar grande. Y oyóse al propio tiempo un sonido penetrante. Los astronautas quedaron con la respiración en suspenso.</p>
+      <p>Tey Eron, sin pararse a pensar, dio la señal de alarma. El negro espejo del radar había cobrado vida, y en él flotaba una esfera luminosa diminuta, de contornos bien definidos. Lo extraño era que los robots encargados de dar la señal de alarma para evitar el choque de la nave con meteoritos, no funcionasen. ¿Acaso la luz de la pantalla no era un reflejo del rayo propio, sino de otro, desconocido?</p>
+      <p>Algo maravilloso e inimaginable volaba al encuentro de ellos, precedido por el potente rayo de un localizador, el mismo que el Telurio lanzaba a gran distancia delante de sí.</p>
+      <p>Tan vivo era el deseo del capitán de que sus sospechas se viesen confirmadas y tan grande su miedo de caer en el abismo de la desilusión después de un alocado vuelo de la esperanza, que el hombre no pudo pronunciar palabra.</p>
+      <p>El punto luminoso de la pantalla desapareció para aparecer de nuevo al cabo de un instante; luego, empezó a apagarse y a encenderse con intervalos: cuatro luces rápidas, una pausa, luego dos, y otra vez cuatro. <strong>Esta sucesión regular de señales podía ser atribuida solamente al cerebro humano, la única fuerza racional del Universo.</strong></p>
+      <p>No quedaba lugar a dudas: otra nave espacial venía en dirección contraria al Telurio. En aquella parte del Universo no surcada hasta entonces por ninguna astronave terrena, únicamente podía encontrarse un vehículo cósmico llegado de otro mundo, de los planetas de otro sol muy distante…</p>
+    </div>
+    <details class="preguntas">
+      <summary>📝 Preguntas de discusión — Sección 9</summary>
+      <div class="preguntas-contenido">
+        <div class="eje">Comprensión</div>
+        <ol>
+          <li>¿Qué detecta el radar? ¿Por qué saben que no es un meteorito?</li>
+          <li>¿Cómo saben que la señal viene de una inteligencia y no de un fenómeno natural?</li>
+        </ol>
+        <div class="eje">Análisis emocional</div>
+        <ol start="3">
+          <li>El autor describe los sentimientos de Mut Ang con gran intensidad: «el deseo» y «el miedo de caer en el abismo de la desilusión». ¿Por qué ese momento genera las dos emociones al mismo tiempo?</li>
+          <li>¿Qué representa este instante en el contexto de toda la humanidad terrestre?</li>
+        </ol>
+      </div>
+    </details>
+  </div>
+</details>
+
+<!-- SECCIÓN 10 -->
+<details class="seccion">
+  <summary>
+    <span class="sec-num">§ 10</span>
+    <span class="sec-texto">
+      <span class="sec-titulo">Primer encuentro y maniobra de acercamiento</span>
+      <span class="sec-desc">Ambas naves evitan la colisión. Comunicación antes del lenguaje.</span>
+    </span>
+    <span class="sec-flecha">▶</span>
+  </summary>
+  <div class="seccion-contenido">
+    <div class="texto-literario">
+      <p>No había que perder ni un segundo. Si la otra nave volaba con la misma rapidez que el Telurio, la velocidad de acercamiento de ambos sería aproximadamente como la sublumínica: sobre poco más o menos, de 294.000 kilómetros por segundo. Según señalaba el radar, la gente tenía a su disposición tan sólo cien segundos.</p>
+      <p>Tey Eron susurró algo al oído de Kari, y éste, pálido por la tensión del esfuerzo, efectuó ciertas combinaciones en la tabla del radar. En la pantalla de control el rayo de luz describió una curva hacia la izquierda, hacia atrás y luego giró en espiral.</p>
+      <p>No habían pasado más de diez segundos, cuando una silueta luminosa, en forma de flecha, apareció en la pantalla, se curvó hacia la derecha y giró también vertiginosamente en espiral. Un suspiro de alivio, casi un gemido, escapóse simultáneamente a los tres hombres que ocupaban el puesto central de mando. <strong>¡Los seres extraños que venían a su encuentro desde las profundidades ignotas del Universo habían comprendido la señal!</strong></p>
+      <p>Las naves pasaron de largo, la una ante la otra, a una velocidad inimaginable y fueron a perderse en la infinidad del espacio. Pasarían algunos días antes de que volvieran a encontrarse. No se había dejado escapar el momento; las dos astronaves disminuirían la marcha, darían la vuelta y se acercarían al lugar de su encuentro.</p>
+      <p class="dialogo">— ¡Atención todos! — exclamó Mut Ang por el micrófono —. ¡A nuestro encuentro viene una nave desconocida! Nos desviamos del rumbo y empezamos a frenar la marcha.</p>
+    </div>
+    <details class="preguntas">
+      <summary>📝 Preguntas de discusión — Sección 10</summary>
+      <div class="preguntas-contenido">
+        <div class="eje">Comprensión</div>
+        <ol>
+          <li>¿Qué peligro enfrentan las dos naves? ¿Cómo lo evitan?</li>
+          <li>¿Cómo se comunican antes de conocer el idioma del otro?</li>
+        </ol>
+        <div class="eje">Análisis</div>
+        <ol start="3">
+          <li>En el cuento antiguo «El Primer Contacto», la primera reacción fue armarse. ¿Cuál es aquí la primera reacción de ambas naves? ¿Qué dice eso sobre la diferencia entre las dos civilizaciones que el autor compara?</li>
+          <li>¿Qué se necesita para confiar en un desconocido que nunca has visto ni escuchado hablar?</li>
+        </ol>
+      </div>
+    </details>
+  </div>
+</details>
+
+<!-- SECCIÓN 11 -->
+<details class="seccion">
+  <summary>
+    <span class="sec-num">§ 11</span>
+    <span class="sec-texto">
+      <span class="sec-titulo">La nave del planeta fluórico</span>
+      <span class="sec-desc">Descripción de los seres extraterrestres y su metabolismo basado en flúor.</span>
+    </span>
+    <span class="sec-flecha">▶</span>
+  </summary>
+  <div class="seccion-contenido">
+    <div class="texto-literario">
+      <p>La nave blanca tenía la opaca e inmaculada albura de la nieve de las montañas en contraste con el Telurio, cuya espejeante superficie de metal reflejaba todos los tipos de radiación cósmica. Cinco figuras aparecieron en la plataforma. Aquellos cinco seres eran de un color pálido mortal y proporciones descomunales. Una especie de gibas de caprichosas formas alzábanse a sus espaldas, y llevaban sobre los hombros una especie de concha grande, calcárea, con la parte convexa mirando hacia atrás.</p>
+      <p>Las naves hicieron contacto. No surgió el deslumbrante relámpago de la desintegración atómica: las dos naves eran de la misma materia, no de antimateria.</p>
+      <p>En la pantalla surgió una figura humana cuya parte superior se ensanchaba y encogía rítmicamente. Pequeñas flechas blancas tan pronto volaban al interior de la figura como salían despedidas de ella. Era la respiración. Querían decir de qué se componía su atmósfera.</p>
+      <p>Con el corazón a punto de escapárseles del pecho, Mut Ang y sus compañeros pusieron a contar los electrones de los dibujos atómicos de la pantalla. El dibujo inferior: un electrón alrededor del núcleo = hidrógeno. El superior, el elemento principal de su atmósfera y respiración: nueve electrones en torno del núcleo, o sea…</p>
+      <p class="dialogo">— ¡Flúor! — gritó Afra con desesperación.</p>
+      <p class="dialogo">— Sigan contando — ordenó el capitán —. Carbono a la izquierda, nitrógeno a la derecha. Todo está más que claro. ¡Qué lástima!</p>
+    </div>
+    <details class="preguntas">
+      <summary>📝 Preguntas de discusión — Sección 11</summary>
+      <div class="preguntas-contenido">
+        <div class="eje">Comprensión</div>
+        <ol>
+          <li>¿Cómo comunican los extraterrestres la composición de su atmósfera?</li>
+          <li>¿Qué elemento respiran en vez de oxígeno?</li>
+        </ol>
+        <div class="eje">Ciencia aplicada</div>
+        <ol start="3">
+          <li>El flúor tiene 9 electrones y el oxígeno tiene 8. ¿Por qué pequeñas diferencias en la química pueden hacer imposible la vida compartida?</li>
+          <li>¿Por qué exclama Afra «¡Qué lástima!»? ¿Qué tragedia representa ese descubrimiento?</li>
+        </ol>
+        <div class="eje">Inferencia</div>
+        <ol start="5">
+          <li>¿Qué dice la forma en que comunican (dibujos atómicos) sobre el lenguaje universal de la ciencia?</li>
+        </ol>
+      </div>
+    </details>
+  </div>
+</details>
+
+<!-- SECCIÓN 12 -->
+<details class="seccion">
+  <summary>
+    <span class="sec-num">§ 12</span>
+    <span class="sec-texto">
+      <span class="sec-titulo">Imposibilidad del contacto físico</span>
+      <span class="sec-desc">El oxígeno y el flúor son incompatibles. Separación física pese a la cercanía espiritual.</span>
+    </span>
+    <span class="sec-flecha">▶</span>
+  </summary>
+  <div class="seccion-contenido">
+    <div class="texto-literario">
+      <p class="dialogo">— Lo trágico está en que ellos no pueden existir sin flúor, un gas sumamente deletéreo para nosotros — explicó Mut Ang —. En cambio nuestro oxígeno les produce a ellos un efecto letal. Muchos de nuestros materiales, pinturas y metales, que son indeteriorables en una atmósfera de oxígeno, pueden sufrir la acción corrosiva de la respiración de esos seres. En lugar de agua, ellos tienen ácido fluorhídrico, el mismo que, en nuestra Tierra, corroe el vidrio y ataca todos los siliciuros.</p>
+      <p>Tendrían que alzar una pared transparente refractaria al efecto del oxígeno, y los de la nave blanca, a su vez, una de sustancias resistentes al flúor. Se construyó a toda prisa una galería de contacto con esa barrera invisible entre los dos mundos.</p>
+      <p>Los tripulantes del Telurio, vestidos con sus monos azules de trabajo, se encontraron frente a los habitantes del planeta fluórico, separados solo por una pared transparente.</p>
+      <p>Cuanto más se miraba a los hombres llegados del planeta fluórico, tanto menos extrañaba su aspecto. Sus cabezas redondas estaban densamente pobladas de cabellos muy negros, que tiraban a azul. Sus ojos, excesivamente grandes y rasgados, ocupaban toda la anchura del rostro. Los blancos, de un intenso color turquesa, parecían desproporcionadamente largos respecto a los negros iris y pupilas. Sus cuerpos tenían proporciones normales; las líneas, más definidas y angulares, producían una sensación escultural. Eran hermosos.</p>
+      <p class="dialogo">— ¡Qué ojos más grandes tienen! — exclamó Afra —. Es más fácil hacerse persona con ojos como ésos que con los nuestros, aunque son también maravillosos.</p>
+    </div>
+    <details class="preguntas">
+      <summary>📝 Preguntas de discusión — Sección 12</summary>
+      <div class="preguntas-contenido">
+        <div class="eje">Comprensión</div>
+        <ol>
+          <li>¿Por qué no pueden estar en el mismo espacio sin protección?</li>
+          <li>¿Cómo resuelven el problema de la separación para poder comunicarse?</li>
+        </ol>
+        <div class="eje">Metáfora y simbolismo</div>
+        <ol start="3">
+          <li>La barrera transparente entre las dos especies es una metáfora poderosa. ¿Qué barreras similares existen entre culturas o grupos humanos aquí en la Tierra?</li>
+          <li>A pesar de la barrera, Afra describe a los extraterrestres como hermosos. ¿Qué dice eso sobre la capacidad humana de reconocer la belleza en lo diferente?</li>
+        </ol>
+      </div>
+    </details>
+  </div>
+</details>
+
+<!-- SECCIÓN 13 -->
+<details class="seccion">
+  <summary>
+    <span class="sec-num">§ 13</span>
+    <span class="sec-texto">
+      <span class="sec-titulo">Intercambio de conocimientos</span>
+      <span class="sec-desc">Cartas estelares, biología, química, arte. El conocimiento como lenguaje universal.</span>
+    </span>
+    <span class="sec-flecha">▶</span>
+  </summary>
+  <div class="seccion-contenido">
+    <div class="texto-literario">
+      <p>Los expedicionarios seleccionaban películas en relieve, grabaciones magnéticas de vistas de la Tierra, reproducciones de las mejores obras de arte. Se preparaban a toda prisa diagramas y cuadros gráficos de las funciones matemáticas, esquemas de la estructura cristalina de las sustancias más comunes. Se procedió a un intercambio de colecciones de minerales, aguas y gases en envases transparentes e irrompibles.</p>
+      <p>Afra, pálida del cansancio, estudiaba los diagramas de los procesos fisiológicos, las fórmulas y los esquemas genéticos del organismo humano del planeta fluórico. Las cadenas interminables de moléculas de proteínas resistentes al flúor eran asombrosamente parecidas a nuestras moléculas albuminoideas: los mismos filtros de energía, las mismas barreras surgidas en la lucha de la materia viva contra la entropía.</p>
+      <p>Al cabo de veinte horas, agotados y rendidos, aparecieron en la galería trayendo enrollados los mapas celestes en los que estaba trazada toda la ruta recorrida por el Telurio desde el Sol hasta el lugar del encuentro.</p>
+      <p>Las cintas fotomagnéticas de las máquinas mnemotécnicas de los terrenos apuntaban la situación de estrellas desconocidas con signos indescifrables de las distancias, los datos astrofísicos y las rutas cruzadas en complejos zigzags de las dos naves blancas. Todo eso debía ser descifrado más tarde por medio de las tablas explicatorias que los viajeros de la nave blanca habían preparado con ese fin.</p>
+    </div>
+    <details class="preguntas">
+      <summary>📝 Preguntas de discusión — Sección 13</summary>
+      <div class="preguntas-contenido">
+        <div class="eje">Comprensión</div>
+        <ol>
+          <li>¿Qué tipos de información intercambian las dos tripulaciones?</li>
+          <li>¿Qué descubre Afra al estudiar las moléculas de los seres del planeta fluórico?</li>
+        </ol>
+        <div class="eje">Análisis</div>
+        <ol start="3">
+          <li>Las moléculas de proteínas de los dos mundos son «asombrosamente parecidas». ¿Qué sugiere eso sobre las leyes universales de la vida?</li>
+          <li>Si el lenguaje hablado no sirve, ¿qué elementos del intercambio funcionan como «lenguaje universal»? ¿Por qué?</li>
+        </ol>
+      </div>
+    </details>
+  </div>
+</details>
+
+<!-- SECCIÓN 14 -->
+<details class="seccion">
+  <summary>
+    <span class="sec-num">§ 14</span>
+    <span class="sec-texto">
+      <span class="sec-titulo">El planeta fluórico</span>
+      <span class="sec-desc">Descripción visual y poética del mundo azul, frío y electrificado.</span>
+    </span>
+    <span class="sec-flecha">▶</span>
+  </summary>
+  <div class="seccion-contenido">
+    <div class="texto-literario">
+      <p>En la pantalla fue apareciendo el planeta fluórico: más grande que la Tierra. Una niebla impenetrable formaba una ancha faja azulosa en torno de su ecuador. Los polos y zonas adyacentes irradiaban destellos rojos grisáceos.</p>
+      <p>Era aquél un mundo frío e impasible, tan puro, distante e ilusorio como si estuviese reflejado en un cristal; un mundo exento del calor acariciante que brinda la variedad de tonalidades rojas, anaranjadas y amarillas en la Tierra.</p>
+      <p>Los hombres de la Tierra divisaron las liláceas olas del océano de ácido fluorhídrico que bañaban unas playas de arenas negras, rojos peñascos y las vertientes de unas montañas cuyas dentadas cumbres proyectaban el esplendor azulado de su Luna. Las ciudades, concisamente delineadas en la fría luz azulenca, se extendían por toda la superficie habitable. El trabajo de incontables generaciones elevábase por encima de las montañas y envolvía todo el planeta.</p>
+      <p>Los hombres del Telurio no podían apartar los ojos de la pantalla; y al propio tiempo acudía a su memoria el recuerdo de su propio planeta. No evocaban determinadas extensiones de campo llano o de bosque umbrío. Ante su imaginación surgía la Tierra entera: sus bosques, sus costas envueltas en niebla, los arrecifes de blancos corales, las nevadas cordilleras, los ríos de ancho y lento caudal. Y entre todas aquellas riquezas naturales destacábase la gran diversidad de seres racionales, su belleza, su pensamiento, sus obras, sus sueños…</p>
+    </div>
+    <details class="preguntas">
+      <summary>📝 Preguntas de discusión — Sección 14</summary>
+      <div class="preguntas-contenido">
+        <div class="eje">Comprensión</div>
+        <ol>
+          <li>Describa el planeta fluórico en sus propias palabras: temperatura, colores, tipo de océano.</li>
+          <li>¿Qué recuerdos evoca en los astronautas la visión de ese mundo?</li>
+        </ol>
+        <div class="eje">Análisis literario</div>
+        <ol start="3">
+          <li>El contraste entre los dos mundos (azul/frío vs. cálido/colorido) es intencionado. ¿Qué quiere expresar el autor con este contraste?</li>
+          <li>¿Por qué cree que los astronautas piensan en la Tierra completa, no en un lugar particular?</li>
+        </ol>
+      </div>
+    </details>
+  </div>
+</details>
+
+<!-- SECCIÓN 15 -->
+<details class="seccion">
+  <summary>
+    <span class="sec-num">§ 15</span>
+    <span class="sec-texto">
+      <span class="sec-titulo">Revelación: existen otros mundos habitados</span>
+      <span class="sec-desc">Los extraterrestres muestran que han contactado con planetas de atmósfera oxigenada.</span>
+    </span>
+    <span class="sec-flecha">▶</span>
+  </summary>
+  <div class="seccion-contenido">
+    <div class="texto-literario">
+      <p>Las imágenes proyectadas en la pantalla arrancaron gritos de admiración a los tripulantes del Telurio. Uno a uno fueron apareciendo círculos en torno de cinco estrellas; y en ellos empezaron a girar planetas. Tras la figura desmañada de una nave cósmica apareció toda una bandada de naves más airosas. En las plataformas ovales estaban en pie, embutidos en sus escafandras, unos seres que, indudablemente, pertenecían al género humano.</p>
+      <p>El signo de un átomo con ocho electrones —es decir, <strong>oxígeno</strong>— coronaba la imagen de los planetas y las naves. Los seres racionales de otros mundos que respiraban oxígeno, como los hombres de la Tierra, habían sido ya contactados por la nave blanca.</p>
+      <p>Las imágenes mostraban dos planetas con los que la nave blanca había establecido contacto: uno giraba alrededor de un sol rojo y el otro de un astro dorado brillante. Aunque los tripulantes del Telurio no lograron esclarecer todos los detalles, obraban ahora en su poder datos inapreciables sobre las vías conducentes a aquellos mundos poblados, separados por cientos de parsecs del punto en que se habían encontrado.</p>
+    </div>
+    <details class="preguntas">
+      <summary>📝 Preguntas de discusión — Sección 15</summary>
+      <div class="preguntas-contenido">
+        <div class="eje">Comprensión</div>
+        <ol>
+          <li>¿Qué revelan los extraterrestres sobre otros mundos habitados?</li>
+          <li>¿Qué elemento químico identifica a esos otros mundos habitados que respiran como los humanos de la Tierra?</li>
+        </ol>
+        <div class="eje">Análisis</div>
+        <ol start="3">
+          <li>Este descubrimiento significa que la humanidad terrestre no está sola ni es única. ¿Qué cambia para los astronautas al saberlo?</li>
+          <li>¿Por qué es especialmente valioso para los seres del planeta fluórico saber que hay otros mundos con oxígeno?</li>
+        </ol>
+      </div>
+    </details>
+  </div>
+</details>
+
+<!-- SECCIÓN 16 -->
+<details class="seccion">
+  <summary>
+    <span class="sec-num">§ 16</span>
+    <span class="sec-texto">
+      <span class="sec-titulo">Despedida y dolor</span>
+      <span class="sec-desc">La separación inevitable. La universalidad del afecto.</span>
+    </span>
+    <span class="sec-flecha">▶</span>
+  </summary>
+  <div class="seccion-contenido">
+    <div class="texto-literario">
+      <p>Había llegado el momento de la separación. Las tripulaciones de las dos naves se alinearon, la una enfrente de la otra, a cada lado de la transparente pared. Los broncíneos habitantes de la Tierra y los grisáceos moradores del planeta fluórico se despedían con miradas, sonrisas y ademanes cuyo afectuoso significado era comprensible para todos.</p>
+      <p>Una punzante congoja se apoderó de los telurianos. Jamás habían experimentado tal sensación, ni siquiera al abandonar la Tierra natal, sabiendo que no regresarían sino al cabo de siete siglos. Se negaban a admitir que dentro de algunos minutos aquella gente buena, hermosa y fantástica se desvanecería para siempre en el espacio cósmico, y por él continuaría buscando solitaria y desesperanzada una vida racional semejante a la suya.</p>
+      <p>Sólo entonces, quizás, los astronautas llegaron a comprender plenamente que el objetivo principal de todas las búsquedas, aspiraciones y luchas era el bien del Hombre. Lo más valioso de toda civilización, en cualquier estrella, en la Galaxia entera y en la inmensidad del Universo, era el Hombre, su inteligencia, sus emociones, su vigor, su belleza… ¡su vida!</p>
+      <p>El capitán de la nave blanca hizo una señal con la mano, y en el acto la mujer que había exhibido la belleza de los habitantes del planeta fluórico se lanzó hacia Afra. Con los brazos muy abiertos se pegó a la pared, como si quisiera abrazarla. Afra, sin notar las lágrimas que le rodaban por las mejillas, se apretó con todo su cuerpo contra la pared como un ave cautiva que golpea con las alas los cristales de una ventana.</p>
+    </div>
+    <details class="preguntas">
+      <summary>📝 Preguntas de discusión — Sección 16</summary>
+      <div class="preguntas-contenido">
+        <div class="eje">Comprensión emocional</div>
+        <ol>
+          <li>¿Por qué la despedida es más dolorosa que haber dejado la Tierra?</li>
+          <li>Describa la escena final entre Afra y la mujer del planeta fluórico.</li>
+        </ol>
+        <div class="eje">Análisis y valores</div>
+        <ol start="3">
+          <li>El autor dice que en ese momento los astronautas comprendieron que «lo más valioso de toda civilización era el Hombre». ¿Qué revela sobre la humanidad el hecho de sentir dolor al despedirse de seres que nunca pudieron tocar ni escuchar hablar?</li>
+          <li>¿Qué hace valiosa a una civilización, según este texto?</li>
+        </ol>
+      </div>
+    </details>
+  </div>
+</details>
+
+<!-- SECCIÓN 17 -->
+<details class="seccion">
+  <summary>
+    <span class="sec-num">§ 17</span>
+    <span class="sec-texto">
+      <span class="sec-titulo">La idea revolucionaria de Afra</span>
+      <span class="sec-desc">Propuesta de modificar genéticamente el metabolismo para unir ambas humanidades.</span>
+    </span>
+    <span class="sec-flecha">▶</span>
+  </summary>
+  <div class="seccion-contenido">
+    <div class="texto-literario">
+      <p class="dialogo">— ¡Un momento, Tey, aguarde un momento! — gritó Afra y fue corriendo a ver al capitán.</p>
+      <p>Afra, toda trémula, se inclinó sobre el tablero de dibujo. En la suposición de que los mecanismos de la herencia debían de ser iguales en los seres terrestres y en los del planeta fluórico, dibujó las cadenas espirales dobles de los mismos. Acto seguido, trazó el diagrama del metabolismo en el organismo humano y, arrojando una mirada a las grises figuras que miraban inmóviles, tachó el signo del átomo de flúor con sus nueve electrones para reemplazarlo por el del átomo de oxígeno.</p>
+      <p>Los tripulantes de la nave blanca se estremecieron. Su capitán avanzó hacia la pared y pegó la cara a ella para examinar con sus ojos inmensos los dibujos hechos a grandes rasgos por Afra. De repente levantó por encima de la frente las manos con los dedos entrelazados e hizo una profunda reverencia ante la mujer terrena.</p>
+      <p>En la mente de la joven mujer iba madurando el osado plan de modificar el proceso de transformaciones químicas que se operaba en el complejísimo organismo humano: <strong>reemplazar el flúor por el oxígeno en el metabolismo, accionando sobre el mecanismo de la herencia</strong>. Conservar todas las peculiaridades y todos los caracteres hereditarios de los hombres fluóricos, pero hacer que sus cuerpos recibiesen energías de otra fuente. La tarea era tan gigantesca, que ni siquiera los siete siglos de ausencia del Telurio en la Tierra hubieran bastado para realizarla ni aún en parte.</p>
+      <p>Mas, ¡cuánto podría lograrse uniendo los esfuerzos de ambos planetas! La población del planeta fluórico no seguiría siendo una sombra perdida en las profundidades del Universo.</p>
+    </div>
+    <details class="preguntas">
+      <summary>📝 Preguntas de discusión — Sección 17</summary>
+      <div class="preguntas-contenido">
+        <div class="eje">Comprensión</div>
+        <ol>
+          <li>¿Qué propone Afra en sus dibujos?</li>
+          <li>¿Por qué el capitán de la nave blanca hace una reverencia ante Afra?</li>
+        </ol>
+        <div class="eje">Análisis ético y científico</div>
+        <ol start="3">
+          <li>Afra propone modificar el metabolismo completo de una especie. ¿Es esto un avance o una intromisión? ¿Debería la ciencia hacer algo solo porque puede?</li>
+          <li>¿Hasta dónde debe llegar la transformación biológica de los seres vivientes?</li>
+        </ol>
+        <div class="eje">Inferencia</div>
+        <ol start="5">
+          <li>¿Por qué Efremov pone esta idea en una mujer y no en el capitán o en el científico principal?</li>
+        </ol>
+      </div>
+    </details>
+  </div>
+</details>
+
+<!-- SECCIÓN 18 -->
+<details class="seccion">
+  <summary>
+    <span class="sec-num">§ 18</span>
+    <span class="sec-texto">
+      <span class="sec-titulo">La partida y la esperanza</span>
+      <span class="sec-desc">La nave blanca desaparece. El Telurio entra en pulsación rumbo a la Tierra.</span>
+    </span>
+    <span class="sec-flecha">▶</span>
+  </summary>
+  <div class="seccion-contenido">
+    <div class="texto-literario">
+      <p>Los gestos y ademanes de los que se iban no expresaban el pesar de la despedida definitiva, sino la firme seguridad de volver a encontrarse en el futuro. Siendo dos polos opuestos por la estructura de sus planetas y cuerpos, los hombres de la Tierra y los del planeta fluórico se parecían mucho, no obstante, por su género de vida y más aún por su desarrollo intelectual y sus conocimientos.</p>
+      <p>Las dos astronaves se separaban lentamente por temor de ocasionarse algún daño la una a la otra con la fuerza de sus motores auxiliares. La nave blanca se envolvió en una llamarada deslumbrante y desapareció. Al cabo de un minuto no quedaba allí nada más que la negrura del espacio infinito.</p>
+      <p>Entonces el Telurio reanudó su marcha. Aumentando poco a poco la velocidad, entró en la pulsación, que era como un puente reductor de las distancias, antes invencibles, entre las estrellas. Los tripulantes, bien protegidos por sus cascos, no veían ya cómo se acortaban los quanta lumínicas que volaban hacia ellos ni cómo los astros que azuleaban en lontananza iban cobrando gradualmente un matiz violáceo oscuro.</p>
+      <p><em>La astronave se sumergió de pronto en la oscuridad impenetrable del espacio-cero, más allá del cual la vida agitada y floreciente de la Tierra esperaba su retorno.</em></p>
+    </div>
+    <details class="preguntas">
+      <summary>📝 Preguntas de discusión — Sección 18</summary>
+      <div class="preguntas-contenido">
+        <div class="eje">Comprensión y cierre</div>
+        <ol>
+          <li>¿Cómo difieren los gestos de despedida de esta sección con el dolor descrito en la sección anterior?</li>
+          <li>¿Adónde va el Telurio al final?</li>
+        </ol>
+        <div class="eje">Análisis temático</div>
+        <ol start="3">
+          <li>El relato termina con el Telurio «entrando en la oscuridad del espacio-cero» hacia la Tierra. ¿Es este un final de tristeza o de esperanza? Justifique su respuesta con evidencia del texto.</li>
+          <li>El «corazón de la serpiente» tiene dos significados en el relato: la estrella y el mal social. ¿Cuál queda «vivo» al final del relato, y cuál queda atrás?</li>
+        </ol>
+        <div class="eje">Síntesis</div>
+        <ol start="5">
+          <li>¿Ha cumplido el Telurio su misión? ¿Cuál fue la misión más importante: la científica o la humana?</li>
+        </ol>
+      </div>
+    </details>
+  </div>
+</details>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     BLOQUE II: ACTIVIDADES GED
+     ══════════════════════════════════════════════════════════ -->
+<h2 class="bloque-titulo" id="comprension"><span class="icono">🎯</span> Comprensión global del texto</h2>
+
+<details class="actividad">
+  <summary>📖 ¿Qué tipo de texto es este y cuál es su idea central?</summary>
+  <div class="act-contenido">
+    <p style="margin-bottom:16px; color:var(--texto-suave); font-size:0.93rem;">Antes de contestar las preguntas de opción múltiple, reflexione: ¿Cuál es el <strong>tema principal</strong> del relato? ¿Cuál es el <strong>propósito</strong> del autor?</p>
+    <div style="background:rgba(0,0,0,0.2); border-radius:8px; padding:16px 20px; margin-bottom:16px;">
+      <p style="font-size:0.93rem; margin-bottom:10px;"><strong>Temas principales del relato (todos están presentes — ¿cuál domina?):</strong></p>
+      <ul style="margin-left:20px; font-size:0.93rem; color:var(--texto-suave);">
+        <li>La exploración espacial como competencia entre mundos</li>
+        <li>El encuentro pacífico entre civilizaciones avanzadas</li>
+        <li>La nostalgia por la Tierra y el sacrificio del explorador</li>
+        <li>La crítica al pasado capitalista y bélico</li>
+        <li>La ciencia como camino hacia la utopía social</li>
+      </ul>
+    </div>
+    <div class="nota-profe"><strong>💡 Para el estudiante:</strong> En el GED, la pregunta de «idea central» siempre tiene una respuesta que abarca <em>todo</em> el texto, no solo una parte. Elija la que podría servir como tema de un ensayo sobre el relato completo.</div>
+  </div>
+</details>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     BLOQUE III: PREGUNTAS TIPO GED
+     ══════════════════════════════════════════════════════════ -->
+<h2 class="bloque-titulo" id="opcion-multiple"><span class="icono">✅</span> Preguntas tipo GED (selección múltiple)</h2>
+
+<details class="actividad" id="ged-preguntas">
+  <summary>📝 12 preguntas de selección múltiple — haga clic para verificar sus respuestas</summary>
+  <div class="act-contenido">
+
+    <!-- P1 -->
+    <div class="pregunta-mc" id="q1">
+      <div class="enunciado">1. ¿Cuál es el tema principal del relato «El corazón de la serpiente»?</div>
+      <div class="opcion" onclick="seleccionar(this,'q1','a')"><span class="opcion-letra">a</span>La tecnología de las astronaves pulsacionales</div>
+      <div class="opcion" onclick="seleccionar(this,'q1','b')"><span class="opcion-letra">b</span>La exploración espacial como competencia peligrosa entre mundos</div>
+      <div class="opcion" onclick="seleccionar(this,'q1','c')"><span class="opcion-letra">c</span>El encuentro pacífico entre civilizaciones avanzadas y la superación del pasado violento</div>
+      <div class="opcion" onclick="seleccionar(this,'q1','d')"><span class="opcion-letra">d</span>La nostalgia de los astronautas por la Tierra que dejaron atrás</div>
+      <button class="btn-verificar" onclick="verificar('q1','c')">Verificar</button>
+      <div class="feedback" id="fb-q1-correcto correcto">✅ Correcto. Este tema abarca todo el relato: la diferencia entre el pasado bélico («El Primer Contacto») y el presente cooperativo, y la demostración de que las civilizaciones avanzadas conviven en paz.</div>
+      <div class="feedback" id="fb-q1-incorrecto incorrecto">❌ Revise. Aunque ese elemento está presente, no describe el relato completo. El tema principal debe aplicarse a toda la historia, desde el viaje hasta el encuentro y la despedida.</div>
+    </div>
+
+    <!-- P2 -->
+    <div class="pregunta-mc" id="q2">
+      <div class="enunciado">2. ¿Cuál es el propósito principal de Efremov al incluir la lectura del cuento «El Primer Contacto» dentro de la historia?</div>
+      <div class="opcion" onclick="seleccionar(this,'q2','a')"><span class="opcion-letra">a</span>Entretenimiento: agregar suspenso al relato</div>
+      <div class="opcion" onclick="seleccionar(this,'q2','b')"><span class="opcion-letra">b</span>Mostrar cómo era la mentalidad antigua y contrastarla con la mentalidad avanzada de los astronautas</div>
+      <div class="opcion" onclick="seleccionar(this,'q2','c')"><span class="opcion-letra">c</span>Presentar a un nuevo personaje importante de la historia</div>
+      <div class="opcion" onclick="seleccionar(this,'q2','d')"><span class="opcion-letra">d</span>Demostrar que los viajes espaciales siempre terminan en guerra</div>
+      <button class="btn-verificar" onclick="verificar('q2','b')">Verificar</button>
+      <div class="feedback" id="fb-q2-correcto correcto">✅ Correcto. El «Primer Contacto» es el texto del pasado que Efremov critica: una visión de encontrarse con extraterrestres basada en el miedo y la violencia, propia del capitalismo, no de una humanidad avanzada.</div>
+      <div class="feedback" id="fb-q2-incorrecto incorrecto">❌ Revise. El propósito del autor debe explicar POR QUÉ ese cuento está ahí, no solo QUÉ hace en la trama.</div>
+    </div>
+
+    <!-- P3 -->
+    <div class="pregunta-mc" id="q3">
+      <div class="enunciado">3. ¿Cuál es el tono general del relato «El corazón de la serpiente»?</div>
+      <div class="opcion" onclick="seleccionar(this,'q3','a')"><span class="opcion-letra">a</span>Pesimista y melancólico</div>
+      <div class="opcion" onclick="seleccionar(this,'q3','b')"><span class="opcion-letra">b</span>Esperanzador y optimista sobre el futuro humano</div>
+      <div class="opcion" onclick="seleccionar(this,'q3','c')"><span class="opcion-letra">c</span>Satírico y burlesco</div>
+      <div class="opcion" onclick="seleccionar(this,'q3','d')"><span class="opcion-letra">d</span>Trágico e irreversible</div>
+      <button class="btn-verificar" onclick="verificar('q3','b')">Verificar</button>
+      <div class="feedback" id="fb-q3-correcto correcto">✅ Correcto. Aunque hay melancolía (la separación, el tiempo que pasa), el tono dominante es esperanzador: la humanidad ha superado la guerra, el encuentro con los extraterrestres es pacífico, y Afra propone un futuro de unión.</div>
+      <div class="feedback" id="fb-q3-incorrecto incorrecto">❌ Revise. El tono no es solo la emoción de una escena, sino la actitud general del autor hacia su tema en todo el relato.</div>
+    </div>
+
+    <!-- P4 -->
+    <div class="pregunta-mc" id="q4">
+      <div class="enunciado">4. ¿Qué se puede inferir sobre el autor Efremov a partir del texto?</div>
+      <div class="opcion" onclick="seleccionar(this,'q4','a')"><span class="opcion-letra">a</span>Cree que la guerra entre civilizaciones es inevitable, incluso en el espacio</div>
+      <div class="opcion" onclick="seleccionar(this,'q4','b')"><span class="opcion-letra">b</span>Cree que la cooperación entre inteligencias avanzadas es más probable que el conflicto</div>
+      <div class="opcion" onclick="seleccionar(this,'q4','c')"><span class="opcion-letra">c</span>Cree que el progreso tecnológico destruye la humanidad de las personas</div>
+      <div class="opcion" onclick="seleccionar(this,'q4','d')"><span class="opcion-letra">d</span>Cree que el espacio es un lugar hostil donde el ser humano no debe aventurarse</div>
+      <button class="btn-verificar" onclick="verificar('q4','b')">Verificar</button>
+      <div class="feedback" id="fb-q4-correcto correcto">✅ Correcto. Toda la estructura del relato apunta a esta idea: Efremov escribe su historia como respuesta directa a relatos de ciencia ficción que asumían que el encuentro entre civilizaciones sería violento.</div>
+      <div class="feedback" id="fb-q4-incorrecto incorrecto">❌ Revise. La posición del autor se deduce de sus personajes, de la resolución de la historia y de los comentarios filosóficos del capitán Mut Ang.</div>
+    </div>
+
+    <!-- P5 -->
+    <div class="pregunta-mc" id="q5">
+      <div class="enunciado">5. ¿Qué función tiene la barrera transparente entre las dos tripulaciones en la galería de contacto?</div>
+      <div class="opcion" onclick="seleccionar(this,'q5','a')"><span class="opcion-letra">a</span>Es una medida de seguridad ante posibles ataques de los extraterrestres</div>
+      <div class="opcion" onclick="seleccionar(this,'q5','b')"><span class="opcion-letra">b</span>Es una metáfora de cómo la diferencia biológica separa lo que la voluntad quisiera unir</div>
+      <div class="opcion" onclick="seleccionar(this,'q5','c')"><span class="opcion-letra">c</span>Es un muro de desconfianza que los astronautas construyen por miedo</div>
+      <div class="opcion" onclick="seleccionar(this,'q5','d')"><span class="opcion-letra">d</span>Es un espejo que permite a cada grupo verse a sí mismo</div>
+      <button class="btn-verificar" onclick="verificar('q5','b')">Verificar</button>
+      <div class="feedback" id="fb-q5-correcto correcto">✅ Correcto. La barrera es química (oxígeno vs. flúor), no emocional ni política. Eso la convierte en una metáfora poderosa: hay barreras que no se superan con buena voluntad, sino con ciencia y esfuerzo colectivo, que es exactamente lo que propone Afra.</div>
+      <div class="feedback" id="fb-q5-incorrecto incorrecto">❌ Revise. La barrera no nace del miedo sino de una incompatibilidad química. Considere lo que esa diferencia representa simbólicamente.</div>
+    </div>
+
+    <!-- P6 -->
+    <div class="pregunta-mc" id="q6">
+      <div class="enunciado">6. Kari Ram dice que los astronautas regresarán «con un bagaje de conocimientos anticuados e inservibles». El capitán responde que está «en lo correcto y al mismo tiempo profundamente equivocado». ¿Cuál de las siguientes opciones explica mejor la posición del capitán?</div>
+      <div class="opcion" onclick="seleccionar(this,'q6','a')"><span class="opcion-letra">a</span>Los conocimientos que traigan serán perfectamente útiles porque la ciencia no cambia</div>
+      <div class="opcion" onclick="seleccionar(this,'q6','b')"><span class="opcion-letra">b</span>El valor de un explorador no está solo en los datos que trae, sino en su experiencia, valentía y visión del futuro</div>
+      <div class="opcion" onclick="seleccionar(this,'q6','c')"><span class="opcion-letra">c</span>Kari está equivocado porque el progreso en la Tierra será lento y los datos seguirán siendo nuevos</div>
+      <div class="opcion" onclick="seleccionar(this,'q6','d')"><span class="opcion-letra">d</span>El capitán no tiene razón; solo lo dice para mantener la moral de la tripulación</div>
+      <button class="btn-verificar" onclick="verificar('q6','b')">Verificar</button>
+      <div class="feedback" id="fb-q6-correcto correcto">✅ Correcto. Mut Ang reconoce la preocupación de Kari (los datos científicos podrían quedar anticuados), pero señala que el hombre no es «una mera suma de conocimientos, sino también una complejísima arquitectura de sentimientos».</div>
+      <div class="feedback" id="fb-q6-incorrecto incorrecto">❌ Revise. Localice en la Sección 5 las palabras exactas del capitán sobre lo que hace valioso al explorador más allá de sus datos científicos.</div>
+    </div>
+
+    <!-- P7 -->
+    <div class="pregunta-mc" id="q7">
+      <div class="enunciado">7. ¿Por qué el texto afirma que una civilización no puede conquistar el espacio antes de haber superado las guerras y la injusticia social?</div>
+      <div class="opcion" onclick="seleccionar(this,'q7','a')"><span class="opcion-letra">a</span>Porque las guerras consumen los recursos necesarios para construir astronaves</div>
+      <div class="opcion" onclick="seleccionar(this,'q7','b')"><span class="opcion-letra">c</span>Porque ninguna institución internacional permite vuelos espaciales a países en guerra</div>
+      <div class="opcion" onclick="seleccionar(this,'q7','c')"><span class="opcion-letra">c</span>Porque el ser humano necesita condiciones de vida estables para alcanzar el nivel de desarrollo que la conquista espacial requiere</div>
+      <div class="opcion" onclick="seleccionar(this,'q7','d')"><span class="opcion-letra">d</span>Porque sin paz no hay matemáticos ni físicos capaces de hacer los cálculos de vuelo</div>
+      <button class="btn-verificar" onclick="verificar('q7','c')">Verificar</button>
+      <div class="feedback" id="fb-q7-correcto correcto">✅ Correcto. Esta es la tesis central de Mut Ang: «La humanidad no puede vencer el espacio mientras no haya adoptado el modo superior de vida en el que no hay lugar para las guerras y en el que cada cual se siente responsable por todos».</div>
+      <div class="feedback" id="fb-q7-incorrecto incorrecto">❌ Revise. La razón es más filosófica que práctica. Busque la explicación del capitán sobre el desarrollo desigual y las condiciones necesarias para el progreso (Secciones 5 y 8).</div>
+    </div>
+
+    <!-- P8 -->
+    <div class="pregunta-mc" id="q8">
+      <div class="enunciado">8. La bióloga Afra Devi argumenta que los seres racionales de otros mundos deben ser humanoides. ¿Cuál es el fundamento principal de su argumento?</div>
+      <div class="opcion" onclick="seleccionar(this,'q8','a')"><span class="opcion-letra">a</span>Porque Dios creó a todos los seres racionales a imagen del hombre</div>
+      <div class="opcion" onclick="seleccionar(this,'q8','b')"><span class="opcion-letra">b</span>Porque la anatomía universal del ser racional responde a las leyes de la evolución y la adaptación óptima al medio</div>
+      <div class="opcion" onclick="seleccionar(this,'q8','c')"><span class="opcion-letra">c</span>Porque todos los planetas tienen la misma gravedad y temperatura que la Tierra</div>
+      <div class="opcion" onclick="seleccionar(this,'q8','d')"><span class="opcion-letra">d</span>Porque los seres racionales deben parecerse entre sí para poder comunicarse</div>
+      <button class="btn-verificar" onclick="verificar('q8','b')">Verificar</button>
+      <div class="feedback" id="fb-q8-correcto correcto">✅ Correcto. Afra argumenta que la forma del cuerpo humano no es arbitraria: el cerebro grande, las manos, la postura bípeda, son soluciones evolutivas óptimas. Cualquier ser inteligente en cualquier mundo habría convergido en soluciones similares.</div>
+      <div class="feedback" id="fb-q8-incorrecto incorrecto">❌ Revise. Afra hace un argumento científico, no religioso. Busque su razonamiento sobre evolución y belleza en la Sección 11.</div>
+    </div>
+
+    <!-- P9 -->
+    <div class="pregunta-mc" id="q9">
+      <div class="enunciado">9. ¿Cuál es el significado simbólico del título «El corazón de la serpiente» según el capitán Mut Ang?</div>
+      <div class="opcion" onclick="seleccionar(this,'q9','a')"><span class="opcion-letra">a</span>La estrella de carbono Cor Serpentis, peligrosa y oscura</div>
+      <div class="opcion" onclick="seleccionar(this,'q9','b')"><span class="opcion-letra">b</span>El miedo instintivo de los humanos ante lo desconocido</div>
+      <div class="opcion" onclick="seleccionar(this,'q9','c')"><span class="opcion-letra">c</span>El egoísmo, la violencia y la ideología de guerra heredada del pasado capitalista</div>
+      <div class="opcion" onclick="seleccionar(this,'q9','d')"><span class="opcion-letra">d</span>La soledad del ser humano frente a la inmensidad del universo</div>
+      <button class="btn-verificar" onclick="verificar('q9','c')">Verificar</button>
+      <div class="feedback" id="fb-q9-correcto correcto">✅ Correcto. Mut Ang dice: «En los escritos de los defensores de la vieja sociedad que proclamaban el estallido inevitable de la guerra, veo también el corazón de un reptil venenoso». El «corazón de la serpiente» es el mal social que la humanidad debe superar para avanzar.</div>
+      <div class="feedback" id="fb-q9-incorrecto incorrecto">❌ Revise. El título tiene un significado literal (la estrella) y uno simbólico. Localice la explicación de Mut Ang en la Sección 8.</div>
+    </div>
+
+    <!-- P10 -->
+    <div class="pregunta-mc" id="q10">
+      <div class="enunciado">10. ¿Qué implica el hecho de que los extraterrestres del planeta fluórico ya hayan contactado con otros mundos que respiran oxígeno?</div>
+      <div class="opcion" onclick="seleccionar(this,'q10','a')"><span class="opcion-letra">a</span>Que la Tierra es peligrosa para ellos y deben evitarla</div>
+      <div class="opcion" onclick="seleccionar(this,'q10','b')"><span class="opcion-letra">b</span>Que la humanidad no está sola ni es única, y que existe una comunidad galáctica de inteligencias que se están descubriendo</div>
+      <div class="opcion" onclick="seleccionar(this,'q10','c')"><span class="opcion-letra">c</span>Que los seres del planeta fluórico son superiores a los humanos de la Tierra</div>
+      <div class="opcion" onclick="seleccionar(this,'q10','d')"><span class="opcion-letra">d</span>Que el Telurio debería seguir la ruta de los extraterrestres en lugar de volver a la Tierra</div>
+      <button class="btn-verificar" onclick="verificar('q10','b')">Verificar</button>
+      <div class="feedback" id="fb-q10-correcto correcto">✅ Correcto. Este descubrimiento es uno de los más importantes del relato: hay múltiples civilizaciones avanzadas en la galaxia, y el Telurio ha recibido un mapa que podría guiar a la humanidad hacia ellas.</div>
+      <div class="feedback" id="fb-q10-incorrecto incorrecto">❌ Revise. Piense en lo que representa para la humanidad terrestre descubrir que no está sola en el universo.</div>
+    </div>
+
+    <!-- P11 -->
+    <div class="pregunta-mc" id="q11">
+      <div class="enunciado">11. La propuesta de Afra al final del relato consiste en modificar el ADN de los seres del planeta fluórico para que respiren oxígeno. ¿Cuál es la postura del texto ante esta propuesta?</div>
+      <div class="opcion" onclick="seleccionar(this,'q11','a')"><span class="opcion-letra">a</span>Negativa: es una intromisión científica peligrosa y deben rechazarla</div>
+      <div class="opcion" onclick="seleccionar(this,'q11','b')"><span class="opcion-letra">b</span>Positiva y esperanzadora: la ciencia puede ser el puente que una lo que la naturaleza separó</div>
+      <div class="opcion" onclick="seleccionar(this,'q11','c')"><span class="opcion-letra">c</span>Neutral: el texto no da ninguna opinión sobre la propuesta</div>
+      <div class="opcion" onclick="seleccionar(this,'q11','d')"><span class="opcion-letra">d</span>Negativa: el capitán de la nave blanca la rechaza haciendo gestos de desacuerdo</div>
+      <button class="btn-verificar" onclick="verificar('q11','b')">Verificar</button>
+      <div class="feedback" id="fb-q11-correcto correcto">✅ Correcto. El capitán de la nave blanca hace una profunda reverencia ante Afra, y los extraterrestres cambian del gesto de despedida dolorosa al de «firme seguridad de volver a encontrarse». El texto la presenta como una chispa de esperanza.</div>
+      <div class="feedback" id="fb-q11-incorrecto incorrecto">❌ Revise. Observe la reacción de los extraterrestres ante el dibujo de Afra y la descripción de los gestos de despedida después de la propuesta (Secciones 17 y 18).</div>
+    </div>
+
+    <!-- P12 -->
+    <div class="pregunta-mc" id="q12">
+      <div class="enunciado">12. «El corazón de la serpiente» puede clasificarse como ciencia ficción especulativa. ¿Cuál de estas afirmaciones describe mejor la función de la ciencia ficción según se desprende del relato?</div>
+      <div class="opcion" onclick="seleccionar(this,'q12','a')"><span class="opcion-letra">a</span>Entretener con aventuras y tecnología futurista</div>
+      <div class="opcion" onclick="seleccionar(this,'q12','b')"><span class="opcion-letra">b</span>Imaginar futuros posibles para explorar ideas filosóficas, científicas e ideológicas del presente</div>
+      <div class="opcion" onclick="seleccionar(this,'q12','c')"><span class="opcion-letra">c</span>Predecir con exactitud los avances tecnológicos del futuro</div>
+      <div class="opcion" onclick="seleccionar(this,'q12','d')"><span class="opcion-letra">d</span>Criticar la ciencia por crear tecnologías peligrosas</div>
+      <button class="btn-verificar" onclick="verificar('q12','b')">Verificar</button>
+      <div class="feedback" id="fb-q12-correcto correcto">✅ Correcto. El relato usa el futuro espacial para hablar del presente de 1959: la Guerra Fría, el capitalismo vs. el socialismo, la posibilidad de que la humanidad supere sus contradicciones. La ciencia ficción es, ante todo, filosofía aplicada al futuro.</div>
+      <div class="feedback" id="fb-q12-incorrecto incorrecto">❌ Revise. La ciencia ficción de calidad siempre usa el futuro como espejo del presente. ¿Qué ideas del presente de Efremov (1959) aparecen en el relato?</div>
+    </div>
+
+  </div>
+</details>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     BLOQUE IV: ESCRITURA ARGUMENTATIVA
+     ══════════════════════════════════════════════════════════ -->
+<h2 class="bloque-titulo" id="ensayo"><span class="icono">✍️</span> Escritura argumentativa (formato GED)</h2>
+
+<details class="actividad">
+  <summary>📄 Temas de ensayo — 3 a 5 párrafos</summary>
+  <div class="act-contenido">
+    <p style="margin-bottom:18px; color:var(--texto-suave); font-size:0.93rem;">Escoja uno de los siguientes temas. Su ensayo debe tener <strong>introducción, desarrollo con evidencia del texto y conclusión</strong>. Cite al menos dos ejemplos específicos del relato.</p>
+
+    <div class="tema-ensayo">
+      <div class="tema-num">Tema A — Ciencia y moral</div>
+      <div class="tema-texto">¿El progreso científico garantiza el progreso moral de una sociedad?</div>
+      <div class="guia">Use la conversación entre Kari y Mut Ang (§5), la crítica al capitalismo (§8), y la propuesta de Afra (§17) como evidencia. Puede estar de acuerdo o en desacuerdo con la posición del texto.</div>
+    </div>
+
+    <div class="tema-ensayo">
+      <div class="tema-num">Tema B — El encuentro entre culturas</div>
+      <div class="tema-texto">¿Puede una civilización avanzada de verdad entrar en guerra con otra? Use el texto para defender su respuesta.</div>
+      <div class="guia">Compare «El Primer Contacto» (§8) con el encuentro real del Telurio (§9–16). Explique cuál visión es más realista según usted y por qué.</div>
+    </div>
+
+    <div class="tema-ensayo">
+      <div class="tema-num">Tema C — El sacrificio del explorador</div>
+      <div class="tema-texto">¿Vale la pena sacrificar el presente (familia, amigos, vida cotidiana) por el avance del conocimiento humano?</div>
+      <div class="guia">Use las reflexiones de Tey Eron sobre el tiempo (§2), el argumento de Mut Ang sobre el deber (§5), y el dolor de la despedida (§16).</div>
+    </div>
+
+    <div class="tema-ensayo">
+      <div class="tema-num">Tema D — La diferencia y la unidad</div>
+      <div class="tema-texto">¿Qué separa realmente a los seres humanos de otros grupos: la biología, la cultura, o la elección?</div>
+      <div class="guia">Analice la barrera entre los dos grupos (§12), el intercambio de conocimientos (§13), y la propuesta de Afra (§17). Relacione con diferencias entre culturas en nuestra propia Tierra.</div>
+    </div>
+
+    <div class="nota-profe">
+      <strong>💡 Estructura sugerida para el ensayo GED:</strong><br>
+      <strong>Párrafo 1:</strong> Introducción — presente su posición claramente.<br>
+      <strong>Párrafos 2–3:</strong> Desarrollo — use evidencia del texto. Cite personajes, situaciones, frases.<br>
+      <strong>Párrafo 4 (opcional):</strong> Contrargumento — reconozca el punto de vista opuesto y respóndalo.<br>
+      <strong>Párrafo 5:</strong> Conclusión — reafirme su posición con una idea nueva.
+    </div>
+  </div>
+</details>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     BLOQUE V: VOCABULARIO ACADÉMICO
+     ══════════════════════════════════════════════════════════ -->
+<h2 class="bloque-titulo" id="vocabulario"><span class="icono">📚</span> Vocabulario académico para el examen</h2>
+
+<details class="actividad">
+  <summary>🔤 Haga clic en cada palabra para ver su definición</summary>
+  <div class="act-contenido">
+    <p style="margin-bottom:14px; color:var(--texto-suave); font-size:0.88rem; font-style:italic;">Haga clic en cualquier tarjeta para revelar la definición. Luego escriba una oración original con cada palabra.</p>
+    <div class="vocab-grid">
+
+      <div class="vocab-card" onclick="toggleVocab(this)">
+        <div class="vocab-palabra">Entropía</div>
+        <div class="vocab-instruc">Haga clic para ver la definición</div>
+        <div class="vocab-def">En física, tendencia natural del universo hacia el desorden y la disipación de energía. En el relato simboliza la inactividad, el conformismo y la muerte espiritual. Lo opuesto a la entropía es el movimiento, la lucha, la creación.</div>
+      </div>
+
+      <div class="vocab-card" onclick="toggleVocab(this)">
+        <div class="vocab-palabra">Dialéctica</div>
+        <div class="vocab-instruc">Haga clic para ver la definición</div>
+        <div class="vocab-def">Método de razonamiento que reconoce que la realidad está formada por contradicciones que se resuelven en síntesis superiores. En el texto, Mut Ang usa la «lógica dialéctica» para explicar el desarrollo del pensamiento humano.</div>
+      </div>
+
+      <div class="vocab-card" onclick="toggleVocab(this)">
+        <div class="vocab-palabra">Metabolismo</div>
+        <div class="vocab-instruc">Haga clic para ver la definición</div>
+        <div class="vocab-def">Conjunto de procesos químicos que ocurren en un organismo vivo para mantener la vida: obtención de energía, crecimiento, reproducción. En el relato, el metabolismo de los seres del planeta fluórico usa flúor en lugar de oxígeno.</div>
+      </div>
+
+      <div class="vocab-card" onclick="toggleVocab(this)">
+        <div class="vocab-palabra">Civilización</div>
+        <div class="vocab-instruc">Haga clic para ver la definición</div>
+        <div class="vocab-def">Etapa avanzada del desarrollo social y cultural de un pueblo, caracterizada por organización compleja, ciencia, arte, leyes y tecnología. En el relato, se usa para comparar diferentes estados de desarrollo social, tanto en la Tierra como en otros mundos.</div>
+      </div>
+
+      <div class="vocab-card" onclick="toggleVocab(this)">
+        <div class="vocab-palabra">Evolución</div>
+        <div class="vocab-instruc">Haga clic para ver la definición</div>
+        <div class="vocab-def">Proceso gradual de cambio y adaptación de los seres vivos a lo largo del tiempo mediante selección natural. También se usa en sentido social para describir el cambio progresivo de las sociedades humanas.</div>
+      </div>
+
+      <div class="vocab-card" onclick="toggleVocab(this)">
+        <div class="vocab-palabra">Ideología</div>
+        <div class="vocab-instruc">Haga clic para ver la definición</div>
+        <div class="vocab-def">Sistema de ideas, creencias y valores que guía la manera de entender la sociedad y la política. El texto critica la «ideología bélica» del capitalismo y defiende una ideología de cooperación y ciencia.</div>
+      </div>
+
+      <div class="vocab-card" onclick="toggleVocab(this)">
+        <div class="vocab-palabra">Utopía</div>
+        <div class="vocab-instruc">Haga clic para ver la definición</div>
+        <div class="vocab-def">Sociedad ideal perfecta imaginada como posible en el futuro. Viene del griego «ou-topos» (no-lugar). La Tierra futura del relato es una utopía: sin clases, sin guerras, dedicada al conocimiento y la felicidad.</div>
+      </div>
+
+      <div class="vocab-card" onclick="toggleVocab(this)">
+        <div class="vocab-palabra">Analogía</div>
+        <div class="vocab-instruc">Haga clic para ver la definición</div>
+        <div class="vocab-def">Comparación entre dos cosas diferentes que comparten características importantes. Mut Ang hace analogías entre el desarrollo social de la Tierra y el posible desarrollo de otras civilizaciones.</div>
+      </div>
+
+      <div class="vocab-card" onclick="toggleVocab(this)">
+        <div class="vocab-palabra">Progreso</div>
+        <div class="vocab-instruc">Haga clic para ver la definición</div>
+        <div class="vocab-def">Avance o mejora en el desarrollo de algo: ciencia, sociedad, condiciones de vida. El relato debate si el progreso tecnológico basta, o si debe ir acompañado de progreso moral y social.</div>
+      </div>
+
+      <div class="vocab-card" onclick="toggleVocab(this)">
+        <div class="vocab-palabra">Inferencia</div>
+        <div class="vocab-instruc">Haga clic para ver la definición</div>
+        <div class="vocab-def">Conclusión que se saca a partir de datos o pistas, no declarada directamente. Habilidad clave del GED: deducir lo que el texto implica sin que lo diga explícitamente.</div>
+      </div>
+
+      <div class="vocab-card" onclick="toggleVocab(this)">
+        <div class="vocab-palabra">Parsec</div>
+        <div class="vocab-instruc">Haga clic para ver la definición</div>
+        <div class="vocab-def">Unidad de distancia astronómica equivalente a unos 3.26 años luz (aproximadamente 31 billones de kilómetros). El Telurio recorre 24 parsecs en una sola pulsación.</div>
+      </div>
+
+      <div class="vocab-card" onclick="toggleVocab(this)">
+        <div class="vocab-palabra">Sublumínico</div>
+        <div class="vocab-instruc">Haga clic para ver la definición</div>
+        <div class="vocab-def">Velocidad inferior a la de la luz (aproximadamente 300,000 km/s). Las naves del relato usan motores nucleares para velocidades sublumínicas y la «pulsación» para velocidades supralumínicas.</div>
+      </div>
+
+    </div>
+
+    <div class="nota-profe" style="margin-top:20px;">
+      <strong>💡 Actividad de vocabulario:</strong> Redacte una oración original con cada palabra. Luego, con un compañero, lean sus oraciones en voz alta y verifiquen que el uso del vocabulario sea correcto en contexto.
+    </div>
+  </div>
+</details>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     BLOQUE VI: DEBATE
+     ══════════════════════════════════════════════════════════ -->
+<h2 class="bloque-titulo" id="debate"><span class="icono">💬</span> Debate en clase (pensamiento crítico)</h2>
+
+<details class="actividad">
+  <summary>🗣️ Preguntas para debate oral</summary>
+  <div class="act-contenido">
+    <p style="margin-bottom:16px; color:var(--texto-suave); font-size:0.93rem;">Para cada pregunta, tome una posición clara y esté preparado para defenderla con <strong>al menos un ejemplo</strong> del texto y uno de la vida real.</p>
+
+    <div class="pregunta-debate">
+      <span class="debate-icon">①</span>
+      <span>¿Podría repetirse en otro planeta una historia de guerras como la que vivió la Tierra? Efremov dice que no. ¿Está usted de acuerdo?</span>
+    </div>
+    <div class="pregunta-debate">
+      <span class="debate-icon">②</span>
+      <span>¿Es realista la visión optimista de Efremov sobre el futuro de la humanidad? ¿Qué tendría que cambiar para que su utopía fuera posible?</span>
+    </div>
+    <div class="pregunta-debate">
+      <span class="debate-icon">③</span>
+      <span>¿El ser humano es naturalmente cooperativo o competitivo? Use ejemplos de la historia y de su propia experiencia.</span>
+    </div>
+    <div class="pregunta-debate">
+      <span class="debate-icon">④</span>
+      <span>¿Tiene la ciencia el derecho de modificar el ADN de una especie completa para que pueda sobrevivir en otro ambiente? ¿Qué límites debe tener?</span>
+    </div>
+    <div class="pregunta-debate">
+      <span class="debate-icon">⑤</span>
+      <span>Si usted leyera un libro de ciencia ficción de hoy en día sobre el espacio, ¿sería parecido a la visión de Efremov o a la del «Primer Contacto» que critica? ¿Por qué?</span>
+    </div>
+    <div class="pregunta-debate">
+      <span class="debate-icon">⑥</span>
+      <span>¿Hay «corazones de serpiente» en el mundo de hoy? ¿Qué formas toman la violencia y el egoísmo que el autor critica?</span>
+    </div>
+  </div>
+</details>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     BLOQUE VII: CONEXIÓN CON EL GED
+     ══════════════════════════════════════════════════════════ -->
+<h2 class="bloque-titulo" id="conexion-ged"><span class="icono">🎓</span> Conexión con el GED — habilidades evaluadas</h2>
+
+<details class="actividad">
+  <summary>📋 ¿Qué habilidades del GED practica con este texto?</summary>
+  <div class="act-contenido">
+    <p style="margin-bottom:14px; color:var(--texto-suave); font-size:0.93rem;">Este texto permite trabajar <strong>todas</strong> las habilidades de lectura y escritura evaluadas en el GED de Razonamiento a través de las artes del lenguaje:</p>
+    <div class="ged-skills">
+      <span class="skill-tag">✓ Idea central</span>
+      <span class="skill-tag">✓ Propósito del autor</span>
+      <span class="skill-tag">✓ Evidencia textual</span>
+      <span class="skill-tag">✓ Inferencia</span>
+      <span class="skill-tag">✓ Comparación de textos</span>
+      <span class="skill-tag">✓ Ensayo argumentativo</span>
+      <span class="skill-tag">✓ Análisis de tono y punto de vista</span>
+      <span class="skill-tag">✓ Análisis de estructura narrativa</span>
+      <span class="skill-tag">✓ Vocabulario en contexto</span>
+      <span class="skill-tag">✓ Conexión texto-contexto histórico</span>
+      <span class="skill-tag">✓ Análisis de metáforas y simbolismo</span>
+    </div>
+
+    <div style="margin-top:20px; display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+      <div style="background:rgba(0,0,0,0.2); border-radius:8px; padding:14px;">
+        <div style="color:var(--teal-claro); font-size:0.82rem; font-weight:700; letter-spacing:0.06em; margin-bottom:8px;">COMPARACIÓN DE TEXTOS</div>
+        <p style="font-size:0.88rem; color:var(--texto-suave);">El relato funciona perfectamente como «Texto 2» en un ejercicio de comparación. «El Primer Contacto» de Leinster (1945) puede servir como «Texto 1» para analizar cómo dos autores distintos tratan el mismo tema con perspectivas opuestas.</p>
+      </div>
+      <div style="background:rgba(0,0,0,0.2); border-radius:8px; padding:14px;">
+        <div style="color:var(--oro-suave); font-size:0.82rem; font-weight:700; letter-spacing:0.06em; margin-bottom:8px;">ANÁLISIS DE ARGUMENTO</div>
+        <p style="font-size:0.88rem; color:var(--texto-suave);">Las conversaciones filosóficas del capitán Mut Ang son argumentos formales: tesis, evidencia, contraejemplo, conclusión. Son excelentes modelos para que el estudiante aprenda a construir sus propios ensayos.</p>
+      </div>
+    </div>
+
+    <div class="nota-profe" style="margin-top:16px;">
+      <strong>Nota para el instructor:</strong> Este texto de nivel avanzado es apropiado para estudiantes en nivel GED/HSE que han demostrado fluidez lectora. La longitud y complejidad filosófica del texto son similares a los textos literarios que aparecen en el examen GED real. Se recomienda trabajar 3–4 secciones por sesión, combinando lectura silenciosa con discusión oral.
+    </div>
+  </div>
+</details>
+
+</main>
+
+<script>
+// ── Selección de opciones en preguntas MC ──────────────────
+function seleccionar(el, qid, letra) {
+  document.querySelectorAll('#' + qid + ' .opcion').forEach(o => {
+    o.classList.remove('correcta', 'incorrecta');
+  });
+  el.dataset.seleccion = letra;
+  el.classList.add('seleccionada');
+  // guardar selección en el contenedor
+  document.getElementById(qid).dataset.seleccion = letra;
+}
+
+// ── Verificar respuesta ────────────────────────────────────
+function verificar(qid, correcta) {
+  const q = document.getElementById(qid);
+  const sel = q.dataset.seleccion;
+
+  // limpiar feedback anterior
+  q.querySelectorAll('.feedback').forEach(f => f.style.display = 'none');
+  q.querySelectorAll('.opcion').forEach(o => o.classList.remove('correcta', 'incorrecta'));
+
+  if (!sel) {
+    alert('Por favor, seleccione una opción antes de verificar.');
+    return;
+  }
+
+  // colorear opciones
+  q.querySelectorAll('.opcion').forEach(o => {
+    const letra = o.querySelector('.opcion-letra').textContent.toLowerCase();
+    if (letra === correcta) o.classList.add('correcta');
+    else if (letra === sel && sel !== correcta) o.classList.add('incorrecta');
+  });
+
+  // mostrar feedback
+  const fbId = sel === correcta ? 'fb-' + qid + '-correcto' : 'fb-' + qid + '-incorrecto';
+  const fb = document.getElementById(fbId);
+  if (fb) {
+    fb.style.display = 'block';
+    fb.className = 'feedback ' + (sel === correcta ? 'correcto' : 'incorrecto');
+  }
+}
+
+// ── Vocabulario ────────────────────────────────────────────
+function toggleVocab(card) {
+  const def = card.querySelector('.vocab-def');
+  const instruc = card.querySelector('.vocab-instruc');
+  const isVisible = def.classList.contains('visible');
+  def.classList.toggle('visible');
+  instruc.textContent = isVisible ? 'Haga clic para ver la definición' : 'Haga clic para ocultar';
+}
+</script>
+
+</body>
+</html>
