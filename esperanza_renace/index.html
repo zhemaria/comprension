@@ -1,1 +1,2583 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Esperanza renace – Guía de lectura</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --uvas: #6a3d9a;
+        --uvas-lt: #ede0f8;
+        --papayas: #e07b39;
+        --papayas-lt: #fff0e6;
+        --higos: #7b3f00;
+        --higos-lt: #fdf0e0;
+        --guayabas: #c0392b;
+        --guayabas-lt: #fdecea;
+        --melones: #e6b800;
+        --melones-lt: #fffbe6;
+        --cebollas: #2e86ab;
+        --cebollas-lt: #e6f4fb;
+        --almendras: #4caf50;
+        --almendras-lt: #edf7ee;
+        --prologo: #d63384;
+        --prologo-lt: #fde8f2;
+        --ciruelas: #7b2d8b;
+        --ciruelas-lt: #f5e6ff;
+        --aguacates: #33691e;
+        --aguacates-lt: #e8f5e0;
+        --duraznos: #d84315;
+        --duraznos-lt: #fce4d6;
+        --uvas2: #4527a0;
+        --uvas2-lt: #ede7f6;
+        --text: #2d2d2d;
+        --bg: #fafaf8;
+      }
 
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: 'Nunito', sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        padding: 20px;
+        max-width: 900px;
+        margin: 0 auto;
+        line-height: 1.7;
+      }
+
+      /* ── ENCABEZADO ── */
+      header {
+        text-align: center;
+        padding: 40px 20px 30px;
+        background: linear-gradient(135deg, #6a3d9a 0%, #d63384 40%, #e07b39 100%);
+        border-radius: 20px;
+        color: white;
+        margin-bottom: 32px;
+        box-shadow: 0 6px 24px rgba(106, 61, 154, 0.3);
+      }
+      header h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(1.8rem, 4vw, 2.8rem);
+        margin-bottom: 8px;
+        text-shadow: 1px 2px 6px rgba(0, 0, 0, 0.25);
+      }
+      header p {
+        font-size: 1.05rem;
+        opacity: 0.92;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .badge {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.22);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-radius: 20px;
+        padding: 4px 16px;
+        font-size: 0.85rem;
+        margin-top: 12px;
+        letter-spacing: 0.04em;
+      }
+
+      /* ── INSTRUCCIONES ── */
+      .instrucciones {
+        background: #fff;
+        border-left: 5px solid var(--prologo);
+        border-radius: 10px;
+        padding: 16px 20px;
+        margin-bottom: 28px;
+        font-size: 0.97rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      }
+      .instrucciones strong {
+        color: var(--prologo);
+      }
+
+      /* ── ACORDEÓN BASE ── */
+      details {
+        border-radius: 14px;
+        margin-bottom: 18px;
+        overflow: hidden;
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+        transition: box-shadow 0.2s;
+      }
+      details[open] {
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.14);
+      }
+
+      summary {
+        cursor: pointer;
+        padding: 18px 22px;
+        font-size: 1.15rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        list-style: none;
+        user-select: none;
+        transition: filter 0.15s;
+      }
+      summary::-webkit-details-marker {
+        display: none;
+      }
+      summary:hover {
+        filter: brightness(1.06);
+      }
+
+      .chevron {
+        margin-left: auto;
+        font-size: 1.1rem;
+        transition: transform 0.3s;
+      }
+      details[open] .chevron {
+        transform: rotate(90deg);
+      }
+
+      .cap-body {
+        padding: 24px 24px 28px;
+        background: white;
+      }
+
+      /* ── COLORES POR CAPÍTULO ── */
+      .cap-prologo summary {
+        background: var(--prologo);
+        color: white;
+      }
+      .cap-uvas summary {
+        background: var(--uvas);
+        color: white;
+      }
+      .cap-papayas summary {
+        background: var(--papayas);
+        color: white;
+      }
+      .cap-higos summary {
+        background: var(--higos);
+        color: white;
+      }
+      .cap-guayabas summary {
+        background: var(--guayabas);
+        color: white;
+      }
+      .cap-melones summary {
+        background: #c8900a;
+        color: white;
+      }
+      .cap-cebollas summary {
+        background: var(--cebollas);
+        color: white;
+      }
+      .cap-almendras summary {
+        background: #2e7d32;
+        color: white;
+      }
+      .cap-ciruelas summary {
+        background: #7b2d8b;
+        color: white;
+      }
+      .cap-aguacates summary {
+        background: #33691e;
+        color: white;
+      }
+      .cap-duraznos summary {
+        background: #d84315;
+        color: white;
+      }
+      .cap-uvas2 summary {
+        background: #4527a0;
+        color: white;
+      }
+      .cap-ciruelas summary {
+        background: var(--ciruelas);
+        color: white;
+      }
+      .cap-aguacates summary {
+        background: var(--aguacates);
+        color: white;
+      }
+      .cap-duraznos summary {
+        background: var(--duraznos);
+        color: white;
+      }
+      .cap-uvas2 summary {
+        background: var(--uvas2);
+        color: white;
+      }
+
+      /* ── SECCIONES INTERNAS ── */
+      .seccion {
+        margin-bottom: 22px;
+      }
+      .seccion:last-child {
+        margin-bottom: 0;
+      }
+
+      .sec-titulo {
+        font-size: 1rem;
+        font-weight: 700;
+        padding: 6px 14px;
+        border-radius: 8px;
+        display: inline-block;
+        margin-bottom: 12px;
+        letter-spacing: 0.02em;
+      }
+
+      /* colores de sección por capítulo */
+      .cap-prologo .sec-titulo {
+        background: var(--prologo-lt);
+        color: var(--prologo);
+        border-left: 4px solid var(--prologo);
+        padding-left: 10px;
+      }
+      .cap-uvas .sec-titulo {
+        background: var(--uvas-lt);
+        color: var(--uvas);
+        border-left: 4px solid var(--uvas);
+        padding-left: 10px;
+      }
+      .cap-papayas .sec-titulo {
+        background: var(--papayas-lt);
+        color: var(--papayas);
+        border-left: 4px solid var(--papayas);
+        padding-left: 10px;
+      }
+      .cap-higos .sec-titulo {
+        background: var(--higos-lt);
+        color: var(--higos);
+        border-left: 4px solid var(--higos);
+        padding-left: 10px;
+      }
+      .cap-guayabas .sec-titulo {
+        background: var(--guayabas-lt);
+        color: var(--guayabas);
+        border-left: 4px solid var(--guayabas);
+        padding-left: 10px;
+      }
+      .cap-melones .sec-titulo {
+        background: var(--melones-lt);
+        color: #8a5c00;
+        border-left: 4px solid var(--melones);
+        padding-left: 10px;
+      }
+      .cap-cebollas .sec-titulo {
+        background: var(--cebollas-lt);
+        color: var(--cebollas);
+        border-left: 4px solid var(--cebollas);
+        padding-left: 10px;
+      }
+      .cap-almendras .sec-titulo {
+        background: var(--almendras-lt);
+        color: #2e7d32;
+        border-left: 4px solid var(--almendras);
+        padding-left: 10px;
+      }
+      .cap-ciruelas .sec-titulo {
+        background: #f5e6ff;
+        color: #7b2d8b;
+        border-left: 4px solid #7b2d8b;
+        padding-left: 10px;
+      }
+      .cap-aguacates .sec-titulo {
+        background: #e8f5e0;
+        color: #33691e;
+        border-left: 4px solid #33691e;
+        padding-left: 10px;
+      }
+      .cap-duraznos .sec-titulo {
+        background: #fce4d6;
+        color: #d84315;
+        border-left: 4px solid #d84315;
+        padding-left: 10px;
+      }
+      .cap-uvas2 .sec-titulo {
+        background: #ede7f6;
+        color: #4527a0;
+        border-left: 4px solid #4527a0;
+        padding-left: 10px;
+      }
+      .cap-ciruelas .sec-titulo {
+        background: var(--ciruelas-lt);
+        color: var(--ciruelas);
+        border-left: 4px solid var(--ciruelas);
+        padding-left: 10px;
+      }
+      .cap-aguacates .sec-titulo {
+        background: var(--aguacates-lt);
+        color: var(--aguacates);
+        border-left: 4px solid var(--aguacates);
+        padding-left: 10px;
+      }
+      .cap-duraznos .sec-titulo {
+        background: var(--duraznos-lt);
+        color: var(--duraznos);
+        border-left: 4px solid var(--duraznos);
+        padding-left: 10px;
+      }
+      .cap-uvas2 .sec-titulo {
+        background: var(--uvas2-lt);
+        color: var(--uvas2);
+        border-left: 4px solid var(--uvas2);
+        padding-left: 10px;
+      }
+
+      /* ── RESUMEN ── */
+      .resumen p {
+        margin-bottom: 10px;
+        font-size: 0.98rem;
+      }
+
+      /* ── VOCABULARIO ── */
+      .vocab-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 10px;
+        margin-top: 4px;
+      }
+      .vocab-card {
+        border-radius: 10px;
+        padding: 10px 14px;
+        font-size: 0.93rem;
+      }
+      .cap-prologo .vocab-card {
+        background: var(--prologo-lt);
+        border-left: 3px solid var(--prologo);
+      }
+      .cap-uvas .vocab-card {
+        background: var(--uvas-lt);
+        border-left: 3px solid var(--uvas);
+      }
+      .cap-papayas .vocab-card {
+        background: var(--papayas-lt);
+        border-left: 3px solid var(--papayas);
+      }
+      .cap-higos .vocab-card {
+        background: var(--higos-lt);
+        border-left: 3px solid var(--higos);
+      }
+      .cap-guayabas .vocab-card {
+        background: var(--guayabas-lt);
+        border-left: 3px solid var(--guayabas);
+      }
+      .cap-melones .vocab-card {
+        background: var(--melones-lt);
+        border-left: 3px solid var(--melones);
+      }
+      .cap-cebollas .vocab-card {
+        background: var(--cebollas-lt);
+        border-left: 3px solid var(--cebollas);
+      }
+      .cap-almendras .vocab-card {
+        background: var(--almendras-lt);
+        border-left: 3px solid var(--almendras);
+      }
+      .cap-ciruelas .vocab-card {
+        background: #f5e6ff;
+        border-left: 3px solid #7b2d8b;
+      }
+      .cap-aguacates .vocab-card {
+        background: #e8f5e0;
+        border-left: 3px solid #33691e;
+      }
+      .cap-duraznos .vocab-card {
+        background: #fce4d6;
+        border-left: 3px solid #d84315;
+      }
+      .cap-uvas2 .vocab-card {
+        background: #ede7f6;
+        border-left: 3px solid #4527a0;
+      }
+      .cap-ciruelas .vocab-card {
+        background: var(--ciruelas-lt);
+        border-left: 3px solid var(--ciruelas);
+      }
+      .cap-aguacates .vocab-card {
+        background: var(--aguacates-lt);
+        border-left: 3px solid var(--aguacates);
+      }
+      .cap-duraznos .vocab-card {
+        background: var(--duraznos-lt);
+        border-left: 3px solid var(--duraznos);
+      }
+      .cap-uvas2 .vocab-card {
+        background: var(--uvas2-lt);
+        border-left: 3px solid var(--uvas2);
+      }
+
+      .vocab-card .palabra {
+        font-weight: 700;
+        display: block;
+        margin-bottom: 3px;
+      }
+      .vocab-card .definicion {
+        color: #444;
+      }
+
+      /* ── PREGUNTAS ── */
+      .preguntas ol {
+        padding-left: 20px;
+      }
+      .preguntas li {
+        margin-bottom: 10px;
+        font-size: 0.97rem;
+        padding: 10px 14px;
+        border-radius: 8px;
+        background: #f8f8f8;
+        list-style-position: outside;
+      }
+
+      /* ── REFLEXIÓN ── */
+      .reflexion ul {
+        list-style: none;
+        padding: 0;
+      }
+      .reflexion li {
+        padding: 10px 16px;
+        border-radius: 8px;
+        margin-bottom: 8px;
+        font-size: 0.97rem;
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+      }
+      .cap-prologo .reflexion li {
+        background: var(--prologo-lt);
+      }
+      .cap-uvas .reflexion li {
+        background: var(--uvas-lt);
+      }
+      .cap-papayas .reflexion li {
+        background: var(--papayas-lt);
+      }
+      .cap-higos .reflexion li {
+        background: var(--higos-lt);
+      }
+      .cap-guayabas .reflexion li {
+        background: var(--guayabas-lt);
+      }
+      .cap-melones .reflexion li {
+        background: var(--melones-lt);
+      }
+      .cap-cebollas .reflexion li {
+        background: var(--cebollas-lt);
+      }
+      .cap-almendras .reflexion li {
+        background: var(--almendras-lt);
+      }
+      .cap-ciruelas .reflexion li {
+        background: #f5e6ff;
+      }
+      .cap-aguacates .reflexion li {
+        background: #e8f5e0;
+      }
+      .cap-duraznos .reflexion li {
+        background: #fce4d6;
+      }
+      .cap-uvas2 .reflexion li {
+        background: #ede7f6;
+      }
+      .cap-ciruelas .reflexion li {
+        background: var(--ciruelas-lt);
+      }
+      .cap-aguacates .reflexion li {
+        background: var(--aguacates-lt);
+      }
+      .cap-duraznos .reflexion li {
+        background: var(--duraznos-lt);
+      }
+      .cap-uvas2 .reflexion li {
+        background: var(--uvas2-lt);
+      }
+
+      /* ── PERSONAJES ── */
+      .personajes {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 4px;
+      }
+      .pers-tag {
+        border-radius: 20px;
+        padding: 5px 14px;
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: white;
+      }
+      .cap-prologo .pers-tag {
+        background: var(--prologo);
+      }
+      .cap-uvas .pers-tag {
+        background: var(--uvas);
+      }
+      .cap-papayas .pers-tag {
+        background: var(--papayas);
+      }
+      .cap-higos .pers-tag {
+        background: var(--higos);
+      }
+      .cap-guayabas .pers-tag {
+        background: var(--guayabas);
+      }
+      .cap-melones .pers-tag {
+        background: #c8900a;
+      }
+      .cap-cebollas .pers-tag {
+        background: var(--cebollas);
+      }
+      .cap-almendras .pers-tag {
+        background: #2e7d32;
+      }
+      .cap-ciruelas .pers-tag {
+        background: #7b2d8b;
+      }
+      .cap-aguacates .pers-tag {
+        background: #33691e;
+      }
+      .cap-duraznos .pers-tag {
+        background: #d84315;
+      }
+      .cap-uvas2 .pers-tag {
+        background: #4527a0;
+      }
+      .cap-ciruelas .pers-tag {
+        background: var(--ciruelas);
+      }
+      .cap-aguacates .pers-tag {
+        background: var(--aguacates);
+      }
+      .cap-duraznos .pers-tag {
+        background: var(--duraznos);
+      }
+      .cap-uvas2 .pers-tag {
+        background: var(--uvas2);
+      }
+
+      /* ── DIVISOR ── */
+      hr {
+        border: none;
+        border-top: 2px dashed #e0e0e0;
+        margin: 20px 0;
+      }
+
+      /* ── PIE ── */
+      footer {
+        text-align: center;
+        margin-top: 40px;
+        padding: 20px;
+        font-size: 0.85rem;
+        color: #777;
+        border-top: 2px dashed #e0e0e0;
+      }
+      footer strong {
+        color: var(--prologo);
+      }
+
+      @media (max-width: 600px) {
+        body {
+          padding: 12px;
+        }
+        summary {
+          font-size: 1rem;
+          padding: 15px 16px;
+        }
+        .vocab-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>🌹 Esperanza renace</h1>
+      <p>Pam Muñoz Ryan &nbsp;·&nbsp; Guía de lectura para estudiantes de GED</p>
+      <div class="badge">📚 Comprensión lectora · Vocabulario · Reflexión</div>
+    </header>
+
+    <div class="instrucciones">
+      <strong>📌 Instrucciones:</strong>
+      Haz clic en el título de cada capítulo para abrirlo. Encontrarás un
+      <strong>resumen</strong>
+      ,
+      <strong>vocabulario</strong>
+      con definiciones,
+      <strong>preguntas de comprensión</strong>
+      y
+      <strong>temas para reflexionar</strong>
+      . Puedes abrir varios capítulos al mismo tiempo.
+    </div>
+
+    <!-- ══════════════════════════════════════════════
+     PRÓLOGO · 1924
+══════════════════════════════════════════════ -->
+    <details class="cap-prologo">
+      <summary>
+        🌱 Prólogo — Aguascalientes, México · 1924
+        <span class="chevron">▶</span>
+      </summary>
+      <div class="cap-body">
+        <div class="seccion resumen">
+          <div class="sec-titulo">📖 Resumen</div>
+          <p>
+            Una niña de seis años llamada Esperanza camina de la mano de su papá por los viñedos de su rancho en Aguascalientes, México. El papá le enseña algo que ella nunca olvidará: si te acuestas
+            en la tierra y te quedas quieta y callada, puedes sentir su latido, como si la tierra tuviera corazón propio.
+          </p>
+          <p>
+            Este momento de conexión entre padre e hija establece el tema más profundo del libro: la tierra como fuente de vida, memoria y amor. El corazón de la tierra estará presente a lo largo de
+            toda la historia.
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="seccion">
+          <div class="sec-titulo">👥 Personajes en este capítulo</div>
+          <div class="personajes">
+            <span class="pers-tag">🌸 Esperanza (6 años)</span>
+            <span class="pers-tag">👨 Papá (Sixto Ortega)</span>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="seccion">
+          <div class="sec-titulo">📝 Vocabulario importante</div>
+          <div class="vocab-grid">
+            <div class="vocab-card">
+              <span class="palabra">🍇 viñedo</span>
+              <span class="definicion">Terreno plantado de vides (plantas de uva).</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🌿 vides frondosas</span>
+              <span class="definicion">Plantas de uva con muchas hojas y ramas abundantes.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🌀 zarcillo</span>
+              <span class="definicion">Ramita delgada y enroscada de la planta de uva que se usa para trepar.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">💓 latido</span>
+              <span class="definicion">El ritmo del corazón al latir. En el libro, el "latido de la tierra" es una metáfora poética.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🏔️ emparrados</span>
+              <span class="definicion">Estructuras de madera o metal donde se apoyan las plantas de uva para crecer.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🔁 metáfora</span>
+              <span class="definicion">Figura literaria que compara dos cosas sin usar "como". Ejemplo: "la tierra tiene corazón".</span>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="seccion preguntas">
+          <div class="sec-titulo">❓ Preguntas de comprensión</div>
+          <ol>
+            <li>¿Qué hace Papá para que Esperanza sienta el latido de la tierra? Describe los pasos.</li>
+            <li>¿Qué frase dice Papá sobre el valle? ¿Qué significa para él?</li>
+            <li>¿Por qué crees que la autora empieza el libro con este momento entre padre e hija?</li>
+            <li>¿Cuántos años tiene Esperanza en el prólogo? ¿Cuántos años antes es que el resto de la historia?</li>
+          </ol>
+        </div>
+
+        <hr />
+
+        <div class="seccion reflexion">
+          <div class="sec-titulo">💭 Para reflexionar</div>
+          <ul>
+            <li>
+              <span>🌍</span>
+              ¿Hay algún lugar que te haga sentir conectado/a con tus raíces o tu familia? ¿Por qué ese lugar es especial?
+            </li>
+            <li>
+              <span>🎨</span>
+              La autora usa la metáfora del "corazón de la tierra". ¿Qué otras metáforas podrías crear sobre la naturaleza?
+            </li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+    <!-- ══════════════════════════════════════════════
+     LAS UVAS
+══════════════════════════════════════════════ -->
+    <details class="cap-uvas">
+      <summary>
+        🍇 Las uvas — Seis años después (1930)
+        <span class="chevron">▶</span>
+      </summary>
+      <div class="cap-body">
+        <div class="seccion resumen">
+          <div class="sec-titulo">📖 Resumen</div>
+          <p>
+            Han pasado seis años. Esperanza ahora tiene 13 años y su familia celebra la vendimia (cosecha de uvas) en El Rancho de las Rosas. Papá, Mamá, los empleados y los vecinos se reúnen con
+            alegría. Esperanza corta el primer racimo de uvas siguiendo la tradición familiar.
+          </p>
+          <p>
+            Pero la alegría se convierte en tragedia: esa tarde, mientras Esperanza recoge rosas del jardín para preparar la fiesta de cumpleaños del día siguiente, Papá no regresa. Alfonso y Miguel
+            traen su cuerpo: fue asesinado en una emboscada por bandidos mientras arreglaba una cerca. Los tíos paternos —Luis, presidente del banco, y Marco, alcalde— llegan con malas noticias. La
+            familia queda destrozada.
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="seccion">
+          <div class="sec-titulo">👥 Personajes principales</div>
+          <div class="personajes">
+            <span class="pers-tag">🌸 Esperanza (13 años)</span>
+            <span class="pers-tag">👩 Mamá (Ramona)</span>
+            <span class="pers-tag">👨 Papá (Sixto) ✝</span>
+            <span class="pers-tag">👴 Abuelita</span>
+            <span class="pers-tag">🔑 Hortensia (ama de llaves)</span>
+            <span class="pers-tag">🔧 Alfonso (capataz)</span>
+            <span class="pers-tag">🔧 Miguel (hijo de Alfonso)</span>
+            <span class="pers-tag">😠 Tío Luis</span>
+            <span class="pers-tag">😠 Tío Marco</span>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="seccion">
+          <div class="sec-titulo">📝 Vocabulario importante</div>
+          <div class="vocab-grid">
+            <div class="vocab-card">
+              <span class="palabra">🍇 vendimia</span>
+              <span class="definicion">La cosecha de uvas. Época del año en que se recogen las uvas del viñedo.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🌾 cosecha</span>
+              <span class="definicion">El momento de recoger los frutos o cultivos del campo.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🏇 rancheros</span>
+              <span class="definicion">Trabajadores montados a caballo que cuidan el ganado en el rancho.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🐄 capataz</span>
+              <span class="definicion">La persona que supervisa y dirige a los trabajadores del campo.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🌹 escaramujo</span>
+              <span class="definicion">El fruto verde y ovalado del rosal. Abuelita dice que contiene los recuerdos de la rosa.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🎂 serenata</span>
+              <span class="definicion">Canciones que se cantan de noche bajo la ventana de alguien para celebrarlo. Las Mañanitas es una serenata típica mexicana.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">💰 resentimiento</span>
+              <span class="definicion">Sentimiento de enojo o amargura guardado contra alguien.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">⚖️ revolución mexicana</span>
+              <span class="definicion">Guerra civil en México (1910–1920) que buscaba dar tierras a los campesinos y acabar con el poder de los ricos terratenientes.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🔱 emboscada</span>
+              <span class="definicion">Ataque sorpresa escondido. Los bandidos atacaron a Papá sin que él pudiera defenderse.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🧶 zigzag</span>
+              <span class="definicion">Patrón en forma de Z que Abuelita enseña a tejer: representa montañas y valles, altos y bajos de la vida.</span>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="seccion preguntas">
+          <div class="sec-titulo">❓ Preguntas de comprensión</div>
+          <ol>
+            <li>¿Por qué es Esperanza quien corta el primer racimo de uvas si normalmente lo hace el hijo mayor?</li>
+            <li>¿Quiénes son los tíos Luis y Marco? ¿Qué cargos tienen en la comunidad?</li>
+            <li>¿Qué le enseña Abuelita a Esperanza mientras teje? ¿Qué significado tiene el zigzag?</li>
+            <li>¿Qué objeto traen los tíos que confirma la peor noticia? ¿Por qué ese objeto es especial?</li>
+            <li>¿Qué diferencia notas entre Miguel y Esperanza en cuanto a su clase social? ¿Cómo se siente Esperanza al respecto?</li>
+          </ol>
+        </div>
+
+        <hr />
+
+        <div class="seccion reflexion">
+          <div class="sec-titulo">💭 Para reflexionar</div>
+          <ul>
+            <li>
+              <span>💔</span>
+              Cuando Esperanza se pincha con una espina de rosa y piensa "mala suerte", ¿qué nos anuncia? ¿Crees en presagios o señales?
+            </li>
+            <li>
+              <span>⚖️</span>
+              La Revolución Mexicana terminó 10 años antes, pero la desigualdad entre ricos y pobres seguía. ¿Conoces situaciones similares hoy en día?
+            </li>
+            <li>
+              <span>🧶</span>
+              Abuelita dice "Nunca temas empezar de nuevo". ¿Cuándo has tenido que empezar de cero en tu vida?
+            </li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+    <!-- ══════════════════════════════════════════════
+     LAS PAPAYAS
+══════════════════════════════════════════════ -->
+    <details class="cap-papayas">
+      <summary>
+        🧡 Las papayas — El día del cumpleaños
+        <span class="chevron">▶</span>
+      </summary>
+      <div class="cap-body">
+        <div class="seccion resumen">
+          <div class="sec-titulo">📖 Resumen</div>
+          <p>
+            A la mañana siguiente —el día del cumpleaños de Esperanza— ella despierta sonriendo al oír Las Mañanitas, pero pronto recuerda que Papá ha muerto. La realidad cae sobre ella como un manto
+            oscuro.
+          </p>
+          <p>El Sr. Rodríguez llega con una caja de papayas que Papá había encargado para la fiesta. Este gesto póstumo de amor paternal rompe el corazón de Esperanza.</p>
+          <p>
+            Cuando el abogado lee el testamento, la situación se complica: según la ley, la tierra pasa al tío Luis, quien le hizo el préstamo a Papá. Luis aprovecha la situación para proponer
+            matrimonio a Mamá, alegando que así le conviene social y políticamente. Mamá rechaza la propuesta con dignidad y firmeza. Tío Luis amenaza con hacerles la vida imposible.
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="seccion">
+          <div class="sec-titulo">👥 Personajes en este capítulo</div>
+          <div class="personajes">
+            <span class="pers-tag">🌸 Esperanza</span>
+            <span class="pers-tag">👩 Mamá (Ramona)</span>
+            <span class="pers-tag">👴 Abuelita</span>
+            <span class="pers-tag">🔑 Hortensia</span>
+            <span class="pers-tag">🌳 Sr. Rodríguez</span>
+            <span class="pers-tag">😠 Tío Luis</span>
+            <span class="pers-tag">😒 Tío Marco</span>
+            <span class="pers-tag">⚖️ El abogado</span>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="seccion">
+          <div class="sec-titulo">📝 Vocabulario importante</div>
+          <div class="vocab-grid">
+            <div class="vocab-card">
+              <span class="palabra">📜 testamento</span>
+              <span class="definicion">Documento legal donde una persona decide quién heredará sus bienes después de morir.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🏦 préstamo</span>
+              <span class="definicion">Dinero que se pide prestado y que hay que devolver. Tío Luis le prestó dinero a Papá, y por eso heredó la tierra.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">📋 propuesta de matrimonio</span>
+              <span class="definicion">Oferta formal de casarse con alguien. Tío Luis le propone matrimonio a Mamá para tener poder e influencia.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🦅 buitres</span>
+              <span class="definicion">Aves que comen animales muertos. Abuelita llama "buitres" a los tíos porque aprovechan la muerte de Papá.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🏛️ candidato a gobernador</span>
+              <span class="definicion">Persona que busca ser elegida para gobernar un estado. Tío Luis quiere usar la reputación de Mamá para ganar votos.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">😔 luto</span>
+              <span class="definicion">Período de tristeza y respeto después de la muerte de alguien. Se expresa vistiendo de negro.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">💪 compostura</span>
+              <span class="definicion">Mantener la calma y dignidad en situaciones difíciles. Mamá mantiene la compostura frente a los tíos.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🦋 póstumo</span>
+              <span class="definicion">Algo que ocurre después de la muerte de alguien. Las papayas son un regalo póstumo de Papá.</span>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="seccion preguntas">
+          <div class="sec-titulo">❓ Preguntas de comprensión</div>
+          <ol>
+            <li>¿Por qué el Sr. Rodríguez trae papayas? ¿Qué significan esas papayas para Esperanza?</li>
+            <li>¿Qué razones da tío Luis para que Mamá se case con él? ¿Son razones de amor?</li>
+            <li>¿Qué responde Mamá ante la propuesta de tío Luis? ¿Qué dice el abogado que esto podría causarles?</li>
+            <li>¿Por qué llama Abuelita "buitres" a los tíos? ¿Qué quiere decir con eso?</li>
+            <li>¿Qué regalo de cumpleaños le da Papá (a través de la tienda) y qué hace Esperanza con él?</li>
+          </ol>
+        </div>
+
+        <hr />
+
+        <div class="seccion reflexion">
+          <div class="sec-titulo">💭 Para reflexionar</div>
+          <ul>
+            <li>
+              <span>💪</span>
+              Mamá dice "Esta es mi casa" y se niega a ceder. ¿Qué nos dice esto sobre su carácter? ¿Has tenido que mantenerte firme en una decisión difícil?
+            </li>
+            <li>
+              <span>⚖️</span>
+              Las leyes de 1930 en México no permitían que las mujeres heredaran tierras fácilmente. ¿Cómo han cambiado los derechos de la mujer desde entonces?
+            </li>
+            <li>
+              <span>🎂</span>
+              Este cumpleaños fue muy diferente al que Esperanza imaginaba. ¿Cómo cambia tu perspectiva cuando algo esperado no ocurre?
+            </li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+    <!-- ══════════════════════════════════════════════
+     LOS HIGOS
+══════════════════════════════════════════════ -->
+    <details class="cap-higos">
+      <summary>
+        🟤 Los higos — El incendio y la huida
+        <span class="chevron">▶</span>
+      </summary>
+      <div class="cap-body">
+        <div class="seccion resumen">
+          <div class="sec-titulo">📖 Resumen</div>
+          <p>
+            Esa noche, el viento sopla con fuerza. La casa se incendia — y todos saben que los tíos son los responsables. En medio del caos y el humo, Esperanza, Mamá y Abuelita logran escapar gracias
+            a la ayuda de Alfonso y Miguel. Abuelita se lesiona el tobillo gravemente.
+          </p>
+          <p>
+            A la mañana siguiente, Tío Luis regresa a caballo como si nada, y le ofrece a Mamá reconstruir el rancho si acepta casarse con él. Con el corazón partido, Mamá accede a "considerarlo" para
+            proteger a los empleados. Pero en secreto, Hortensia, Alfonso y el Sr. Rodríguez ya organizan el plan de escape hacia California. Mamá acepta el plan, y juntos diseñan la huida
+            clandestina: viajarán escondidas en una carreta de guayabas.
+          </p>
+          <p>El día antes de la llegada de la costurera que envía Tío Luis, Mamá despierta a Esperanza a medianoche. Es hora de partir.</p>
+        </div>
+
+        <hr />
+
+        <div class="seccion">
+          <div class="sec-titulo">👥 Personajes en este capítulo</div>
+          <div class="personajes">
+            <span class="pers-tag">🌸 Esperanza</span>
+            <span class="pers-tag">👩 Mamá</span>
+            <span class="pers-tag">👴 Abuelita</span>
+            <span class="pers-tag">🔑 Hortensia</span>
+            <span class="pers-tag">🔧 Alfonso</span>
+            <span class="pers-tag">🔧 Miguel</span>
+            <span class="pers-tag">😠 Tío Luis</span>
+            <span class="pers-tag">🌳 Sr. Rodríguez</span>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="seccion">
+          <div class="sec-titulo">📝 Vocabulario importante</div>
+          <div class="vocab-grid">
+            <div class="vocab-card">
+              <span class="palabra">🔥 incendio</span>
+              <span class="definicion">Fuego grande que destruye edificios o campos. El incendio del rancho lo provocan los tíos para presionar a Mamá.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🕵️ clandestino</span>
+              <span class="definicion">Algo secreto, oculto, que se hace sin que otros lo sepan.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🐦 fénix</span>
+              <span class="definicion">Ave mitológica que muere en llamas y renace de sus cenizas. Abuelita compara a la familia con el fénix.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🏃 huida</span>
+              <span class="definicion">Acción de escapar o irse rápidamente de un lugar peligroso.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">📄 documentos / papeles</span>
+              <span class="definicion">Identificaciones oficiales necesarias para cruzar la frontera. Los de Mamá y Esperanza se quemaron en el incendio.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🌿 duplicados</span>
+              <span class="definicion">Copias de documentos oficiales. Las monjas del convento ayudan a conseguirlos.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🏚️ cenizas</span>
+              <span class="definicion">Lo que queda después de un incendio. Símbolo de pérdida, pero también de un nuevo comienzo.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">💪 resiliencia</span>
+              <span class="definicion">La capacidad de recuperarse y seguir adelante después de una tragedia.</span>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="seccion preguntas">
+          <div class="sec-titulo">❓ Preguntas de comprensión</div>
+          <ol>
+            <li>¿Por qué todos saben que los tíos son responsables del incendio aunque no haya pruebas?</li>
+            <li>¿Por qué Mamá accede a "considerar" la propuesta de tío Luis frente a los empleados?</li>
+            <li>¿Qué encuentra Esperanza en el baúl quemado? ¿Qué significa lo que dice: "No había nada para algún día"?</li>
+            <li>¿Por qué el plan de escape debe ser completamente secreto?</li>
+            <li>¿Qué historia le cuenta Abuelita sobre el fénix? ¿Cómo se relaciona con la situación de la familia?</li>
+          </ol>
+        </div>
+
+        <hr />
+
+        <div class="seccion reflexion">
+          <div class="sec-titulo">💭 Para reflexionar</div>
+          <ul>
+            <li>
+              <span>🐦</span>
+              Abuelita dice: "Somos como el fénix que renace, con una nueva vida por delante". ¿Qué pierden y qué pueden ganar con esta nueva vida?
+            </li>
+            <li>
+              <span>🏠</span>
+              Esperanza dice "Nunca me marcharé de aquí", pero al final tiene que irse. ¿Cómo te sentirías al dejar para siempre tu hogar?
+            </li>
+            <li>
+              <span>🤝</span>
+              Alfonso, Hortensia, Miguel y el Sr. Rodríguez arriesgan mucho para ayudar a la familia. ¿Qué dice esto sobre la lealtad y la amistad?
+            </li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+    <!-- ══════════════════════════════════════════════
+     LAS GUAYABAS
+══════════════════════════════════════════════ -->
+    <details class="cap-guayabas">
+      <summary>
+        🔴 Las guayabas — El viaje hacia el norte
+        <span class="chevron">▶</span>
+      </summary>
+      <div class="cap-body">
+        <div class="seccion resumen">
+          <div class="sec-titulo">📖 Resumen</div>
+          <p>
+            La familia huye de noche, escondida en un compartimento secreto debajo de cajas de guayabas. El olor dulce y fresco de la fruta las acompaña mientras atraviesan caminos oscuros hacia
+            Zacatecas para tomar el tren.
+          </p>
+          <p>
+            En el tren, Esperanza experimenta por primera vez la pobreza de sus compatriotas. En el vagón de segunda clase, descubre un mundo que siempre estuvo ahí pero que nunca vio: familias
+            campesinas hacinadas, niños descalzos, mendigos. Cuando una niña toca su muñeca, Esperanza la aparta instintivamente — y Mamá le da una lección de humanidad que la avergüenza
+            profundamente.
+          </p>
+          <p>
+            Durante el viaje conocen a Carmen, una mujer viuda con ocho hijos que vende huevos para sobrevivir. Su generosidad y filosofía de vida — "Soy pobre pero soy rica" — sacuden a Esperanza.
+            Miguel le habla de la desigualdad en México y de sus esperanzas en California.
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="seccion">
+          <div class="sec-titulo">👥 Personajes en este capítulo</div>
+          <div class="personajes">
+            <span class="pers-tag">🌸 Esperanza</span>
+            <span class="pers-tag">👩 Mamá</span>
+            <span class="pers-tag">🔑 Hortensia</span>
+            <span class="pers-tag">🔧 Alfonso</span>
+            <span class="pers-tag">🔧 Miguel</span>
+            <span class="pers-tag">🐔 Carmen (nueva)</span>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="seccion">
+          <div class="sec-titulo">📝 Vocabulario importante</div>
+          <div class="vocab-grid">
+            <div class="vocab-card">
+              <span class="palabra">🟢 guayaba</span>
+              <span class="definicion">Fruta tropical de olor intenso, color verde o amarillo, muy común en México. Su aroma dulce llena el escondite.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🚂 locomotora</span>
+              <span class="definicion">La parte delantera del tren que tiene el motor y jala todos los vagones.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🧸 muñeca de hilo</span>
+              <span class="definicion">Juguete hecho con hilo que Mamá crea para la niña pobre del tren. Simboliza la generosidad.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🌍 desigualdad</span>
+              <span class="definicion">Diferencia injusta entre grupos de personas en cuanto a riqueza, derechos u oportunidades.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🩸 sangre española</span>
+              <span class="definicion">Miguel explica que en México los de herencia europea tenían más privilegios que los indígenas o mestizos.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🐔 viuda</span>
+              <span class="definicion">Mujer cuyo esposo ha muerto. Carmen es viuda con 8 hijos y sobrevive vendiendo huevos.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">💛 generosidad</span>
+              <span class="definicion">Dar algo a otros aunque uno mismo tenga poco. Carmen les da dos gallinas a Mamá.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🌹 escaramujo (recuerdo)</span>
+              <span class="definicion">Abuelita decía que el escaramujo contiene los recuerdos de la rosa. Esperanza lo asocia con Papá.</span>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="seccion preguntas">
+          <div class="sec-titulo">❓ Preguntas de comprensión</div>
+          <ol>
+            <li>¿Por qué viajan Mamá, Esperanza y Hortensia escondidas debajo del piso de la carreta y no sentadas con los demás?</li>
+            <li>¿Cómo reacciona Esperanza cuando una niña pobre toca su muñeca? ¿Cómo reacciona Mamá?</li>
+            <li>¿Qué hace Mamá con el hilo? ¿Qué le da a la niña? ¿Qué simboliza ese gesto?</li>
+            <li>¿Qué dice Carmen sobre ser pobre y ser rica? ¿Qué tiene ella que la hace sentir rica?</li>
+            <li>Miguel dice: "Los ricos se preocupan de los ricos y los pobres se preocupan de aquellos que tienen menos que ellos". ¿Estás de acuerdo?</li>
+          </ol>
+        </div>
+
+        <hr />
+
+        <div class="seccion reflexion">
+          <div class="sec-titulo">💭 Para reflexionar</div>
+          <ul>
+            <li>
+              <span>👁️</span>
+              Por primera vez Esperanza ve la pobreza de cerca. ¿Qué significa verla de lejos versus verla de cerca?
+            </li>
+            <li>
+              <span>💰</span>
+              Carmen dice: "Soy pobre, pero soy rica". ¿Qué cosas en tu vida te hacen sentir rico/a más allá del dinero?
+            </li>
+            <li>
+              <span>🗺️</span>
+              Mucha gente en ese tren huía también, por distintas razones. ¿Por qué la gente emigra? ¿Qué sacrificios implica?
+            </li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+    <!-- ══════════════════════════════════════════════
+     LOS MELONES
+══════════════════════════════════════════════ -->
+    <details class="cap-melones">
+      <summary>
+        🟡 Los melones — La frontera y California
+        <span class="chevron">▶</span>
+      </summary>
+      <div class="cap-body">
+        <div class="seccion resumen">
+          <div class="sec-titulo">📖 Resumen</div>
+          <p>
+            El tren llega a la frontera en Mexicali. Todos deben pasar por inmigración, y Esperanza observa angustiada cómo a algunas personas las deportan de regreso a México por no tener papeles en
+            orden. Mamá, con su dignidad intacta, convence al inspector de que las dejen pasar.
+          </p>
+          <p>
+            Del otro lado de la frontera todo cambia. Llegan a Los Ángeles, donde los espera la familia de Juan —hermano de Alfonso— con su esposa Josefina, sus hijos e Isabel. Viajan en una camioneta
+            destartalada hacia el valle de San Joaquín, en California. Esperanza ve por primera vez los inmensos campos de cultivo y el diferente paisaje de su nuevo hogar.
+          </p>
+          <p>En el camino conocen a Marta, una joven activista que habla de huelgas y derechos laborales, y que desafía abiertamente a Esperanza sobre sus privilegios pasados.</p>
+        </div>
+
+        <hr />
+
+        <div class="seccion">
+          <div class="sec-titulo">👥 Personajes en este capítulo</div>
+          <div class="personajes">
+            <span class="pers-tag">🌸 Esperanza</span>
+            <span class="pers-tag">👩 Mamá</span>
+            <span class="pers-tag">🔧 Alfonso</span>
+            <span class="pers-tag">🔧 Miguel</span>
+            <span class="pers-tag">🌳 Juan (nuevo)</span>
+            <span class="pers-tag">🌻 Josefina (nueva)</span>
+            <span class="pers-tag">👧 Isabel (nueva)</span>
+            <span class="pers-tag">✊ Marta (nueva)</span>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="seccion">
+          <div class="sec-titulo">📝 Vocabulario importante</div>
+          <div class="vocab-grid">
+            <div class="vocab-card">
+              <span class="palabra">🛂 inmigración</span>
+              <span class="definicion">El proceso de entrar oficialmente a otro país. En la frontera, los inspectores revisan los documentos.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">📄 visa / papeles</span>
+              <span class="definicion">Documentos oficiales que permiten a una persona entrar y vivir legalmente en otro país.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🚫 deportar</span>
+              <span class="definicion">Obligar a alguien a regresar a su país de origen porque no tiene permiso legal de estar en el nuevo país.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🏕️ campamento de trabajadores</span>
+              <span class="definicion">Conjunto de cabañas donde viven los trabajadores agrícolas migrantes cerca de los campos donde trabajan.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🌾 valle de San Joaquín</span>
+              <span class="definicion">Región agrícola en el centro de California, famosa por sus inmensos campos de uvas, algodón y otros cultivos.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">✊ huelga</span>
+              <span class="definicion">Cuando los trabajadores se niegan a trabajar para exigir mejores salarios o condiciones. Marta quiere organizar una huelga.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🌵 árido</span>
+              <span class="definicion">Seco, con poca lluvia y vegetación. El paisaje de la frontera es árido.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🤝 ciudadano mexicano</span>
+              <span class="definicion">Sello que pone el inspector en sus papeles: significa que pueden entrar a EE.UU. legalmente para trabajar.</span>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="seccion preguntas">
+          <div class="sec-titulo">❓ Preguntas de comprensión</div>
+          <ol>
+            <li>¿Qué observa Esperanza que les pasa a algunos inmigrantes en la frontera? ¿Cómo se siente ella al verlo?</li>
+            <li>¿Cómo actúa Mamá frente al inspector? ¿Qué nos dice esto sobre su carácter?</li>
+            <li>¿Cómo es el paisaje de California comparado con Aguascalientes? ¿Qué diferencias nota Esperanza?</li>
+            <li>¿Quién es Marta y qué piensa sobre los ricos mexicanos?</li>
+            <li>¿Por qué se siente Esperanza incómoda con lo que dice Marta?</li>
+          </ol>
+        </div>
+
+        <hr />
+
+        <div class="seccion reflexion">
+          <div class="sec-titulo">💭 Para reflexionar</div>
+          <ul>
+            <li>
+              <span>🛂</span>
+              Esperanza ve gente deportada aunque hizo todo el viaje. ¿Cómo crees que se siente esa gente? ¿Qué piensas sobre la deportación?
+            </li>
+            <li>
+              <span>🗺️</span>
+              California era un lugar nuevo y desconocido para Esperanza. ¿Has llegado a un lugar completamente nuevo? ¿Cómo te sentiste?
+            </li>
+            <li>
+              <span>✊</span>
+              Marta habla de derechos laborales. ¿Qué derechos tienen los trabajadores hoy en día? ¿Cómo se consiguieron esos derechos?
+            </li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+    <!-- ══════════════════════════════════════════════
+     LAS CEBOLLAS
+══════════════════════════════════════════════ -->
+    <details class="cap-cebollas">
+      <summary>
+        🔵 Las cebollas — La nueva vida en el campamento
+        <span class="chevron">▶</span>
+      </summary>
+      <div class="cap-body">
+        <div class="seccion resumen">
+          <div class="sec-titulo">📖 Resumen</div>
+          <p>
+            Llegan al campamento de trabajadores en Arvin, California. Esperanza se enfrenta a una dura realidad: la cabaña es pequeña y humilde, comparten espacio con varias personas, y no hay nada
+            de la vida cómoda que conocía.
+          </p>
+          <p>
+            Mientras Mamá, Hortensia y Josefina van a trabajar al cobertizo, Esperanza debe quedarse a cuidar a los bebés con Isabel. Tiene que aprender tareas que nunca hizo: cambiar pañales, lavar
+            ropa, barrer. Su primer intento de barrer la plataforma termina en ridículo cuando Marta y sus amigas se burlan de ella.
+          </p>
+          <p>
+            Es Miguel quien llega a enseñarle a barrer con paciencia y sin burlarse — un gesto de solidaridad que Esperanza aprecia profundamente. Poco a poco, ella decide que puede aprender. Al final
+            del capítulo, va a su primera "jamaica" (fiesta del campamento) y comienza a conocer a su nueva comunidad.
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="seccion">
+          <div class="sec-titulo">👥 Personajes en este capítulo</div>
+          <div class="personajes">
+            <span class="pers-tag">🌸 Esperanza</span>
+            <span class="pers-tag">👩 Mamá</span>
+            <span class="pers-tag">🔑 Hortensia</span>
+            <span class="pers-tag">🔧 Miguel</span>
+            <span class="pers-tag">👧 Isabel</span>
+            <span class="pers-tag">🌻 Josefina</span>
+            <span class="pers-tag">✊ Marta</span>
+            <span class="pers-tag">👶 Lupe y Pepe (bebés)</span>
+            <span class="pers-tag">👧 Silvia (nueva amiga)</span>
+            <span class="pers-tag">👩 Irene y Melina (vecinas)</span>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="seccion">
+          <div class="sec-titulo">📝 Vocabulario importante</div>
+          <div class="vocab-grid">
+            <div class="vocab-card">
+              <span class="palabra">🏕️ campamento migratorio</span>
+              <span class="definicion">Lugar temporal donde viven trabajadores que se mueven de un lugar a otro siguiendo las cosechas.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🧺 cobertizo</span>
+              <span class="definicion">Edificio grande donde se empaca y procesa la fruta o el algodón cosechado.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🧹 tarima</span>
+              <span class="definicion">Plataforma grande de madera en el centro del campamento usada para reuniones y bailes.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🎉 "jamaica"</span>
+              <span class="definicion">Fiesta del campamento con música, baile y comida. Se celebraba los sábados por la noche. El agua de jamaica es la bebida especial.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🫧 tabla de lavar</span>
+              <span class="definicion">Tabla con superficie ondulada usada para frotar la ropa y limpiarla a mano antes de las lavadoras eléctricas.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🚽 retrete / letrina</span>
+              <span class="definicion">Baño exterior compartido. En el campamento no había baños privados dentro de las cabañas.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">👸 "La cenicienta"</span>
+              <span class="definicion">Personaje del cuento. Marta llama así a Esperanza burlándose de que antes era rica y ahora tiene que barrer.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">💪 humildad</span>
+              <span class="definicion">Reconocer que uno no sabe o no puede todo. Esperanza aprende a pedir ayuda y a aprender de otros.</span>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="seccion preguntas">
+          <div class="sec-titulo">❓ Preguntas de comprensión</div>
+          <ol>
+            <li>¿Qué tareas domésticas tiene que aprender Esperanza? ¿Cuáles nunca había hecho antes?</li>
+            <li>¿Qué pasa cuando Esperanza intenta barrer la tarima por primera vez? ¿Cómo reacciona Marta?</li>
+            <li>¿Qué hace Miguel cuando encuentra a Esperanza avergonzada? ¿Cómo la ayuda?</li>
+            <li>¿Por qué Mamá cambia el peinado? ¿Cómo se siente Esperanza al verla diferente?</li>
+            <li>¿Qué es una "jamaica"? ¿Por qué decide Esperanza ir al final?</li>
+          </ol>
+        </div>
+
+        <hr />
+
+        <div class="seccion reflexion">
+          <div class="sec-titulo">💭 Para reflexionar</div>
+          <ul>
+            <li>
+              <span>🧹</span>
+              Esperanza nunca había hecho labores domésticas. ¿Hay habilidades básicas que no sabes hacer y que te gustaría aprender? ¿Cómo te sentirías si de repente tuvieras que aprenderlas?
+            </li>
+            <li>
+              <span>😅</span>
+              Marta se burla de Esperanza llamándola "la cenicienta". ¿Cuál es la diferencia entre una broma y una crueldad? ¿Cómo se puede responder a la humillación?
+            </li>
+            <li>
+              <span>🤝</span>
+              Miguel ayuda a Esperanza sin burlarse. ¿Qué características tiene una persona que ayuda de verdad?
+            </li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+    <!-- ══════════════════════════════════════════════
+     LAS ALMENDRAS
+══════════════════════════════════════════════ -->
+    <details class="cap-almendras">
+      <summary>
+        🟢 Las almendras — Raíces en tierra nueva
+        <span class="chevron">▶</span>
+      </summary>
+      <div class="cap-body">
+        <div class="seccion resumen">
+          <div class="sec-titulo">📖 Resumen</div>
+          <p>
+            La vida cotidiana en el campamento avanza. Mamá y Hortensia trabajan en el cobertizo empacando fruta; Esperanza cuida a los bebés e Isabel va a la escuela. Poco a poco, Esperanza aprende
+            las rutinas y empieza a sentirse parte de la comunidad.
+          </p>
+          <p>
+            Alfonso y Miguel tienen una sorpresa: detrás de la cabaña han plantado los brotes de las rosas del papá, rescatados del incendio. Este gesto conmueve profundamente a Esperanza — las rosas
+            que conocieron a Papá podrían florecer de nuevo.
+          </p>
+          <p>
+            En la "jamaica" del sábado, Marta intenta provocar una huelga con un dramático gesto con los gatitos, generando división en el campamento. Josefina explica la posición de quienes no
+            quieren huelga: necesitan el trabajo y no pueden arriesgar lo poco que tienen. Esperanza escucha y empieza a entender la complejidad de la situación. La última imagen del capítulo es
+            íntima: Mamá y Esperanza se susurran en la oscuridad, extrañando sus vestidos, pero también dándose cuenta de cuánto han crecido.
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="seccion">
+          <div class="sec-titulo">👥 Personajes en este capítulo</div>
+          <div class="personajes">
+            <span class="pers-tag">🌸 Esperanza</span>
+            <span class="pers-tag">👩 Mamá</span>
+            <span class="pers-tag">🔧 Alfonso</span>
+            <span class="pers-tag">🔧 Miguel</span>
+            <span class="pers-tag">🔑 Hortensia</span>
+            <span class="pers-tag">👧 Isabel</span>
+            <span class="pers-tag">🌻 Josefina</span>
+            <span class="pers-tag">✊ Marta</span>
+            <span class="pers-tag">🌳 Juan</span>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="seccion">
+          <div class="sec-titulo">📝 Vocabulario importante</div>
+          <div class="vocab-grid">
+            <div class="vocab-card">
+              <span class="palabra">🌱 brotes</span>
+              <span class="definicion">Las partes jóvenes de una planta que empiezan a crecer. Alfonso salvó los brotes de las rosas de Papá del incendio.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🌾 cosecha de almendras</span>
+              <span class="definicion">La temporada en que se recogen las almendras de los árboles, sacudiendo las ramas con varas largas.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">✊ organizar (sindical)</span>
+              <span class="definicion">Reunir a los trabajadores para que actúen juntos y exijan mejores condiciones de trabajo.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🐱 gatitos (símbolo)</span>
+              <span class="definicion">Marta usa los gatitos para hacer una comparación: dice que los trabajadores son como animales indefensos en manos de los ricos.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🙏 rezar</span>
+              <span class="definicion">Hablar con Dios o con santos para pedir ayuda o agradecer. Mamá y Esperanza rezan juntas antes de dormir.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">💐 abono</span>
+              <span class="definicion">Material natural que se mezcla con la tierra para que las plantas crezcan mejor.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🌹 rosa (símbolo)</span>
+              <span class="definicion">En el libro, las rosas representan a Papá, el hogar perdido y la esperanza de que algo bello puede renacer.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">📈 condiciones laborales</span>
+              <span class="definicion">Las circunstancias en que trabaja alguien: el salario, el horario, la vivienda, la seguridad, etc.</span>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="seccion preguntas">
+          <div class="sec-titulo">❓ Preguntas de comprensión</div>
+          <ol>
+            <li>¿Qué sorpresa tienen Alfonso y Miguel para Mamá y Esperanza detrás de la cabaña? ¿Por qué es tan significativa?</li>
+            <li>¿Qué hace Marta durante la "jamaica"? ¿Qué quiere demostrar con ese gesto?</li>
+            <li>¿Por qué algunos trabajadores del campamento no quieren ir a la huelga?</li>
+            <li>¿Qué extrañan Mamá y Esperanza de su antigua vida? ¿Qué han ganado en la nueva?</li>
+            <li>Al final del capítulo, Mamá le dice a Esperanza que está "muy orgullosa" de ella. ¿Por qué?</li>
+          </ol>
+        </div>
+
+        <hr />
+
+        <div class="seccion reflexion">
+          <div class="sec-titulo">💭 Para reflexionar</div>
+          <ul>
+            <li>
+              <span>🌹</span>
+              Las rosas que conocieron a Papá vuelven a crecer. ¿Qué cosa de tu pasado llevas contigo para que no desaparezca?
+            </li>
+            <li>
+              <span>✊</span>
+              Hay personas en el campamento a favor y en contra de la huelga. Ambos lados tienen razones válidas. ¿Cómo decides qué hacer cuando no hay una respuesta fácil?
+            </li>
+            <li>
+              <span>🌱</span>
+              Al final, Mamá dice que "también somos campesinas". ¿Cómo ha cambiado la identidad de Esperanza desde el principio del libro?
+            </li>
+            <li>
+              <span>💪</span>
+              ¿Qué habilidades ha desarrollado Esperanza que nunca imaginó necesitar? ¿Qué habilidades has desarrollado tú en momentos difíciles?
+            </li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+    <!-- ══════════════════════════════════════════════
+     LAS CIRUELAS
+══════════════════════════════════════════════ -->
+    <details class="cap-ciruelas">
+      <summary>
+        🟣 Las ciruelas — La huelga, la tormenta y la enfermedad
+        <span class="chevron">▶</span>
+      </summary>
+      <div class="cap-body">
+        <div class="seccion resumen">
+          <div class="sec-titulo">📖 Resumen</div>
+          <p>
+            Isabel comienza a ir a la escuela mientras Esperanza se queda sola en la cabaña cuidando a los bebés Lupe y Pepe. Aprende a prepararles papilla de ciruelas maduras y descubre que está
+            creciendo en responsabilidad. Con las vecinas Irene y Melina teje un poco y platica sobre las tensiones del campamento.
+          </p>
+          <p>
+            La situación se complica cuando la huelga organizada por Marta coincide con una violenta tormenta de polvo que oscurece el cielo a mediodía. Mamá y los trabajadores quedan atrapados en el
+            cobertizo, cubiertos de polvo. Al regresar a casa, Mamá tiene tos severa y fiebre. El médico diagnostica Fiebre del Valle, una infección pulmonar causada por esporas de polvo del valle.
+            Puede tardar meses en recuperarse y no puede recibir visitas. Esperanza enfrenta la posibilidad real de perder también a su madre.
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="seccion">
+          <div class="sec-titulo">👥 Personajes en este capítulo</div>
+          <div class="personajes">
+            <span class="pers-tag">🌸 Esperanza</span>
+            <span class="pers-tag">👩 Mamá</span>
+            <span class="pers-tag">🔑 Hortensia</span>
+            <span class="pers-tag">🔧 Alfonso</span>
+            <span class="pers-tag">🔧 Miguel</span>
+            <span class="pers-tag">👧 Isabel</span>
+            <span class="pers-tag">🌻 Josefina</span>
+            <span class="pers-tag">✊ Marta</span>
+            <span class="pers-tag">👩 Melina e Irene</span>
+            <span class="pers-tag">👶 Lupe y Pepe</span>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="seccion">
+          <div class="sec-titulo">📝 Vocabulario importante</div>
+          <div class="vocab-grid">
+            <div class="vocab-card">
+              <span class="palabra">🌪️ tolvanera / tormenta de polvo</span>
+              <span class="definicion">
+                Tormenta violenta donde el viento levanta enormes nubes de polvo que oscurecen el cielo y dificultan la respiración. Eran frecuentes en California en los años 30.
+              </span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🫁 Fiebre del Valle</span>
+              <span class="definicion">Enfermedad pulmonar causada por esporas de hongos en el polvo del valle de San Joaquín. Muy peligrosa para los recién llegados sin inmunidad.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🦠 esporas</span>
+              <span class="definicion">Partículas microscópicas de hongos que viajan por el aire. Las del valle de California causaban infecciones graves en los pulmones.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🧶 ojos de papa</span>
+              <span class="definicion">Los brotes que crecen en las papas viejas y que se cortan para resembrarlas. Era un trabajo disponible en invierno para los trabajadores del campo.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">✊ esquirol / rompehuelgas</span>
+              <span class="definicion">Trabajador que continúa trabajando durante una huelga. Los huelguistas los consideraban traidores; los que necesitaban el dinero no tenían opción.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🏥 inmunizado</span>
+              <span class="definicion">Protegido contra una enfermedad. Quienes vivían en el valle desde niños estaban inmunizados; los recién llegados, como Mamá, no.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">😔 impotencia</span>
+              <span class="definicion">Sentimiento de no poder hacer nada para cambiar una situación. Esperanza siente impotencia al ver a Mamá enferma sin poder ayudarla.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🌾 La Migra</span>
+              <span class="definicion">Nombre informal para los agentes de inmigración. Durante la huelga, las autoridades usaban la amenaza de deportación para desalentar a los trabajadores.</span>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="seccion preguntas">
+          <div class="sec-titulo">❓ Preguntas de comprensión</div>
+          <ol>
+            <li>¿Por qué Esperanza tiene que quedarse sola con los bebés mientras los adultos trabajan?</li>
+            <li>¿Qué ocurre durante la tormenta de polvo? ¿Cómo afecta a Mamá y a los trabajadores del cobertizo?</li>
+            <li>¿Qué es la Fiebre del Valle? ¿Por qué Mamá la contrajo y los bebés no?</li>
+            <li>¿Qué dice el médico sobre cuánto tiempo tardará Mamá en recuperarse? ¿Cómo reacciona Esperanza ante esta noticia?</li>
+            <li>¿Qué pasa con la huelga ese día? ¿Tiene éxito o fracasa? ¿Por qué?</li>
+          </ol>
+        </div>
+
+        <hr />
+
+        <div class="seccion reflexion">
+          <div class="sec-titulo">💭 Para reflexionar</div>
+          <ul>
+            <li>
+              <span>💪</span>
+              Esperanza tiene que ser fuerte cuando Mamá cae enferma. ¿Alguna vez has tenido que ser "el adulto" de la situación? ¿Cómo te sentiste?
+            </li>
+            <li>
+              <span>🌪️</span>
+              La tormenta de polvo destruye los planes de la huelga. ¿Conoces otros ejemplos de cómo los desastres naturales afectan a las comunidades más vulnerables?
+            </li>
+            <li>
+              <span>⚖️</span>
+              Los trabajadores que no se unen a la huelga son amenazados, pero necesitan el dinero. ¿Cómo juzgas a alguien que tiene que elegir entre sus principios y alimentar a su familia?
+            </li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+    <!-- ══════════════════════════════════════════════
+     LOS AGUACATES
+══════════════════════════════════════════════ -->
+    <details class="cap-aguacates">
+      <summary>
+        🥑 Los aguacates — Trabajar para salvar a Mamá
+        <span class="chevron">▶</span>
+      </summary>
+      <div class="cap-body">
+        <div class="seccion resumen">
+          <div class="sec-titulo">📖 Resumen</div>
+          <p>
+            Mamá sigue en el hospital con neumonía, complicación de la Fiebre del Valle, y el médico prohíbe las visitas por semanas. Esperanza decide que debe trabajar para pagar las facturas médicas
+            y traer a Abuelita desde México. Le pide a Miguel que la ayude a conseguir empleo, y aunque es invierno —temporada baja— comienza cortando ojos de papa junto con Hortensia y Josefina.
+          </p>
+          <p>
+            En las reuniones de trabajo, Esperanza escucha sobre la repatriación forzada de mexicanos: las autoridades están arrestando y deportando a familias enteras, incluyendo a ciudadanos
+            estadounidenses de origen mexicano. El ambiente es tenso y lleno de miedo. Después del trabajo de las papas, Esperanza amarra vides en los viñedos bajo el frío invernal, lo que deja sus
+            manos cortadas y endurecidas. Ya no parecen suyas.
+          </p>
+          <p>
+            Un día Miguel la lleva al mercado japonés del Sr. Yakota, donde Esperanza experimenta la discriminación racial que existe en la sociedad americana. Más tarde, en el campamento migratorio
+            más pobre donde vive Marta con su madre Ada, Esperanza ve miseria extrema y espontáneamente regala frijoles y una piñata a una familia hambrienta. Es un momento de genuina transformación.
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="seccion">
+          <div class="sec-titulo">👥 Personajes en este capítulo</div>
+          <div class="personajes">
+            <span class="pers-tag">🌸 Esperanza</span>
+            <span class="pers-tag">🔧 Miguel</span>
+            <span class="pers-tag">🔑 Hortensia</span>
+            <span class="pers-tag">🌻 Josefina</span>
+            <span class="pers-tag">✊ Marta</span>
+            <span class="pers-tag">👩 Ada (mamá de Marta)</span>
+            <span class="pers-tag">🏪 Sr. Yakota (nuevo)</span>
+            <span class="pers-tag">👶 Lupe y Pepe</span>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="seccion">
+          <div class="sec-titulo">📝 Vocabulario importante</div>
+          <div class="vocab-grid">
+            <div class="vocab-card">
+              <span class="palabra">🚌 repatriación</span>
+              <span class="definicion">
+                Envío forzado de inmigrantes a su país de origen. En los años 30, el gobierno de EE.UU. deportó a más de un millón de mexicanos, incluyendo ciudadanos americanos.
+              </span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🌿 amarrar vides</span>
+              <span class="definicion">
+                Trabajo de invierno en los viñedos: atar las ramas de las plantas de uva a los alambres para que crezcan ordenadas. Es un trabajo frío y que lastima las manos.
+              </span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🏥 neumonía</span>
+              <span class="definicion">Infección grave de los pulmones. Mamá la desarrolló como complicación de la Fiebre del Valle, lo que hace su situación aún más peligrosa.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">💰 giro postal / money order</span>
+              <span class="definicion">Forma de enviar dinero oficialmente. Esperanza ahorra para mandarle dinero a Abuelita y así pueda viajar desde México.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🎎 discriminación racial</span>
+              <span class="definicion">Tratar a alguien peor por su raza o apariencia. En California, los mexicanos enfrentaban segregación en escuelas, cines y tiendas.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🏚️ campamento migratorio</span>
+              <span class="definicion">
+                El tipo de campamento más precario, sin servicios fijos, donde viven familias que se mueven constantemente siguiendo las cosechas. Peores condiciones que el campamento de Esperanza.
+              </span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🤲 generosidad espontánea</span>
+              <span class="definicion">
+                Dar sin pensarlo, movido por compasión. Esperanza da frijoles y la piñata a la familia hambrienta sin calcular — es el primer acto de solidaridad verdadera de su parte.
+              </span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🧶 crochet / ganchillo</span>
+              <span class="definicion">Técnica de tejido usando un gancho. Melina e Irene le enseñan a Esperanza, conectándola con la tradición de Abuelita.</span>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="seccion preguntas">
+          <div class="sec-titulo">❓ Preguntas de comprensión</div>
+          <ol>
+            <li>¿Por qué Esperanza necesita trabajar? ¿Qué dos metas tiene con el dinero que gana?</li>
+            <li>¿Qué es la repatriación? ¿Por qué aterroriza a los trabajadores del campamento?</li>
+            <li>¿Cómo quedan las manos de Esperanza después de semanas de trabajo en el campo? ¿Qué simboliza eso?</li>
+            <li>¿Cómo trata la sociedad americana a los mexicanos según lo que Esperanza observa en la ciudad?</li>
+            <li>¿Qué hace Esperanza cuando encuentra a la familia hambrienta en el campamento migratorio? ¿Cómo reacciona Marta ante ese gesto?</li>
+          </ol>
+        </div>
+
+        <hr />
+
+        <div class="seccion reflexion">
+          <div class="sec-titulo">💭 Para reflexionar</div>
+          <ul>
+            <li>
+              <span>✋</span>
+              Las manos de Esperanza cambian físicamente por el trabajo duro. ¿Qué dice eso sobre cómo ha cambiado ella por dentro?
+            </li>
+            <li>
+              <span>🚌</span>
+              En los años 30 deportaron a ciudadanos americanos solo por ser de origen mexicano. ¿Crees que eso podría ocurrir hoy? ¿Por qué sí o no?
+            </li>
+            <li>
+              <span>🤲</span>
+              Esperanza da sus frijoles a desconocidos aunque ella misma tiene poco. ¿Qué te parece ese gesto? ¿Lo habrías hecho tú?
+            </li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+    <!-- ══════════════════════════════════════════════
+     LOS DURAZNOS
+══════════════════════════════════════════════ -->
+    <details class="cap-duraznos">
+      <summary>
+        🍑 Los duraznos — Pérdidas, rabia y regreso
+        <span class="chevron">▶</span>
+      </summary>
+      <div class="cap-body">
+        <div class="seccion resumen">
+          <div class="sec-titulo">📖 Resumen</div>
+          <p>
+            Llega la temporada de los duraznos e Isabel sueña con ser elegida Reina del Primero de Mayo en su escuela. Esperanza trabaja en el cobertizo empacando fruta. Cuando Miguel llega a casa con
+            la noticia de que su jefe lo reemplazó con trabajadores de Oklahoma que aceptan menos pago, Esperanza estalla de rabia y le lanza masa contra la pared, acusándolo de aceptar humillaciones.
+            En un arrebato le dice cosas hirientes. Esa noche Miguel desaparece: se va al norte de California a buscar trabajo en el ferrocarril, usando los ahorros de Esperanza sin pedirle permiso.
+          </p>
+          <p>
+            Esperanza se siente culpable y devastada. Va a visitar a Mamá al hospital y Hortensia le dice orgullosamente todo lo que Esperanza ha aprendido a hacer. Mamá la abraza y le dice que está
+            muy orgullosa de ella. Poco después, Mamá es dada de alta. Isabel no gana la corona de Reina de Mayo — la maestra elige a una niña anglosajona a pesar de que Isabel tenía las mejores
+            notas. Esperanza le da su muñeca de porcelana para consolarla, un gesto que hubiera sido impensable meses antes.
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="seccion">
+          <div class="sec-titulo">👥 Personajes en este capítulo</div>
+          <div class="personajes">
+            <span class="pers-tag">🌸 Esperanza</span>
+            <span class="pers-tag">👩 Mamá</span>
+            <span class="pers-tag">🔧 Miguel ⚠️ se va</span>
+            <span class="pers-tag">🔑 Hortensia</span>
+            <span class="pers-tag">🔧 Alfonso</span>
+            <span class="pers-tag">👧 Isabel</span>
+            <span class="pers-tag">🌻 Josefina</span>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="seccion">
+          <div class="sec-titulo">📝 Vocabulario importante</div>
+          <div class="vocab-grid">
+            <div class="vocab-card">
+              <span class="palabra">👑 Reina del Primero de Mayo</span>
+              <span class="definicion">
+                Tradición escolar donde la mejor alumna del tercer grado es elegida reina de la fiesta del 1 de mayo. Isabel tiene las mejores notas pero no la eligen por ser mexicana.
+              </span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">😡 arrebato de ira</span>
+              <span class="definicion">Momento en que la rabia acumulada explota de golpe. Esperanza lleva meses conteniendo frustraciones y finalmente estalla con Miguel.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🔄 reemplazado</span>
+              <span class="definicion">Sustituido por otra persona. Los patrones del ferrocarril despiden a los mexicanos y contratan a trabajadores de Oklahoma que aceptan salarios más bajos.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">💸 ahorros</span>
+              <span class="definicion">Dinero guardado durante un tiempo. Miguel toma los ahorros de Esperanza sin permiso para poder ir al norte. Ella lo siente como una traición.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🤍 muñeca de porcelana</span>
+              <span class="definicion">
+                El último regalo de Papá a Esperanza, que ella ha guardado como tesoro. Dársela a Isabel representa un profundo cambio en sus valores: ahora las personas importan más que los objetos.
+              </span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🏥 dada de alta</span>
+              <span class="definicion">Cuando el médico autoriza a un paciente a irse del hospital porque ya está suficientemente recuperado.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">⚖️ segregación</span>
+              <span class="definicion">Separación injusta de personas por su raza. Isabel pierde la corona no por sus notas sino por discriminación racial en la escuela.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🌹 primer brote</span>
+              <span class="definicion">Las rosas de Papá florecen por primera vez en California. Simbolizan que la esperanza y el amor de Papá siguen vivos en el nuevo hogar.</span>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="seccion preguntas">
+          <div class="sec-titulo">❓ Preguntas de comprensión</div>
+          <ol>
+            <li>¿Por qué pierde Miguel su trabajo en el ferrocarril? ¿Qué hace su jefe que lo enfurece?</li>
+            <li>¿Qué le dice Esperanza a Miguel en su pelea? ¿Por qué sus palabras lo hieren tanto?</li>
+            <li>¿Qué hace Miguel esa noche? ¿Por qué Esperanza se siente culpable?</li>
+            <li>¿Por qué Isabel no gana la corona de Reina del Primero de Mayo a pesar de tener las mejores notas?</li>
+            <li>¿Qué hace Esperanza para consolar a Isabel? ¿Por qué ese gesto es tan significativo?</li>
+          </ol>
+        </div>
+
+        <hr />
+
+        <div class="seccion reflexion">
+          <div class="sec-titulo">💭 Para reflexionar</div>
+          <ul>
+            <li>
+              <span>😡</span>
+              Esperanza dice cosas hirientes a Miguel cuando está enojada. ¿Has dicho algo de lo que te arrepentiste después? ¿Cómo reparaste el daño?
+            </li>
+            <li>
+              <span>🏆</span>
+              Isabel pierde la corona por su origen, no por sus méritos. ¿Crees que la discriminación en las escuelas sigue existiendo hoy? ¿De qué formas?
+            </li>
+            <li>
+              <span>🤍</span>
+              Esperanza regala su tesoro más preciado. ¿Qué objeto tuyo darías para consolar a alguien que quieres mucho? ¿Qué dice eso sobre tus valores?
+            </li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+    <!-- ══════════════════════════════════════════════
+     LAS UVAS (FINAL)
+══════════════════════════════════════════════ -->
+    <details class="cap-uvas2">
+      <summary>
+        🍇 Las uvas (final) — El reencuentro y el latido
+        <span class="chevron">▶</span>
+      </summary>
+      <div class="cap-body">
+        <div class="seccion resumen">
+          <div class="sec-titulo">📖 Resumen</div>
+          <p>
+            Ha pasado casi un año desde que llegaron a California. Mamá se recupera en casa y Esperanza trabaja en el cobertizo empacando uvas, duraznos y nectarinas. Un día descubren que alguien tomó
+            los giros postales que Esperanza había guardado para traer a Abuelita. Todo apunta a Miguel. Alfonso se disculpa en nombre de su hijo, pero Mamá defiende a Miguel diciendo que debía tener
+            una razón.
+          </p>
+          <p>
+            Semanas después, mientras Esperanza trabaja en los espárragos, Miguel regresa de repente al campamento — ¡con Abuelita! Había usado el dinero de Esperanza para viajar al norte, conseguir
+            trabajo en el ferrocarril y luego ir a México a buscarla. El reencuentro entre Abuelita, Mamá y Esperanza es profundamente emocionante. Abuelita trae la manta de zigzag, casi terminada.
+          </p>
+          <p>
+            Al día siguiente, Esperanza lleva a Abuelita a los viñedos. Se acuesta en la tierra y, en un hermoso cierre circular, vuelve a sentir el latido del valle — igual que cuando era niña de la
+            mano de Papá. Ahora siente que puede levitar, unida a la tierra, a su familia y a sus sueños. Ha cruzado el río.
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="seccion">
+          <div class="sec-titulo">👥 Personajes en este capítulo</div>
+          <div class="personajes">
+            <span class="pers-tag">🌸 Esperanza</span>
+            <span class="pers-tag">👩 Mamá (recuperada)</span>
+            <span class="pers-tag">👴 Abuelita (regresa)</span>
+            <span class="pers-tag">🔧 Miguel (regresa)</span>
+            <span class="pers-tag">🔑 Hortensia</span>
+            <span class="pers-tag">🔧 Alfonso</span>
+            <span class="pers-tag">👧 Isabel</span>
+            <span class="pers-tag">🌻 Josefina y Juan</span>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="seccion">
+          <div class="sec-titulo">📝 Vocabulario importante</div>
+          <div class="vocab-grid">
+            <div class="vocab-card">
+              <span class="palabra">🍇 temporada de uvas</span>
+              <span class="definicion">
+                El regreso a la cosecha de uvas cierra el círculo de la historia: el libro empieza y termina con las uvas, conectando México con California y el pasado con el presente.
+              </span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">💰 giro postal robado</span>
+              <span class="definicion">Miguel tomó los ahorros de Esperanza sin permiso. Lo que parecía una traición resultó ser un acto de amor: usó el dinero para traer a Abuelita.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🔄 estructura circular</span>
+              <span class="definicion">
+                Recurso literario donde el final conecta con el principio. El libro empieza y termina con Esperanza sintiendo el latido de la tierra, pero ahora ella es diferente.
+              </span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">💓 el latido de la tierra</span>
+              <span class="definicion">
+                Símbolo central de la novela. Al final, Esperanza vuelve a sentirlo — igual que con Papá — pero ahora en tierra californiana, lo que significa que ha encontrado su nuevo hogar.
+              </span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🧶 manta de zigzag</span>
+              <span class="definicion">
+                La manta que tejía Abuelita, tejida con su cabello y sus buenos deseos. Al llegar terminada a California simboliza que el amor y las raíces viajan con las personas.
+              </span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🌊 cruzar el río</span>
+              <span class="definicion">
+                Miguel le dijo que estaban en orillas opuestas del río. Al final, Esperanza toma su mano — ya no hay río entre ellos. Ella ha crecido y el mundo ha cambiado.
+              </span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🐦 elevarse como el fénix</span>
+              <span class="definicion">La imagen final del libro: Esperanza se siente flotar sobre el valle, libre y sin miedo. Ha renacido, como el fénix de la historia de Abuelita.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🌹 rosas de Papá en flor</span>
+              <span class="definicion">Las rosas que Alfonso plantó en California ya florecen. Papá sigue vivo en ellas — y en Esperanza, que ha aprendido a amar como él amaba: sin fronteras.</span>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="seccion preguntas">
+          <div class="sec-titulo">❓ Preguntas de comprensión</div>
+          <ol>
+            <li>¿Quién tomó los ahorros de Esperanza? ¿Para qué los usó? ¿Cómo cambia tu opinión de ese acto cuando sabes el resultado?</li>
+            <li>¿Cómo trae Miguel a Abuelita desde México? ¿Qué dice eso sobre su carácter?</li>
+            <li>¿Qué trae Abuelita consigo que tiene un profundo significado para Esperanza?</li>
+            <li>Al final, Esperanza se acuesta en la tierra del viñedo. ¿Qué siente? ¿En qué se parece y en qué se diferencia de la escena del prólogo?</li>
+            <li>¿Qué significa que Miguel y Esperanza estén ahora "en la misma orilla del río"?</li>
+          </ol>
+        </div>
+
+        <hr />
+
+        <div class="seccion reflexion">
+          <div class="sec-titulo">💭 Para reflexionar</div>
+          <ul>
+            <li>
+              <span>💓</span>
+              El libro empieza y termina con el latido de la tierra. ¿Qué ha cambiado en Esperanza entre el principio y el final? ¿Qué ha ganado y qué ha perdido?
+            </li>
+            <li>
+              <span>🏠</span>
+              California se convierte en el nuevo hogar de Esperanza. ¿Puede un lugar nuevo convertirse en "tu tierra"? ¿Qué necesitas para sentirte en casa en un lugar nuevo?
+            </li>
+            <li>
+              <span>🌹</span>
+              Las rosas de Papá florecen en California. ¿Qué tradición, recuerdo o valor de tu familia llevas contigo sin importar dónde estés?
+            </li>
+            <li>
+              <span>🐦</span>
+              Al final Esperanza "renace". ¿En qué momentos de tu vida has tenido que renacer o empezar de nuevo? ¿Qué aprendiste de esa experiencia?
+            </li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+    <!-- ══════════════════════════════════════════════
+     LAS CIRUELAS
+══════════════════════════════════════════════ -->
+    <details class="cap-ciruelas">
+      <summary>
+        🟣 Las ciruelas — La tormenta y la enfermedad de Mamá
+        <span class="chevron">▶</span>
+      </summary>
+      <div class="cap-body">
+        <div class="seccion resumen">
+          <div class="sec-titulo">📖 Resumen</div>
+          <p>
+            Esperanza está sola en la cabaña cuidando a los bebés Lupe y Pepe mientras todos trabajan. Isabel va a la escuela por primera vez. Esperanza aprende a dar de comer a los bebés, a hacerlos
+            dormir y a manejar el día sola. Una tarde descubre ciruelas maduras y las usa para alimentar a los pequeños.
+          </p>
+          <p>
+            Mientras tanto, una enorme tormenta de polvo azota el valle. Cuando los trabajadores regresan cubiertos de tierra, la cara de Mamá está pálida y tiene una tos persistente. El médico llega
+            y da el diagnóstico: Fiebre del Valle, una infección pulmonar causada por los hongos del polvo agrícola. Mamá tendrá que ir al hospital. Esperanza, aterrada, se da cuenta de que ahora ella
+            debe ser la cabeza de la familia.
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="seccion">
+          <div class="sec-titulo">👥 Personajes en este capítulo</div>
+          <div class="personajes">
+            <span class="pers-tag">🌸 Esperanza</span>
+            <span class="pers-tag">👩 Mamá (enferma)</span>
+            <span class="pers-tag">👧 Isabel</span>
+            <span class="pers-tag">👶 Lupe y Pepe</span>
+            <span class="pers-tag">🔑 Hortensia</span>
+            <span class="pers-tag">🔧 Alfonso</span>
+            <span class="pers-tag">🔧 Miguel</span>
+            <span class="pers-tag">👩 Melina e Irene (vecinas)</span>
+            <span class="pers-tag">✊ Marta</span>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="seccion">
+          <div class="sec-titulo">📝 Vocabulario importante</div>
+          <div class="vocab-grid">
+            <div class="vocab-card">
+              <span class="palabra">🌾 Fiebre del Valle</span>
+              <span class="definicion">
+                Enfermedad pulmonar causada por inhalar esporas de hongos que viven en el polvo del suelo en el valle de San Joaquín. Afecta especialmente a los recién llegados.
+              </span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🌪️ tormenta de polvo</span>
+              <span class="definicion">Tempestad en que el viento levanta enormes nubes de tierra seca que cubren todo y dificultan respirar. Muy comunes en California en los años 30.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🫁 esporas</span>
+              <span class="definicion">Partículas microscópicas de hongos que flotan en el aire. Cuando se inhalan en grandes cantidades pueden causar infecciones pulmonares.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🏥 hospital del condado</span>
+              <span class="definicion">Hospital público para personas sin recursos. Era la única opción para los trabajadores migrantes que no podían pagar un médico privado.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">✊ la huelga del algodón</span>
+              <span class="definicion">Los huelguistas dejaron de trabajar justo cuando llegó la tormenta. El caos hizo que nadie pudiera llegar a los campos ni a los cobertizos.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🧶 ojos de papa</span>
+              <span class="definicion">Los brotes que salen de la papa. Los trabajadores los cortaban para replantarlos. Era un trabajo de invierno cuando no había otras cosechas.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🛡️ La Migra</span>
+              <span class="definicion">Nombre coloquial para los agentes de inmigración. En esa época hacían redadas en los campamentos para deportar trabajadores mexicanos.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🚌 repatriación</span>
+              <span class="definicion">
+                El proceso de enviar personas de regreso a su país. Durante la Gran Depresión, el gobierno de EE.UU. deportó a cientos de miles de mexicanos, incluyendo ciudadanos americanos.
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="seccion preguntas">
+          <div class="sec-titulo">❓ Preguntas de comprensión</div>
+          <ol>
+            <li>¿Qué tareas realiza Esperanza sola mientras cuida a los bebés? ¿Cómo le va?</li>
+            <li>¿Qué causó la Fiebre del Valle? ¿Por qué afecta más a los recién llegados que a los que llevan años en el valle?</li>
+            <li>¿Qué es la "repatriación" y por qué les preocupa a los trabajadores del campamento?</li>
+            <li>¿Qué decide Esperanza hacer cuando se entera de que Mamá tiene que ir al hospital?</li>
+            <li>Al final del capítulo, Esperanza dice que tiene que ser fuerte. ¿En qué sentido ha cambiado desde que llegó a California?</li>
+          </ol>
+        </div>
+
+        <hr />
+
+        <div class="seccion reflexion">
+          <div class="sec-titulo">💭 Para reflexionar</div>
+          <ul>
+            <li>
+              <span>💪</span>
+              Esperanza se encuentra sola responsable de los bebés y la familia. ¿Cuándo has tenido que asumir una responsabilidad mayor de lo que esperabas? ¿Cómo te sentiste?
+            </li>
+            <li>
+              <span>🌪️</span>
+              La tormenta de polvo arruinó la huelga. ¿Crees que fue buena o mala suerte? ¿A quién benefició y a quién perjudicó?
+            </li>
+            <li>
+              <span>🏥</span>
+              Los trabajadores migrantes no tenían seguro médico. ¿Qué problemas causa no tener acceso a atención médica? ¿Ha cambiado eso hoy en día?
+            </li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+    <!-- ══════════════════════════════════════════════
+     LOS AGUACATES
+══════════════════════════════════════════════ -->
+    <details class="cap-aguacates">
+      <summary>
+        🥑 Los aguacates — Esperanza trabaja por Abuelita
+        <span class="chevron">▶</span>
+      </summary>
+      <div class="cap-body">
+        <div class="seccion resumen">
+          <div class="sec-titulo">📖 Resumen</div>
+          <p>
+            Con Mamá hospitalizada y los médicos diciendo que no puede tener visitas por un mes, Esperanza toma una decisión valiente: va a trabajar para pagar los gastos médicos y ahorrar dinero para
+            traer a Abuelita desde México. Convence a Miguel de que la ayude a conseguir empleo en los cobertizos.
+          </p>
+          <p>
+            Empieza cortando ojos de papa en invierno con un grupo de mujeres. Sus manos, que nunca habían hecho trabajo manual, quedan en carne viva y llenas de grietas por el almidón de la papa.
+            Aprende a escuchar las conversaciones sobre la amenaza de deportación y la tensión entre los que apoyan la huelga y los que no. También acompaña a Miguel al mercado japonés del Sr. Yakota,
+            donde ve de cerca la discriminación racial que sufren los mexicanos fuera del campamento.
+          </p>
+          <p>
+            La situación empeora: Mamá desarrolla neumonía y no puede recibir visitas durante semanas. Esperanza solo puede verla brevemente a través de una ventana. Sin embargo, no se rinde: sigue
+            trabajando, ahorrando centavo a centavo, y mantiene viva la esperanza de reunir a su familia.
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="seccion">
+          <div class="sec-titulo">👥 Personajes en este capítulo</div>
+          <div class="personajes">
+            <span class="pers-tag">🌸 Esperanza</span>
+            <span class="pers-tag">👩 Mamá (hospitalizada)</span>
+            <span class="pers-tag">🔧 Miguel</span>
+            <span class="pers-tag">🔑 Hortensia</span>
+            <span class="pers-tag">🔧 Alfonso</span>
+            <span class="pers-tag">👧 Isabel</span>
+            <span class="pers-tag">👩 Melina e Irene</span>
+            <span class="pers-tag">✊ Marta y su tía Ada</span>
+            <span class="pers-tag">🏪 Sr. Yakota (nuevo)</span>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="seccion">
+          <div class="sec-titulo">📝 Vocabulario importante</div>
+          <div class="vocab-grid">
+            <div class="vocab-card">
+              <span class="palabra">🥑 aguacate</span>
+              <span class="definicion">Fruta de piel verde o negra y carne cremosa. En el capítulo, los aguacates aparecen en el mercado y representan la nueva vida de Esperanza en California.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🫁 neumonía</span>
+              <span class="definicion">Infección grave de los pulmones. Mamá la desarrolla como complicación de la Fiebre del Valle, lo que prolonga su hospitalización.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🥔 ojos de papa</span>
+              <span class="definicion">Brotes de la papa que se cortan con un cuchillo y se plantan para producir nuevas papas. Trabajo de invierno, repetitivo y frío.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">💰 giro postal</span>
+              <span class="definicion">Forma de enviar dinero por correo. Esperanza compra giros con sus ahorros para mandárselos a Abuelita en México.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">⚖️ discriminación racial</span>
+              <span class="definicion">Tratar a alguien de forma injusta por su raza o etnia. Miguel le explica a Esperanza que los mexicanos enfrentan discriminación fuera del campamento.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🏪 mercado japonés</span>
+              <span class="definicion">Tienda del Sr. Yakota donde venden productos mexicanos y japoneses. Era un espacio donde los inmigrantes podían comprar sin ser discriminados.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🌿 atar vides</span>
+              <span class="definicion">Trabajo de temporada en los viñedos en que se atan las ramas de las vides al alambre. Esperanza aprende a hacerlo en el frío del invierno.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">📮 orden de dinero</span>
+              <span class="definicion">Documento oficial para enviar dinero. Esperanza ahorra centavo a centavo para mandárselo a Abuelita y costear su viaje a California.</span>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="seccion preguntas">
+          <div class="sec-titulo">❓ Preguntas de comprensión</div>
+          <ol>
+            <li>¿Qué decide hacer Esperanza para ayudar a su familia? ¿Cómo consigue el trabajo?</li>
+            <li>¿Qué le pasa a las manos de Esperanza después de semanas cortando ojos de papa? ¿Qué simboliza esto?</li>
+            <li>¿Qué le explica Miguel sobre el trato que reciben los mexicanos fuera del campamento?</li>
+            <li>¿Por qué no puede Esperanza visitar a Mamá en el hospital? ¿Cómo reacciona Esperanza ante eso?</li>
+            <li>¿Para qué está ahorrando Esperanza su dinero? ¿Qué meta tiene?</li>
+          </ol>
+        </div>
+
+        <hr />
+
+        <div class="seccion reflexion">
+          <div class="sec-titulo">💭 Para reflexionar</div>
+          <ul>
+            <li>
+              <span>✋</span>
+              Las manos de Esperanza cambian: antes suaves, ahora agrietadas y callosas. ¿Qué nos dicen las manos de una persona sobre su historia y su trabajo?
+            </li>
+            <li>
+              <span>⚖️</span>
+              Miguel le habla a Esperanza sobre la discriminación que no puede ver porque vive en el campamento. ¿Por qué es importante conocer las injusticias aunque no nos afecten directamente?
+            </li>
+            <li>
+              <span>🎯</span>
+              Esperanza trabaja con una meta clara: traer a Abuelita. ¿Cómo te ayuda tener una meta concreta a seguir adelante en los momentos difíciles?
+            </li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+    <!-- ══════════════════════════════════════════════
+     LOS DURAZNOS
+══════════════════════════════════════════════ -->
+    <details class="cap-duraznos">
+      <summary>
+        🍑 Los duraznos — Peleas, pérdidas y el regreso de Mamá
+        <span class="chevron">▶</span>
+      </summary>
+      <div class="cap-body">
+        <div class="seccion resumen">
+          <div class="sec-titulo">📖 Resumen</div>
+          <p>
+            Esperanza trabaja ahora en el cobertizo empacando fruta de temporada. Isabel sueña con ser Reina del Día de Mayo en su escuela — el primer premio que cualquier estudiante puede ganar sin
+            importar su origen. Esperanza reza junto a la gruta de Nuestra Señora de Guadalupe para que Isabel lo logre.
+          </p>
+          <p>
+            La tensión explota cuando Miguel llega con malas noticias: su jefe en el ferrocarril lo despidió y contrató trabajadores de Oklahoma por menos dinero. Frustrada por todo lo que han
+            perdido, Esperanza estalla en furia contra Miguel, diciéndole palabras muy duras. Al día siguiente, Miguel se ha ido: se marchó al norte de California a buscar trabajo, y Esperanza carga
+            con la culpa de su partida.
+          </p>
+          <p>
+            Para colmo, Isabel no gana el título de Reina del Día de Mayo a pesar de tener las mejores notas — la maestra eligió a una niña anglosajona. Esperanza la consuela y le regala algo muy
+            preciado. Finalmente, después de meses, Mamá es dada de alta del hospital. Su regreso llena de alegría la cabaña. Las rosas de Papá, que sobrevivieron el invierno, empiezan a florecer.
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="seccion">
+          <div class="sec-titulo">👥 Personajes en este capítulo</div>
+          <div class="personajes">
+            <span class="pers-tag">🌸 Esperanza</span>
+            <span class="pers-tag">👩 Mamá (regresa)</span>
+            <span class="pers-tag">🔧 Miguel (se va)</span>
+            <span class="pers-tag">👧 Isabel</span>
+            <span class="pers-tag">🔑 Hortensia</span>
+            <span class="pers-tag">🔧 Alfonso</span>
+            <span class="pers-tag">🌻 Josefina</span>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="seccion">
+          <div class="sec-titulo">📝 Vocabulario importante</div>
+          <div class="vocab-grid">
+            <div class="vocab-card">
+              <span class="palabra">🍑 durazno / melocotón</span>
+              <span class="definicion">Fruta de verano de piel suave y color anaranjado-rosado. En el cobertizo, Esperanza aprende a clasificarlos y empacarlos por tamaño y madurez.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">👑 Reina del Día de Mayo</span>
+              <span class="definicion">
+                Premio que se daba a la mejor estudiante de tercer grado en la escuela de Isabel. Era una tradición anglosajona donde se esperaba que ganara una niña blanca.
+              </span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">😤 frustración</span>
+              <span class="definicion">Sentimiento de enojo e impotencia cuando las cosas no salen como uno quiere a pesar del esfuerzo. Esperanza explota de frustración con Miguel.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🙏 novena</span>
+              <span class="definicion">Rezo de nueve días seguidos dedicado a un santo o a la Virgen para pedir un favor especial. Isabel reza una novena para ser Reina de Mayo.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🤐 segregación</span>
+              <span class="definicion">Separación de personas por raza. En esa época, las escuelas, cines y otros lugares tenían secciones separadas para blancos, mexicanos y negros.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🌸 Día de Mayo / May Day</span>
+              <span class="definicion">
+                Festividad escolar en primavera con bailes, música y la coronación de una reina. Era una tradición importante en las escuelas de California en los años 30.
+              </span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">💥 ira / rabia</span>
+              <span class="definicion">Sentimiento de enojo muy intenso. La rabia de Esperanza explota después de meses acumulando pérdidas, trabajo duro y preocupación por Mamá.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🌹 primer brote</span>
+              <span class="definicion">La primera flor que abre en las rosas de Papá. Su florecimiento coincide con el regreso de Mamá y simboliza la esperanza renovada.</span>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="seccion preguntas">
+          <div class="sec-titulo">❓ Preguntas de comprensión</div>
+          <ol>
+            <li>¿Por qué pierde Miguel su trabajo en el ferrocarril? ¿Qué hace en su lugar el jefe?</li>
+            <li>¿Qué le dice Esperanza a Miguel en un momento de rabia? ¿Por qué se arrepiente después?</li>
+            <li>¿Por qué no gana Isabel el título de Reina del Día de Mayo si tiene las mejores notas?</li>
+            <li>¿Qué le regala Esperanza a Isabel para consolarla? ¿Por qué ese regalo es tan significativo?</li>
+            <li>¿Cómo recibe la familia el regreso de Mamá del hospital? ¿Qué detalle de las rosas de Papá es importante en este momento?</li>
+          </ol>
+        </div>
+
+        <hr />
+
+        <div class="seccion reflexion">
+          <div class="sec-titulo">💭 Para reflexionar</div>
+          <ul>
+            <li>
+              <span>😤</span>
+              Esperanza explota contra Miguel después de meses aguantando. ¿Es justo ese enojo? ¿Cuándo es difícil controlar las emociones y cómo puedes manejarlo mejor?
+            </li>
+            <li>
+              <span>👑</span>
+              Isabel no gana aunque se lo merece más que nadie. ¿Has vivido una situación donde la injusticia te afectó directamente? ¿Cómo reaccionaste?
+            </li>
+            <li>
+              <span>🌸</span>
+              Las rosas de Papá florecen justo cuando Mamá regresa a casa. ¿Crees en las coincidencias significativas? ¿Qué simbolizan esas rosas para Esperanza?
+            </li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+    <!-- ══════════════════════════════════════════════
+     LAS UVAS (FINAL)
+══════════════════════════════════════════════ -->
+    <details class="cap-uvas2">
+      <summary>
+        🍇 Las uvas — El regreso a casa
+        <span class="chevron">▶</span>
+      </summary>
+      <div class="cap-body">
+        <div class="seccion resumen">
+          <div class="sec-titulo">📖 Resumen</div>
+          <p>
+            Esperanza trabaja en el cobertizo clasificando frutas de verano. Mamá se recupera poco a poco en casa, y Esperanza le lleva fruta fresca todos los días. De Miguel no hay noticias — y sus
+            ahorros han desaparecido de su maleta. Alfonso reconoce que Miguel debe haberse llevado el dinero para viajar al norte a buscar trabajo en el ferrocarril, y promete devolverlo.
+          </p>
+          <p>
+            Días después, Miguel regresa sorpresivamente — y no viene solo. Trae a Abuelita desde México. El reencuentro es de una emoción desbordante: Esperanza no puede ni hablar cuando la ve.
+            Abuelita llega con su bolsa de tejido, su pañuelo bordado y su espíritu intacto.
+          </p>
+          <p>
+            El capítulo — y el libro — termina en un amanecer sobre los viñedos de California. Esperanza lleva a Miguel a un mirador. Se acuesta boca abajo sobre la tierra, como le enseñó Papá años
+            atrás. Esta vez, en tierra extraña y después de todo lo vivido, el corazón de la tierra late de nuevo bajo su cuerpo. Y esta vez, Miguel lo siente también. Esperanza siente que no importa
+            dónde esté: tiene a su familia, sus raíces y la capacidad de renacer — como el fénix, como las rosas de Papá.
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="seccion">
+          <div class="sec-titulo">👥 Personajes en este capítulo</div>
+          <div class="personajes">
+            <span class="pers-tag">🌸 Esperanza</span>
+            <span class="pers-tag">👩 Mamá (recuperada)</span>
+            <span class="pers-tag">🔧 Miguel (regresa)</span>
+            <span class="pers-tag">👴 Abuelita (¡llega!)</span>
+            <span class="pers-tag">🔑 Hortensia</span>
+            <span class="pers-tag">🔧 Alfonso</span>
+            <span class="pers-tag">👧 Isabel</span>
+            <span class="pers-tag">🌻 Josefina y Juan</span>
+            <span class="pers-tag">👶 Lupe y Pepe</span>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="seccion">
+          <div class="sec-titulo">📝 Vocabulario importante</div>
+          <div class="vocab-grid">
+            <div class="vocab-card">
+              <span class="palabra">🍇 uvas / viñedo</span>
+              <span class="definicion">
+                El libro comienza y termina con las uvas. En México, representaban riqueza y hogar. En California, representan el trabajo duro, la resistencia y la nueva vida.
+              </span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">💓 el latido de la tierra</span>
+              <span class="definicion">
+                La metáfora central del libro: acostarse sobre la tierra y sentir su corazón latir. Papá le enseñó esto a Esperanza en México. Al final, ella lo siente de nuevo en California.
+              </span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🌅 amanecer</span>
+              <span class="definicion">El momento en que sale el sol. El libro termina al amanecer, símbolo de un nuevo comienzo y de esperanza renovada.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🎒 ahorros robados</span>
+              <span class="definicion">
+                Miguel tomó los ahorros de Esperanza sin permiso para pagar el viaje de Abuelita desde México. Un acto que pareció traición pero resultó ser el mayor regalo.
+              </span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🦅 renacer</span>
+              <span class="definicion">Volver a nacer, empezar de nuevo después de una pérdida o destrucción. El tema del fénix que renace de las cenizas se cumple al final del libro.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🧶 manta de zigzag</span>
+              <span class="definicion">
+                La manta que Abuelita tejió y que Esperanza continuó. Sus montañas y valles representan los altibajos de la vida. Llegar al final significa haber cruzado todas las montañas.
+              </span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🌹 rosas de Papá</span>
+              <span class="definicion">Las rosas que viajaron desde Aguascalientes ya florecen en California. Son el último lazo vivo con Papá y simbolizan que la belleza y el amor sobreviven.</span>
+            </div>
+            <div class="vocab-card">
+              <span class="palabra">🌊 el río entre las orillas</span>
+              <span class="definicion">Al final, Esperanza y Miguel están en la misma orilla del río. Las diferencias de clase que los separaban en México ya no existen en su nueva vida.</span>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="seccion preguntas">
+          <div class="sec-titulo">❓ Preguntas de comprensión</div>
+          <ol>
+            <li>¿Qué descubre Esperanza que falta en su maleta? ¿Qué hizo Miguel con ese dinero?</li>
+            <li>¿Cómo reacciona Esperanza cuando ve llegar a Abuelita? Describe la escena con tus propias palabras.</li>
+            <li>Al final, Esperanza se acuesta sobre la tierra. ¿Qué recuerda de la primera vez que hizo esto? ¿Qué es diferente ahora?</li>
+            <li>¿Por qué es significativo que el libro empiece y termine con las uvas?</li>
+            <li>¿Qué ha aprendido Esperanza sobre sí misma a lo largo del libro? ¿En qué persona se ha convertido?</li>
+          </ol>
+        </div>
+
+        <hr />
+
+        <div class="seccion reflexion">
+          <div class="sec-titulo">💭 Para reflexionar</div>
+          <ul>
+            <li>
+              <span>❤️</span>
+              Miguel tomó el dinero sin permiso, pero lo usó para hacer el mayor regalo posible. ¿Crees que lo que hizo estuvo bien o mal? ¿Importa la intención cuando se hace algo sin permiso?
+            </li>
+            <li>
+              <span>🌍</span>
+              Al final Esperanza siente el latido de la tierra en California, no solo en México. ¿Qué nos dice esto sobre la idea de "hogar"? ¿Puede haber más de un hogar?
+            </li>
+            <li>
+              <span>🦅</span>
+              Abuelita dijo: "Somos como el fénix que renace." ¿En qué momento del libro sientes que Esperanza verdaderamente "renació"? ¿Por qué ese momento y no otro?
+            </li>
+            <li>
+              <span>🧶</span>
+              La manta de Abuelita tiene montañas y valles. ¿Cuáles fueron las "montañas" y los "valles" de Esperanza en esta historia? ¿Y cuáles son los tuyos?
+            </li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+    <!-- ══════════════════════════════════════════════
+     RESUMEN GENERAL
+══════════════════════════════════════════════ -->
+    <details style="margin-top: 30px">
+      <summary
+        style="
+          background: linear-gradient(135deg, #6a3d9a, #d63384);
+          color: white;
+          padding: 18px 22px;
+          font-size: 1.15rem;
+          font-weight: 700;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          border-radius: 14px;
+          cursor: pointer;
+          list-style: none;
+        ">
+        ⭐ Temas generales del libro
+        <span class="chevron" style="margin-left: auto">▶</span>
+      </summary>
+      <div class="cap-body" style="background: white; padding: 28px; border-radius: 0 0 14px 14px">
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px">
+          <div style="background: #ede0f8; border-left: 4px solid #6a3d9a; border-radius: 10px; padding: 16px">
+            <strong style="color: #6a3d9a">🌱 La identidad</strong>
+            <p style="margin-top: 6px; font-size: 0.93rem">Esperanza pasa de ser una niña rica y privilegiada a una trabajadora inmigrante. ¿Quién es ella ahora? ¿Qué queda de su antigua vida?</p>
+          </div>
+
+          <div style="background: #fde8f2; border-left: 4px solid #d63384; border-radius: 10px; padding: 16px">
+            <strong style="color: #d63384">💪 La resiliencia</strong>
+            <p style="margin-top: 6px; font-size: 0.93rem">Como el fénix o las rosas de Papá, Esperanza aprende a renacer de las pérdidas. Caer no es el final; levantarse es la verdadera fuerza.</p>
+          </div>
+
+          <div style="background: #fff0e6; border-left: 4px solid #e07b39; border-radius: 10px; padding: 16px">
+            <strong style="color: #e07b39">⚖️ La desigualdad</strong>
+            <p style="margin-top: 6px; font-size: 0.93rem">
+              El libro muestra la diferencia entre ricos y pobres en México y en California. Esperanza aprende que vivió en un lado privilegiado sin saberlo.
+            </p>
+          </div>
+
+          <div style="background: #e6f4fb; border-left: 4px solid #2e86ab; border-radius: 10px; padding: 16px">
+            <strong style="color: #2e86ab">🤝 La solidaridad</strong>
+            <p style="margin-top: 6px; font-size: 0.93rem">
+              Alfonso, Hortensia, Miguel, el Sr. Rodríguez, Carmen, Josefina... Muchas personas ayudan a la familia. La comunidad es una fuente de fuerza.
+            </p>
+          </div>
+
+          <div style="background: #edf7ee; border-left: 4px solid #4caf50; border-radius: 10px; padding: 16px">
+            <strong style="color: #2e7d32">🌹 La tierra y las raíces</strong>
+            <p style="margin-top: 6px; font-size: 0.93rem">La tierra late. Las rosas de Papá viajan a California. La tierra conecta a Esperanza con su familia y con su historia.</p>
+          </div>
+
+          <div style="background: #fffbe6; border-left: 4px solid #e6b800; border-radius: 10px; padding: 16px">
+            <strong style="color: #8a5c00">🧶 La paciencia</strong>
+            <p style="margin-top: 6px; font-size: 0.93rem">"Aguántate tantito y la fruta caerá en tu mano." Las palabras de Papá guían a Esperanza: los cambios buenos toman tiempo.</p>
+          </div>
+        </div>
+
+        <div style="margin-top: 24px; background: #f8f4ff; border-radius: 12px; padding: 18px">
+          <strong style="font-size: 1rem; color: #6a3d9a">🌹 El nombre "Esperanza"</strong>
+          <p style="margin-top: 8px; font-size: 0.95rem">
+            El nombre de la protagonista no es casual.
+            <em>Esperanza</em>
+            significa, literalmente,
+            <strong>esperanza</strong>
+            . A lo largo del libro, ella misma es la representación de que aun en los momentos más oscuros, siempre hay razones para seguir adelante.
+          </p>
+        </div>
+      </div>
+    </details>
+
+    <footer>
+      <p>
+        📚 Guía pedagógica elaborada para estudiantes de
+        <strong>GED en español</strong>
+      </p>
+      <p style="margin-top: 6px">
+        Basada en
+        <em>Esperanza renace</em>
+        de Pam Muñoz Ryan · Scholastic
+      </p>
+      <p style="margin-top: 6px">GEDparaHispanos.com · José M. Fernández · City Colleges of Chicago</p>
+    </footer>
+  </body>
+</html>
