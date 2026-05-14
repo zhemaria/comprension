@@ -588,6 +588,151 @@
           grid-template-columns: 1fr;
         }
       }
+      /* ============ INICIO BLOQUE CSS NUEVO ============ */
+
+/* Variables nuevas */
+:root {
+  --comprension: #ad1457;
+  --comprension-lt: #fce4ec;
+  --preguntas-ged: #1a237e;
+  --preguntas-ged-lt: #e8eaf6;
+}
+
+/* Cabeceras (summary) */
+.cap-comprension summary {
+  background: linear-gradient(135deg, #ad1457 0%, #ec407a 100%);
+  color: white;
+}
+.cap-preguntas-ged summary {
+  background: linear-gradient(135deg, #1a237e 0%, #5e35b1 100%);
+  color: white;
+}
+
+/* Etiquetas de sección */
+.cap-comprension .sec-titulo {
+  background: var(--comprension-lt);
+  color: var(--comprension);
+  border-left: 4px solid var(--comprension);
+  padding-left: 10px;
+}
+.cap-preguntas-ged .sec-titulo {
+  background: var(--preguntas-ged-lt);
+  color: var(--preguntas-ged);
+  border-left: 4px solid var(--preguntas-ged);
+  padding-left: 10px;
+}
+
+/* Bloque de temas globales */
+.temas-resumen {
+  background: var(--comprension-lt);
+  border-left: 4px solid var(--comprension);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 12px 0 18px;
+}
+.temas-resumen p { margin-bottom: 10px; font-size: 0.97rem; }
+.temas-resumen ul { margin-left: 20px; margin-top: 8px; }
+.temas-resumen li { margin-bottom: 8px; font-size: 0.95rem; }
+
+.nota-comprension {
+  background: rgba(173,20,87,0.06);
+  border: 1px dashed rgba(173,20,87,0.35);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-top: 16px;
+  font-size: 0.9rem;
+  color: #555;
+}
+.nota-comprension strong { color: var(--comprension); }
+
+/* Preguntas opción múltiple */
+.pregunta-mc {
+  background: #f8f9ff;
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-bottom: 16px;
+  border: 1px solid #d8dce8;
+}
+.pregunta-mc .enunciado {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #2d2d2d;
+  margin-bottom: 12px;
+}
+.opcion {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-bottom: 6px;
+  cursor: pointer;
+  font-size: 0.94rem;
+  background: white;
+  border: 1px solid #e0e0e0;
+  transition: all 0.15s;
+}
+.opcion:hover {
+  background: var(--preguntas-ged-lt);
+  border-color: var(--preguntas-ged);
+}
+.opcion.correcta {
+  background: #c8e6c9;
+  border-color: #2e7d32;
+  color: #1b5e20;
+  font-weight: 600;
+}
+.opcion.incorrecta {
+  background: #ffcdd2;
+  border-color: #c62828;
+  color: #b71c1c;
+}
+.opcion-letra {
+  background: var(--preguntas-ged);
+  color: white;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.82rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.btn-verificar {
+  background: var(--preguntas-ged);
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 12px;
+  letter-spacing: 0.04em;
+  font-family: 'Nunito', sans-serif;
+  transition: background 0.2s;
+}
+.btn-verificar:hover { background: #5e35b1; }
+.feedback {
+  margin-top: 12px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 0.93rem;
+  display: none;
+  line-height: 1.6;
+}
+.feedback.correcto {
+  background: #e8f5e9;
+  color: #1b5e20;
+  border-left: 4px solid #2e7d32;
+}
+.feedback.incorrecto {
+  background: #ffebee;
+  color: #b71c1c;
+  border-left: 4px solid #c62828;
+}
     </style>
   </head>
   <body>
@@ -2495,10 +2640,197 @@
         </div>
       </div>
     </details>
+    <!-- ============ INICIO BLOQUE HTML NUEVO ============ -->
+
+<!-- ════════════ COMPRENSIÓN GLOBAL DEL LIBRO ════════════ -->
+<details class="cap-comprension">
+  <summary>
+    🎯 Comprensión global del libro
+    <span class="chevron">▶</span>
+  </summary>
+  <div class="cap-body">
+    <div class="seccion">
+      <div class="sec-titulo">📖 ¿Cuál es la idea central del libro?</div>
+      <p style="margin-bottom:14px; font-size:0.97rem;">Antes de hacer las preguntas tipo GED, reflexiona sobre el tema principal de la novela. Una buena respuesta de «idea central» abarca <em>todo</em> el libro — desde la vida en Aguascalientes hasta el reencuentro con Abuelita en California — no solo una parte.</p>
+      <div class="temas-resumen">
+        <p><strong>Temas principales del libro (todos están presentes — ¿cuál domina?):</strong></p>
+        <ul>
+          <li>La inmigración mexicana a Estados Unidos durante la Gran Depresión</li>
+          <li>La transformación de Esperanza: de niña privilegiada a joven trabajadora con conciencia social</li>
+          <li>La resiliencia familiar: la capacidad de renacer después de la pérdida (como el fénix)</li>
+          <li>La desigualdad social y la discriminación racial en EE.UU. y en México</li>
+          <li>La importancia de las raíces, la tierra y la memoria familiar</li>
+        </ul>
+      </div>
+      <div class="nota-comprension">
+        <strong>💡 Para el estudiante:</strong> La respuesta correcta a «idea central» en el GED siempre tiene que poder funcionar como tema de un ensayo sobre el libro completo. El libro empieza con Esperanza sintiendo el latido de la tierra junto a Papá y termina con ella sintiéndolo de nuevo junto a Miguel y Abuelita: esa estructura circular te da la clave de cuál es el tema dominante.
+      </div>
+    </div>
+  </div>
+</details>
+
+<!-- ════════════ 12 PREGUNTAS TIPO GED ════════════ -->
+<details class="cap-preguntas-ged" id="ged-preguntas">
+  <summary>
+    ✅ Preguntas tipo GED — 12 preguntas de selección múltiple
+    <span class="chevron">▶</span>
+  </summary>
+  <div class="cap-body">
+    <p style="margin-bottom:20px; font-size:0.95rem; color:#555;">Haz clic en una opción para seleccionarla y luego presiona <strong>Verificar</strong>. Las respuestas correctas se marcan en verde; las incorrectas en rojo, con explicación.</p>
+
+    <!-- P1 -->
+    <div class="pregunta-mc" id="q1">
+      <div class="enunciado">1. ¿Cuál es la idea central de la novela «Esperanza renace»?</div>
+      <div class="opcion" onclick="seleccionar(this,'q1','a')"><span class="opcion-letra">a</span>Las dificultades del trabajo agrícola en California en los años 1930</div>
+      <div class="opcion" onclick="seleccionar(this,'q1','b')"><span class="opcion-letra">b</span>La transformación de una niña privilegiada en una joven resiliente que descubre el valor del trabajo, la familia y la solidaridad</div>
+      <div class="opcion" onclick="seleccionar(this,'q1','c')"><span class="opcion-letra">c</span>La rivalidad entre dos hermanos por la herencia de un rancho</div>
+      <div class="opcion" onclick="seleccionar(this,'q1','d')"><span class="opcion-letra">d</span>La historia de la cosecha de uvas en México</div>
+      <button class="btn-verificar" onclick="verificar('q1','b')">Verificar</button>
+      <div class="feedback" id="fb-q1-correcto correcto">✅ Correcto. Todo el libro traza esa transformación: Esperanza pasa de no saber barrer a trabajar para traer a Abuelita, de despreciar a los pobres a regalar sus frijoles, de llorar por sus vestidos a entregar su muñeca a Isabel.</div>
+      <div class="feedback" id="fb-q1-incorrecto incorrecto">❌ Revisa. La idea central debe abarcar TODO el libro, desde Aguascalientes hasta el reencuentro con Abuelita en California. ¿Qué cambio gradual del personaje conecta todas esas escenas?</div>
+    </div>
+
+    <!-- P2 -->
+    <div class="pregunta-mc" id="q2">
+      <div class="enunciado">2. ¿Qué simboliza el «latido de la tierra» que Esperanza siente al principio y al final del libro?</div>
+      <div class="opcion" onclick="seleccionar(this,'q2','a')"><span class="opcion-letra">a</span>Un fenómeno geológico real de los viñedos</div>
+      <div class="opcion" onclick="seleccionar(this,'q2','b')"><span class="opcion-letra">b</span>La conexión profunda con las raíces, la familia y la naturaleza, que sobrevive a cualquier mudanza</div>
+      <div class="opcion" onclick="seleccionar(this,'q2','c')"><span class="opcion-letra">c</span>El miedo de Esperanza a lugares nuevos</div>
+      <div class="opcion" onclick="seleccionar(this,'q2','d')"><span class="opcion-letra">d</span>Una advertencia sobre los terremotos en California</div>
+      <button class="btn-verificar" onclick="verificar('q2','b')">Verificar</button>
+      <div class="feedback" id="fb-q2-correcto correcto">✅ Correcto. El latido simboliza la continuidad de las raíces. Esperanza lo siente con Papá en Aguascalientes y vuelve a sentirlo en California — prueba de que el hogar interior viaja con uno.</div>
+      <div class="feedback" id="fb-q2-incorrecto incorrecto">❌ Revisa. Las metáforas en literatura nunca son literales. ¿Qué representa para Esperanza ese momento de quedarse quieta sobre la tierra?</div>
+    </div>
+
+    <!-- P3 -->
+    <div class="pregunta-mc" id="q3">
+      <div class="enunciado">3. La metáfora del fénix que Abuelita usa para describir a la familia significa que:</div>
+      <div class="opcion" onclick="seleccionar(this,'q3','a')"><span class="opcion-letra">a</span>La familia ha provocado el incendio del rancho</div>
+      <div class="opcion" onclick="seleccionar(this,'q3','b')"><span class="opcion-letra">b</span>Aunque parezca que han perdido todo, pueden renacer de las cenizas y comenzar de nuevo</div>
+      <div class="opcion" onclick="seleccionar(this,'q3','c')"><span class="opcion-letra">c</span>La familia es legendaria como un ave mitológica</div>
+      <div class="opcion" onclick="seleccionar(this,'q3','d')"><span class="opcion-letra">d</span>Tienen que mudarse siempre como las aves migratorias</div>
+      <button class="btn-verificar" onclick="verificar('q3','b')">Verificar</button>
+      <div class="feedback" id="fb-q3-correcto correcto">✅ Correcto. El fénix simboliza el renacimiento después de la destrucción. Abuelita lo introduce justo después del incendio, y la novela cumple la promesa: la familia se reconstruye en California.</div>
+      <div class="feedback" id="fb-q3-incorrecto incorrecto">❌ Revisa. El fénix en la mitología muere en llamas y renace de sus propias cenizas. ¿Qué le pasa a la familia tras el incendio y qué hacen después?</div>
+    </div>
+
+    <!-- P4 -->
+    <div class="pregunta-mc" id="q4">
+      <div class="enunciado">4. ¿Cómo cambia Esperanza a lo largo de la novela?</div>
+      <div class="opcion" onclick="seleccionar(this,'q4','a')"><span class="opcion-letra">a</span>Se vuelve más rica al final</div>
+      <div class="opcion" onclick="seleccionar(this,'q4','b')"><span class="opcion-letra">b</span>De ser una niña que esperaba ser servida pasa a ser una joven que trabaja, cuida a otros y entiende la desigualdad social</div>
+      <div class="opcion" onclick="seleccionar(this,'q4','c')"><span class="opcion-letra">c</span>Se vuelve resentida y amargada con el mundo</div>
+      <div class="opcion" onclick="seleccionar(this,'q4','d')"><span class="opcion-letra">d</span>Decide volver a México y abandonar a su madre</div>
+      <button class="btn-verificar" onclick="verificar('q4','b')">Verificar</button>
+      <div class="feedback" id="fb-q4-correcto correcto">✅ Correcto. Su transformación es interior: aprende a barrer, a cuidar bebés, a cortar ojos de papa, y sobre todo a ver a los demás sin condescendencia. Las manos callosas son símbolo físico de ese cambio.</div>
+      <div class="feedback" id="fb-q4-incorrecto incorrecto">❌ Revisa. Compara cómo es Esperanza en el cumpleaños (capítulo «Las uvas») con cómo es cuando regala su muñeca a Isabel. ¿Qué tipo de persona se ha vuelto?</div>
+    </div>
+
+    <!-- P5 -->
+    <div class="pregunta-mc" id="q5">
+      <div class="enunciado">5. La «repatriación» que se menciona en el libro se refiere a:</div>
+      <div class="opcion" onclick="seleccionar(this,'q5','a')"><span class="opcion-letra">a</span>Una fiesta tradicional mexicana</div>
+      <div class="opcion" onclick="seleccionar(this,'q5','b')"><span class="opcion-letra">b</span>El envío forzado de inmigrantes mexicanos de regreso a México durante la Gran Depresión, incluso a ciudadanos estadounidenses de origen mexicano</div>
+      <div class="opcion" onclick="seleccionar(this,'q5','c')"><span class="opcion-letra">c</span>Un programa gubernamental para legalizar inmigrantes</div>
+      <div class="opcion" onclick="seleccionar(this,'q5','d')"><span class="opcion-letra">d</span>El regreso voluntario a México de vacaciones</div>
+      <button class="btn-verificar" onclick="verificar('q5','b')">Verificar</button>
+      <div class="feedback" id="fb-q5-correcto correcto">✅ Correcto. Entre 1929 y 1939, EE.UU. deportó a más de un millón de personas de origen mexicano, incluyendo a muchos ciudadanos americanos. Es uno de los episodios más oscuros y menos enseñados de la historia americana.</div>
+      <div class="feedback" id="fb-q5-incorrecto incorrecto">❌ Revisa. Mira el capítulo «Los aguacates» — los trabajadores del campamento tenían miedo de algo concreto del gobierno. ¿Qué era?</div>
+    </div>
+
+    <!-- P6 -->
+    <div class="pregunta-mc" id="q6">
+      <div class="enunciado">6. ¿Por qué son tan importantes las rosas de Papá a lo largo del libro?</div>
+      <div class="opcion" onclick="seleccionar(this,'q6','a')"><span class="opcion-letra">a</span>Porque son una variedad rara y valiosa</div>
+      <div class="opcion" onclick="seleccionar(this,'q6','b')"><span class="opcion-letra">b</span>Porque representan la memoria viva de Papá y la idea de que la belleza y el amor pueden sobrevivir a la pérdida</div>
+      <div class="opcion" onclick="seleccionar(this,'q6','c')"><span class="opcion-letra">c</span>Porque Esperanza las vende para ganar dinero</div>
+      <div class="opcion" onclick="seleccionar(this,'q6','d')"><span class="opcion-letra">d</span>Porque sirven para hacer perfume y vender en el mercado</div>
+      <button class="btn-verificar" onclick="verificar('q6','b')">Verificar</button>
+      <div class="feedback" id="fb-q6-correcto correcto">✅ Correcto. Alfonso y Miguel rescatan los brotes del incendio y los replantan en California. Cuando florecen junto a la cabaña migratoria, Papá ha viajado con la familia: el amor cruza fronteras.</div>
+      <div class="feedback" id="fb-q6-incorrecto incorrecto">❌ Revisa. Las rosas aparecen en momentos clave: el cumpleaños trágico, el incendio, la cabaña en California, el regreso de Mamá. ¿Qué tienen en común esos momentos?</div>
+    </div>
+
+    <!-- P7 -->
+    <div class="pregunta-mc" id="q7">
+      <div class="enunciado">7. ¿Por qué la autora empieza y termina el libro con la cosecha de uvas y con Esperanza sintiendo el latido de la tierra?</div>
+      <div class="opcion" onclick="seleccionar(this,'q7','a')"><span class="opcion-letra">a</span>Para alargar el libro</div>
+      <div class="opcion" onclick="seleccionar(this,'q7','b')"><span class="opcion-letra">b</span>Para crear una estructura circular que muestre que Esperanza ha cambiado profundamente, pero que sus raíces permanecen vivas</div>
+      <div class="opcion" onclick="seleccionar(this,'q7','c')"><span class="opcion-letra">c</span>Porque a la autora le gustan mucho las uvas</div>
+      <div class="opcion" onclick="seleccionar(this,'q7','d')"><span class="opcion-letra">d</span>Para indicar que las cosas no han cambiado</div>
+      <button class="btn-verificar" onclick="verificar('q7','b')">Verificar</button>
+      <div class="feedback" id="fb-q7-correcto correcto">✅ Correcto. La estructura circular es deliberada. La escena del latido se repite pero Esperanza es otra: ya no es niña, ya no está en el rancho, ya trabajó la tierra. El círculo dice «las raíces permanecen aunque el lugar cambie».</div>
+      <div class="feedback" id="fb-q7-incorrecto incorrecto">❌ Revisa. Cuando un autor repite una imagen al principio y al final, casi siempre quiere contrastar el «antes» y el «después». ¿Qué cambia entre las dos escenas, y qué permanece?</div>
+    </div>
+
+    <!-- P8 -->
+    <div class="pregunta-mc" id="q8">
+      <div class="enunciado">8. Cuando Miguel toma los ahorros de Esperanza sin permiso para traer a Abuelita, ¿qué nos enseña ese acto?</div>
+      <div class="opcion" onclick="seleccionar(this,'q8','a')"><span class="opcion-letra">a</span>Que Miguel es deshonesto y no se le debe confiar</div>
+      <div class="opcion" onclick="seleccionar(this,'q8','b')"><span class="opcion-letra">b</span>Que a veces las acciones que parecen una traición pueden revelar el amor más profundo y la planificación más generosa</div>
+      <div class="opcion" onclick="seleccionar(this,'q8','c')"><span class="opcion-letra">c</span>Que Esperanza fue descuidada con su dinero</div>
+      <div class="opcion" onclick="seleccionar(this,'q8','d')"><span class="opcion-letra">d</span>Que Miguel quería deshacerse de Esperanza</div>
+      <button class="btn-verificar" onclick="verificar('q8','b')">Verificar</button>
+      <div class="feedback" id="fb-q8-correcto correcto">✅ Correcto. Miguel usa el dinero exactamente para la meta de Esperanza — traer a Abuelita — y se sacrifica viajando él mismo. Lo que parecía robo era el regalo más grande posible.</div>
+      <div class="feedback" id="fb-q8-incorrecto incorrecto">❌ Revisa. La autora siembra el conflicto («Miguel robó») y luego lo resuelve con un giro emocional. ¿Para qué usó realmente Miguel ese dinero?</div>
+    </div>
+
+    <!-- P9 -->
+    <div class="pregunta-mc" id="q9">
+      <div class="enunciado">9. Cuando Isabel no es elegida Reina del Día de Mayo a pesar de tener las mejores notas, la novela está mostrando:</div>
+      <div class="opcion" onclick="seleccionar(this,'q9','a')"><span class="opcion-letra">a</span>Que Isabel no estudió lo suficiente</div>
+      <div class="opcion" onclick="seleccionar(this,'q9','b')"><span class="opcion-letra">b</span>Que la discriminación racial existía en las escuelas de California en los años 1930 y afectaba a niños de origen mexicano</div>
+      <div class="opcion" onclick="seleccionar(this,'q9','c')"><span class="opcion-letra">c</span>Que la maestra cometió un error administrativo</div>
+      <div class="opcion" onclick="seleccionar(this,'q9','d')"><span class="opcion-letra">d</span>Que Isabel era demasiado tímida</div>
+      <button class="btn-verificar" onclick="verificar('q9','b')">Verificar</button>
+      <div class="feedback" id="fb-q9-correcto correcto">✅ Correcto. Esta escena es una crítica directa: la maestra elige a una niña anglosajona aunque Isabel tiene mejores notas. La autora muestra que las injusticias raciales del sistema escolar son tan reales como las del campo.</div>
+      <div class="feedback" id="fb-q9-incorrecto incorrecto">❌ Revisa. La novela enfatiza que Isabel tenía las mejores notas. ¿Por qué entonces no ganó? ¿Qué tenían en común las niñas que sí han ganado en años anteriores?</div>
+    </div>
+
+    <!-- P10 -->
+    <div class="pregunta-mc" id="q10">
+      <div class="enunciado">10. La frase que repite Papá — «Aguántate tantito y la fruta caerá en tu mano» — es una:</div>
+      <div class="opcion" onclick="seleccionar(this,'q10','a')"><span class="opcion-letra">a</span>Receta tradicional mexicana</div>
+      <div class="opcion" onclick="seleccionar(this,'q10','b')"><span class="opcion-letra">b</span>Metáfora que enseña la importancia de la paciencia y la perseverancia en momentos difíciles</div>
+      <div class="opcion" onclick="seleccionar(this,'q10','c')"><span class="opcion-letra">c</span>Instrucción literal sobre cómo cosechar uvas</div>
+      <div class="opcion" onclick="seleccionar(this,'q10','d')"><span class="opcion-letra">d</span>Advertencia sobre los árboles peligrosos</div>
+      <button class="btn-verificar" onclick="verificar('q10','b')">Verificar</button>
+      <div class="feedback" id="fb-q10-correcto correcto">✅ Correcto. Es una metáfora rural sobre paciencia. Esperanza la recuerda en los momentos más difíciles de California: la enfermedad de Mamá, el trabajo agotador, la ausencia de Abuelita. La fruta sí cae al final.</div>
+      <div class="feedback" id="fb-q10-incorrecto incorrecto">❌ Revisa. Esperanza recuerda esa frase de Papá en los momentos de espera y desesperación. ¿Qué virtud enseña? ¿Se entiende de manera literal o figurada?</div>
+    </div>
+
+    <!-- P11 -->
+    <div class="pregunta-mc" id="q11">
+      <div class="enunciado">11. ¿Por qué Mamá rechaza la propuesta de matrimonio del Tío Luis?</div>
+      <div class="opcion" onclick="seleccionar(this,'q11','a')"><span class="opcion-letra">a</span>Porque el Tío Luis es muy viejo</div>
+      <div class="opcion" onclick="seleccionar(this,'q11','b')"><span class="opcion-letra">b</span>Porque Mamá prefiere conservar su dignidad y la integridad de su familia antes que aceptar seguridad económica con un hombre cruel y oportunista</div>
+      <div class="opcion" onclick="seleccionar(this,'q11','c')"><span class="opcion-letra">c</span>Porque ya está casada con otro hombre</div>
+      <div class="opcion" onclick="seleccionar(this,'q11','d')"><span class="opcion-letra">d</span>Porque las leyes de la época se lo prohibían</div>
+      <button class="btn-verificar" onclick="verificar('q11','b')">Verificar</button>
+      <div class="feedback" id="fb-q11-correcto correcto">✅ Correcto. La decisión de Mamá es el primer acto heroico del libro. Sabe que aceptar le daría riqueza, pero perdería la dignidad y le entregaría a su hija al hombre que mató (indirectamente) a Papá.</div>
+      <div class="feedback" id="fb-q11-incorrecto incorrecto">❌ Revisa. Mamá entiende perfectamente lo que pierde al rechazar al Tío Luis: la casa, la seguridad, el rancho. ¿Qué prefiere conservar?</div>
+    </div>
+
+    <!-- P12 -->
+    <div class="pregunta-mc" id="q12">
+      <div class="enunciado">12. ¿Por qué cree usted que Pam Muñoz Ryan escribió esta novela?</div>
+      <div class="opcion" onclick="seleccionar(this,'q12','a')"><span class="opcion-letra">a</span>Para enseñar geografía de California</div>
+      <div class="opcion" onclick="seleccionar(this,'q12','b')"><span class="opcion-letra">b</span>Para honrar la memoria de su propia abuela (Esperanza Ortega), que emigró de México a EE.UU. en los años 1930, y dar voz a una historia poco conocida de la inmigración mexicana</div>
+      <div class="opcion" onclick="seleccionar(this,'q12','c')"><span class="opcion-letra">c</span>Para criticar a los inmigrantes mexicanos</div>
+      <div class="opcion" onclick="seleccionar(this,'q12','d')"><span class="opcion-letra">d</span>Para promover el turismo en Aguascalientes</div>
+      <button class="btn-verificar" onclick="verificar('q12','b')">Verificar</button>
+      <div class="feedback" id="fb-q12-correcto correcto">✅ Correcto. La novela está basada en la verdadera historia de la abuela de la autora, Esperanza Ortega, que emigró de Aguascalientes a California en los años 1930. Pam Muñoz Ryan rescata esa historia familiar y la convierte en testimonio de toda una generación de inmigrantes mexicanos.</div>
+      <div class="feedback" id="fb-q12-incorrecto incorrecto">❌ Revisa. La autora dedicó esta novela a una persona real con un nombre que coincide con el de la protagonista. ¿Quién es? ¿Y por qué importa que su historia se cuente?</div>
+    </div>
+
+  </div>
+</details>
+
+<!-- ============ FIN BLOQUE HTML NUEVO ============ -->
 
     <!-- ══════════════════════════════════════════════
      RESUMEN GENERAL
 ══════════════════════════════════════════════ -->
+    
     <details style="margin-top: 30px">
       <summary
         style="
@@ -2514,6 +2846,7 @@
           cursor: pointer;
           list-style: none;
         ">
+        
         ⭐ Temas generales del libro
         <span class="chevron" style="margin-left: auto">▶</span>
       </summary>
@@ -2579,5 +2912,39 @@
       </p>
       <p style="margin-top: 6px">GEDparaHispanos.com · José M. Fernández · City Colleges of Chicago</p>
     </footer>
+    <!-- ============ INICIO BLOQUE JAVASCRIPT NUEVO ============ -->
+<script>
+function seleccionar(el, qid, letra) {
+  document.querySelectorAll('#' + qid + ' .opcion').forEach(o => {
+    o.classList.remove('correcta', 'incorrecta');
+  });
+  el.dataset.seleccion = letra;
+  document.getElementById(qid).dataset.seleccion = letra;
+}
+
+function verificar(qid, correcta) {
+  const q = document.getElementById(qid);
+  const sel = q.dataset.seleccion;
+  q.querySelectorAll('.feedback').forEach(f => f.style.display = 'none');
+  q.querySelectorAll('.opcion').forEach(o => o.classList.remove('correcta', 'incorrecta'));
+  if (!sel) {
+    alert('Por favor, seleccione una opción antes de verificar.');
+    return;
+  }
+  q.querySelectorAll('.opcion').forEach(o => {
+    const letra = o.querySelector('.opcion-letra').textContent.toLowerCase();
+    if (letra === correcta) o.classList.add('correcta');
+    else if (letra === sel && sel !== correcta) o.classList.add('incorrecta');
+  });
+  const fbId = sel === correcta ? 'fb-' + qid + '-correcto' : 'fb-' + qid + '-incorrecto';
+  const fb = document.getElementById(fbId);
+  if (fb) {
+    fb.style.display = 'block';
+    fb.className = 'feedback ' + (sel === correcta ? 'correcto' : 'incorrecto');
+  }
+}
+</script>
+<!-- ============ FIN BLOQUE JAVASCRIPT NUEVO ============ -->
+    
   </body>
 </html>
