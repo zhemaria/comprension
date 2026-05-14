@@ -388,6 +388,174 @@
           font-size: 0.95rem;
         }
       }
+      /* ============ INICIO BLOQUE CSS NUEVO ============ */
+
+/* Cabeceras de las nuevas secciones */
+.seccion.comprension > summary {
+  background: linear-gradient(90deg, #f2e8d0 0%, #fff 100%);
+}
+.seccion.comprension[open] > summary {
+  background: linear-gradient(90deg, #e8d5a3 0%, #fdf8f0 100%);
+  border-bottom: 1px solid #cfc1a0;
+}
+.seccion.comprension .num-seccion { color: #c9963a; font-size: 1.4rem; }
+.seccion.comprension .titulo-seccion { color: #6b3a2a; }
+.seccion.comprension .subtitulo-seccion { color: #c9963a; }
+
+.seccion.preguntas-ged > summary {
+  background: linear-gradient(90deg, #e8efe8 0%, #fff 100%);
+}
+.seccion.preguntas-ged[open] > summary {
+  background: linear-gradient(90deg, #c9dfcd 0%, #f0f7f3 100%);
+  border-bottom: 1px solid #9fc9b0;
+}
+.seccion.preguntas-ged .num-seccion { color: #4a7c59; font-size: 1.4rem; }
+.seccion.preguntas-ged .titulo-seccion { color: #2d5e42; }
+.seccion.preguntas-ged .subtitulo-seccion { color: #4a7c59; }
+
+/* Bloque de comprensión global */
+.temas-resumen {
+  background: linear-gradient(135deg, #f2e8d0, #faf6ec);
+  border-left: 4px solid #c9963a;
+  border-radius: 0 6px 6px 0;
+  padding: 1rem 1.3rem;
+  margin: 1.2rem 0;
+}
+.temas-resumen p {
+  margin-bottom: 0.7rem;
+  font-size: 0.95rem;
+  color: #5a3a25;
+}
+.temas-resumen ul { margin-left: 1.3rem; margin-top: 0.5rem; }
+.temas-resumen li {
+  margin-bottom: 0.5rem;
+  font-size: 0.93rem;
+  color: #3a2015;
+}
+.nota-comprension {
+  margin-top: 1.4rem;
+  padding: 0.9rem 1.2rem;
+  background: linear-gradient(135deg, #f0e8f0, #f7eff7);
+  border: 1px solid #c9a3c9;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  color: #5a2d5a;
+}
+.nota-comprension strong {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.4rem;
+  color: #8a3a8a;
+}
+
+/* Preguntas opción múltiple */
+.pregunta-mc {
+  background: #faf6ec;
+  border: 1px solid #ddd3bb;
+  border-radius: 6px;
+  padding: 1.1rem 1.2rem;
+  margin-bottom: 1.2rem;
+}
+.pregunta-mc .enunciado {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #3a2015;
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+}
+.opcion {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  padding: 0.7rem 0.95rem;
+  border-radius: 4px;
+  margin-bottom: 0.4rem;
+  cursor: pointer;
+  font-size: 0.93rem;
+  background: #fff;
+  border: 1px solid #ddd3bb;
+  color: #3a2015;
+  transition: all 0.18s;
+  font-family: 'Lora', serif;
+}
+.opcion:hover {
+  background: #f2e8d0;
+  border-color: #a0522d;
+}
+/* Marca visualmente la opción que el usuario ha clicado, antes de verificar */
+.opcion.seleccionada {
+  background: #f2e8d0;
+  border-color: #a0522d;
+  border-width: 2px;
+  font-weight: 600;
+  box-shadow: inset 3px 0 0 #c9963a;
+}
+.opcion.correcta {
+  background: #e0f0e4;
+  border-color: #4a7c59;
+  color: #2d5e42;
+  font-weight: 600;
+}
+.opcion.incorrecta {
+  background: #f7e0dc;
+  border-color: #c0392b;
+  color: #8a2820;
+}
+.opcion-letra {
+  background: #6b3a2a;
+  color: #faf6ec;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.82rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  font-family: 'Playfair Display', serif;
+}
+.btn-verificar {
+  background: #6b3a2a;
+  color: #faf6ec;
+  border: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 0.7rem;
+  letter-spacing: 0.08em;
+  font-family: 'Raleway', sans-serif;
+  text-transform: uppercase;
+  transition: background 0.2s;
+}
+.btn-verificar:hover { background: #a0522d; }
+.feedback {
+  margin-top: 0.8rem;
+  padding: 0.8rem 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  display: none;
+  line-height: 1.6;
+  font-family: 'Lora', serif;
+}
+.feedback.correcto {
+  background: #e0f0e4;
+  color: #2d5e42;
+  border-left: 4px solid #4a7c59;
+}
+.feedback.incorrecto {
+  background: #f7e0dc;
+  color: #8a2820;
+  border-left: 4px solid #c0392b;
+}
+
+/* ============ FIN BLOQUE CSS NUEVO ============ */
     </style>
   </head>
   <body>
@@ -861,6 +1029,199 @@
           </div>
         </div>
       </details>
+      <!-- ============ INICIO BLOQUE HTML NUEVO ============ -->
+
+<!-- ══════ COMPRENSIÓN GLOBAL DEL CUENTO ══════ -->
+<details class="seccion comprension">
+  <summary>
+    <span class="num-seccion">7</span>
+    <div class="titulo-seccion-wrap">
+      <span class="titulo-seccion">Comprensión global del cuento</span>
+      <span class="subtitulo-seccion">Síntesis temática · Preparación para el examen</span>
+    </div>
+    <span class="flecha">▶</span>
+  </summary>
+  <div class="cuerpo-seccion">
+    <p style="font-size:0.97rem; margin-bottom:1rem;">Antes de hacer las preguntas tipo GED, reflexiona sobre la idea central del cuento. Una buena respuesta abarca <em>todo</em> el relato — desde el fin de la temporada de fresas hasta el regreso de las cajas — no solo una parte.</p>
+    <div class="temas-resumen">
+      <p><strong>Temas principales del cuento (todos están presentes — ¿cuál domina?):</strong></p>
+      <ul>
+        <li>La dura realidad del trabajo migrante en la California de los años 1940-50</li>
+        <li>El ciclo interminable de la vida migrante: trabajar, mudarse, empezar de nuevo</li>
+        <li>La tensión entre el trabajo del campo y la educación como camino de progreso</li>
+        <li>La dignidad humana ante condiciones de pobreza extrema</li>
+        <li>El bilingüismo, el desarraigo y la búsqueda de identidad cultural</li>
+      </ul>
+    </div>
+    <div class="nota-comprension">
+      <strong>🔍 Para el estudiante</strong>
+      La respuesta correcta a «idea central» en el GED siempre tiene que funcionar como tema de un ensayo sobre el cuento completo. El cuento abre con <em>«todo lo que nos pertenecía estaba empacado en cajas de cartón»</em> y cierra con las mismas palabras y puntos suspensivos. Esa estructura circular te da la clave del tema dominante: el ciclo no se rompe, vuelve a empezar.
+    </div>
+  </div>
+</details>
+
+<!-- ══════ 12 PREGUNTAS TIPO GED ══════ -->
+<details class="seccion preguntas-ged" id="ged-preguntas">
+  <summary>
+    <span class="num-seccion">8</span>
+    <div class="titulo-seccion-wrap">
+      <span class="titulo-seccion">Preguntas tipo GED — 12 de selección múltiple</span>
+      <span class="subtitulo-seccion">Verificación interactiva · Razonamiento a través del lenguaje</span>
+    </div>
+    <span class="flecha">▶</span>
+  </summary>
+  <div class="cuerpo-seccion">
+    <p style="font-size:0.95rem; margin-bottom:1.4rem; color:#5a3a25;">Haz clic en una opción para seleccionarla y luego presiona <strong>Verificar</strong>. Las respuestas correctas se marcan en verde; las incorrectas en rojo, con explicación.</p>
+
+    <!-- P1 -->
+    <div class="pregunta-mc" id="q1">
+      <div class="enunciado">1. ¿Cuál es la idea central del cuento «Cajas de cartón»?</div>
+      <div class="opcion" onclick="seleccionar(this,'q1','a')"><span class="opcion-letra">a</span>La importancia de tener un buen coche para viajar entre cosechas</div>
+      <div class="opcion" onclick="seleccionar(this,'q1','b')"><span class="opcion-letra">b</span>El ciclo interminable de mudanzas y trabajo de una familia migrante mexicana, contado desde la mirada de un niño que sueña con la educación</div>
+      <div class="opcion" onclick="seleccionar(this,'q1','c')"><span class="opcion-letra">c</span>La historia de cómo aprender inglés en California</div>
+      <div class="opcion" onclick="seleccionar(this,'q1','d')"><span class="opcion-letra">d</span>La rivalidad entre hermanos en una familia campesina</div>
+      <button class="btn-verificar" onclick="verificar('q1','b')">Verificar</button>
+      <div class="feedback" id="fb-q1-correcto correcto">✅ Correcto. El cuento abre y cierra con las cajas de cartón, símbolo del ciclo de mudanzas. Pero también está la voz del niño que sueña con la escuela y descubre la trompeta. Ambas dimensiones — el ciclo migrante y la mirada infantil — son inseparables.</div>
+      <div class="feedback" id="fb-q1-incorrecto incorrecto">❌ Revisa. La idea central tiene que abarcar TODO el cuento, desde el fin de las fresas hasta el regreso de las cajas. ¿Qué patrón se repite? ¿Quién narra la historia y desde qué perspectiva?</div>
+    </div>
+
+    <!-- P2 -->
+    <div class="pregunta-mc" id="q2">
+      <div class="enunciado">2. ¿Qué simbolizan las «cajas de cartón» en el cuento?</div>
+      <div class="opcion" onclick="seleccionar(this,'q2','a')"><span class="opcion-letra">a</span>La pobreza vergonzosa de la familia</div>
+      <div class="opcion" onclick="seleccionar(this,'q2','b')"><span class="opcion-letra">b</span>La inestabilidad de la vida migrante: el hogar siempre temporal, las pertenencias siempre listas para volver a empacarse</div>
+      <div class="opcion" onclick="seleccionar(this,'q2','c')"><span class="opcion-letra">c</span>El orden y la organización de la familia</div>
+      <div class="opcion" onclick="seleccionar(this,'q2','d')"><span class="opcion-letra">d</span>Los materiales del rancho donde trabajan</div>
+      <button class="btn-verificar" onclick="verificar('q2','b')">Verificar</button>
+      <div class="feedback" id="fb-q2-correcto correcto">✅ Correcto. Las cajas no son cualquier objeto: aparecen al inicio y reaparecen al final, idénticas. Representan que ningún lugar es realmente «casa» — todo está siempre empacado, listo para irse.</div>
+      <div class="feedback" id="fb-q2-incorrecto incorrecto">❌ Revisa. Las cajas aparecen exactamente en el mismo lugar del cuento dos veces: la primera y la última frase. Esa repetición es deliberada. ¿Qué dice esa repetición sobre la vida de la familia?</div>
+    </div>
+
+    <!-- P3 -->
+    <div class="pregunta-mc" id="q3">
+      <div class="enunciado">3. ¿Cuál es el efecto literario más significativo de que el cuento termine con las mismas palabras del principio («todo estaba empacado en cajas de cartón»)?</div>
+      <div class="opcion" onclick="seleccionar(this,'q3','a')"><span class="opcion-letra">a</span>Sugiere que la situación nunca cambia: es una estructura circular que enfatiza el ciclo interminable de la vida migrante</div>
+      <div class="opcion" onclick="seleccionar(this,'q3','b')"><span class="opcion-letra">b</span>Es un descuido del autor que repitió las palabras</div>
+      <div class="opcion" onclick="seleccionar(this,'q3','c')"><span class="opcion-letra">c</span>Hace que el cuento sea más fácil de recordar</div>
+      <div class="opcion" onclick="seleccionar(this,'q3','d')"><span class="opcion-letra">d</span>Marca el final feliz de la historia</div>
+      <button class="btn-verificar" onclick="verificar('q3','a')">Verificar</button>
+      <div class="feedback" id="fb-q3-correcto correcto">✅ Correcto. La estructura circular es uno de los recursos más poderosos del cuento. Panchito hizo amigos, conoció al Sr. Lema, encontró la trompeta — pero todo eso queda interrumpido. El cuento dice sin decir: «esto se repetirá». Y los puntos suspensivos lo subrayan.</div>
+      <div class="feedback" id="fb-q3-incorrecto incorrecto">❌ Revisa. En literatura, cuando un autor repite exactamente palabras al inicio y al final, no es accidente. Tiene un nombre específico: ¿qué estructura crea? ¿Qué dice esa estructura sobre la situación de la familia?</div>
+    </div>
+
+    <!-- P4 -->
+    <div class="pregunta-mc" id="q4">
+      <div class="enunciado">4. ¿Por qué Papá les dice a Roberto y Panchito que «tengan cuidado» cuando ven el camión escolar?</div>
+      <div class="opcion" onclick="seleccionar(this,'q4','a')"><span class="opcion-letra">a</span>Porque el camión podría atropellarlos</div>
+      <div class="opcion" onclick="seleccionar(this,'q4','b')"><span class="opcion-letra">b</span>Porque los niños deberían estar en la escuela, no trabajando: si los descubren, las autoridades podrían intervenir en la familia</div>
+      <div class="opcion" onclick="seleccionar(this,'q4','c')"><span class="opcion-letra">c</span>Porque los niños del camión podrían reírse de ellos</div>
+      <div class="opcion" onclick="seleccionar(this,'q4','d')"><span class="opcion-letra">d</span>Porque el chofer del camión podría arrestarlos</div>
+      <button class="btn-verificar" onclick="verificar('q4','b')">Verificar</button>
+      <div class="feedback" id="fb-q4-correcto correcto">✅ Correcto. La escena es dolorosa: Roberto y Panchito se esconden entre las viñas mientras dos niños bien vestidos bajan del camión. Trabajar mientras otros estudian no es solo cansancio — es ilegal y socialmente invisible. El miedo de Papá refleja una realidad sistémica.</div>
+      <div class="feedback" id="fb-q4-incorrecto incorrecto">❌ Revisa. Mira la escena con cuidado: los niños del camión llevan libros y van bien vestidos. Roberto y Panchito tienen edad escolar pero están en el campo. ¿Por qué eso es un problema legal? ¿Qué podría pasarle a la familia si los descubrieran?</div>
+    </div>
+
+    <!-- P5 -->
+    <div class="pregunta-mc" id="q5">
+      <div class="enunciado">5. ¿Qué se puede inferir sobre el carácter del Sr. Lema?</div>
+      <div class="opcion" onclick="seleccionar(this,'q5','a')"><span class="opcion-letra">a</span>Es un maestro estricto que castiga a los estudiantes que no saben leer</div>
+      <div class="opcion" onclick="seleccionar(this,'q5','b')"><span class="opcion-letra">b</span>Es un educador compasivo que reconoce el potencial de Panchito y le ofrece tiempo, paciencia y oportunidades fuera del currículo regular</div>
+      <div class="opcion" onclick="seleccionar(this,'q5','c')"><span class="opcion-letra">c</span>Es indiferente a los estudiantes mexicanos</div>
+      <div class="opcion" onclick="seleccionar(this,'q5','d')"><span class="opcion-letra">d</span>Es un maestro nuevo sin experiencia</div>
+      <button class="btn-verificar" onclick="verificar('q5','b')">Verificar
+
+      <div class="feedback" id="fb-q5-correcto correcto">✅ Correcto. Cuando Panchito no puede leer, el Sr. Lema no lo humilla: cambia de turno con tacto. Después le ofrece ayuda diaria con el inglés durante el almuerzo, y va más allá: le abre el mundo de la música con la trompeta. Es un retrato de cómo un buen maestro puede cambiar la trayectoria de un niño.</div>
+      <div class="feedback" id="fb-q5-incorrecto incorrecto">❌ Revisa. Compara cómo el Sr. Lema reacciona cuando Panchito no puede leer con cómo otro maestro podría haber reaccionado. ¿Qué decisiones toma? ¿Qué le ofrece más allá de lo estrictamente escolar?</div>
+    </div>
+
+    <!-- P6 -->
+    <div class="pregunta-mc" id="q6">
+      <div class="enunciado">6. ¿Qué nos dice el detalle de que Papá llamara cariñosamente «Carcachita» a su viejo Plymouth y Mamá llamara «mi olla» a una olla galvanizada con abolladuras?</div>
+      <div class="opcion" onclick="seleccionar(this,'q6','a')"><span class="opcion-letra">a</span>Que son personas materialistas</div>
+      <div class="opcion" onclick="seleccionar(this,'q6','b')"><span class="opcion-letra">b</span>Que su dignidad y orgullo no dependen del valor económico de los objetos sino del afecto y el cuidado con que los habitan</div>
+      <div class="opcion" onclick="seleccionar(this,'q6','c')"><span class="opcion-letra">c</span>Que no saben valorar las cosas modernas</div>
+      <div class="opcion" onclick="seleccionar(this,'q6','d')"><span class="opcion-letra">d</span>Que tienen miedo de comprar cosas nuevas</div>
+      <button class="btn-verificar" onclick="verificar('q6','b')">Verificar</button>
+      <div class="feedback" id="fb-q6-correcto correcto">✅ Correcto. Personificar objetos modestos con nombres cariñosos («Carcachita», «mi olla») es un acto de dignidad. La familia no tiene mucho, pero lo que tiene lo respeta y lo cuida. Es una de las maneras silenciosas en que Jiménez muestra la nobleza de los personajes.</div>
+      <div class="feedback" id="fb-q6-incorrecto incorrecto">❌ Revisa. Papá examina el carro «palmo a palmo» antes de comprarlo. Mamá agarra la olla cuidadosamente «por las dos asas». ¿Qué tipo de relación tienen con sus pocos objetos? ¿Qué valor humano refleja eso?</div>
+    </div>
+
+    <!-- P7 -->
+    <div class="pregunta-mc" id="q7">
+      <div class="enunciado">7. ¿Qué emoción contradictoria siente Panchito al ver a Papá y Roberto irse a trabajar mientras él se queda para ir a la escuela?</div>
+      <div class="opcion" onclick="seleccionar(this,'q7','a')"><span class="opcion-letra">a</span>Alivio y al mismo tiempo culpa por dejar a su familia trabajando</div>
+      <div class="opcion" onclick="seleccionar(this,'q7','b')"><span class="opcion-letra">b</span>Alegría pura, sin ninguna sombra</div>
+      <div class="opcion" onclick="seleccionar(this,'q7','c')"><span class="opcion-letra">c</span>Enojo contra Papá por hacerlo ir a la escuela</div>
+      <div class="opcion" onclick="seleccionar(this,'q7','d')"><span class="opcion-letra">d</span>Indiferencia</div>
+      <button class="btn-verificar" onclick="verificar('q7','a')">Verificar</button>
+      <div class="feedback" id="fb-q7-correcto correcto">✅ Correcto. Panchito se sienta «cabizbajo» frente a Roberto sin querer mirarlo. Después siente «un gran alivio». Esa contradicción — alivio + tristeza por el hermano que no irá — es uno de los momentos emocionales más sutiles y verdaderos del cuento.</div>
+      <div class="feedback" id="fb-q7-incorrecto incorrecto">❌ Revisa la escena del desayuno antes de ir a la escuela. ¿Por qué Panchito está «cabizbajo» pero después siente «alivio»? Las dos cosas son verdad al mismo tiempo. ¿Cómo se llama esa mezcla emocional?</div>
+    </div>
+
+    <!-- P8 -->
+    <div class="pregunta-mc" id="q8">
+      <div class="enunciado">8. La frase «Sus tristes ojos sumidos estaban humedecidos», referida a Papá cuando termina de calcular lo que ganaron, sugiere que:</div>
+      <div class="opcion" onclick="seleccionar(this,'q8','a')"><span class="opcion-letra">a</span>Papá está enfermo de los ojos</div>
+      <div class="opcion" onclick="seleccionar(this,'q8','b')"><span class="opcion-letra">b</span>Papá llora silenciosamente porque sabe que lo ganado no es suficiente, aunque no lo diga en voz alta</div>
+      <div class="opcion" onclick="seleccionar(this,'q8','c')"><span class="opcion-letra">c</span>Papá tiene polvo en los ojos por el calor</div>
+      <div class="opcion" onclick="seleccionar(this,'q8','d')"><span class="opcion-letra">d</span>Papá se durmió mientras calculaba</div>
+      <button class="btn-verificar" onclick="verificar('q8','b')">Verificar</button>
+      <div class="feedback" id="fb-q8-correcto correcto">✅ Correcto. Es uno de los momentos más conmovedores del cuento: Papá no se queja, no dice nada — solo sus ojos «humedecidos». Jiménez nos muestra el dolor a través de un detalle físico mínimo, sin sentimentalismo. La dignidad de Papá no le permite llorar abiertamente.</div>
+      <div class="feedback" id="fb-q8-incorrecto incorrecto">❌ Revisa el contexto: Papá acaba de calcular «cuánto habíamos ganado ese primer día». Apuntó, borró, escribió más. Alzó la cabeza sin decir nada. ¿Por qué tiene los ojos humedecidos? ¿Qué emoción está controlando?</div>
+    </div>
+
+    <!-- P9 -->
+    <div class="pregunta-mc" id="q9">
+      <div class="enunciado">9. ¿Qué representa la trompeta que el Sr. Lema le ofrece enseñarle a Panchito?</div>
+      <div class="opcion" onclick="seleccionar(this,'q9','a')"><span class="opcion-letra">a</span>Una posibilidad concreta de futuro: un puente entre la cultura mexicana de Panchito (los corridos) y la oportunidad escolar americana</div>
+      <div class="opcion" onclick="seleccionar(this,'q9','b')"><span class="opcion-letra">b</span>Un instrumento sin importancia</div>
+      <div class="opcion" onclick="seleccionar(this,'q9','c')"><span class="opcion-letra">c</span>Un objeto valioso que Panchito quiere robar</div>
+      <div class="opcion" onclick="seleccionar(this,'q9','d')"><span class="opcion-letra">d</span>Un recuerdo de Jalisco</div>
+      <button class="btn-verificar" onclick="verificar('q9','a')">Verificar</button>
+      <div class="feedback" id="fb-q9-correcto correcto">✅ Correcto. La trompeta es brillante simbolismo: Panchito reconoce en su sonido los corridos mexicanos que le encantan. La música se vuelve el lenguaje común entre el niño campesino y la escuela americana. Por eso el final con las cajas duele tanto: esa promesa se interrumpe.</div>
+      <div class="feedback" id="fb-q9-incorrecto incorrecto">❌ Revisa la escena: «Era un sonido de corridos que me encantaba». ¿Qué dos mundos conecta la trompeta? ¿Por qué es importante que el sonido le recuerde los corridos mexicanos?</div>
+    </div>
+
+    <!-- P10 -->
+    <div class="pregunta-mc" id="q10">
+      <div class="enunciado">10. ¿Qué tipo de narrador tiene el cuento «Cajas de cartón»?</div>
+      <div class="opcion" onclick="seleccionar(this,'q10','a')"><span class="opcion-letra">a</span>Narrador omnisciente en tercera persona</div>
+      <div class="opcion" onclick="seleccionar(this,'q10','b')"><span class="opcion-letra">b</span>Narrador en primera persona protagonista (el niño Panchito), lo que crea cercanía emocional y una mirada inocente sobre realidades duras</div>
+      <div class="opcion" onclick="seleccionar(this,'q10','c')"><span class="opcion-letra">c</span>Narrador en segunda persona</div>
+      <div class="opcion" onclick="seleccionar(this,'q10','d')"><span class="opcion-letra">d</span>Narrador testigo que observa desde lejos</div>
+      <button class="btn-verificar" onclick="verificar('q10','b')">Verificar</button>
+      <div class="feedback" id="fb-q10-correcto correcto">✅ Correcto. El uso de «yo» (Panchito) es clave: el narrador es un niño, por eso ve los detalles concretos (la olla, el carro, la trompeta) y siente las emociones puras (alivio, vergüenza, alegría). El lector adulto entiende cosas que Panchito apenas intuye — esa distancia es el corazón del cuento.</div>
+      <div class="feedback" id="fb-q10-incorrecto incorrecto">❌ Revisa el texto: aparecen pronombres como «yo», «nos», «mi». ¿Quién es ese «yo»? ¿Es Panchito o alguien externo a la familia que cuenta?</div>
+    </div>
+
+    <!-- P11 -->
+    <div class="pregunta-mc" id="q11">
+      <div class="enunciado">11. ¿Qué se puede inferir sobre el papel de Mamá en la familia a partir del cuento?</div>
+      <div class="opcion" onclick="seleccionar(this,'q11','a')"><span class="opcion-letra">a</span>Es una figura pasiva que solo cocina y obedece</div>
+      <div class="opcion" onclick="seleccionar(this,'q11','b')"><span class="opcion-letra">b</span>Es una mujer activa: habla con el capataz porque Papá no habla inglés, gestiona el hogar, y sostiene la dignidad cotidiana con detalles como su olla</div>
+      <div class="opcion" onclick="seleccionar(this,'q11','c')"><span class="opcion-letra">c</span>No aparece en el cuento</div>
+      <div class="opcion" onclick="seleccionar(this,'q11','d')"><span class="opcion-letra">d</span>Trabaja solo en la viña con los hombres</div>
+      <button class="btn-verificar" onclick="verificar('q11','b')">Verificar</button>
+      <div class="feedback" id="fb-q11-correcto correcto">✅ Correcto. Aunque el cuento es de los años 1950, Mamá no es decorativa: ella es quien gestiona el inglés con el capataz, quien organiza el hogar nuevo en el garaje, quien protege su olla como símbolo de continuidad. Su rol es central aunque silencioso.</div>
+      <div class="feedback" id="fb-q11-incorrecto incorrecto">❌ Revisa la escena de la llegada al campo de trabajo. ¿Quién habla con el capataz? ¿Quién va a tocar la puerta del Sr. Sullivan? Mamá tiene un rol más activo de lo que parece a primera vista.</div>
+    </div>
+
+    <!-- P12 -->
+    <div class="pregunta-mc" id="q12">
+      <div class="enunciado">12. ¿Cuál es el propósito principal del autor Francisco Jiménez al escribir este cuento autobiográfico?</div>
+      <div class="opcion" onclick="seleccionar(this,'q12','a')"><span class="opcion-letra">a</span>Quejarse de su infancia</div>
+      <div class="opcion" onclick="seleccionar(this,'q12','b')"><span class="opcion-letra">b</span>Dar testimonio de la experiencia migrante mexicana en California y dignificar la vida de los trabajadores agrícolas, dando voz a historias invisibilizadas</div>
+      <div class="opcion" onclick="seleccionar(this,'q12','c')"><span class="opcion-letra">c</span>Promover el turismo en Fresno</div>
+      <div class="opcion" onclick="seleccionar(this,'q12','d')"><span class="opcion-letra">d</span>Criticar a los maestros americanos</div>
+      <button class="btn-verificar" onclick="verificar('q12','b')">Verificar</button>
+      <div class="feedback" id="fb-q12-correcto correcto">✅ Correcto. Francisco Jiménez es uno de los fundadores de la literatura chicana. Llegó como niño migrante desde Jalisco y se convirtió en profesor universitario. Sus textos rescatan la experiencia invisible de las familias migrantes mexicanas — su dignidad, sus sueños, su trabajo. Es literatura como acto de justicia cultural.</div>
+      <div class="feedback" id="fb-q12-incorrecto incorrecto">❌ Revisa: el cuento es autobiográfico, basado en la propia infancia del autor. ¿Qué experiencia colectiva representa esa infancia? ¿A quién le da voz un autor cuando cuenta historias como esta?</div>
+    </div>
+
+  </div>
+</details>
+
+<!-- ============ FIN BLOQUE HTML NUEVO ============ -->
     </main>
 
     <!-- ═══════════════════════════════════════════
@@ -872,5 +1233,48 @@
       <a href="https://gedparahispanos.com" target="_blank">GEDparaHispanos.com</a>
       &nbsp;·&nbsp; José M. Fernández · City Colleges of Chicago
     </footer>
+    <!-- ============ INICIO BLOQUE JAVASCRIPT NUEVO ============ -->
+<script>
+function seleccionar(el, qid, letra) {
+  // Limpiar selección anterior (incluyendo correcta/incorrecta de verificaciones previas)
+  document.querySelectorAll('#' + qid + ' .opcion').forEach(o => {
+    o.classList.remove('correcta', 'incorrecta', 'seleccionada');
+  });
+
+  // Marcar la opción actual
+  el.classList.add('seleccionada');
+
+  // Guardar la letra elegida
+  el.dataset.seleccion = letra;
+  document.getElementById(qid).dataset.seleccion = letra;
+
+  // Ocultar feedback anterior si el usuario cambia de opinión
+  document.getElementById(qid).querySelectorAll('.feedback').forEach(f => f.style.display = 'none');
+}
+
+function verificar(qid, correcta) {
+  const q = document.getElementById(qid);
+  const sel = q.dataset.seleccion;
+  q.querySelectorAll('.feedback').forEach(f => f.style.display = 'none');
+  q.querySelectorAll('.opcion').forEach(o => o.classList.remove('correcta', 'incorrecta'));
+  if (!sel) {
+    alert('Por favor, seleccione una opción antes de verificar.');
+    return;
+  }
+  q.querySelectorAll('.opcion').forEach(o => {
+    const letra = o.querySelector('.opcion-letra').textContent.toLowerCase();
+    if (letra === correcta) o.classList.add('correcta');
+    else if (letra === sel && sel !== correcta) o.classList.add('incorrecta');
+  });
+  const fbId = sel === correcta ? 'fb-' + qid + '-correcto' : 'fb-' + qid + '-incorrecto';
+  const fb = document.getElementById(fbId);
+  if (fb) {
+    fb.style.display = 'block';
+    fb.className = 'feedback ' + (sel === correcta ? 'correcto' : 'incorrecto');
+  }
+}
+</script>
+<!-- ============ FIN BLOQUE JAVASCRIPT NUEVO ============ -->
   </body>
 </html>
+
