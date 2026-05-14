@@ -1,1 +1,1932 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>El Principito - Antoine de Saint-Exupéry</title>
+    <style>
+      /* Colores DUA - Accesibles y con buen contraste */
+      :root {
+        --primary-color: #2c5f7c;
+        --secondary-color: #f4e4bc;
+        --accent-color: #d4af37;
+        --text-color: #2c3e50;
+        --bg-color: #fefefe;
+        --border-color: #b0bec5;
+        --hover-color: #e8f4f8;
+        --focus-color: #ff6b35;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Georgia', serif;
+        line-height: 1.2;
+        color: var(--text-color);
+        background-color: var(--bg-color);
+        padding: 20px;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 40px;
+        padding: 30px;
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        border-radius: 15px;
+        color: white;
+        position: relative;
+        min-height: 120px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      header p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+
+      .dedication {
+        background-color: var(--secondary-color);
+        padding: 25px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        border-left: 5px solid var(--accent-color);
+      }
+
+      .dedication h2 {
+        color: var(--primary-color);
+        margin-bottom: 15px;
+        font-size: 1.4rem;
+      }
+
+      .dedication p {
+        margin-bottom: 10px;
+        font-style: italic;
+      }
+
+      .accordion {
+        margin-bottom: 20px;
+      }
+
+      .accordion-item {
+        border: 2px solid var(--border-color);
+        border-radius: 8px;
+        margin-bottom: 10px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .accordion-item:hover {
+        border-color: var(--accent-color);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .accordion-header {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 20px;
+        cursor: pointer;
+        font-size: 1.3rem;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background-color 0.3s ease;
+      }
+
+      .accordion-header:hover {
+        background-color: #34708f;
+      }
+
+      .accordion-header:focus {
+        outline: 3px solid var(--focus-color);
+        outline-offset: 2px;
+      }
+
+      .accordion-arrow {
+        font-size: 1.5rem;
+        transition: transform 0.3s ease;
+      }
+
+      .accordion-item.active .accordion-arrow {
+        transform: rotate(180deg);
+      }
+
+      .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        background-color: var(--bg-color);
+      }
+
+      .accordion-item.active .accordion-content {
+        max-height: 5000px;
+      }
+
+      .accordion-body {
+        padding: 25px;
+      }
+
+      /* CSS para las imágenes - SIN bordes punteados */
+      .chapter-image {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        border-radius: 8px;
+        margin: 20px auto;
+        display: block;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .chapter-image:hover {
+        transform: scale(1.02);
+        transition: transform 0.3s ease;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+      .chapter-image-large {
+        width: 100%;
+        max-width: 500px;
+        border-radius: 8px;
+        margin: 20px auto;
+        display: block;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .chapter-image-large:hover {
+        transform: scale(1.02);
+        transition: transform 0.3s ease;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      .chapter-text {
+        text-align: justify;
+        margin-bottom: 20px;
+      }
+
+      .chapter-text p {
+        margin-bottom: 15px;
+      }
+
+      footer {
+        text-align: center;
+        margin-top: 40px;
+        padding: 20px;
+        background-color: var(--secondary-color);
+        border-radius: 10px;
+        font-size: 0.9rem;
+        color: var(--text-color);
+      }
+      /* Imagen del autor posicionada a la derecha */
+      .author-image {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease;
+        z-index: 10;
+      }
+
+      .author-image:hover {
+        transform: scale(1.02);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+      }
+
+      .author-image img {
+        display: block;
+        border-radius: 8px;
+        width: 150px;
+        height: auto;
+      }
+
+      /* Accesibilidad mejorada */
+      @media (prefers-reduced-motion: reduce) {
+        .accordion-content,
+        .accordion-arrow,
+        .accordion-item {
+          transition: none;
+        }
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 10px;
+        }
+
+        header h1 {
+          font-size: 2rem;
+        }
+
+        .accordion-header {
+          padding: 15px;
+          font-size: 1.1rem;
+        }
+
+        .accordion-body {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>El Principito</h1>
+      <p>Antoine de Saint-Exupéry (1900-1944)</p>
+      <figure class="author-image"><img src="https://www.sps-aviation.com/images/3208.jpg" alt="Antoine de Saint-Exupéry" title="Antoine de Saint-Exupéry" /></figure>
+    </header>
+    <div class="dedication">
+      <h2>A León Werth</h2>
+      <p>
+        Pido perdón a los niños por haber dedicado este libro a una persona mayor. Tengo una muy seria disculpa: esta persona mayor es el mejor amigo que tengo en el mundo. Tengo otra disculpa: Esta
+        persona mayor es capaz de comprender todo, hasta los libros para niños.
+      </p>
+      <p>
+        Y tengo aún una tercera disculpa: Esta persona mayor vive en Francia donde siente hambre, frío y tiene gran necesidad de ser consolada. Más si todas estas disculpas no fueran suficientes,
+        quiero entonces dedicar este libro al niño que fue, en otro tiempo, esta persona mayor. Todas las personas mayores han comenzado por ser niños (aunque pocas lo recuerden).
+      </p>
+      <p><strong>Corrijo, entonces, mi dedicatoria:</strong></p>
+      <p><strong>A León Werth cuando era niño</strong></p>
+    </div>
+    <div class="accordion">
+      <!-- capitulo 1-->
+      <div class="accordion-item">
+        <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">
+          <span>Capítulo I - Los dibujos del narrador</span>
+          <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="chapter-text">
+              <p>
+                Cuando yo tenía seis años vi en el libro sobre la selva virgen: Historias vividas, una grandiosa estampa. Representaba una serpiente boa comiéndose a una fiera. He aquí la copia del
+                dibujo.
+              </p>
+            </div>
+            <img src="https://www.agirregabiria.net/Principito/1a.jpg" alt="Dibujo de la boa comiendo la rata" class="chapter-image" />
+            <div class="chapter-text">
+              <p>En el libro se afirmaba: "La serpiente boa se traga su presa entera, sin masticarla. Luego, como no puede moverse, duerme durante los seis meses que dura su digestión".</p>
+              <p>Reflexioné mucho en ese momento sobre las aventuras de la jungla y logré trazar con lápices de colores mi primer dibujo. Mi dibujo número 1 era de esta manera:</p>
+              <img
+                src="https://st1.uvnimg.com/dims4/default/3165404/2147483647/thumbnail/480x270/quality/75/?url=https%3A%2F%2Fuvn-brightspot.s3.amazonaws.com%2Fassets%2Fvixes%2Fa%2Fantoine-de-saint-exupery-y-su-inolvidable-paso-por-la-argentina-4.jpg"
+                alt="Dibujo de la boa comiendo la rata"
+                class="chapter-image" />
+              <p>Enseñé mi obra de arte a las personas mayores y les pregunté si mi dibujo les daba miedo.</p>
+              <p>–¿Por qué habría de asustarme un sombrero? –me respondieron.</p>
+              <p>
+                Mi dibujo no era un sombrero. Representaba una serpiente boa que digiere un elefante. Entonces dibujé el interior de la serpiente boa para que las personas mayores pudieran comprender.
+                Los mayores siempre tienen necesidad de explicaciones. Mi dibujo número 2 era así:
+              </p>
+            </div>
+            <img src="https://casatomada.ar/inicio/images/sombrero_y_boa.png" alt="Dibujo de la boa abierta mostrando el elefante" class="chapter-image" />
+            <div class="chapter-text">
+              <p>
+                Las personas mayores me aconsejaron abandonar el dibujo de serpientes boas, fueran abiertas o cerradas, y poner más interés en la geografía, la historia, el cálculo y la gramática. De
+                esta manera, a la edad de seis años abandoné una magnífica carrera de pintor.
+              </p>
+              <p>Había quedado desilusionado por el fracaso de mis dibujos número 1 y número 2.</p>
+              <p>Las personas mayores son incapaces de comprender algo por sí solas y es muy fastidioso para los niños darles explicaciones una y otra vez.</p>
+              <p>
+                Así, tuve que elegir otro oficio y aprendí a pilotear aviones. He volado un poco por todo el mundo y, en efecto, la geografía me ha servido mucho; al primer vistazo puedo distinguir
+                perfectamente China de Arizona. Esto es muy útil, sobre todo si se pierde uno durante la noche.
+              </p>
+              <p>
+                A lo largo de mi vida he tenido multitud de contactos con multitud de gente seria. Viví mucho con personas mayores y las he conocido muy de cerca; pero esto no ha mejorado mi opinión
+                sobre ellas.
+              </p>
+              <p>
+                Cuando me he encontrado con alguien que parecía lúcido, he ensayado la experiencia de mostrar mi dibujo número 1 que he conservado siempre. Quería saber si era verdaderamente un ser
+                comprensivo pero siempre contestaban: "Es un sombrero". Me abstenía entonces de hablarles de la serpiente boa, de la selva virgen y de las estrellas. Poniéndome a su altura, les
+                hablaba de su mundo: del bridge, del golf, de política y de corbatas. Y la persona mayor quedaba contentísima de conocer a un hombre tan razonable.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- capitulo 2-->
+      <div class="accordion-item">
+        <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">
+          <span>Capítulo II - El encuentro con el Principito</span>
+          <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="chapter-text">
+              <p>
+                Viví así, solo, sin alguien con quien poder hablar verdaderamente, hasta hace seis años cuando tuve una avería en el Sahara. Algo se había estropeado en el motor de mi avión. Como
+                viajaba sin mecánico ni pasajero alguno, me dispuse a realizar yo sólo, una reparación difícil. Era para mí una cuestión de vida o muerte pues apenas tenía agua pura como para ocho
+                días.
+              </p>
+              <p>
+                La primera noche me dormí sobre la arena, a unas mil millas de distancia del lugar habitado más próximo. Estaba más aislado que un náufrago en medio del océano. Imagínense, pues, mi
+                sorpresa cuando al amanecer me despertó una vocecita que decía:
+              </p>
+              <p>–¡Por favor... píntame un cordero!</p>
+              <p>–¿Eh?</p>
+              <p>–¡Píntame un cordero!</p>
+              <p>
+                Me puse en pie de un brinco y frotándome los ojos miré a mí alrededor. Descubrí a un extraordinario muchachito que me observaba gravemente. Ahí tienen el mejor retrato que más tarde
+                logré hacer de él, aunque reconozco que mi dibujo no es tan encantador como el original. La culpa no es mía, las personas mayores me desanimaron de mi carrera de pintor a la edad de
+                seis años, cuando sólo había aprendido a dibujar boas cerradas y boas abiertas.
+              </p>
+            </div>
+            <img src="https://www.turismodeestrellas.com/media/files/1907_principito.jpg" alt="El principito pidiendo que le dibujen un cordero" class="chapter-image" />
+            <div class="chapter-text">
+              <p>
+                Miré, fascinado, aquella aparición. No hay que olvidar que me encontraba a unas mil millas de distancia del lugar habitado más próximo y el muchachito no parecía ni perdido, ni muerto
+                de cansancio, de hambre, de sed o de miedo. No tenía la apariencia de un niño perdido en el desierto a mil millas de distancia del lugar habitado más próximo. Cuando logré, por fin,
+                poder hablar, pregunté:
+              </p>
+              <p>–Pero… ¿qué haces tú aquí?</p>
+              <p>Y él repitió suave y lentamente, como algo muy importante:</p>
+              <p>–¡Por favor… píntame un cordero!</p>
+              <p>
+                Cuando el misterio es tan impresionante, uno no se atreve a contravenir. Por absurdo que aquello pareciera, a mil millas de distancia de algún lugar habitado y en peligro de muerte,
+                saqué del bolsillo una hoja de papel y una pluma fuente. Recordé que yo había estudiado geografía, historia, cálculo y gramática y le dije al muchachito (algo malhumorado) que no sabía
+                dibujar.
+              </p>
+              <p>–No importa, ¡Píntame un cordero!</p>
+              <p>Como nunca había dibujado un cordero, repetí uno de los dos únicos dibujos que era capaz de realizar: el de la boa cerrada. Y quedé absorto al oírle decir:</p>
+              <p>–¡No, no! No quiero un elefante dentro de una serpiente. La serpiente es muy peligrosa y el elefante ocupa mucho sitio. En mi tierra todo es muy pequeñito. Necesito un cordero.</p>
+              <p>¡Por favor, píntame un cordero!</p>
+              <p>Dibujé un cordero. Lo miró atentamente y dijo:</p>
+            </div>
+            <img src="https://64.media.tumblr.com/4ea43d8de47e88eceb952e9bf2f253cf/tumblr_inline_nzf59pkmay1qhya53_500.gif" alt="Primer cordero" class="chapter-image" />
+            <div class="chapter-text">
+              <p>–Éste está muy enfermo. Por favor haz otro.</p>
+              <p>Volví a dibujar.</p>
+            </div>
+            <img src="https://img.chilango.com/2015/06/el-principito-cordero.jpg" alt="Segundo cordero" class="chapter-image" />
+            <div class="chapter-text">
+              <p>Mi amigo sonrió gentilmente, con indulgencia, y dijo:</p>
+              <p>–¿Ves? Esto no es un cordero, es un carnero. Tiene cuernos…</p>
+              <p>Realice nuevamente otro dibujo y también fue rechazado como los anteriores.</p>
+              <p>–Es demasiado viejo. Quiero un cordero que viva mucho tiempo.</p>
+              <p>Ya impaciente y deseoso de comenzar a desmontar el motor, tracé rápidamente este dibujo, se lo enseñé, y dije:</p>
+              <p>–Esta es la caja. El cordero que quieres está adentro.</p>
+            </div>
+            <img src="https://cdn.zendalibros.com/wp-content/uploads/2024/07/cordero.jpg" alt="Caja" class="chapter-image-large" />
+            <div class="chapter-text">
+              <p>Me sorprendí al ver iluminado el rostro de mi joven juez:</p>
+              <p>–¡Oh, es exactamente como yo lo quería! ¿Crees que se necesite mucha hierba para este cordero?</p>
+              <p>–¿Por qué?</p>
+              <p>–Porque en mi tierra todo es muy pequeño…</p>
+              <p>–Será suficiente. El corderito que te he dado también es pequeño.</p>
+              <p>Se inclinó hacia el dibujo y exclamó:</p>
+              <p>–¡Bueno, no tanto…! ¡Ah, se ha quedado dormido!</p>
+              <p>Y así fue como conocí al principito.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- capitulo 3-->
+      <div class="accordion-item">
+        <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">
+          <span>Capítulo III - El asteroide y la melancolía de las estrellas</span>
+          <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="chapter-text">
+              <p>
+                Necesité tiempo para comprender de dónde venía. El principito, que siempre insistía con sus preguntas, no parecía oír las mías. Fueron frases al azar las que, poco a poco, me fueron
+                revelando sus secretos. Así, cuando distinguió por vez primera mi avión (no dibujaré mi avión, por tratarse de algo demasiado complicado para mí) me preguntó:
+              </p>
+              <p>–¿Qué cosa es esa?</p>
+              <p>
+                –
+                <i>Esa</i>
+                no es una cosa. Es un avión, vuela. Es
+                <i>mi</i>
+                avión.
+              </p>
+              <p>Me sentí orgulloso al decir que mi avión volaba. El entonces gritó:</p>
+              <p>–¡Cómo! ¿Has caído del cielo?</p>
+              <p>–Sí –le dije modestamente.</p>
+              <p>–¡Ah, es curioso!</p>
+              <p>Y lanzó una graciosa carcajada que de momento me irritó pues me gusta que mis desgracias se tomen en serio. Después añadió:</p>
+              <p>–Entonces ¿tú también vienes del cielo? ¿De cuál planeta?</p>
+              <p>Esa pequeña luz iluminó un poco el misterio y le pregunté:</p>
+              <p>–¿Tú… vienes de otro planeta?</p>
+              <p>No me respondió; solo movía lentamente la cabeza examinando detenidamente mi avión.</p>
+              <p>–En esto no creo que puedas venir de muy lejos…</p>
+              <p>Y se hundió en un ensueño durante largo tiempo. Había sacado de su bolsillo a mi cordero y se abismó en la contemplación de su tesoro.</p>
+              <p>Imagínense cómo me intrigó eso de: otro planeta. Y me esforcé en saber algo más:</p>
+              <p>–¿De dónde vienes, muchachito? ¿Dónde está tu casa? ¿Dónde quieres llevarte mi cordero?</p>
+              <p>Después de meditar silenciosamente me comentó:</p>
+              <p>–Lo bueno de la caja que me has dado es que, por la noche, puede servirle de casa.</p>
+              <p>–¡Sin duda! Y si eres bueno te daré también una cuerda y una estaca para atarlo durante el día.</p>
+              <p>–¿Atarlo? ¡Qué idea más rara!</p>
+              <p>–Si no lo atas, se irá por donde sea y puede perderse… Mi amigo empezó a reír.</p>
+              <p>–¿Y dónde quieres que vaya?</p>
+              <p>–No sé, a cualquier lado.</p>
+              <p>Entonces el principito señaló con gravedad:</p>
+              <p>–¡No importa, mi tierra es muy pequeña!</p>
+              <p>Y agregó, quizá con un poco de melancolía:</p>
+              <p>–A donde vaya no puede ser muy lejos.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- capitulo 4-->
+      <div class="accordion-item">
+        <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">
+          <span>Capítulo IV - La historia del astrónomo turco</span>
+          <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="chapter-text">
+              <p>De esta manera supe otra cosa importante: su planeta era apenas más grande que una casa.</p>
+            </div>
+            <img src="https://prensaescuela.es/wp-content/uploads/2013/06/PC21_25.jpg" alt="El asteroide B-612" class="chapter-image" />
+            <div class="chapter-text">
+              <p>
+                Esto no me sorprendió mucho pues sabía muy bien que además de los grandes planetas como la Tierra, Júpiter, Marte, Venus, a los cuales se les ha puesto nombre, existen otros muchos,
+                centenares de ellos, tan, tan pequeños, que a algunos es difícil distinguirlos aun con la ayuda de los telescopios. Cuando un astrónomo descubre uno de ellos, le da por nombre un
+                número. Le llama, por ejemplo, "Asteroide 3251".
+              </p>
+              <p>
+                Tengo suficientes razones para creer que el planeta del principito era el asteroide B 612 el cual, por medio del telescopio, sólo ha sido visto una vez, por un astrónomo turco en 1909.
+              </p>
+            </div>
+            <img src="https://cloud.educaplay.com/recursos/84/2696719/imagen_1_1479098289.png" alt="Astronomo con telescopio" class="chapter-image" />
+            <div class="chapter-text">
+              <p>Este astrónomo, aunque demostró su descubrimiento en un Congreso Internacional de Astronomía, nadie le creyó por su extraña manera de vestir ¡Las personas mayores son así!</p>
+            </div>
+            <img src="https://www.agirregabiria.net/Principito/4c.jpg" alt="Astronomo" class="chapter-image" />
+            <div class="chapter-text">
+              <p>Felizmente para la reputación del asteroide B 612, un dictador turco obligó a su pueblo vestir a la usanza europea</p>
+              <p>Entonces, en 1920, ante otro congreso, el astrónomo volvió a dar la noticia de su descubrimiento y como lucía un traje muy elegante, todo el mundo aceptó su demostración.</p>
+            </div>
+            <img
+              src="https://media.licdn.com/dms/image/v2/D4E12AQF84RYsitZHVA/article-inline_image-shrink_400_744/article-inline_image-shrink_400_744/0/1682356640728?e=2147483647&v=beta&t=vdT-FR3c0fC_bFgbAUbDt-dEMhj4P0BUiX_auykwoFM"
+              alt="Astronomo con telescopio"
+              class="chapter-image" />
+            <div class="chapter-text">
+              <p>
+                Si les he contado estos detalles sobre el asteroide B 612 y hasta les he confiado su número, es por consideración a las personas mayores. A los mayores les gustan mucho las cifras.
+                Cuando se les habla de un nuevo amigo, jamás preguntan cosas esenciales como: "¿Qué tono tiene su voz? ¿Qué juegos prefiere? o ¿Si le gusta o no coleccionar mariposas?" En cambio
+                preguntan: "¿Qué edad tiene? ¿Cuántos hermanos? ¿Cuánto pesa? ¿Cuánto gana su padre?" Solamente con estos detalles creen conocerle. Si a una persona mayor le decimos: "Hay una casa
+                preciosa de ladrillos rosas, con geranios en las ventanas y palomas sobre el tejado", no pueden imaginarse cómo es. Es preciso decir: "Hay una casa que vale tantos millones de pesos".
+                Entonces exclaman entusiasmados: "¡Oh, qué hermosa es!"
+              </p>
+              <p>
+                Si les decimos: "La prueba de que el principito ha existido es que reía, era encantador y quería un cordero”. No lo entienden ni lo creen, aunque “querer un cordero” sea una prueba
+                irrebatible de existencia; las personas mayores se encogerán de hombros y nos dirán que nos comportamos como niños. Pero si les decimos: "el planeta de donde venía el principito es el
+                asteroide B-612", quedarán totalmente convencidas y no dudarán más ¡ni modo!, hay que entender que son así. Los niños deben ser muy condescendientes con las personas mayores.
+              </p>
+              <p>
+                Claro que nosotros, como sabemos comprender la vida, nos burlamos tranquilamente de los números. A mí me habría gustado empezar esta historia a la manera de los cuentos de hadas. Me
+                habría gustado decir:
+              </p>
+              <p>
+                "Érase una vez un principito que vivía en un planeta apenas más grande que él y que tenía necesidad de un amigo…" Para aquellos que comprenden la vida, esto hubiera parecido más real.
+                No me gustaría que mi libro fuese tomado a la ligera.
+              </p>
+              <p>
+                Siento tristeza al acordarme de mi amigo. Hace ya seis años que él se fue con su cordero y si intento describirlo aquí es sólo con el fin de recordarlo bien. Tener un amigo es un
+                verdadero privilegio y si uno se olvida de ellos se corre el riesgo de volverse como las personas mayores que sólo se interesan por las cifras y los números. Para evitar esto, he
+                comprado una caja de lápices de colores.
+              </p>
+              <p>
+                ¡Es muy duro, a mi edad, ponerse a dibujar, cuando en toda la vida no se ha hecho más que boas abiertas y boas cerradas a la edad de seis años! Trataré de hacer retratos lo más
+                parecido que me sea posible, aunque no estoy muy seguro de lograrlo. Uno saldrá bien y otro quizá no tanto. En las proporciones me equivoco también un poco; aquí, el principito es
+                demasiado alto y allá es muy pequeño. Dudo sobre los colores de su traje. Titubeo sobre algo y a veces sale bien pero no siempre. En fin, es posible que me equivoque sobre algunos
+                detalles importantes, pero habrá que perdonarme ya que mi amigo no daba explicaciones.
+              </p>
+              <p>Quizá me creía semejante a él y yo, desgraciadamente, no sé ver un cordero a través de una caja. Es posible que ya sea un poco como las personas mayores. Debo haber envejecido.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- capitulo 5-->
+      <div class="accordion-item">
+        <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">
+          <span>Capítulo V - Los baobabs y el peligro de la negligencia</span>
+          <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="chapter-text">
+              <p>
+                Cada día, lentamente y al azar de las reflexiones, aprendía algo nuevo sobre el planeta, sobre la partida y sobre el viaje del principito. Fue así como, al tercer día, conocí el drama
+                de los baobabs.
+              </p>
+              <p>Fue también por el cordero y preocupado por una profunda duda, cuando el principito me preguntó:</p>
+              <p>–¿Es verdad que los corderos se comen los arbustos?</p>
+              <p>–Sí, es cierto.</p>
+              <p>–¡Ah, qué contento estoy!</p>
+              <p>No comprendí qué importancia tenía para él que los corderos se comieran los arbustos. Pero el principito añadió:</p>
+              <p>–Entonces se comen también los Baobabs.</p>
+              <p>Le hice comprender que los baobabs no son arbustos, sino árboles tan grandes como iglesias que incluso llevando todo un rebaño de elefantes, no lograría acabar con un solo baobab.</p>
+              <p>Esto del rebaño de elefantes hizo reír mucho al principito.</p>
+              <p>–Habría que ponerlos unos sobre otros…</p>
+            </div>
+            <img
+              src="https://bilinguator.com/texts/le_petit_prince/illustrations/14.png"
+              alt="Baobabs"
+              class="chapter-image" />
+            <div class="chapter-text">
+              <p>Y luego añadió juiciosamente:</p>
+              <p>–Los baobabs comienzan por ser muy pequeñitos.</p>
+              <p>–Es cierto. Pero… ¿por qué quieres que tus corderos se coman a los baobabs?</p>
+              <p>Me contestó: "¡Vamos!" como si fuera algo evidente.</p>
+              <p>Me fue necesario un gran esfuerzo para comprender el problema:</p>
+              <p>
+                En el planeta del principito había, como en todos los planetas, hierbas buenas y hierbas malas y, por lo tanto, semillas de unas y otras. De las buenas semillas salían buenas hierbas y
+                de las semillas malas, malas hierbas. Las semillas duermen en el secreto de la tierra durante un tiempo, hasta que, un buen día, una de ellas despierta en una encantadora ramita que
+                mira hacia el sol. Si se trata de una ramita de rábano o de rosal, se puede dejar que crezca como quiera; en cambio, si fuera una mala hierba, es preciso arrancarla inmediatamente. El
+                suelo del planeta del principito estaba infestado de semillas de baobabs que si no se arrancan acabando de surgir y en cuanto se les reconoce, pueden cubrir todo el planeta, perforarlo
+                con sus raíces y, si el planeta es muy pequeño y los baobabs son muchos, lo hacen estallar.
+              </p>
+              <p>
+                "Es una cuestión de disciplina”, me dijo más tarde el principito. “Después de que uno termina su baño matinal, hay también que limpiar la casa, es decir, acicalar cuidadosamente al
+                planeta. Hay que arrancar los baobabs en cuanto se les distingue de los rosales pues se parecen mucho cuando son pequeñitos. Es fácil aunque fastidioso”.
+              </p>
+            </div>
+            <div class="chapter-text">
+              <p>
+                El principito aconsejó que me propusiera a realizar un hermoso dibujo para que los niños de mi tierra comprendieran bien estas ideas. "Si alguna vez viajan —me decía— esto podrá
+                servirles mucho. A veces no hay inconveniente en dejar para un poco más tarde el trabajo; pero tratándose de baobabs, el retraso es siempre fatal. Yo he conocido un planeta, habitado
+                por un perezoso que descuidó tres arbustos…"
+              </p>
+              <p>
+                Siguiendo las indicaciones del principito, realicé el dibujo. No me gusta adoptar el papel de moralista pero como el peligro de los baobabs es tan desconocido y el riesgo que puede
+                correr quien llegue a perderse en un asteroide es tan grande, no dudo en hacer una excepción y exclamar: "¡Niños, atención a los baobabs!" Y, sólo con el fin de advertir a mis amigos
+                de los peligros a los que se exponen desde hace tiempo sin saberlo, es por lo que trabajé con ahínco en este dibujo. La lección que con él se puede dar, vale la pena.
+              </p>
+               <img
+              src="https://lamenteesmaravillosa.com/wp-content/uploads/2018/05/principito-en-un-baobab.jpg"
+              alt="Baobabs"
+              class="chapter-image" />
+              <p>
+                Es muy posible que alguien se pregunte por qué no realicé otros dibujos tan admirables como el de los baobabs. La respuesta es muy sencilla: cuando dibujé los baobabs estaba animado
+                por un sentimiento de urgencia.
+              </p>
+            </div>            
+          </div>
+        </div>
+      </div>
+      <!-- capitulo 6-->
+      <div class="accordion-item">
+        <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">
+          <span>Capítulo VI - El atardecer y la tristeza</span>
+          <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="chapter-text">
+              <p>
+                ¡Ah, mi pequeño amigo, cómo he ido comprendiendo lentamente tu vida melancólica! Durante mucho tiempo tu única distracción fue observar la dulzura de los atardeceres. Esto lo supe al
+                cuarto día cuando me dijiste:
+              </p>
+              <p>–Me gustan mucho las puestas de sol. Vamos a ver una.</p>
+              <p>–Hay que esperar…</p>
+              <p>–¿Esperar qué?</p>
+              <p>–Que el sol se ponga.</p>
+              <p>Primero te sorprendiste; después te reíste de ti mismo. Y dijiste:</p>
+              <p>–¡Siempre creo que estoy en mi tierra!</p>
+            </div>
+            <img
+              src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjfVQlz1xKzokxXWydODuC_zNMGdtoUjuppHlho-x0YVktjd1LiwN6LRd7leGqQfHEMLF7y88q0qOSILiIxNZoroqWhXeT8iDXOg3hwtTwVoYYi70PSL_TlL_4DuZ794LUi0XKflyJ37Iif/s1600/viendo+la+puesta+princip.jpg"
+              alt="Puesta de sol"
+              class="chapter-image" />
+            <div class="chapter-text">
+              <p>
+                Aquí, todos sabemos que cuando es mediodía en Estados Unidos, en Francia se está poniendo el sol. Sería necesario trasladarse a Francia en un minuto para verlo, pero desgraciadamente,
+                Francia está lejos. En cambio, en tu pequeño planeta bastaba arrastrar la silla un poco para observar una maravillosa puesta de sol cada vez que lo deseabas…
+              </p>
+              <p>–¡Un día vi ponerse el sol cuarenta y tres veces! Y, un poco más tarde, añadiste:</p>
+              <p>–¿Sabes? Cuando uno está demasiado triste es bueno ver las puestas de sol.</p>
+              <p>–Ese día estabas muy triste ¿verdad? Pero el principito no respondió.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- capitulo 7-->
+      <div class="accordion-item">
+        <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">
+          <span>Capítulo VII - La rosa y el descubrimiento del amor</span>
+          <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="chapter-text">
+              <p>
+                Al quinto día y también en relación con el cordero, me fue posible revelar otro secreto de la vida del principito. Me preguntó, como fruto de un problema larga y silenciosamente
+                meditado:
+              </p>
+              <p>–Si un cordero come arbustos, se comerá también las flores ¿no?</p>
+              <p>–Un cordero se come todo lo que encuentra.</p>
+              <p>–¿Aún las flores que tienen espinas?</p>
+              <p>–Sí; también las que tienen espinas.</p>
+              <p>–Entonces, ¿para qué le sirven las espinas?</p>
+              <p>
+                Confieso que yo no lo sabía. Estaba muy ocupado tratando de arreglar el motor ya que el desperfecto parecía muy grave. Además, el agua se agotaba y todo esto me hacía temer lo peor.
+              </p>
+              <p>–¿Para qué sirven las espinas?</p>
+              <p>
+                El principito no permitía nunca que se dejara sin respuesta alguna de sus preguntas. Irritado por la gravedad del arreglo de mi avión, le respondí lo primero que se me ocurrió para
+                salir del paso:
+              </p>
+              <p>–Las espinas no sirven para nada; son pura maldad de las flores.</p>
+              <p>–¡Oh!</p>
+              <p>Y después de un silencio, me dijo resentido:</p>
+              <p>–¡No te creo! Las flores son débiles. Son ingenuas. Se defienden como pueden y las espinas son su defensa.</p>
+            </div>
+            <img src="https://www.nodo50.org/principito/7a.jpg" alt="La flor tiene espinas" class="chapter-image" />
+            <div class="chapter-text">
+              <p>No le respondí nada; en ese instante me decía: "Si esto continúa resistiendo, no sé qué más hacer". El principito interrumpió de nuevo mis reflexiones:</p>
+              <p>–¿Tú… tú crees que las flores…?</p>
+              <p>–¡No, no creo nada! Te he respondido cualquier cosa para que te calles y pueda yo ocuparme de cosas serias.</p>
+              <p>Se quedó absorto.</p>
+              <p>–¡De cosas serias!</p>
+              <p>Me miraba con el martillo en la mano, los dedos negros por la grasa y con medio cuerpo dentro de algo que le parecía muy feo.</p>
+              <p>–¡Hablas como las personas mayores!</p>
+              <p>Me avergonzó mucho e implacable, añadió:</p>
+              <p>–¡Todo lo confundes…! ¡Todo lo mezclas…!</p>
+              <p>Él estaba verdaderamente irritado; sacudía la cabeza, agitando al viento sus cabellos dorados.</p>
+              <p>
+                –Conozco un planeta donde vive un señor muy colorado, que nunca ha aspirado una flor, nunca ha observado una estrella, nunca ha querido a nadie. Nunca ha hecho otra cosa que sumar y
+                restar. Y todo el día repite como tú: "¡Soy un hombre serio! ¡Soy un hombre serio!"… Y esto lo llena de orgullo. Pero eso no es un hombre, ¡es un hongo!
+              </p>
+              <p>–¿Un qué?</p>
+              <p>–Un hongo.</p>
+              <p>El principito estaba pálido por el disgusto.</p>
+              <p>
+                –Hace millones de años que las flores fabrican espinas. Hace millones de años que los corderos se comen las flores. ¿Y no es serio intentar comprender por qué las flores hacen tanto
+                esfuerzo en fabricar sus espinas si éstas no van a servirles para defenderse? ¿Es que no es importante la guerra entre los corderos y las flores? ¿No es esto mucho más serio y mucho
+                más importante que las sumas de un señor gordo y colorado?... Y… si yo conozco una flor única que sólo existe en mi planeta y sé que un corderillo puede destruirla sin ni siquiera
+                darse cuenta ¿es qué esto no es importante?
+              </p>
+              <p>Enrojeció aún más y prosiguió:</p>
+              <p>
+                –Si alguien ama a una flor de la que sólo existe un ejemplar entre millones y millones de estrellas, es suficiente mirar al cielo para ser feliz pues puede decir satisfecho: "Mi flor
+                está allí, en alguna parte…" ¡Pero si el cordero se la come, será tan doloroso como si de pronto todas las estrellas se apagaran! ¿Y… esto tampoco es importante?
+              </p>
+              <p>No pudo decir más. Estalló en sollozos.</p>
+              <p>
+                La noche había caído. Yo había dejado el martillo; ya no importaban la avería, la sed y la muerte ¡Había en una estrella, en un planeta, el mío, la Tierra, un principito a quien
+                consolar! Le pedí perdón, lo arrullé entre mis brazos diciéndole: "la flor que tú amas no corre peligro… te dibujaré un bozal para tu cordero y una armadura para tu flor… te… ". Yo ya
+                no sabía qué decirle, cómo consolarle y qué hacer para recuperar su confianza; me sentía muy torpe. ¡Es tan misterioso el país de las lágrimas!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- capitulo 8-->
+      <div class="accordion-item">
+        <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">
+          <span>Capítulo VIII - La flor y la importancia de los actos</span>
+          <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="chapter-text">
+              <p>
+                Aprendí a conocer esa flor. En el planeta del principito había habido flores comunes, de una sola fila de pétalos que apenas ocupaban sitio y a nadie llamaban la atención. Asomaban
+                entre la hierba una mañana y morían por la tarde... Pero aquella flor era distinta, había surgido de una semilla llegada quién sabe de dónde, y el principito había vigilado
+                cuidadosamente aquella ramita tan diferente de las que él conocía. Podía ser una nueva especie de Baobab, pero el arbusto cesó pronto de crecer y comenzó a brotar la flor. El
+                principito observó cómo crecía un enorme capullo y presentía que de allí habría de salir una aparición milagrosa; la flor tardaba en definir su forma y en completar su belleza al
+                abrigo de su verde envoltura. Poco a poco escogía sus colores y ajustaba sus pétalos. No quería salir deslucida; quería aparecer en pleno esplendor de su belleza ¡Era coqueta desde
+                pequeña y su misteriosa preparación le tomó varios días! ¡Una mañana, al salir el sol, por fin se mostró espléndida!
+              </p>
+              <p>La flor, que había trabajado con tanta precisión, dijo bostezando:</p>
+              <p>–¡Oh, acabo de despertar… perdón por estar tan despeinada…!</p>
+              <p>El principito no pudo contener su embeleso:</p>
+              <p>–¡Qué hermosa eres!</p>
+            </div>
+            <img src="https://pymstatic.com/56832/conversions/frases-el-principito-social.jpg" alt="Admirando la rosa" class="chapter-image" />
+            <div class="chapter-text">
+              <p>–¿Verdad? –Respondió dulcemente la flor–. Además, he nacido al mismo tiempo que el sol. El principito advirtió que ella no era muy modesta, pero ¡era tan conmovedora!</p>
+              <p>–Creo que es hora de desayunar –agregó la flor–; si tuvieras la bondad…</p>
+              <p>Y el principito, algo confuso, buscó una regadera y la roció con agua fresca.</p>
+            </div>
+            <img src="https://www.clarin.com/2024/01/11/iE48buE3o_2000x1500__1.jpg" alt="Regando la rosa" class="chapter-image" />
+            <div class="chapter-text">
+              <p>Y así fue como ella lo había atormentado con su vanidad un poco sombría. Un día hablando de sus cuatro espinas, le dijo al principito:</p>
+              <p>—¡Ya pueden venir los tigres, con sus garras!</p>
+            </div>
+            <img src="https://mural.uv.es/sanzar/principito/archivosprincipito/8c.jpg" alt="Los tigres y la rosa" class="chapter-image" />
+            <div class="chapter-text">
+              <p>–No hay tigres en mi planeta –objetó el principito–. Además, los tigres no comen hierba.</p>
+              <p>–Yo no soy una hierba –respondió dulcemente la flor.</p>
+              <p>–Perdón...</p>
+              <p>–En verdad los tigres no me atemorizan, pero tengo horror a las corrientes de aire. ¿No tienes un biombo?</p>
+              <p>“¿Horror a las corrientes de aire? Si son buenas para las plantas – pensó el principito–. Esta flor es muy complicada…"</p>
+              <p>
+                –Y por la noche ¿podrás protegerme con un capelo?... ¡Hace mucho frío en tu tierra! Es más cómodo allá de donde vengo… Pero recordó que había llegado como semilla y que era del todo
+                evidente que no podía conocer otros mundos, entonces se interrumpió y disimuladamente tosió dos o tres veces para atraer la simpatía del principito.
+              </p>
+              <p>–¿Y el biombo?</p>
+              <p>–Iba a traerlo, pero no dejas de hablarme… Tosió con insistencia para crearle remordimiento.</p>
+              <p>Así, a pesar de la buena voluntad de su amor, el principito llegó a dudar de ella. Había puesto demasiada atención a palabras sin importancia y se sentía desdichado.</p>
+            </div>
+            <img src="https://mural.uv.es/sanzar/principito/archivosprincipito/8d.jpg" alt="Cuidando la rosa" class="chapter-image" />
+            <div class="chapter-text">
+              <p>
+                "No debí haber hecho caso a sus palabras –me confesó un día–. No hay que hacer caso a lo que dicen, basta con mirarlas y aspirar su aroma. Mi flor perfumaba mi planeta y, en ese
+                entonces, no bastó para complacerme… Aquella historia de garras y tigres que tanto me molestó al principio, terminó por enternecerme".
+              </p>
+              <p>Y me confío aún más:</p>
+              <p>
+                "¡No supe comprender nada entonces! Debí juzgarla por sus actos y no por sus palabras. ¡Ella perfumaba e iluminaba mi vida! ¡No debí haber huido! ¡No supe reconocer la ternura detrás
+                sus pobres astucias! ¡Son tan contradictorias las flores! Y… yo era demasiado joven para saber amarla".
+              </p>
+            </div>
+            <img src="https://cdn.bookey.app/book/square_cover/20221113134846006.jpg" alt="Amando la rosa" class="chapter-image" />
+            <div class="chapter-text"></div>
+          </div>
+        </div>
+      </div>
+      <!-- capitulo 9-->
+      <div class="accordion-item">
+        <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">
+          <span>Capítulo IX - El adiós a la rosa</span>
+          <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="chapter-text">
+              <p>
+                Creo que el principito aprovechó la migración de unos pájaros silvestres para evadirse y comenzar su viaje. La mañana de la partida arregló muy bien su planeta. Deshollinó
+                cuidadosamente sus dos volcanes en actividad, sobre los cuales calentaba su desayuno por las mañanas. Tenía, además, un volcán extinguido. Deshollinó también éste, pues, como él decía:
+                “nunca se sabe…”
+              </p>
+            </div>
+            <img src="https://cibersale.com.br/wp-content/uploads/hiclipart1.jpg" alt="Limpiando los volcanes" class="chapter-image" />
+            <div class="chapter-text">
+              <p>
+                Si los volcanes se deshollinan bien, arden sin erupciones, suavemente, como el fuego de nuestras chimeneas. Pero los hombres somos demasiado pequeños para deshollinar nuestros volcanes
+                y por eso nos causan tantos disgustos.
+              </p>
+              <p>
+                El principito arrancó con tristeza los últimos brotes de baobabs. Creía no volver jamás. Sus trabajos habituales le parecieron muy agradables. Y cuando regó por última vez la flor y se
+                dispuso a ponerla al abrigo de la campana, sintió ganas de llorar.
+              </p>
+              <p>–Adiós –le dijo a la flor. Pero ella no respondió.</p>
+              <p>–Adiós –repitió el principito.</p>
+              <p>La flor tosió aunque no estaba resfriada y al fin dijo:</p>
+              <p>–He sido una tonta, perdóname y procura ser feliz.</p>
+              <p>Le desconcertó la ausencia de reproches y quedó con el biombo en la mano sin comprender esa tranquila mansedumbre.</p>
+              <p>
+                –Sí, yo te quiero –le dijo la flor–. Si no te has dado cuenta la culpa ha sido mía, pero eso ahora no tiene importancia. Y tú has sido tan tonto como yo. Procura ser feliz… Y deja el
+                biombo. No lo necesito.
+              </p>
+              <p>–Pero… el viento...</p>
+              <p>–Ya no estoy tan resfriada y el aire fresco de la noche me hará bien. Soy una flor.</p>
+              <p>–Y los animales...</p>
+              <p>
+                –Será necesario soportar la molestia de dos o tres orugas, si quiero conocer las mariposas; creo que son muy hermosas. Ellas me visitaran… tú estarás muy lejos. Y en cuanto a las
+                fieras, ya no les temo, tengo mis garras.
+              </p>
+              <p>Y mostraba ingenuamente sus cuatro espinas. Luego añadió:</p>
+              <p>–Y no prolongues más tu despedida. Has decidido irte, hazlo de una vez.</p>
+              <p>La flor, que era orgullosa, no quería que él la viese llorar.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- capitulo 10-->
+      <div class="accordion-item">
+        <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">
+          <span>Capítulo X - El viaje y el primer planeta: el rey sin súbditos</span>
+          <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="chapter-text">
+              <p></p>
+              <p>Se encontraba en la región de los asteroides 325, 326, 327, 328, 329 y 330. Comenzó a visitarlos para instruirse y ocuparse en algo al mismo tiempo.</p>
+              <p>El primero estaba habitado por un rey que vestía ropas púrpura adornadas con piel de armiño, estaba sentado sobre un trono sencillo y, sin embargo, majestuoso.</p>
+              <p>–¡Ah!, –exclamó el rey al ver al principito– ¡Aquí tenemos un súbdito!</p>
+              <p>Y el principito se preguntó:</p>
+              <p>—¿Cómo es que puede reconocerme si nunca me ha visto?</p>
+              <p>No sabía que para los reyes todos los hombres son súbditos.</p>
+              <p>
+                –Acércate para que te vea mejor –le dijo el rey, orgulloso de ser por fin, el rey de alguien. El principito buscó donde sentarse, pero el planeta estaba casi cubierto por el magnífico
+                manto. Se quedó, entonces, de pie, y como estaba muy fatigado, bostezó.
+              </p>
+              <p>–La etiqueta no permite bostezar en mi presencia –dijo el rey– te lo prohíbo.</p>
+              <p>–No he podido evitarlo –respondió el principito muy confuso–, he realizado un viaje muy largo y no he dormido...</p>
+              <p>–Entonces –dijo el rey– te ordeno que bosteces. Hace años que no veo bostezar a nadie. Los bostezos pueden despertarme mucha curiosidad. ¡Vamos, bosteza otra vez, te lo ordeno!</p>
+            </div>
+            <img
+              src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhjk3xLDvEjFa4IYL9JJt8TiK9ihXDK2YX0enFF-neTk6YBFqMn6kxg-1hijuMXScIVvBTPlf8k2ZRqLFCTSaLXrx7mdTggZ0_yj1gWNmUk2ItTwEsilIXOME0PGalKp_IXLf3IX29UoUuk/s400/el+principito+y+rey.png"
+              alt="El principito pidiendo que le dibujen un cordero"
+              class="chapter-image" />
+            <div class="chapter-text">
+              <p>–Ya no puedo, me ha cohibido –dijo el principito ruborizado.</p>
+              <p>–¡Hm! –respondió el rey–. ¡Bueno! Te ordeno que tan pronto bosteces como que no bosteces...</p>
+              <p>
+                Tartamudeaba un poco y parecía inquieto, pues el rey exigía que su autoridad fuese respetada y no toleraba la desobediencia. Era un monarca absoluto. Pero a pesar de eso, era muy bueno
+                y siempre daba órdenes razonables.
+              </p>
+              <p>Si ordeno… –decía– si ordeno a un general transformarse en ave marina y el general no me obedeciese, la culpa no sería del general, sino mía.</p>
+              <p>–¿Puedo sentarme? –preguntó tímidamente el principito.</p>
+              <p>–Te ordeno sentarte –respondió el rey recogiendo majestuosamente su manto de armiño.</p>
+              <p>El principito estaba sorprendido. Aquel planeta era tan pequeño que no se explicaba sobre quién podría reinar.</p>
+              <p>–Señor, –le dijo– perdóneme si le pregunto...</p>
+              <p>–Te ordeno interrogarme –se apresuró a decir el rey.</p>
+              <p>–Señor… ¿sobre qué ejerce su poder?</p>
+              <p>–Sobre todo –contestó el rey con gran naturalidad.</p>
+              <p>–¿Sobre todo?</p>
+              <p>El rey, señaló su planeta, los otros planetas y las estrellas.</p>
+              <p>–¿Sobre todo eso? –volvió a preguntar el principito.</p>
+              <p>–¡Sobre todo eso! –respondió el rey.</p>
+              <p>No era solamente un monarca absoluto ¡Era un monarca universal!</p>
+              <p>–¿Y las estrellas le obedecen?</p>
+              <p>–¡Al instante! –Dijo el rey– pues no tolero la indisciplina.</p>
+              <p>
+                Tanto poder maravilló al principito. Si él poseyera un poder de tal naturaleza, hubiese podido observar no cuarenta y tres, sino setenta y dos, cien, o incluso doscientas puestas de
+                sol en el mismo día y sin tener que arrastrar la silla. Y como se sentía un poco triste al recordar su pequeño planeta abandonado, se atrevió a solicitar un deseo al rey:
+              </p>
+              <p>–Desearía ver una puesta de sol... Concédame ese gusto... Ordénele al sol que se ponga...</p>
+              <p>
+                –Si ordenara a un general volar de flor en flor como una mariposa, o escribir una tragedia, o transformarse en ave marina y el general no obedeciese ¿de quién sería la culpa, mía o del
+                general?
+              </p>
+              <p>–De usted –dijo con firmeza el principito.</p>
+              <p>
+                –Exactamente. Sólo hay que exigir a cada quien, lo que cada uno puede hacer –continuó el rey. La autoridad siempre debe apoyarse en la razón. Si por ejemplo, ordenas al pueblo que se
+                tire al mar, el pueblo hará una revolución. Por eso es que tengo derecho a exigir obediencia, porque mis órdenes son razonables.
+              </p>
+              <p>–¿Y entonces… mi puesta de sol? –recordó el principito, que nunca olvidaba una de sus preguntas.</p>
+              <p>–Tendrás tu puesta de sol. La exigiré. Cuando las condiciones sean favorables, según me dicta mi ciencia gobernante.</p>
+              <p>–¿Y cuándo será eso?</p>
+              <p>–¡Ejem! –le respondió el rey, consultando previamente un grueso calendario– ¡ejem! será hacia... hacia eso de las siete cuarenta. Y ya verás cómo seré obedecido.</p>
+              <p>El principito bostezó. Lamentaba su puesta de sol frustrada y como ya se estaba aburriendo un poco, le dijo al rey:</p>
+              <p>–Ya no tengo nada más que hacer aquí. Me marcho.</p>
+              <p>–No te marches –respondió el rey quien estaba muy orgulloso de tener un súbdito–. No te vayas. ¡Te nombro ministro!</p>
+              <p>–¿Ministro de qué?</p>
+              <p>–¡De... de justicia!</p>
+              <p>–¡Pero aquí no hay a quien juzgar!</p>
+              <p>–Uno nunca sabe –dijo el rey–. Aún no he visitado todo mi reino, ya soy viejo, el caminar me fatiga y no hay lugar para una carroza.</p>
+              <p>–¡Yo ya he visto! –Dijo el principito que se inclinó para echar una ojeada al otro lado del planeta–. Allá tampoco hay nadie...</p>
+              <p>
+                –Entonces te juzgarás a ti mismo –le respondió el rey–. Es lo más difícil. Es mucho más difícil juzgarse a sí mismo, que juzgar a los otros. Si eres capaz de juzgarte rectamente eres
+                un verdadero sabio.
+              </p>
+              <p>–Eso, uno podría hacerlo en cualquier lugar. No es necesario permanecer aquí.</p>
+              <p>
+                –¡Ejem! Creo –dijo el rey– que hay una rata vieja en alguna parte del planeta; yo la he oído por las noches. Tú podrás juzgarla. La condenarás a muerte de cuando en cuando, su vida
+                dependerá de ti, pero como es la única que existe aquí, debes otorgarle el indulto para poder conservarla.
+              </p>
+              <p>–A mí no me gusta eso de condenar a muerte –dijo el principito–. Es mejor que me retire.</p>
+              <p>–No –dijo el rey.</p>
+              <p>Pero el principito, que ya había terminado los preparativos del viaje, no quiso disgustar al viejo monarca y dijo:</p>
+              <p>
+                –Si Vuestra Majestad deseara ser obedecido puntualmente, podría dar una orden razonable. Podría ordenarme, por ejemplo, partir antes de un minuto. Me parece que las condiciones son
+                bastante favorables...
+              </p>
+              <p>Como el rey no respondiera nada, el principito, prosiguió su viaje.</p>
+              <p>–¡Entonces te nombro mi embajador! –se apresuró a gritar el rey.</p>
+              <p>Tenía un aire de gran autoridad.</p>
+              <p>"Las personas mayores son muy extrañas", se decía a sí mismo el principito durante el viaje.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- capitulo 11-->
+      <div class="accordion-item">
+        <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">
+          <span>Capítulo XI - El hombre vanidoso y su necesidad de admiración</span>
+          <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="chapter-text">
+              <p>El segundo planeta estaba habitado por un vanidoso:</p>
+              <p>–¡Ah! ¡Ah! ¡He aquí la visita de un admirador! –exclamó el vanidoso en cuanto distinguió al principito. Para los vanidosos todos los otros hombres son admiradores.</p>
+              <p>–¡Buenos días! –Dijo el principito–. ¡Qué sombrero tan raro tiene!</p>
+            </div>
+            <img src="https://3.bp.blogspot.com/-r0j8WOCcZnc/UMERYLg5QvI/AAAAAAAAB3I/IRwcGvsCwbg/s400/EL+VANIDOSO.jpg" alt="Amando la rosa" class="chapter-image" />
+            <div class="chapter-text">
+              <p>–¡Es para corresponder a la aclamación de los demás!, –respondió el vanidoso. Por desgracia nadie pasa por aquí.</p>
+              <p>–¿Cómo? –dijo el principito sin comprender.</p>
+              <p>–Golpea tus manos una contra otra –le aconsejó el vanidoso.</p>
+              <p>El principito aplaudió y el vanidoso saludó levantando su sombrero.</p>
+              <p>
+                "Esto parece más divertido que la visita al rey", dijo para sí el principito, quien continuó aplaudiendo mientras el vanidoso volvía a saludar quitándose el sombrero, pero después de
+                cinco minutos se cansó de la monotonía del juego.
+              </p>
+              <p>–¿Y qué hay que hacer para que el sombrero caiga? –preguntó el principito, pero el vanidoso no le oyó. Los vanidosos sólo oyen las alabanzas.</p>
+              <p>–Me admiras mucho ¿verdad? –preguntó al principito.</p>
+              <p>–¿Qué significa admirar?</p>
+              <p>–Admirar significa reconocer que yo soy el hombre más bello, mejor vestido, más rico y el más inteligente del planeta.</p>
+              <p>–¡Pero si tú eres la única persona que habita en tu planeta!</p>
+              <p>–¡Dame ese gusto, admírame de todos modos!</p>
+              <p>–¡Bueno! te admiro –dijo el principito encogiéndose de hombros–, pero ¿qué importancia tiene? No sirve para nada.</p>
+              <p>Y el principito partió.</p>
+              <p>"Decididamente, las personas mayores son muy extrañas", pensaba el principito durante su viaje.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- capitulo 12-->
+      <div class="accordion-item">
+        <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">
+          <span>Capítulo XII - El bebedor y el círculo de la vergüenza</span>
+          <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="chapter-text">
+              <p>El siguiente planeta estaba habitado por un bebedor. Esta visita, aunque muy corta, sumió al principito en una gran melancolía.</p>
+              <p>–¿Qué haces ahí? –preguntó al bebedor que estaba sentado en silencio frente a una gran número de botellas vacías y otras tantas llenas.</p>
+            </div>
+            <img src="https://www.agirregabiria.net/Principito/12a.jpg" alt="El principito y el bebedor" class="chapter-image" />
+            <div class="chapter-text">
+              <p>–¡Bebo! –respondió el bebedor con aire sombrío.</p>
+              <p>–¿Por qué bebes? –volvió a preguntar el principito.</p>
+              <p>–Para olvidar.</p>
+              <p>–¿Para olvidar qué? –investigó el principito sintiendo compasión.</p>
+              <p>–Para olvidar que siento vergüenza –confesó el bebedor agachando la cabeza.</p>
+              <p>–¿Vergüenza de qué? –volvió a preguntar el principito deseoso de ayudarle.</p>
+              <p>–¡Vergüenza de beber! –concluyó el bebedor, que se encerró definitivamente en el silencio.</p>
+              <p>Y el principito, turbado, se alejó diciendo: "No hay la menor duda: las personas mayores son muy, muy, extrañas".</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- capitulo 13-->
+      <div class="accordion-item">
+        <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">
+          <span>Capítulo XIII - El hombre de negocios y sus estrellas inútiles</span>
+          <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="chapter-text"></div>
+            <p>En el cuarto planeta había un hombre de negocios; estaba tan ocupado que ni siquiera levantó la cabeza al ver llegar al principito.</p>
+            <p>–¡Buenos días! –Dijo el principito–. Su cigarro se ha apagado.</p>
+            <img src="https://tucuentofavorito.com/wp-content/uploads/2020/06/principito-negocios.jpg" alt="Los baobabs invadiendo un planeta" class="chapter-image" />
+            <div class="chapter-text">
+              <p>
+                –Tres y dos cinco. Cinco y siete doce. Doce y tres quince. ¡Buenos días! Quince y siete veintidós. Veintidós y seis veintiocho… No tengo tiempo para encenderlo nuevamente… …Veintiocho
+                y tres treinta y uno. ¡Uf! Esto suma un total de quinientos un millones seiscientos veintidós mil setecientos treinta y uno.
+              </p>
+              <p>–¿Quinientos millones de qué?</p>
+              <p>–¿Ah, estás ahí todavía? Quinientos millones de... ¡Uf, ya no sé, he trabajado tanto! ¡Yo soy una persona seria y no me recreo con tonterías! …Dos y cinco siete...</p>
+              <p>–¿Quinientos millones de qué? –volvió a preguntar el principito, que nunca había desistido a una pregunta suya.</p>
+              <p>El hombre de negocios levantó la cabeza:</p>
+              <p>
+                –En cincuenta y cuatro años sólo tres veces he sido interrumpido. La primera fue hace veintidós cuando un abejorro cayó y hacía tan insoportable ruido que me hizo equivocarme cuatro
+                veces en una suma. La segunda, fue hace once años, por una crisis de reumatismo. Yo no hago ningún ejercicio, pues no tengo tiempo para perderlo callejeando. ¡Soy un hombre serio! Y la
+                tercera vez... ¡la tercera vez es ésta! …llevaba, pues, quinientos un millones...
+              </p>
+              <p>–¿Millones de qué?</p>
+              <p>El hombre de negocios advirtió que no lo dejarían seguir en paz y contestó más malhumorado:</p>
+              <p>–Millones de esas cositas que algunas veces se ven en el cielo.</p>
+              <p>–¿Moscas?</p>
+              <p>–¡No, cositas que brillan!</p>
+              <p>–¿Abejitas?</p>
+              <p>–No. Unas cositas doradas que hacen soñar y desvariar a los holgazanes. ¡Yo soy un hombre serio y no tengo tiempo de soñar!</p>
+              <p>–¡Ah, estrellas!</p>
+              <p>–Sí eso estrellas.</p>
+              <p>–¿Y qué haces tú con quinientos millones de estrellas?</p>
+              <p>–Quinientos un millones seiscientos veintidós mil setecientos treinta y uno. ¡Exactas!</p>
+              <p>–¿Y qué haces con ellas?</p>
+              <p>–¿Que qué hago?</p>
+              <p>–Sí.</p>
+              <p>–Nada. Poseerlas.</p>
+              <p>–¿Posees a las estrellas? ¿Son tuyas?</p>
+              <p>–Sí.</p>
+              <p>–Pero yo he visto un rey que...</p>
+              <p>–Los reyes no poseen nada... reinan solamente. Es muy diferente poseer que reinar.</p>
+              <p>–¿Y de qué sirve poseer las estrellas?</p>
+              <p>–Me sirve para ser rico.</p>
+              <p>–¿Y para qué sirve ser rico?</p>
+              <p>–Me sirve para poder comprar más estrellas si es que alguien las encuentra y descubre.</p>
+              <p>"¡Uhm! Este razona poco más o menos como mi borracho". Se dijo para sí el principito.</p>
+              <p>Sin embargo, siguió preguntando:</p>
+              <p>¿Y cómo es posible poseer las estrellas?</p>
+              <p>–¿De quién son? –dijo esquivo el hombre de negocios.</p>
+              <p>–No sé… De nadie.</p>
+              <p>–Entonces son mías, pues soy el primero en tener la ocurrencia.</p>
+              <p>–¿Y eso es suficiente?</p>
+              <p>
+                –¡Desde luego! Si te encuentras un diamante que nadie reclama, el diamante es tuyo. Si encontraras una isla que no es de nadie, formalizas la propiedad y es tuya. Si eres el primero en
+                tener una idea y la haces patentar, es tuya. Las estrellas son mías, las poseo puesto que nadie, antes que yo, soñó con poseerlas.
+              </p>
+              <p>–Bien –dijo el principito– ¿y qué es lo que tú haces con ellas?</p>
+              <p>–Las administro. Las cuento y las recuento una y otra vez –contestó el hombre de negocios–. Es difícil. ¡Pero yo soy un hombre serio!</p>
+              <p>El principito no estaba del todo satisfecho y continuó:</p>
+              <p>–Yo poseo una bufanda y puedo ponérmela alrededor del cuello. Y si poseo una flor, puedo cortarla y llevármela. ¡Pero tú no puedes llevarte las estrellas!</p>
+              <p>–Eso no, pero puedo depositarlas en un banco.</p>
+              <p>–¿Qué quiere decir depositar?</p>
+              <p>–Quiere decir que escribo en un papelito el número exacto de mis estrellas y se guarda bajo llave.</p>
+              <p>–¿Y eso es todo?</p>
+              <p>–¡Es suficiente!</p>
+              <p>"Esto es divertido", pensó el principito. "Es incluso bastante poético. Pero no resulta ser serio".</p>
+              <p>El principito tenía, sobre las cosas serias, ideas muy diferentes de las que suelen tener las personas mayores.</p>
+              <p>
+                –Yo –dijo aún– tengo una flor a la que riego todos los días. Poseo también tres volcanes a los que deshollino cada semana y también me ocupo del que está extinguido; pues uno nunca
+                sabe lo que puede ocurrir. Es útil, pues, para mis volcanes y para mi flor que yo las posea. Pero tú no eres nada útil para tus estrellas...
+              </p>
+              <p>El hombre de negocios abrió la boca para defenderse pero no encontró que decir.</p>
+              <p>El principito aprovechó y se fue.</p>
+              <p>"Decididamente, las personas mayores, son extrañísimas", se dijo con sencillez el principito y continuo su viaje.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- capitulo 14-->
+      <div class="accordion-item">
+        <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">
+          <span>Capítulo XIV - El farolero y el valor del trabajo constante</span>
+          <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="chapter-text">
+              <p>
+                El quinto planeta era muy curioso. Era el más pequeño de todos. Sólo había lugar para un farol y el farolero. El principito no se explicaba para qué servían allí, en el cielo, en un
+                planeta sin casa y sin población alguna, un farol y un farolero. Sin embargo, pensaba:
+              </p>
+              <p>
+                "Quizá este hombre es absurdo. Sin embargo, es menos absurdo que el rey, el vanidoso, el hombre de negocios y el bebedor. Por lo menos su trabajo, tiene algo de razón. Cuando enciende
+                su farol, es como si naciera una estrella o brotara una flor y, cuando lo apaga, es como si la flor o a la estrella se durmiera. Es una ocupación muy linda y es verdaderamente útil en
+                cuanto que es linda".
+              </p>
+            </div>
+            <img src="https://i.pinimg.com/736x/ec/c3/54/ecc35416a7952dce854a5b8277826938.jpg" alt="El farolero" class="chapter-image" />
+            <div class="chapter-text">
+              <p>Al llegar, saludó respetuosamente al farolero:</p>
+              <p>–¡Buenos días! ¿Por qué acabas de apagar tu farol?</p>
+              <p>–Es la consigna –respondió el farolero–. ¡Buenos días!</p>
+              <p>–¿Qué es la consigna?</p>
+              <p>–Apagar el farol. ¡Buenas noches! Y volvió a encenderlo.</p>
+              <p>–Entonces ¿por qué acabas de encenderlo?</p>
+              <p>–Es la consigna –respondió el farolero.</p>
+              <p>–No entiendo –dijo el principito.</p>
+              <p>–No hay nada que entender –dijo el farolero–. La consigna es la consigna. ¡Buenos días!</p>
+              <p>Y apagó su farol.</p>
+              <p>Después limpió su frente con un pañuelo de cuadros rojos.</p>
+              <p>
+                –Mi trabajo es terrible. Antes era razonable; apagaba el farol por la mañana y lo prendía por la tarde. Tenía el resto del día para descansar y todo el resto de la noche para dormir.
+              </p>
+              <p>–Y… ¿cambiaron la consigna?</p>
+              <p>-No, esa es la tragedia, la consigna no ha cambiado pero el planeta sí, –dijo el farolero–. Año con año gira cada vez más rápido y la consigna no ha cambiado.</p>
+              <p>–¿Y entonces? –dijo el principito.</p>
+              <p>–Pues como el planeta da una vuelta completa cada minuto, yo no tengo un segundo de reposo. Enciendo y apago una vez por minuto.</p>
+              <p>–¡Es divertido! ¡En tu planeta los días duran un minuto!</p>
+              <p>–A mí no me parece divertido en absoluto –dijo el farolero–. Hace ya un mes que tú y yo empezamos esta plática.</p>
+              <p>–¿Un mes?</p>
+              <p>–Sí, treinta minutos. ¡Treinta días! ¡Buenas noches! Y nuevamente encendió su farol.</p>
+              <p>El principito miró con gustó a este farolero que cumplía con tanta lealtad la consigna. Recordó las puestas de sol que el “perseguía” arrastrando su silla y quiso ayudar.</p>
+              <p>–¿Sabes? Sé una forma con la que puedes descansar cuando quieras...</p>
+              <p>–Siempre quiero –dijo el farolero.</p>
+              <p>–Se puede ser fiel y perezoso a la vez –dijo el principito.</p>
+              <p>
+                –Tu planeta es tan pequeño que puedes darle la vuelta con sólo tres pasos. No tienes que hacer más que caminar muy lentamente para quedar siempre hacia el sol. Caminarás cuando quieras
+                descansar, y el día durará el tiempo que desees.
+              </p>
+              <p>–Eso no es gran adelanto –dijo el farolero– pues lo que a mí más me gusta en la vida es dormir.</p>
+              <p>–Eso es no tener buena suerte –dijo el principito.</p>
+              <p>–No, no es tener buena suerte –replicó el farolero– ¡Buenos días!</p>
+              <p>Y apagó su farol.</p>
+              <p>
+                Mientras el principito proseguía su viaje, iba pensando: "Éste sería despreciado por los otros, por el rey, por el vanidoso, por el bebedor y por el hombre de negocios. Sin embargo, es
+                el único que no me parece ridículo, quizás porque se ocupa de algo ajeno a sí mismo”. Suspiró con nostalgia y se dijo:
+              </p>
+              <p>"Es el único del que hubiera podido hacerme amigo. Pero su planeta es tan pequeño que no hay lugar para dos... "</p>
+              <p>Lo que el principito no quería confesar era que añoraría las mil cuatrocientas cuarenta puestas de sol que podría haber visto en veinticuatro horas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- capitulo 15-->
+      <div class="accordion-item">
+        <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">
+          <span>Capítulo XV - El geógrafo y la importancia de explorar</span>
+          <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="chapter-text">
+              <p>El sexto planeta era diez veces más grande. Estaba habitado por un anciano que escribía en enormes libros.</p>
+            </div>
+            <img src="https://historiacreativa.com.ar/wp-content/uploads/2021/04/el-princi.gif" alt="El geógrafo" class="chapter-image" />
+            <div class="chapter-text">
+              <p>–¡Eah, un explorador! –exclamó el anciano al ver al principito que se había sentado sobre la mesa dando un resoplo. ¡Había viajado ya tanto!</p>
+              <p>–¿De dónde vienes tú? –preguntó el anciano.</p>
+              <p>–¿Qué libro es este tan grande y pesado?</p>
+              <p>–Preguntó a su vez el principito–. ¿Qué hace usted aquí?</p>
+              <p>–Soy geógrafo –dijo el anciano.</p>
+              <p>–¿Y qué es un geógrafo?</p>
+              <p>–Es un sabio que conoce donde se encuentran los mares, los ríos, las ciudades, las montañas y los desiertos.</p>
+              <p>–Eso es muy interesante –dijo el principito–. ¡Por fin un verdadero oficio! Y dio un vistazo alrededor del planeta del geógrafo. Nunca había visto un planeta tan majestuoso.</p>
+              <p>–Es muy hermoso su planeta. ¿Tiene océanos?</p>
+              <p>–No lo sé, no puedo saberlo –dijo el geógrafo.</p>
+              <p>–¡Oh! –dijo el principito decepcionado–. ¿Y montañas?</p>
+              <p>–No puedo saberlo –repitió el geógrafo.</p>
+              <p>–¿Y ciudades, ríos y desiertos?</p>
+              <p>–Tampoco puedo saberlo.</p>
+              <p>–¡Pero usted es geógrafo!</p>
+              <p>
+                –¡Exactamente! –Dijo el geógrafo–, pero no soy explorador, ni tengo exploradores que me informen. El geógrafo no puede estar de acá para allá haciendo el recuento de ciudades, ríos,
+                montañas, océanos y desiertos.
+              </p>
+              <p>
+                Un geógrafo es demasiado importante para andar explorando de un lado a otro. Se queda en su despacho y allí recibe a los exploradores. Les interroga y toma nota de sus observaciones e
+                informes. Si alguna le parece interesante, manda hacer una investigación sobre la moralidad del explorador.
+              </p>
+              <p>–¿Por qué?</p>
+              <p>–Porque si un explorador dijera mentiras sería una catástrofe para los libros de geografía. Y también si un explorador bebiera demasiado.</p>
+              <p>–¿Por qué? –preguntó el principito.</p>
+              <p>–Porque los borrachos ven doble y el geógrafo pondría dos montañas donde sólo hay una.</p>
+              <p>–Conozco a alguien –dijo el principito–, que sería un mal explorador.</p>
+              <p>–Es muy posible. Cuando la moralidad del explorador parece buena, se hace un estudio sobre su descubrimiento.</p>
+              <p>–¿Se va a verificarlo?</p>
+              <p>–No, eso sería demasiado complicado. Se le exigen pruebas. Por ejemplo, si se trata del descubrimiento de una gran montaña, se le pide que traiga grandes piedras.</p>
+              <p>Súbitamente el geógrafo se sintió emocionado y dijo:</p>
+              <p>–¡Tú vienes de muy lejos! ¡Eres un explorador! Comienza, pues, a describirme tu planeta.</p>
+              <p>
+                El geógrafo abrió su registro y afiló la punta de su lápiz. Los relatos de los exploradores siempre se escriben primero con lápiz y sólo se pasan a tinta, una vez que el explorador ha
+                presentado suficientes pruebas.
+              </p>
+              <p>–¿Y bien? –interrogó el geógrafo.</p>
+              <p>–¡Oh! Mi planeta –dijo el principito– no es tan interesante, todo es muy pequeño. Tengo tres volcanes, dos en actividad y uno extinguido; pero uno nunca sabe...</p>
+              <p>–Nunca se sabe –dijo el geógrafo.</p>
+              <p>–Tengo también una flor.</p>
+              <p>–De las flores no tomamos nota.</p>
+              <p>–¿Por qué? ¡Si son tan lindas!</p>
+              <p>–Porque las flores son efímeras.</p>
+              <p>–¿Qué significa "efímera"?</p>
+              <p>
+                –Las geografías –dijo el geógrafo– son los libros más valiosos y apreciados. Nunca pasan de moda ya que es muy raro que una montaña cambie de lugar o que un océano pierda su agua.
+                Nosotros, los geógrafos, escribimos sobre cosas eternas.
+              </p>
+              <p>–Pero los volcanes extinguidos pueden despertarse – interrumpió el principito–. ¿Qué significa efímera?</p>
+              <p>–Que los volcanes estén extinguidos o se despierten es igual para nosotros. Lo interesante es la montaña del volcán y ésta nunca cambia.</p>
+              <p>–Pero, ¿qué significa efímera? –repitió el principito que nunca renunciaba a una pregunta suya.</p>
+              <p>–Significa que está amenazado de próxima desaparición.</p>
+              <p>–¿Mi flor está amenazada de desaparecer próximamente?</p>
+              <p>–Así es. Indudablemente.</p>
+              <p>
+                "Mi flor es efímera –se dijo el principito– y sólo tiene cuatro espinas para defenderse contra el mundo. ¡Y se ha quedado completamente sola!" Por primera vez se arrepintió de haber
+                dejado su planeta, aunque tomando valor pregunto:
+              </p>
+              <p>–¿Qué me aconseja usted que visite ahora?</p>
+              <p>–El planeta Tierra tiene muy buena reputación –contestó el geógrafo.</p>
+              <p>Y el principito partió pensando en su flor.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- capitulo 16-->
+      <div class="accordion-item">
+        <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">
+          <span>Capítulo XVI - La Tierra, el séptimo planeta</span>
+          <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="chapter-text">
+              <p>El séptimo planeta fue, por supuesto, ¡la Tierra!</p>
+              <p>
+                ¡La Tierra no es un planeta cualquiera! Se cuentan en él ciento once reyes (sin olvidar, sin duda, a los reyes negros), siete mil geógrafos, novecientos mil hombres de negocios, siete
+                millones y medio de ebrios, trescientos once millones de vanidosos, es decir, alrededor de dos mil millones de personas mayores.
+              </p>
+            </div>
+            <img src="https://www.plazzart.com/doc/plot/images/lots/20230220_mdv_226/1701103194-1681983470-p2145721.jpg" alt="La llegada a la Tierra" class="chapter-image" />
+            <div class="chapter-text">
+              <p>
+                Para tener idea de las dimensiones de la Tierra, puedo decir que antes de la invención de la electricidad, había que mantener sobre el planeta un verdadero ejército de cuatrocientos
+                sesenta y dos mil quinientos once faroleros.
+              </p>
+              <p>
+                Vistos desde lejos hacían un hermoso espectáculo, parecía un ballet. Primero tocaba el turno a los faroleros de Nueva Zelanda y de Australia que encendían sus faroles y se iban a
+                dormir. Seguían los faroleros de China y Siberia. Después los faroleros de Rusia y la India, luego los de África y Europa y, por último, los de América del Sur y América del Norte.
+                Nunca se equivocaban en el orden para entrar en escena. Era grandioso.
+              </p>
+            </div>
+            <img src="https://piziadas.com/wp-content/uploads/2012/12/noche.gif" alt="La llegada a la Tierra" class="chapter-image" />
+            <div class="chapter-text">
+              <p>Solamente el farolero del único farol del polo norte y el del único farol del polo sur, llevaban una vida descansada. Sólo trabajaban dos veces al año.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- capitulo 17-->
+      <div class="accordion-item">
+        <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">
+          <span>Capítulo XVII - La llegada a la Tierra y la serpiente en el desierto</span>
+          <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="chapter-text">
+              <p>
+                Cuando se quiere ser ingenioso, se expone uno a mentir un poco. No he sido muy honesto al hablar de los faroleros y corro el riesgo de dar, a quienes no conozcan nuestro planeta, una
+                idea falsa de él. Los hombres ocupan muy poco lugar sobre la Tierra. Si los dos mil millones de habitantes que la pueblan se pusieran de pie, uno junto a otro y un poco apretados, como
+                en una concentración, cabrían fácilmente en una plaza de veinte millas de largo por veinte de ancho. La humanidad podría amontonarse sobre alguna isla del Pacífico.
+              </p>
+              <p>
+                Esto seguramente no lo creerán las personas mayores, pues ellas siempre se imaginan que ocupan mucho sitio. Se creen importantes y grandes como los baobabs. Se les puede decir que
+                hagan el cálculo; eso les gustará ya que adoran las cifras. Otros no perderán el tiempo pues me tienen confianza.
+              </p>
+              <p>El principito cuando llegó a la Tierra, quedó sorprendido de no ver a nadie. Creyó haberse equivocado de planeta, cuando un anillo de color de luna se movió en la arena.</p>
+              <p>–¡Buenas noches! –dijo el principito.</p>
+              <p>–¡Buenas noches! –dijo la serpiente.</p>
+              <p>–¿Sobre qué planeta he caído? –preguntó el principito.</p>
+              <p>–Sobre la Tierra, en África –respondió la serpiente.</p>
+              <p>–¡Ah! ¿Y no hay nadie sobre la Tierra?</p>
+              <p>–Esto es el desierto. En los desiertos no hay nadie. La Tierra es muy grande –contestó la serpiente.</p>
+              <p>El principito se sentó en una piedra y elevando su mirada dijo:</p>
+              <p>–Me pregunto si las estrellas están encendidas para que cada quien pueda reconocer la suya. ¡Mira!, precisamente sobre nosotros está mi planeta, pero... ¡tan, tan lejos!</p>
+            </div>
+            <img src="https://www.agirregabiria.net/Principito/26c.jpg" alt="Sentado en la Tierra" class="chapter-image" />
+            <div class="chapter-text">
+              <p>–Es muy bella tu estrella –dijo la serpiente– ¿Y qué es lo que vienes a hacer por acá?</p>
+              <p>–Tengo problemas con una flor –dijo el principito.</p>
+              <p>–¡Ah!</p>
+              <p>Y ambos callaron.</p>
+              <p>Por fin, el principito rompió el silencio. –¿Se está así de solo en el desierto? ¿Dónde están los hombres?</p>
+              <p>Entre los hombres también se está solo –afirmó la serpiente.</p>
+              <p>El principito la miró largo rato y le dijo: –Eres un animal algo raro… delgado como un dedo...</p>
+            </div>
+            <img src="https://latorredebabel.wordpress.com/wp-content/uploads/2010/07/image36.png" alt="Mirando la serpiente" class="chapter-image" />
+            <div class="chapter-text">
+              <p>–Pero soy más poderoso que el dedo de un rey –le interrumpió la serpiente.</p>
+              <p>El principito sonrió y dijo –no lo pareces... no tienes patas... no creo tan siquiera que puedas viajar...</p>
+              <p>–Puedo llevarte más lejos que un navío –dijo la serpiente y se enroscó alrededor del tobillo del principito como un brazalete…</p>
+              <p>–Al que yo toco, le hago regresar a la tierra de donde salió. Pero tú eres puro y vienes de una estrella... El principito no respondió.</p>
+              <p>–…Me das lástima, tan débil sobre esta tierra de granito… Si algún día llegas a extrañar tu planeta, yo puedo ayudarte. Puedo...</p>
+              <p>–¡Oh! Te he comprendido muy bien –dijo el principito–. Pero ¿por qué hablas siempre con enigmas?</p>
+              <p>–Yo los resuelvo todos –dijo la serpiente. Y ambos guardaron silencio.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- capitulo 18-->
+      <div class="accordion-item">
+        <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">
+          <span>Capítulo XVIII - La flor de tres pétalos</span>
+          <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="chapter-text">
+              <p>El principito atravesó el desierto en el que sólo encontró una flor de tres pétalos, simple e insignificante.</p>
+            </div>
+            <img src="https://www.nodo50.org/principito/18a.jpg" alt="La flor de tres pétalos" class="chapter-image" />
+            <div class="chapter-text">
+              <p>¡Buenos días! –saludo el principito.</p>
+              <p>–¡Buenos días! –contestó la flor.</p>
+              <p>–¿Dónde están los hombres? –preguntó cortésmente el principito.</p>
+              <p>La flor que algún día, vio pasar una caravana, dijo:</p>
+              <p>
+                –¿Los hombres? Me parece que no existen más que seis o siete. Los vi hace ya años y nunca se sabe dónde encontrarlos. Como no tienen raíces, el viento los pasea de un lado a otro. Debe
+                ser molesto.
+              </p>
+              <p>–Adiós entonces –dijo el principito.</p>
+              <p>–Adiós –dijo la flor.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- capitulo 19-->
+      <div class="accordion-item">
+        <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">
+          <span>Capítulo XIX - El eco en la montaña</span>
+          <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="chapter-text">
+              <p>
+                El principito escaló hasta la cima de una alta montaña. Las únicas montañas que él conocía eran sus dos volcanes que le llegaban a la rodilla y el extinguido que utilizaba como
+                taburete. El principito se dijo a sí mismo: “Desde una montaña tan alta como ésta, podré ver todo el planeta y a todos los hombres..." Pero no alcanzó a ver más que algunas puntas de
+                rocas muy afiladas.
+              </p>
+            </div>
+            <img src="https://64.media.tumblr.com/89ac9a26afd89b1efe44883940cda9f3/tumblr_o39apkykIm1r6xb23o1_1280.jpg" alt="En la montaña" class="chapter-image" />
+            <div class="chapter-text">
+              <p>–¡Buenos días! –exclamó el principito al azar.</p>
+              <p>–¡Buenos días!... ¡enos días!... ¡…días! –respondió el eco.</p>
+              <p>–¿Quién eres tú? –preguntó el principito.</p>
+              <p>–¿Quién eres tú?... ¿…eres tú?... ¿…tú?... –contestó el eco.</p>
+              <p>–Sean mis amigos, estoy solo –dijo el principito.</p>
+              <p>–Estoy solo... …solo ...olo... -repitió el eco.</p>
+              <p>
+                "¡Qué planeta más raro! –Pensó entonces el principito–, es seco, puntiagudo y salado. Sus habitantes carecen de imaginación; no hacen más que repetir lo que uno dice... En mi tierra
+                tenía una flor y era siempre la primera en hablar…"
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- capitulo 20-->
+      <div class="accordion-item">
+        <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">
+          <span>Capítulo XX - El jardín de rosas y la unicidad de su rosa</span>
+          <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="chapter-text">
+              <p>Por fin llegó el momento en que el principito, después de caminar mucho entre arena, rocas y nieve, encontró un camino. Y los caminos llevan siempre a la morada de los hombres.</p>
+              <p>–¡Buenos días! –dijo.</p>
+              <p>–¡Buenos días! –dijeron las rosas.</p>
+            </div>
+            <img src="https://www.agirregabiria.net/Principito/20a.jpg" alt="En el jardín de rosas" class="chapter-image" />
+            <div class="chapter-text">
+              <p>El principito las miró, parecían iguales a su flor.</p>
+              <p>–¿Quiénes son ustedes? –les preguntó atónito.</p>
+              <p>–Somos las rosas –respondieron éstas.</p>
+              <p>
+                –¡Ah! –exclamó el principito. Y se sintió muy triste; su flor le había dicho que era la única de su especie en todo el universo. ¡Ahora estaba ante más de cinco mil, iguales y en el
+                mismo jardín!
+              </p>
+              <p>
+                Si ella viese esto, se decía el principito, se sentiría humillada, tosería muchísimo y simularía morir para escapar del ridículo. Y yo tendría que fingirle cuidados, pues sería capaz
+                de dejarse morir verdaderamente, para humillarme a mí también...
+              </p>
+              <p>
+                Y continuó diciéndose: "Me creía rico con una flor única y resulta que sólo tengo una rosa común. Eso y mis tres volcanes que apenas me llegan a la rodilla y uno de los cuales acaso
+                esté extinguido para siempre. Realmente no soy un gran príncipe..." Y tirándose sobre la hierba, lloró.
+              </p>
+            </div>
+            <img src="https://www.agirregabiria.net/Principito/20b.jpg" alt="Acostado en el jardín" class="chapter-image" />
+          </div>
+        </div>
+      </div>
+      <!-- capitulo 21-->
+      <div class="accordion-item">
+        <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">
+          <span>Capítulo XXI - El zorro y el poder de los lazos invisibles</span>
+          <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="chapter-text">
+              <p>Entonces apareció el zorro:</p>
+              <p>–¡Buenos días! –dijo el zorro.</p>
+              <p>–¡Buenos días! –respondió cortésmente el principito y se volvió para ver quien hablaba pero no descubrió a nadie.</p>
+              <p>–Estoy aquí, bajo el manzano –dijo la voz.</p>
+              <p>–¿Quién eres tú? –Preguntó el principito–. ¡Qué bonito eres!</p>
+              <p>–Soy un zorro.</p>
+              <p>–Ven a jugar conmigo, –le propuso el principito– ¡Estoy tan triste!</p>
+              <p>–No puedo jugar contigo –dijo el zorro–, no estoy domesticado.</p>
+              <p>–¡Ah, perdón! –dijo el principito.</p>
+              <p>Pero después de una breve reflexión, añadió:</p>
+              <p>–¿Qué significa "domesticar"?</p>
+              <p>–Tú no eres de aquí –dijo el zorro– ¿qué buscas?</p>
+              <p>–Busco a los hombres –respondió–. ¿Qué significa domesticar?</p>
+              <p>–Los hombres –dijo el zorro– tienen escopetas y cazan. ¡Es muy molesto, aunque también crían gallinas! Es lo único que les interesa. ¿Tú buscas gallinas?</p>
+              <p>–No, yo sólo busco amigos. Pero, dime ¿qué significa domesticar?</p>
+              <p>–Es una cosa ya olvidada –dijo el zorro–, significa "crear vínculos... "</p>
+              <p>–¿Crear vínculos?</p>
+            </div>
+            <img src="https://llevatetodo.com/wp-content/uploads/2021/10/Principito.02.jpg" alt="El principito y el zorro" class="chapter-image" />
+            <div class="chapter-text">
+              <p>
+                –¡Sí!, verás –dijo el zorro–. Tú eres para mí, sólo un muchachito igual a otros y no te necesito para nada. Tampoco tú tienes necesidad de mí y no soy para ti más que un zorro como
+                otro zorro cualquiera. Pero si tú me domesticas, entonces tendremos necesidad el uno del otro. Tú serás para mí único en el mundo, como también yo lo seré para ti...
+              </p>
+              <p>–Empiezo a entender –dijo el principito–. Hay una flor... creo que ella me ha domesticado...</p>
+              <p>–Es posible –concedió el zorro–, en la Tierra se ve todo tipo de cosas.</p>
+              <p>–¡Oh, no es en la Tierra! –exclamó el principito.</p>
+              <p>El zorro muy interesado preguntó:</p>
+              <p>–¿En otro planeta?</p>
+              <p>–Sí.</p>
+              <p>–¿Y hay cazadores en ese planeta?</p>
+              <p>–No.</p>
+              <p>–¡Oh, eso es muy interesante! ¿Y hay gallinas?</p>
+              <p>–No.</p>
+              <p>–¡Uhm, Nada es perfecto! –dijo el zorro suspirando un tanto desilusionado.</p>
+            </div>
+            <img src="https://olivelaia.wordpress.com/wp-content/uploads/2007/08/84444-cazador.gif?w=908" alt="Cazador" class="chapter-image" />
+            <div class="chapter-text">
+              <p>
+                –¡Sí!, verás –dijo el zorro–. Tú eres para mí, sólo un muchachito igual a otros y no te necesito para nada. Tampoco tú tienes necesidad de mí y no soy para ti más que un zorro como
+                otro zorro cualquiera. Pero si tú me domesticas, entonces tendremos necesidad el uno del otro. Tú serás para mí único en el mundo, como también yo lo seré para ti...
+              </p>
+              <p>–Empiezo a entender –dijo el principito–. Hay una flor... creo que ella me ha domesticado...</p>
+              <p>–Es posible –concedió el zorro–, en la Tierra se ve todo tipo de cosas.</p>
+              <p>–¡Oh, no es en la Tierra! –exclamó el principito.</p>
+              <p>El zorro muy interesado preguntó:</p>
+              <p>–¿En otro planeta?</p>
+              <p>–Sí.</p>
+              <p>–¿Y hay cazadores en ese planeta?</p>
+              <p>–No.</p>
+              <p>–¡Oh, eso es muy interesante! ¿Y hay gallinas?</p>
+              <p>–No.</p>
+              <p>–¡Uhm, Nada es perfecto! –dijo el zorro suspirando un tanto desilusionado.</p>
+              <p>
+                Y continúo: –Mi vida es muy monótona. Cazo gallinas y los hombres me cazan a mí. Todas las gallinas son muy parecidas y todos los hombres se parecen entre sí; Así que, como ves, me
+                aburro constantemente. En cambio, si tú me domesticas, mi vida se llenará de sol y conoceré el rumor de unos pasos diferentes a los de otros hombres. Estos me hacen esconder bajo la
+                tierra; los tuyos me llamarán fuera de la madriguera como una música. Además, ¡mira! ¿Ves allá abajo los campos de trigo? Yo no como pan y por lo tanto el trigo no me significa algo,
+                es inútil para mí. Los trigales no me recuerdan nada y eso me pone triste. ¡Sin embargo, tú tienes el cabello dorado como el trigo y, cuando me hayas domesticado, será maravilloso ver
+                los trigales: te recordaré y amaré el canto del viento sobre el trigo.
+              </p>
+              <p>Después, el zorro permaneció callado mirando un buen rato al principito.</p>
+              <p>–¡Por favor!... domestícame –le dijo.</p>
+              <p>–Bien quisiera hacerlo –respondió el principito– pero no tengo mucho tiempo. He de buscar amigos y conocer muchas cosas.</p>
+              <p>
+                –Sólo se conoce bien lo que se domestica –dijo el zorro–. Los hombres ya no tienen tiempo de conocer nada; todo lo compran ya hecho, Y como en las tiendas no se venden amigos, los
+                hombres ya no tienen amigos. ¡Si quieres tener un amigo, entonces debes domesticarme!
+              </p>
+              <p>–¿Qué debo hacer? –preguntó el principito.</p>
+              <p>
+                –Debes ser muy paciente –respondió el zorro–. Al principio te sentarás sobre la hierba, un poco retirado de mí; yo te miraré con el rabillo del ojo y tú no dirás nada, pues el lenguaje
+                puede ser fuente de malos entendidos. Entonces, al pasar los días, te podrás sentar cada vez más cerca...
+              </p>
+              <p>Al día siguiente el principito volvió.</p>
+              <p>
+                –Es mejor que vengas siempre a la misma hora –dijo el zorro–. Si vienes, por ejemplo, a las cuatro de la tarde, yo desde las tres comenzaría a ser dichoso. Conforme avance la hora, más
+                contento me sentiré. A las cuatro me sentiré agitado e inquieto, así descubriré lo que vale la felicidad. Pero si tú vienes a cualquier hora, yo nunca sabré cuándo preparar mi
+                corazón... Tú sabes, los ritos son necesarios.
+              </p>
+              <p>–¿Qué es un rito? –inquirió el principito.</p>
+              <p>
+                –Eso también es algo casi olvidado –dijo el zorro–. Es lo que hace que un día sea diferente a otro día y que una hora sea diferente a otra. Entre los cazadores, por ejemplo, hay un
+                rito. Todos los jueves acostumbran ir a bailar con las muchachas del pueblo. Los jueves, entonces, son maravillosos para mí, ¡puedo pasear hasta la viña! En cambio, si los cazadores no
+                tuvieran un día fijo para ir a bailar, todos los días serían iguales y yo no tendría vacación alguna.
+              </p>
+            </div>
+            <img src="https://www.revistaabogacia.com/wp-content/uploads/2021/08/Derecho-y-literatura-EL-PRINCIPITO-1024x479.jpg" alt="Conversando" class="chapter-image" />
+            <div class="chapter-text">
+              <p>De esta manera el principito fue domesticando al zorro.</p>
+              <p>Cuando llegó el día de la partida, el zorro dijo:</p>
+              <p>–¡Voy a llorar!</p>
+              <p>–Yo no quería causarte daño, pero tú quisiste que te domesticara...</p>
+              <p>–Así es –dijo el zorro.</p>
+              <p>–Pero vas a llorar –dijo él principito.</p>
+              <p>–¡Sí! –volvió a decir el zorro.</p>
+              <p>–Al final, no ganaste nada.</p>
+              <p>–¡Gané! –Dijo el zorro–. He ganado a causa del color del trigo. Ahora es mucho más agradable.</p>
+              <p>Después, el zorro añadió: –Ve a ver las rosas una vez más; comprenderás que la tuya sí es única en el mundo. Regresarás para decirme adiós y yo te regalaré un secreto.</p>
+              <p>El principito se fue a ver nuevamente a las rosas. Les dijo:</p>
+              <p>
+                –En efecto, no se parecen a mi rosa. Ustedes todavía no son nada. Nadie las ha domesticado ni ustedes han domesticado a nadie. Son como el zorro era antes, un zorro común y corriente
+                que en nada se diferenciaba de los otros cien mil zorros. Sin embargo, ahora, él es único en el mundo.
+              </p>
+              <p>Las rosas se sentían molestas oyendo al principito, que continuó diciéndoles:</p>
+              <p>
+                –Son realmente muy bellas pero están vacías. Nadie daría la vida por ustedes. Cualquiera puede creer que mí rosa es igual. ¡No es así! Ella es más importante que todas ustedes juntas
+                porque a ella he regado, a ella cuidé y protegí con el biombo, porque la libré de los gusanos, dejando sólo los que serían mariposas. Porque es ella a la que oí quejarse, vanagloriarse
+                y, a veces, hasta callarse. Porque, finalmente, ella es mi rosa.
+              </p>
+              <p>Y volvió con el zorro…</p>
+              <p>–Adiós –dijo el principito con tristeza.</p>
+              <p>–Adiós –dijo el zorro–. He aquí mi secreto:</p>
+              <p>Sólo con el corazón se puede ver bien; lo esencial es invisible a los ojos.</p>
+              <p>–Sólo con el corazón… Lo esencial es invisible a los ojos… -repitió el principito para recordarlo.</p>
+              <p>–Lo que hace importante a tu rosa, es el tiempo que le has dedicado.</p>
+              <p>–…es el tiempo que le he dedicado… –repitió el principito con el fin de recordarlo.</p>
+              <p>–Los hombres han olvidado esta gran verdad –dijo el zorro–. ¡Tú no debes olvidarla! Eres responsable, por siempre, de lo que hayas domesticado ¡Eres responsable de tu rosa!...</p>
+              <p>–Soy responsable de mi rosa... –repitió el principito para recordarlo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- capitulo 22-->
+      <div class="accordion-item">
+        <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">
+          <span>Capítulo XXII - El guardagujas y el sentido de los caminos humanos</span>
+          <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="chapter-text">
+              <p>–¡Buenos días! –dijo el principito.</p>
+              &nbsp;
+              <p>–¡Buenos días! –respondió el guardavías.</p>
+              &nbsp;
+              <p>–¿Qué haces aquí? –preguntó el principito.</p>
+              &nbsp;
+              <p>–Cuento a los viajeros y los despacho en trenes que los llevan de un lado a otro.</p>
+              &nbsp;
+              <p>Y de pronto, algo iluminado, rugiendo como el trueno, hizo temblar la caseta del guardavías.</p>
+              &nbsp;
+              <p>–Tienen mucha prisa –dijo el principito– ¿Qué es lo buscan?</p>
+              &nbsp;
+              <p>–Ni siquiera el conductor de la locomotora lo sabe –dijo el guardavías.</p>
+            </div>
+            <img src="https://www.blog.lepetitprince.com/wp-content/uploads/2013/07/key-wago.jpg" alt="El guardavias" class="chapter-image-large" />
+            <div class="chapter-text">
+              &nbsp;
+              <p>Un segundo tren rápido iluminado rugió en sentido inverso.</p>
+              &nbsp;
+              <p>–¿Ya vuelven? –preguntó el principito.</p>
+              &nbsp;
+              <p>–No son los mismos –contestó el guardavías–. Es un cambio.</p>
+              &nbsp;
+              <p>–¿No se sentían contentos donde estaban?</p>
+              &nbsp;
+              <p>–Nadie se siente contento donde está –respondió el guardavías.</p>
+              &nbsp;
+              <p>Y rugió el trueno de un tercer tren rápido iluminado.</p>
+              &nbsp;
+              <p>–¿Persiguen a los primeros viajeros? –preguntó el principito.</p>
+              &nbsp;
+              <p>–No persiguen absolutamente nada –dijo el guardavías–. Duermen o bostezan allí dentro. Los únicos que aplastan su nariz contra los vidrios son los niños.</p>
+              &nbsp;
+              <p>
+                –Sólo los niños saben realmente lo que buscan–dijo el principito. Dedican su tiempo a su juguete o a una muñeca que viene a ser lo más importante para ellos. Si se lo quitan, lloran...
+              </p>
+              &nbsp;
+              <p>–¡Qué suerte tienen! –dijo el guardavías.&nbsp;</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- capitulo 23-->
+      <div class="accordion-item">
+        <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">
+          <span>Capítulo XXIII - El comerciante de píldoras y el tiempo para disfrutar</span>
+          <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="chapter-text">
+              <p>–¡Buenos días! –dijo el principito.</p>
+              <p>–¡Buenos días! –respondió el comerciante.</p>
+              <p>Se trataba de un comerciante de píldoras para quitar la sed. Se toma una pastilla por semana y ya no se sienten más ganas de beber.</p>
+              <p>–¿Por qué vendes eso? –preguntó el principito.</p>
+              <p>–Porque economizan mucho tiempo. Los cálculos hechos por los expertos comprobaron que se ahorran cincuenta y tres minutos por semana.</p>
+              <p>–¿Y qué se hace con esos minutos?</p>
+              <p>–Se hace lo que cada quien quiera hacer...</p>
+              <p>"¡Ah! Si yo dispusiera de cincuenta y tres minutos –pensó el principito–, caminaría hacia una fuente con toda tranquilidad..."</p>
+            </div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7WM-5TjtboSRa8Fv8TxAx4fzfbEJsMQSrqA&s" alt="El principito y el comerciante" class="chapter-image" />
+            <div class="chapter-text"></div>
+          </div>
+        </div>
+      </div>
+      <!-- capitulo 24-->
+      <div class="accordion-item">
+        <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">
+          <span>Capítulo XXIV - La sed en el desierto y el pozo escondido</span>
+          <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="chapter-text">
+              <p>–Mi amigo el zorro...</p>
+              <p>–Oh Muchachito, No se trata ahora del zorro...</p>
+              <p>–¿Por qué?</p>
+              <p>–Porque vamos a morir de sed...</p>
+              <p>No comprendió mi razonamiento y replicó:</p>
+              <p>–Es bueno haber tenido un amigo, aún si vamos a morir. Yo estoy muy contento de haber tenido un amigo zorro.</p>
+              <p>"No mide el peligro –me dije– Nunca tiene hambre ni sed y un poco de sol le es suficiente..."</p>
+              <p>El principito me miró y respondió a mi pensamiento: – ¡Vamos..., busquemos un pozo...!</p>
+              <p>Aunque estaba cansado y me parecía absurdo buscar un pozo en la inmensidad del desierto, nos pusimos en marcha.</p>
+            </div>
+            <img src="https://urbanarevistainteractiva.wordpress.com/wp-content/uploads/2015/11/5.jpg?w=620" alt="El principito y el piloto" class="chapter-image" />
+            <div class="chapter-text">
+              <p>
+                Caminamos en silencio. Al caer la noche las estrellas comenzaron a brillar, yo las veía como en sueño, pues por la sed tenía un poco de fiebre. Las palabras del principito danzaban en
+                mi mente. Le pregunté:
+              </p>
+              <p>
+                –¿Tú también tienes sed? pero no respondió. Dijo solamente:
+                <br />
+                –El agua también es buena para el corazón...
+              </p>
+              <p>No comprendí sus palabras, pero me callé; sabía muy bien que no había que interrogarle.</p>
+              <p>El principito estaba cansado. Se sentó; me senté a su lado y después de un silencio me dijo:</p>
+              <p>–Las estrellas son bellas por la flor que no se ve...</p>
+              <p>Respondí "seguramente" y sin hablar más, miré los pliegues que la arena formaba bajo la luna.</p>
+              <p>–El desierto es bello –añadió el principito.</p>
+              <p>Es verdad; siempre he amado el desierto. Sentado en una duna, nada se ve ni se distingue, nada se oye y, sin embargo, hay algo que resplandece en el silencio...</p>
+              <p>–Lo que realmente embellece al desierto –dijo el principito– es el pozo que se oculta en algún sitio...</p>
+              <p>
+                Al oírlo comprendí el misterio. Cuando era niño vivía en una casa antigua que, según la leyenda, tenía un tesoro escondido. Sin duda nadie lo encontró y quizás nadie lo buscó, pero la
+                casa parecía toda encantada por ese tesoro que guardaba en secreto dentro de su corazón...
+              </p>
+              <p>–Sí –dije– ya se trate de una casa, de las estrellas o del desierto, lo que les hace hermoso es invisible.</p>
+              <p>–Me alegra –dijo bostezando el principito– que estés de acuerdo con mi zorro.</p>
+              <p>
+                El principito tenía sueño y se quedó dormido. Lo tomé en mis brazos y continué el camino. Me sentía emocionado llevando aquel tesoro que me parecía tan frágil. A la luz de la luna
+                miraba aquella frente pálida, aquellos ojos dormidos, aquel cabello dorado movido al viento y me dije: "lo que veo es sólo la corteza; lo más importante es invisible..."
+              </p>
+              <p>
+                Al contemplar sus labios entreabiertos en los que se esbozaba una sonrisa, me dije aún: "Lo que más me emociona de este principito es su fidelidad a una flor. Es la imagen de la rosa
+                que resplandece en él como la llama de una lámpara, incluso cuando duerme..." Y lo sentí más frágil aún. Pensé que a las lámparas hay que protegerlas: un viento fuerte puede
+                apagarlas...
+              </p>
+              <p>Seguí caminando y con la luz de la aurora descubrí el pozo.</p>
+            </div>
+            <img src="https://tucuentofavorito.com/wp-content/uploads/2020/06/principito-pozo-1-354x177.jpg" alt="El principito y el piloto" class="chapter-image" />
+          </div>
+        </div>
+      </div>
+      <!-- capitulo 25-->
+      <div class="accordion-item">
+        <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">
+          <span>Capítulo XXV - El agua que alimenta el corazón</span>
+          <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="chapter-text">
+              <p>–Los hombres –dijo el principito– se meten en los trenes pero no saben a dónde van. No saben qué quieren ni saben que buscar…</p>
+              <p>Y añadió:</p>
+              <p>–¡No vale la pena!...</p>
+              <p>
+                El pozo al que habíamos llegado no se parecía en nada a los pozos del Sahara que son simples agujeros abiertos en la arena. Éste parecía el pozo de un pueblo; aunque resulta que por
+                allí no había ningún poblado y yo creía soñar.
+              </p>
+              <p>–¡Es extraño! –le dije al principito–. Todo está ya listo: la polea, el balde y la cuerda...</p>
+              <p>Él se rió, tocó la cuerda y la polea se movió. El sonido era parecido al de una vieja veleta que el viento no ha movido en mucho tiempo.</p>
+              <p>–¿Oyes? –Dijo el principito–. Hemos despertado al pozo y ahora canta…</p>
+            </div>
+            <img src="https://i.pinimg.com/736x/16/f8/71/16f87131a9fd79ce7064149f8d35424b.jpg" alt="El principito y el ppzp" class="chapter-image" />
+            <div class="chapter-text">
+              <p>No quería que el principito hiciera el menor esfuerzo y le dije:</p>
+              <p>–Déjame hacerlo, es pesado para ti.</p>
+              <p>Lentamente subí el cubo hasta el brocal. Lo asenté dejándolo firme en el borde. Aún oía el canto de la polea y en agua se reflejaba el sol.</p>
+              <p>–Tengo sed de esta agua –dijo complacido el principito–, dame de beber...</p>
+              <p>¡Entonces comprendí lo que él había buscado!</p>
+              <p>Levanté el balde hasta sus labios. Bebió con los ojos cerrados. El espectáculo era bello como un día de fiesta.</p>
+              <p>
+                Aquella agua era algo más que un alimento. Había nacido del caminar bajo las estrellas, del canto de la polea, del esfuerzo de mis brazos. Era como un regalo para el corazón…Cuando yo
+                era niño, las luces del árbol de Navidad, la música de la misa de medianoche, la dulzura de las sonrisas, daban su resplandor al regalo de Navidad que recibía.
+              </p>
+              <p>–En tu tierra –dijo el principito– los hombres cultivan cinco mil rosas en un solo jardín… y nunca encuentran lo que buscan.</p>
+              <p>–No lo encuentran –le respondí.</p>
+              <p>–Sin embargo, lo que buscan podrían encontrarlo en una sola rosa o en un poco de agua...</p>
+              <p>–Sin duda, respondí. Y el principito añadió:</p>
+              <p>–Pero los ojos no siempre saben ver. Hay que buscar con el corazón.</p>
+              <p>
+                Yo ya había bebido y no tenía sed. Me encontraba bien. La arena, estaba color de miel. Yo gozaba con esa armonía hasta sentirme dichoso. Sin embargo, percibí algo que me inquietaba.
+              </p>
+              <p>Es necesario que cumplas tu promesa –dijo dulcemente el principito que nuevamente se había sentado junto a mí.</p>
+              <p>–¿Qué promesa?</p>
+              <p>– Ya sabes... el bozal para mi cordero... Soy responsable de mi flor…</p>
+              <p>Saqué del bolsillo mis bosquejos. El principito los miró y con una sonrisa dijo:</p>
+              <p>–Tus baobabs parecen coles... Y tu zorro tiene orejas muy largas.</p>
+              <p>–¡Oh! –Le dije– ¡Y yo que estaba tan orgulloso de mis baobabs!</p>
+              <p>Y volvió a reír.</p>
+              <p>-Eres injusto, muchachito; yo no sabía dibujar más que boas cerradas y boas abiertas...</p>
+              <p>–¡Oh! –Dijo el principito volviendo a sonreír– ¡Todo está bien! Los niños lo comprenden todo.</p>
+              <p>Bosquejé, pues, un bozal y al dárselo se me oprimió el corazón:</p>
+              <p>–Tú tienes proyectos que desconozco...</p>
+              <p>Pero no me respondió.</p>
+              <p>–¿Sabes? –me dijo–. Mañana será el aniversario de mi llegada a la Tierra...</p>
+              <p>Y después de un silencio, añadió:</p>
+              <p>–Caí muy cerca de aquí... Y se sonrojó.</p>
+            </div>
+            <img src="https://www.agirregabiria.net/Principito/26c.jpg" alt="El principito y el zorro" class="chapter-image" />
+            <div class="chapter-text">
+              <p>Nuevamente, sin comprender por qué, sentí una gran tristeza y dije:</p>
+              <p>
+                –Entonces, ¿no paseabas casualmente por estos lugares, hace ocho días cuando nuestro encuentro a mil millas de distancia del lugar habitado más próximo? ¿Volvías al lugar donde
+                llegaste?,¿… por el aniversario?
+              </p>
+              <p>El principito se ruborizó una vez más y no contestó; pero cuando, uno se sonroja la respuesta es: Sí.</p>
+              <p>–¡Ah! –Le dije– temo...</p>
+              <p>Pero me interrumpió:</p>
+              <p>–Ahora debes volver a trabajar; debes terminar de reparar tu avión. Ve y regresa mañana por la tarde. ¡Te espero aquí!</p>
+              <p>Pero yo seguía intranquilo. Recordaba las palabras del zorro: si uno se deja domesticar, corre el riesgo de llorar un poco...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- capitulo 26-->
+      <div class="accordion-item">
+        <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">
+          <span>Capítulo XXVI - La despedida y el regreso a las estrellas</span>
+          <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="chapter-text">
+              <p>Junto al pozo había un viejo y ruinoso muro de piedras. Cuando al día siguiente volví por la tarde, desde lejos vi al principito sentado ahí arriba. Oí que hablaba.</p>
+              <p>–¿No te acuerdas? ¡No es exactamente aquí! Alguien le respondió sin duda, porque él replicó:</p>
+              <p>–¡Sí, sí; sí es el día, pero no es este el lugar exacto…!</p>
+              <p>Intrigado proseguí mi marcha hacia el muro. No veía ni oía a nadie más. Sin embargo, el principito continuaba:</p>
+              <p>–¡Claro! Verás el comienzo de mis huellas sobre la arena. Sólo tienes que esperarme ahí. Estaré por la noche.</p>
+              <p>Estaba yo a unos veinte metros del muro y continuaba sin distinguir nada.</p>
+              <p>El principito, después de un silencio, dijo aún:</p>
+              <p>–¿Tienes buen veneno? ¿Estás segura que no me harás sufrir mucho tiempo?</p>
+              <p>Me detuve con el corazón acongojado, siempre sin comprender.</p>
+              <p>–¡Ahora vete –dijo el principito– quiero volver a bajarme!</p>
+            </div>
+            <img src="https://microtop.ca/lepetitprince/43.jpg" alt="El principito en el muro" class="chapter-image" />
+            <div class="chapter-text">
+              <p>
+                Entonces bajé la mirada al pie del muro e instintivamente di un brinco. Una serpiente amarilla, de esas que matan a una persona en pocos segundos, se erguía en dirección al principito.
+                Empecé a correr mientras sacaba mi revólver. La serpiente al sentir el peligro, se deslizó suavemente por la arena y se escurrió entre las piedras con un ligero sonido metálico.
+              </p>
+              <p>Llegué justo a tiempo de recibir en brazos a mi principito, que estaba blanco como la nieve.</p>
+              <p>–¿Pero qué historia es ésta? ¿Ahora platicas también con las serpientes?</p>
+              <p>
+                Le aflojé su bufanda dorada, le humedecí las sienes, le di de beber y no me atreví a preguntar más. Me miró gravemente rodeándome el cuello con sus brazos. Sentí el latido de su
+                corazón, como el de un pajarillo herido.
+              </p>
+              <p>–Me alegra –dijo el principito– que hayas terminado de reparar tu avión. Ahora podrás volver a tu casa...</p>
+              <p>–¿Cómo lo sabes?</p>
+              <p>Precisamente venía a avisarle que, casi contra toda esperanza, había logrado terminar el arreglo.</p>
+              <p>No respondió a mi pregunta, sino que añadió:</p>
+              <p>-–Yo también hoy regreso a casa... Luego, con nostalgia:</p>
+              <p>–Es mucho más lejos... y bastante más difícil... Sabía que algo extraño estaba ocurriendo.</p>
+              <p>
+                Le estreché entre mis brazos como si fuera un niño pequeño. No obstante, al ver su mirada que se perdía en la lejanía, sentí como si se escurriera en un abismo sin poder hacer nada por
+                retenerlo.
+              </p>
+              <p>–Tengo tu cordero y la caja para el cordero. Y tengo también el bozal. –Y sonrío con algo de melancolía.</p>
+              <p>Esperé un buen rato para que volviera a entrar en calor.</p>
+              <p>–Has tenido miedo, muchachito...</p>
+              <p>Lo había tenido, sin duda. Sonrió con dulzura y dijo:</p>
+              <p>–Esta noche voy a tener más...</p>
+              <p>Nuevamente me quedé helado por la misma sensación de algo irreparable y comprendí lo difícil que sería no volver a oír aquella risa que era como una fuente en el desierto para mí.</p>
+              <p>–Muchachito, quiero oírte reír... Pero él me dijo:</p>
+              <p>–Esta noche hará un año. Mi estrella se encontrará justo sobre el lugar donde el año pasado...</p>
+            </div>
+            <img
+              src="https://resources.diariolibre.com/images/2023/12/14/dibujo-de-el-principito-supera-estimaciones-y-se-vende-por-380000-_2-focus-0.09-0.28-608-342.jpg"
+              alt="El principito en el muro"
+              class="chapter-image" />
+            <div class="chapter-text">
+              <p>–Le interrumpí: dime que toda esa historia de serpientes, citas y estrellas es sólo un mal sueño, una pesadilla.</p>
+              <p>Pero el principito dijo solamente:</p>
+              <p>–Lo más importante nunca se ve...</p>
+              <p>–Indudablemente.</p>
+              <p>–Es igual con la flor. Si quieres a una flor que habita en una estrella, es muy dulce mirar al cielo por la noche. Todas las estrellas han florecido.</p>
+              <p>–Seguro.</p>
+              <p>–Es como el agua que me diste a beber ¡Era como una música! ¿Te acuerdas qué dulce era?</p>
+              <p>–Claro.</p>
+              <p>
+                –Por la noche mirarás las estrellas; no puedo señalarte la mía, mi casa, porque es demasiado pequeña. Así es mejor; mi estrella será para ti una de ellas, cualquiera. Te gustará
+                entonces mirar a todas y todas serán tus amigas. Además, voy a hacerte un regalo...
+              </p>
+              <p>Y rió una vez más.</p>
+              <p>–¡Ah, muchachito, muchachito, cómo me gusta oír tu risa!</p>
+              <p>–Precisamente ese será mi regalo… será como el agua...</p>
+              <p>–¿Qué quieres decir?</p>
+              <p>
+                –La gente tiene estrellas pero no significan lo mismo para todos. Para algunos, los que viajan, las estrellas son sus guías. Para otros sólo son lucecitas. Para los sabios las
+                estrellas son motivo de estudio y para mi hombre de negocios, eran oro. Pero todas esas estrellas no dicen nada. Tú tendrás estrellas como nadie ha tenido...
+              </p>
+              <p>–Explícame.</p>
+              <p>
+                –Por la noche, al mirarlas, como sabes que yo habito en una de ellas y ahí estaré riendo, será para ti como si todas las estrellas se rieran. ¡Sólo tú tendrás estrellas que saben reír!
+              </p>
+              <p>Y él volvió a reír.</p>
+              <p>
+                –Cuando te hayas consolado (siempre se consuela uno) estarás contento de haberme conocido y, como serás mi amigo por siempre, tendrás ganas de reír conmigo. Algunas veces abrirás tu
+                ventana sólo por placer y tus amigos se asombrarán al verte reír mirando al cielo. Tú les explicarás: "Las estrellas siempre me hacen reír". Ellos te creerán loco. Y yo te habré jugado
+                una broma.
+              </p>
+              <p>Y volvió a reír.</p>
+              <p>–Será como si en vez de estrellas, te hubiese dado multitud de cascabelitos que saben reír...</p>
+              <p>Una vez más dejó oír su risa y luego se puso serio.</p>
+              <p>–¿Sabes? Esta noche no vengas...</p>
+              <p>–No me separaré de ti.</p>
+              <p>–Pensarás que sufro, me veré enfermo... Parecerá como que muero... ¡No vale la pena que vengas a ver eso...!</p>
+              <p>–No te dejaré.</p>
+              <p>Pero él estaba algo intranquilo.</p>
+              <p>–También te lo digo por la serpiente; no quiero que te muerda. Las serpientes son malas y a veces muerden por puro gusto...</p>
+              <p>–He dicho que no te dejaré. Pero algo le tranquilizó.</p>
+              <p>–Bueno, es verdad que no tienen veneno para el segundo mordisco...</p>
+              <p>Sin embargo, aquella noche salió muy sigiloso y sin hacer ruido. No lo sentí ponerse en camino.</p>
+              <p>Cuando al fin le alcancé, marchaba con paso rápido y decidido. Solamente dijo:</p>
+              <p>–¡Ah, estás ahí…!</p>
+            </div>
+            <img
+              src="https://www.meisterdrucke.us/kunstwerke/1000px/Antoine_de_Saint_Exupery_-_Illustration_of_The_Little_Prince_-_(MeisterDrucke-1503951).jpg"
+              alt="El principito en el muro"
+              class="chapter-image" />
+            <div class="chapter-text">
+              <p>Me tomó de la mano y volvió a expresar su preocupación:</p>
+              <p>–Has hecho mal en seguirme. Tendrás pena y sufrirás porque parecerá que estoy muerto y no será verdad.</p>
+              <p>Yo callaba.</p>
+              <p>–¿Comprendes? Es inmensamente lejos y no me es posible llevar este cuerpo que pesa demasiado.</p>
+              <p>Seguí callado.</p>
+              <p>–Solo será como una vieja corteza que se abandona y, por las cortezas, no se siente pena…</p>
+              <p>Insistí en mi silencio. El principito se desalentó un poco, sin embargo, dijo:</p>
+              <p>
+                –Será agradable ¿sabes? Yo también miraré las estrellas, todas serán pozos con poleas cantarinas. Todas las estrellas me darán de beber. ¡Será divertido! Tú tendrás quinientos millones
+                de cascabeles y yo quinientos millones de fuentes...
+              </p>
+              <p>
+                El principito también se quedó callado. Estaba llorando. Se sentó porque tenía miedo y dijo aún: –Es allí; déjame ir solo, mi flor… ¿sabes?... soy responsable... ¡y ella es tan débil e
+                ingenua! Sólo tiene cuatro espinas insignificantes para defenderse contra el mundo...
+              </p>
+              <p>No pude mantenerme de pie… tuve que sentarme.</p>
+              <p>–Bien... eso es todo... dijo y aún titubeo un instante, luego se levantó y dio un paso. Yo continuaba inerte, sin poder moverme.</p>
+              <p>Un relámpago amarillo centelleó en su tobillo. Quedó inmóvil un instante, sin exhalar un grito. Luego, suave y silenciosamente cayó en la arena, como cuando cae un árbol.</p>
+            </div>
+            <img src="https://www.agirregabiria.net/Principito/26d.jpg" alt="El principito en el muro" class="chapter-image" />
+          </div>
+        </div>
+      </div>
+      <!-- capitulo 27-->
+      <div class="accordion-item">
+        <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">
+          <span>Capítulo XXVII - El misterio del principito y el cielo eterno</span>
+          <span class="accordion-arrow">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="chapter-text">
+              <p>
+                Ahora, ya hace seis años de esto. Jamás he contado esta historia y los compañeros que me vuelven a ver se alegran de encontrarme vivo aunque me notan triste. "Es el cansancio", les
+                digo.
+              </p>
+              <p>
+                Al correr del tiempo me he consolado un poco, pero no completamente. Sé que ha vuelto a su planeta, pues al amanecer no encontré su cuerpo, que no era en realidad tan pesado... Y me
+                gusta por la noche escuchar a las estrellas que suenan como quinientos millones de cascabeles...
+              </p>
+              <p>
+                Pero sucede algo que me inquieta. Al bozal que dibujé para el principito, se me olvidó añadirle la correa de cuero; no sé si habrá podido atárselo al cordero. Entonces me pregunto:
+              </p>
+              <p>"¿Qué habrá sucedido en su planeta? Quizás el cordero se ha comido la flor..."</p>
+              <p>A veces me digo: "¡Seguro que no! El principito la protege y vigila a su cordero". Entonces me siento dichoso y todas las estrellas ríen dulcemente.</p>
+              <p>
+                Pero otras veces pienso: "Alguna que otra vez se distrae uno y eso basta. Si una noche ha olvidado poner el fanal o el cordero ha salido sin hacer ruido, durante la noche...". Y
+                entonces los cascabeles se convierten en lágrimas...
+              </p>
+              <p>
+                Y ahí está el gran misterio. Para ustedes que quieren al principito, lo mismo que para mí, nada en el universo habrá cambiado si en cualquier parte, quién sabe dónde, un cordero
+                desconocido se ha comido o no se ha comido una rosa...
+              </p>
+              <p>Pero miren al cielo y pregúntense: el cordero ¿se ha comido la flor? Y veréis cómo todo cambia...</p>
+              <p>¡Ninguna persona mayor comprenderá jamás que esto sea verdaderamente importante!</p>
+            </div>
+            <img src="https://pbs.twimg.com/media/BjyAT99CEAA23ax.jpg" alt="Horizonte, final" class="chapter-image" />
+            <div class="chapter-text">
+              <p>
+                Éste es, para mí, el paisaje más hermoso y el más triste del mundo. Es el mismo paisaje de la página anterior que he dibujado una vez más para que lo vean bien. Fue aquí donde el
+                principito apareció sobre la Tierra, desapareciendo luego.
+              </p>
+            </div>
+            <img src="https://pbs.twimg.com/media/BjyAT99CEAA23ax.jpg" alt="El principito y el zorro" class="chapter-image-large" />
+            <div class="chapter-text">
+              <p>
+                Examínenlo atentamente para que sepan reconocerlo, si algún día, viajando por África, cruzan el desierto. Si por casualidad pasan por allí, no se apresuren, se los ruego, y deténganse
+                un poco, precisamente bajo la estrella. Si un niño llega hasta ustedes, si ríe, tiene cabellos de oro y nunca responde a sus preguntas, adivinarán en seguida quién es. ¡Sean amables
+                con él! Y comuníquenme rápidamente que ha regresado.
+              </p>
+              <p>¡No me dejen tan triste!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p>
+        Creado por José M. Fernández utilizando como texto el material de la
+        <b>Biblioteca Digital ©</b>
+        <br />
+        Instituto Latinoamericano de la Comunicación Educativa ILCE,
+        <br />
+        autorizado sólo para fines educativos, culturales y no lucrativos.
+      </p>
+    </footer>
+    <p>
+      <script>
+        // Funcionalidad del acordeón
+        document.addEventListener('DOMContentLoaded', function () {
+          const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+          accordionHeaders.forEach(header => {
+            header.addEventListener('click', function () {
+              const accordionItem = this.parentElement;
+              const isActive = accordionItem.classList.contains('active');
+
+              // Cerrar todos los acordeones
+              document.querySelectorAll('.accordion-item').forEach(item => {
+                item.classList.remove('active');
+                item.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
+              });
+
+              // Si no estaba activo, abrirlo
+              if (!isActive) {
+                accordionItem.classList.add('active');
+                this.setAttribute('aria-expanded', 'true');
+              }
+            });
+
+            // Soporte para teclado
+            header.addEventListener('keydown', function (e) {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.click();
+              }
+            });
+          });
+        });
+      </script>
+    </p>
+  </body>
+</html>
 
