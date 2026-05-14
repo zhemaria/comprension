@@ -239,6 +239,179 @@
           padding: 20px;
         }
       }
+      /* ============ INICIO BLOQUE CSS NUEVO ============ */
+
+/* Cabeceras diferenciadas */
+.accordion-item.comprension .accordion-header {
+  background: linear-gradient(135deg, #b8941f 0%, #d4af37 50%, #b8941f 100%);
+  color: var(--text-color);
+}
+.accordion-item.comprension .accordion-header:hover {
+  background: linear-gradient(135deg, #c4a02a 0%, #e0bd44 50%, #c4a02a 100%);
+}
+.accordion-item.preguntas-ged .accordion-header {
+  background: linear-gradient(135deg, #1e4258 0%, #2c5f7c 50%, #1e4258 100%);
+  color: white;
+}
+.accordion-item.preguntas-ged .accordion-header:hover {
+  background: linear-gradient(135deg, #2a4f6a 0%, #34708f 50%, #2a4f6a 100%);
+}
+
+/* Bloque de temas globales */
+.intro-comprension {
+  font-size: 1rem;
+  color: var(--text-color);
+  margin-bottom: 1.2rem;
+  line-height: 1.7;
+}
+.temas-resumen {
+  background: var(--secondary-color);
+  border-left: 4px solid var(--accent-color);
+  border-radius: 0 8px 8px 0;
+  padding: 18px 22px;
+  margin: 16px 0;
+}
+.temas-resumen p {
+  margin-bottom: 0.8rem;
+  font-size: 0.97rem;
+  color: var(--text-color);
+}
+.temas-resumen ul { margin-left: 22px; margin-top: 8px; }
+.temas-resumen li {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  color: var(--text-color);
+}
+.nota-comprension {
+  margin-top: 20px;
+  padding: 14px 18px;
+  background: #f0f4f8;
+  border: 1px solid #b8c5d6;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  color: var(--text-color);
+}
+.nota-comprension strong {
+  color: var(--primary-color);
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Preguntas opción múltiple */
+.intro-preguntas {
+  font-size: 1rem;
+  color: var(--text-color);
+  margin-bottom: 1.4rem;
+  line-height: 1.7;
+}
+.pregunta-mc {
+  background: #fafbfc;
+  border: 1px solid #d8dde3;
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin-bottom: 18px;
+}
+.pregunta-mc .enunciado {
+  font-family: 'Georgia', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+.opcion {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  background: white;
+  border: 1px solid #d8dde3;
+  color: var(--text-color);
+  transition: all 0.18s;
+}
+.opcion:hover {
+  background: var(--secondary-color);
+  border-color: var(--accent-color);
+}
+.opcion.seleccionada {
+  background: var(--secondary-color);
+  border-color: var(--accent-color);
+  border-width: 2px;
+  font-weight: 600;
+  box-shadow: inset 4px 0 0 #b8941f;
+}
+.opcion.correcta {
+  background: #e0eee3;
+  border-color: #4a7c59;
+  color: #2d5e42;
+  font-weight: 600;
+}
+.opcion.incorrecta {
+  background: #f7e0dc;
+  border-color: #c0392b;
+  color: #8a2820;
+}
+.opcion-letra {
+  background: var(--primary-color);
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  font-family: 'Georgia', serif;
+}
+.btn-verificar {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 12px;
+  letter-spacing: 0.06em;
+  font-family: 'Georgia', serif;
+  text-transform: uppercase;
+  transition: background 0.2s;
+}
+.btn-verificar:hover { background: #34708f; }
+.btn-verificar:focus {
+  outline: 3px solid var(--focus-color);
+  outline-offset: 2px;
+}
+.feedback {
+  margin-top: 12px;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 0.93rem;
+  display: none;
+  line-height: 1.7;
+}
+.feedback.correcto {
+  background: #e0eee3;
+  color: #2d5e42;
+  border-left: 4px solid #4a7c59;
+}
+.feedback.incorrecto {
+  background: #f7e0dc;
+  color: #8a2820;
+  border-left: 4px solid #c0392b;
+}
+
+/* ============ FIN BLOQUE CSS NUEVO ============ */
     </style>
   </head>
   <body>
@@ -1881,6 +2054,195 @@
           </div>
         </div>
       </div>
+      <!-- ============ INICIO BLOQUE HTML NUEVO ============ -->
+
+<!-- ══════ COMPRENSIÓN GLOBAL DEL LIBRO ══════ -->
+<div class="accordion-item comprension">
+  <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">
+    <span>🎯 Comprensión global del libro</span>
+    <span class="accordion-arrow">▼</span>
+  </div>
+  <div class="accordion-content">
+    <div class="accordion-body">
+      <p class="intro-comprension">Antes de hacer las preguntas tipo GED, reflexiona sobre la idea central del libro. Una buena respuesta abarca <em>toda</em> la obra — desde la boa-sombrero del primer capítulo hasta el secreto del zorro y el regreso del principito a las estrellas — no solo una parte.</p>
+      <div class="temas-resumen">
+        <p><strong>Temas principales del libro (todos están presentes — ¿cuál domina?):</strong></p>
+        <ul>
+          <li>La crítica al mundo adulto que ha perdido la capacidad de ver lo esencial</li>
+          <li>El valor de las relaciones, los vínculos y la responsabilidad ("eres responsable de tu rosa")</li>
+          <li>La importancia de la imaginación y la mirada infantil sobre la realidad</li>
+          <li>La búsqueda del sentido de la vida a través del viaje y del encuentro con otros</li>
+          <li>El contraste entre lo visible y lo invisible: "lo esencial es invisible a los ojos"</li>
+        </ul>
+      </div>
+      <div class="nota-comprension">
+        <strong>🔍 Para el estudiante</strong>
+        La respuesta correcta a «idea central» en el GED siempre tiene que funcionar como tema de un ensayo sobre el libro completo. El libro abre con un narrador adulto que recuerda su dibujo de la boa-sombrero (que ningún adulto entendió) y cierra con la imagen del cielo estrellado donde habita el principito. Esa estructura te da la clave del tema dominante: el mundo adulto ha olvidado ver con el corazón, y eso es lo que el libro viene a recordarnos.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ 12 PREGUNTAS TIPO GED ══════ -->
+<div class="accordion-item preguntas-ged">
+  <div class="accordion-header" role="button" aria-expanded="false" tabindex="0">
+    <span>✅ Preguntas tipo GED — 12 de selección múltiple</span>
+    <span class="accordion-arrow">▼</span>
+  </div>
+  <div class="accordion-content">
+    <div class="accordion-body">
+      <p class="intro-preguntas">Haz clic en una opción para seleccionarla y luego presiona <strong>Verificar</strong>. Las respuestas correctas se marcan en verde; las incorrectas en rojo, con explicación.</p>
+
+      <!-- P1 -->
+      <div class="pregunta-mc" id="q1">
+        <div class="enunciado">1. ¿Cuál es la idea central del libro «El Principito»?</div>
+        <div class="opcion" onclick="seleccionar(this,'q1','a')"><span class="opcion-letra">a</span>Las aventuras de un piloto que se estrella en el desierto del Sahara</div>
+        <div class="opcion" onclick="seleccionar(this,'q1','b')"><span class="opcion-letra">b</span>Una crítica al mundo adulto que ha olvidado lo esencial — los vínculos, la imaginación, el amor — y la invitación a recuperar la mirada del niño</div>
+        <div class="opcion" onclick="seleccionar(this,'q1','c')"><span class="opcion-letra">c</span>Un manual de astronomía para niños</div>
+        <div class="opcion" onclick="seleccionar(this,'q1','d')"><span class="opcion-letra">d</span>La historia de un viaje espacial entre planetas habitados</div>
+        <button class="btn-verificar" onclick="verificar('q1','b')">Verificar</button>
+        <div class="feedback" id="fb-q1-correcto correcto">✅ Correcto. Desde la dedicatoria («todas las personas mayores han comenzado por ser niños, aunque pocas lo recuerden») hasta el secreto del zorro, todo el libro apunta a esa crítica y a esa invitación. El piloto y el principito representan los dos lados — el adulto que recuerda y el niño que enseña.</div>
+        <div class="feedback" id="fb-q1-incorrecto incorrecto">❌ Revisa. La idea central debe abarcar TODO el libro, desde la dedicatoria a León Werth hasta el regreso del principito a su estrella. ¿Qué crítica recurrente aparece en cada capítulo?</div>
+      </div>
+
+      <!-- P2 -->
+      <div class="pregunta-mc" id="q2">
+        <div class="enunciado">2. El dibujo de la boa que se ha comido al elefante (que los adultos confunden con un sombrero) es un símbolo de:</div>
+        <div class="opcion" onclick="seleccionar(this,'q2','a')"><span class="opcion-letra">a</span>El miedo del narrador a las serpientes</div>
+        <div class="opcion" onclick="seleccionar(this,'q2','b')"><span class="opcion-letra">b</span>La diferencia entre la mirada infantil, que ve lo extraordinario, y la mirada adulta, que se queda en la superficie</div>
+        <div class="opcion" onclick="seleccionar(this,'q2','c')"><span class="opcion-letra">c</span>El interés del autor por la zoología</div>
+        <div class="opcion" onclick="seleccionar(this,'q2','d')"><span class="opcion-letra">d</span>Una crítica a la moda de los sombreros en Francia</div>
+        <button class="btn-verificar" onclick="verificar('q2','b')">Verificar</button>
+        <div class="feedback" id="fb-q2-correcto correcto">✅ Correcto. El dibujo es la prueba que el narrador aplica a cada adulto: quien ve «un sombrero» es alguien con quien hablará «del bridge, del golf, de política y de corbatas». Quien ve «una boa que digiere un elefante» es un alma capaz de ver lo invisible. Es el test fundamental del libro.</div>
+        <div class="feedback" id="fb-q2-incorrecto incorrecto">❌ Revisa. El narrador usa ese dibujo durante toda su vida como prueba para distinguir personas. ¿Qué distingue exactamente? ¿Qué tipo de mirada revela la respuesta «sombrero» frente a la respuesta «boa con elefante»?</div>
+      </div>
+
+      <!-- P3 -->
+      <div class="pregunta-mc" id="q3">
+        <div class="enunciado">3. ¿Qué significa la frase del zorro: «Lo esencial es invisible a los ojos»?</div>
+        <div class="opcion" onclick="seleccionar(this,'q3','a')"><span class="opcion-letra">a</span>Que hay cosas microscópicas que no podemos ver</div>
+        <div class="opcion" onclick="seleccionar(this,'q3','b')"><span class="opcion-letra">b</span>Que lo más importante de la vida — los vínculos, el amor, los recuerdos — no se percibe con los sentidos sino con el corazón</div>
+        <div class="opcion" onclick="seleccionar(this,'q3','c')"><span class="opcion-letra">c</span>Que las estrellas están demasiado lejos para verse</div>
+        <div class="opcion" onclick="seleccionar(this,'q3','d')"><span class="opcion-letra">d</span>Que es peligroso mirar directamente al sol</div>
+        <button class="btn-verificar" onclick="verificar('q3','b')">Verificar</button>
+        <div class="feedback" id="fb-q3-correcto correcto">✅ Correcto. La frase es el corazón filosófico del libro. La rosa del principito es invisible para los demás (es una rosa más), pero esencial para él porque le ha dedicado tiempo. El agua del pozo en el desierto no se ve, pero es lo que da belleza al desierto. Lo esencial siempre está más allá de la apariencia.</div>
+        <div class="feedback" id="fb-q3-incorrecto incorrecto">❌ Revisa. La frase no es literal. ¿Qué tipo de «invisibilidad» enseña el zorro? Piensa en su rosa, en el agua del pozo, en los lazos del cariño.</div>
+      </div>
+
+      <!-- P4 -->
+      <div class="pregunta-mc" id="q4">
+        <div class="enunciado">4. Cuando el zorro le pide al principito que lo «domestique», ¿qué significa esa palabra en el libro?</div>
+        <div class="opcion" onclick="seleccionar(this,'q4','a')"><span class="opcion-letra">a</span>Convertir un animal salvaje en mascota</div>
+        <div class="opcion" onclick="seleccionar(this,'q4','b')"><span class="opcion-letra">b</span>Crear vínculos: dedicar tiempo y atención para que dos seres pasen a ser únicos el uno para el otro</div>
+        <div class="opcion" onclick="seleccionar(this,'q4','c')"><span class="opcion-letra">c</span>Enseñar trucos al animal</div>
+        <div class="opcion" onclick="seleccionar(this,'q4','d')"><span class="opcion-letra">d</span>Domarlo a la fuerza</div>
+        <button class="btn-verificar" onclick="verificar('q4','b')">Verificar</button>
+        <div class="feedback" id="fb-q4-correcto correcto">✅ Correcto. El zorro lo define textualmente: «significa crear vínculos». Saint-Exupéry resignifica una palabra cotidiana para hablar del amor y la amistad. Domesticar es comprometerse con el otro, hacer la espera dulce, sufrir cuando se va. Por eso «eres responsable de tu rosa».</div>
+        <div class="feedback" id="fb-q4-incorrecto incorrecto">❌ Revisa. El zorro le da una definición explícita y poética al principito. No tiene que ver con animales sino con relaciones humanas. ¿Qué le dice exactamente?</div>
+      </div>
+
+      <!-- P5 -->
+      <div class="pregunta-mc" id="q5">
+        <div class="enunciado">5. ¿Qué simbolizan los baobabs en el planeta del principito?</div>
+        <div class="opcion" onclick="seleccionar(this,'q5','a')"><span class="opcion-letra">a</span>La belleza exótica de África</div>
+        <div class="opcion" onclick="seleccionar(this,'q5','b')"><span class="opcion-letra">b</span>Los hábitos malos, los problemas o las ideas dañinas que, si no se atienden cuando son pequeños, pueden crecer y destruirnos</div>
+        <div class="opcion" onclick="seleccionar(this,'q5','c')"><span class="opcion-letra">c</span>La importancia de la jardinería</div>
+        <div class="opcion" onclick="seleccionar(this,'q5','d')"><span class="opcion-letra">d</span>Los amigos que crecen con uno</div>
+        <button class="btn-verificar" onclick="verificar('q5','b')">Verificar</button>
+        <div class="feedback" id="fb-q5-correcto correcto">✅ Correcto. El principito dice: «Es una cuestión de disciplina. Hay que arrancar los baobabs en cuanto se les distingue de los rosales pues se parecen mucho cuando son pequeñitos». Los baobabs son lo que crece silenciosamente si no le hacemos caso: vicios, rencores, ideas tóxicas. Pequeños son inofensivos; grandes destrozan el planeta.</div>
+        <div class="feedback" id="fb-q5-incorrecto incorrecto">❌ Revisa. El principito habla de los baobabs como un peligro «fatal» si no se arrancan a tiempo. ¿Qué cosas en la vida humana también crecen silenciosamente y, si no se atienden, pueden destruirnos?</div>
+      </div>
+
+      <!-- P6 -->
+      <div class="pregunta-mc" id="q6">
+        <div class="enunciado">6. De todos los personajes adultos que el principito conoce en su viaje (el rey, el vanidoso, el bebedor, el hombre de negocios, el farolero, el geógrafo), ¿cuál es el único que el principito respeta y por qué?</div>
+        <div class="opcion" onclick="seleccionar(this,'q6','a')"><span class="opcion-letra">a</span>El rey, porque tiene autoridad universal</div>
+        <div class="opcion" onclick="seleccionar(this,'q6','b')"><span class="opcion-letra">b</span>El farolero, porque su trabajo se ocupa de algo más allá de sí mismo (enciende y apaga la luz para que otros la disfruten)</div>
+        <div class="opcion" onclick="seleccionar(this,'q6','c')"><span class="opcion-letra">c</span>El hombre de negocios, porque sabe contar estrellas</div>
+        <div class="opcion" onclick="seleccionar(this,'q6','d')"><span class="opcion-letra">d</span>El bebedor, porque al menos es sincero</div>
+        <button class="btn-verificar" onclick="verificar('q6','b')">Verificar</button>
+        <div class="feedback" id="fb-q6-correcto correcto">✅ Correcto. El principito lo dice textualmente: «Es el único que no me parece ridículo, quizás porque se ocupa de algo ajeno a sí mismo». Mientras los demás solo se ocupan de su poder, su vanidad, sus números o su vergüenza, el farolero cumple una consigna que beneficia a otros. Es el único trabajo con sentido del libro.</div>
+        <div class="feedback" id="fb-q6-incorrecto incorrecto">❌ Revisa el capítulo XIV. El principito reflexiona sobre el farolero y explica claramente por qué lo respeta. ¿Qué diferencia su trabajo del de los otros adultos?</div>
+      </div>
+
+      <!-- P7 -->
+      <div class="pregunta-mc" id="q7">
+        <div class="enunciado">7. La rosa del principito, ante el jardín de cinco mil rosas idénticas a ella, sigue siendo única. ¿Por qué?</div>
+        <div class="opcion" onclick="seleccionar(this,'q7','a')"><span class="opcion-letra">a</span>Porque es de otra especie diferente</div>
+        <div class="opcion" onclick="seleccionar(this,'q7','b')"><span class="opcion-letra">b</span>Porque es más bella que las otras</div>
+        <div class="opcion" onclick="seleccionar(this,'q7','c')"><span class="opcion-letra">c</span>Porque el principito le dedicó tiempo, la regó, la cuidó, la protegió con el biombo y la escuchó — el tiempo invertido es lo que la vuelve única</div>
+        <div class="opcion" onclick="seleccionar(this,'q7','d')"><span class="opcion-letra">d</span>Porque tiene un nombre propio</div>
+        <button class="btn-verificar" onclick="verificar('q7','c')">Verificar</button>
+        <div class="feedback" id="fb-q7-correcto correcto">✅ Correcto. El zorro lo formula con claridad: «Lo que hace importante a tu rosa es el tiempo que le has dedicado». La rosa no es objetivamente única; es subjetivamente única porque el principito invirtió en ella su atención, su preocupación, su amor. Es una lección sobre cómo el amor crea singularidad.</div>
+        <div class="feedback" id="fb-q7-incorrecto incorrecto">❌ Revisa. Al final del capítulo XXI, el zorro le revela al principito una verdad sobre las cosas que amamos. ¿Qué dice exactamente sobre el tiempo dedicado?</div>
+      </div>
+
+      <!-- P8 -->
+      <div class="pregunta-mc" id="q8">
+        <div class="enunciado">8. La crítica constante a las «personas mayores» a lo largo del libro NO incluye:</div>
+        <div class="opcion" onclick="seleccionar(this,'q8','a')"><span class="opcion-letra">a</span>Que solo se interesan por las cifras y los números</div>
+        <div class="opcion" onclick="seleccionar(this,'q8','b')"><span class="opcion-letra">b</span>Que necesitan explicaciones para todo y carecen de imaginación</div>
+        <div class="opcion" onclick="seleccionar(this,'q8','c')"><span class="opcion-letra">c</span>Que han olvidado lo esencial — los vínculos, la mirada con el corazón</div>
+        <div class="opcion" onclick="seleccionar(this,'q8','d')"><span class="opcion-letra">d</span>Que son malvadas y crueles a propósito</div>
+        <button class="btn-verificar" onclick="verificar('q8','d')">Verificar</button>
+        <div class="feedback" id="fb-q8-correcto correcto">✅ Correcto. Saint-Exupéry no acusa a los adultos de maldad sino de algo más sutil y más triste: de haber olvidado. La dedicatoria misma reconoce que las personas mayores «han comenzado por ser niños (aunque pocas lo recuerden)». No es maldad: es desmemoria. Esto hace la crítica más universal y más compasiva.</div>
+        <div class="feedback" id="fb-q8-incorrecto incorrecto">❌ Revisa. Ese rasgo SÍ es parte de la crítica del libro. La pregunta busca cuál NO está. ¿Acusa Saint-Exupéry a los adultos de maldad consciente, o más bien de desmemoria y olvido?</div>
+      </div>
+
+      <!-- P9 -->
+      <div class="pregunta-mc" id="q9">
+        <div class="enunciado">9. ¿Qué representa la serpiente amarilla en el desierto?</div>
+        <div class="opcion" onclick="seleccionar(this,'q9','a')"><span class="opcion-letra">a</span>Un peligro real del Sahara</div>
+        <div class="opcion" onclick="seleccionar(this,'q9','b')"><span class="opcion-letra">b</span>La muerte, pero también el camino de regreso a casa: la serpiente promete devolver al principito a su estrella</div>
+        <div class="opcion" onclick="seleccionar(this,'q9','c')"><span class="opcion-letra">c</span>La sabiduría tradicional</div>
+        <div class="opcion" onclick="seleccionar(this,'q9','d')"><span class="opcion-letra">d</span>Una amiga inesperada</div>
+        <button class="btn-verificar" onclick="verificar('q9','b')">Verificar
+
+        <div class="feedback" id="fb-q9-correcto correcto">✅ Correcto. La serpiente dice: «Al que yo toco, le hago regresar a la tierra de donde salió». Saint-Exupéry presenta la muerte de un modo poético y consolador — no como destrucción sino como camino de retorno. El cuerpo se queda como «una vieja corteza»; lo esencial vuelve a su estrella. Es una imagen tierna de algo terriblemente difícil.</div>
+        <div class="feedback" id="fb-q9-incorrecto incorrecto">❌ Revisa. La serpiente aparece dos veces: al llegar y al partir. Tiene un poder específico que ella misma explica. ¿Qué dice exactamente sobre lo que hace al «tocar» a alguien?</div>
+      </div>
+
+      <!-- P10 -->
+      <div class="pregunta-mc" id="q10">
+        <div class="enunciado">10. ¿Cuál es la función estructural de la dedicatoria «A León Werth» al inicio del libro?</div>
+        <div class="opcion" onclick="seleccionar(this,'q10','a')"><span class="opcion-letra">a</span>Es solo una formalidad sin importancia</div>
+        <div class="opcion" onclick="seleccionar(this,'q10','b')"><span class="opcion-letra">b</span>Establece de antemano la tesis del libro: «todas las personas mayores han comenzado por ser niños» — dedicar el libro «al niño que fue» León Werth ya es parte del mensaje</div>
+        <div class="opcion" onclick="seleccionar(this,'q10','c')"><span class="opcion-letra">c</span>Es para cumplir requisitos editoriales</div>
+        <div class="opcion" onclick="seleccionar(this,'q10','d')"><span class="opcion-letra">d</span>Es para vender más copias del libro</div>
+        <button class="btn-verificar" onclick="verificar('q10','b')">Verificar</button>
+        <div class="feedback" id="fb-q10-correcto correcto">✅ Correcto. La dedicatoria no es decoración — es el primer capítulo encubierto. Saint-Exupéry pide perdón a los niños por dedicar el libro a un adulto y luego «corrige» la dedicatoria: «A León Werth cuando era niño». En esa corrección está toda la tesis del libro. Empieza dándonos la lección.</div>
+        <div class="feedback" id="fb-q10-incorrecto incorrecto">❌ Revisa la dedicatoria con cuidado. Saint-Exupéry hace algo muy poco común: pide perdón, da tres razones, y luego CORRIGE su propia dedicatoria. ¿Qué mensaje está dando con esa corrección sobre quién es realmente el destinatario del libro?</div>
+      </div>
+
+      <!-- P11 -->
+      <div class="pregunta-mc" id="q11">
+        <div class="enunciado">11. ¿Qué tipo de narrador tiene el libro y qué función cumple?</div>
+        <div class="opcion" onclick="seleccionar(this,'q11','a')"><span class="opcion-letra">a</span>Narrador omnisciente en tercera persona que lo sabe todo</div>
+        <div class="opcion" onclick="seleccionar(this,'q11','b')"><span class="opcion-letra">b</span>Narrador en primera persona — el piloto adulto que recuerda — lo que crea distancia temporal y un puente entre el mundo adulto y el mundo del principito</div>
+        <div class="opcion" onclick="seleccionar(this,'q11','c')"><span class="opcion-letra">c</span>Narrador testigo desde el cielo</div>
+        <div class="opcion" onclick="seleccionar(this,'q11','d')"><span class="opcion-letra">d</span>El propio principito narrando</div>
+        <button class="btn-verificar" onclick="verificar('q11','b')">Verificar</button>
+        <div class="feedback" id="fb-q11-correcto correcto">✅ Correcto. El narrador es un piloto adulto que cuenta lo que sucedió hace seis años — un adulto que aprendió de un niño. Esa distancia es clave: él representa al lector adulto que también puede aprender. El libro empieza con su biografía («cuando yo tenía seis años») y termina con su tristeza por la partida. Es la voz que une los dos mundos.</div>
+        <div class="feedback" id="fb-q11-incorrecto incorrecto">❌ Revisa. Lee el primer capítulo: «Cuando yo tenía seis años...». ¿Quién dice «yo»? ¿Es el principito o alguien más? ¿Y cuándo cuenta la historia: en el presente o como recuerdo?</div>
+      </div>
+
+      <!-- P12 -->
+      <div class="pregunta-mc" id="q12">
+        <div class="enunciado">12. ¿Cuál es el propósito principal de Saint-Exupéry al escribir «El Principito»?</div>
+        <div class="opcion" onclick="seleccionar(this,'q12','a')"><span class="opcion-letra">a</span>Entretener a los niños con un cuento de aventuras espaciales</div>
+        <div class="opcion" onclick="seleccionar(this,'q12','b')"><span class="opcion-letra">b</span>Recordar a los adultos lo que han olvidado al crecer — la importancia de los vínculos, la imaginación y la mirada del corazón — usando un cuento aparentemente infantil</div>
+        <div class="opcion" onclick="seleccionar(this,'q12','c')"><span class="opcion-letra">c</span>Enseñar geografía y astronomía</div>
+        <div class="opcion" onclick="seleccionar(this,'q12','d')"><span class="opcion-letra">d</span>Promover la aviación civil en Francia</div>
+        <button class="btn-verificar" onclick="verificar('q12','b')">Verificar</button>
+        <div class="feedback" id="fb-q12-correcto correcto">✅ Correcto. Saint-Exupéry escribió el libro durante la Segunda Guerra Mundial, en el exilio en Nueva York, mientras Francia sufría la ocupación nazi. La dedicatoria a León Werth dice que su amigo «vive en Francia donde siente hambre, frío y tiene gran necesidad de ser consolada». El libro es un acto de resistencia poética: un recordatorio, en medio del horror adulto de la guerra, de lo que de verdad importa.</div>
+        <div class="feedback" id="fb-q12-incorrecto incorrecto">❌ Revisa. Aunque tiene forma de cuento infantil, el libro fue escrito en 1942-43 durante la Segunda Guerra Mundial. ¿A quién está realmente dirigido? Relee la dedicatoria: ¿quién es el verdadero lector que Saint-Exupéry tiene en mente?</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ============ FIN BLOQUE HTML NUEVO ============ -->
     </div>
     <footer>
       <p>
@@ -1925,8 +2287,44 @@
             });
           });
         });
+        // ============ INICIO BLOQUE JAVASCRIPT NUEVO ============
+
+// Funciones para verificación interactiva de preguntas tipo GED
+
+function seleccionar(el, qid, letra) {
+  document.querySelectorAll('#' + qid + ' .opcion').forEach(o => {
+    o.classList.remove('correcta', 'incorrecta', 'seleccionada');
+  });
+  el.classList.add('seleccionada');
+  el.dataset.seleccion = letra;
+  document.getElementById(qid).dataset.seleccion = letra;
+  document.getElementById(qid).querySelectorAll('.feedback').forEach(f => f.style.display = 'none');
+}
+
+function verificar(qid, correcta) {
+  const q = document.getElementById(qid);
+  const sel = q.dataset.seleccion;
+  q.querySelectorAll('.feedback').forEach(f => f.style.display = 'none');
+  q.querySelectorAll('.opcion').forEach(o => o.classList.remove('correcta', 'incorrecta'));
+  if (!sel) {
+    alert('Por favor, seleccione una opción antes de verificar.');
+    return;
+  }
+  q.querySelectorAll('.opcion').forEach(o => {
+    const letra = o.querySelector('.opcion-letra').textContent.toLowerCase();
+    if (letra === correcta) o.classList.add('correcta');
+    else if (letra === sel && sel !== correcta) o.classList.add('incorrecta');
+  });
+  const fbId = sel === correcta ? 'fb-' + qid + '-correcto' : 'fb-' + qid + '-incorrecto';
+  const fb = document.getElementById(fbId);
+  if (fb) {
+    fb.style.display = 'block';
+    fb.className = 'feedback ' + (sel === correcta ? 'correcto' : 'incorrecto');
+  }
+}
+
+// ============ FIN BLOQUE JAVASCRIPT NUEVO ============
       </script>
     </p>
   </body>
 </html>
-
