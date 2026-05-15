@@ -1456,14 +1456,18 @@ details.actividad[open] > summary { border-bottom: 1px solid var(--estela); }
 
 <script>
 // ── Selección de opciones en preguntas MC ──────────────────
-function seleccionar(el, qid, letra) {
-  document.querySelectorAll('#' + qid + ' .opcion').forEach(o => {
-    o.classList.remove('correcta', 'incorrecta');
-  });
-  el.dataset.seleccion = letra;
-  el.classList.add('seleccionada');
-  document.getElementById(qid).dataset.seleccion = letra;
-}
+      function seleccionar(el, qid, letra) {
+        document.querySelectorAll('#' + qid + ' .opcion').forEach(o => {
+          o.classList.remove('correcta', 'incorrecta', 'seleccionada');
+        });
+        el.classList.add('seleccionada');
+        el.dataset.seleccion = letra;
+        document.getElementById(qid).dataset.seleccion = letra;
+        document
+          .getElementById(qid)
+          .querySelectorAll('.feedback')
+          .forEach(f => (f.style.display = 'none'));
+      }
 
 // ── Verificar respuesta ────────────────────────────────────
 function verificar(qid, correcta) {
