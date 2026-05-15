@@ -2914,13 +2914,18 @@
     </footer>
     <!-- ============ INICIO BLOQUE JAVASCRIPT NUEVO ============ -->
 <script>
-function seleccionar(el, qid, letra) {
-  document.querySelectorAll('#' + qid + ' .opcion').forEach(o => {
-    o.classList.remove('correcta', 'incorrecta');
-  });
-  el.dataset.seleccion = letra;
-  document.getElementById(qid).dataset.seleccion = letra;
-}
+      function seleccionar(el, qid, letra) {
+        document.querySelectorAll('#' + qid + ' .opcion').forEach(o => {
+          o.classList.remove('correcta', 'incorrecta', 'seleccionada');
+        });
+        el.classList.add('seleccionada');
+        el.dataset.seleccion = letra;
+        document.getElementById(qid).dataset.seleccion = letra;
+        document
+          .getElementById(qid)
+          .querySelectorAll('.feedback')
+          .forEach(f => (f.style.display = 'none'));
+      }
 
 function verificar(qid, correcta) {
   const q = document.getElementById(qid);
