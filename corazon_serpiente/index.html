@@ -1632,22 +1632,18 @@ details.actividad[open] > summary { border-bottom: 1px solid var(--estela); }
 
 <script>
 // ── Selección de opciones en preguntas MC ──────────────────
-function seleccionar(el, qid, letra) {
-  // Limpiar selección anterior (incluyendo correcta/incorrecta de verificaciones previas)
-  document.querySelectorAll('#' + qid + ' .opcion').forEach(o => {
-    o.classList.remove('correcta', 'incorrecta', 'seleccionada');
-  });
-
-  // Marcar la opción actual
-  el.classList.add('seleccionada');
-
-  // Guardar la letra elegida
-  el.dataset.seleccion = letra;
-  document.getElementById(qid).dataset.seleccion = letra;
-
-  // Ocultar feedback anterior si el usuario cambia de opinión
-  document.getElementById(qid).querySelectorAll('.feedback').forEach(f => f.style.display = 'none');
-}
+      function seleccionar(el, qid, letra) {
+        document.querySelectorAll('#' + qid + ' .opcion').forEach(o => {
+          o.classList.remove('correcta', 'incorrecta', 'seleccionada');
+        });
+        el.classList.add('seleccionada');
+        el.dataset.seleccion = letra;
+        document.getElementById(qid).dataset.seleccion = letra;
+        document
+          .getElementById(qid)
+          .querySelectorAll('.feedback')
+          .forEach(f => (f.style.display = 'none'));
+      }
 
 // ── Verificar respuesta ────────────────────────────────────
 function verificar(qid, correcta) {
