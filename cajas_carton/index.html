@@ -1235,22 +1235,19 @@
     </footer>
     <!-- ============ INICIO BLOQUE JAVASCRIPT NUEVO ============ -->
 <script>
-function seleccionar(el, qid, letra) {
-  // Limpiar selección anterior (incluyendo correcta/incorrecta de verificaciones previas)
-  document.querySelectorAll('#' + qid + ' .opcion').forEach(o => {
-    o.classList.remove('correcta', 'incorrecta', 'seleccionada');
-  });
+      function seleccionar(el, qid, letra) {
+        document.querySelectorAll('#' + qid + ' .opcion').forEach(o => {
+          o.classList.remove('correcta', 'incorrecta', 'seleccionada');
+        });
+        el.classList.add('seleccionada');
+        el.dataset.seleccion = letra;
+        document.getElementById(qid).dataset.seleccion = letra;
+        document
+          .getElementById(qid)
+          .querySelectorAll('.feedback')
+          .forEach(f => (f.style.display = 'none'));
+      }
 
-  // Marcar la opción actual
-  el.classList.add('seleccionada');
-
-  // Guardar la letra elegida
-  el.dataset.seleccion = letra;
-  document.getElementById(qid).dataset.seleccion = letra;
-
-  // Ocultar feedback anterior si el usuario cambia de opinión
-  document.getElementById(qid).querySelectorAll('.feedback').forEach(f => f.style.display = 'none');
-}
 
 function verificar(qid, correcta) {
   const q = document.getElementById(qid);
