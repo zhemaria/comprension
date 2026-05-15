@@ -1,1 +1,1016 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La casa en Mango Street — Guía GED</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --mango-piel: #c63d2f;
+  --mango-piel-claro: #e25548;
+  --mango-naranja: #ff8c42;
+  --mango-amarillo: #f9a826;
+  --mango-amarillo-suave: #ffc870;
+  --mango-verde: #7ba23f;
+  --mango-hoja: #2d5016;
+  --crema: #fef9f0;
+  --crema-claro: #fffbf2;
+  --crema-sombra: #f5ead0;
+  --texto: #3a2418;
+  --texto-suave: #6b4a35;
+  --texto-claro: #8c6a4f;
+  --estela: #e8c896;
+  --verde-ok: #4a7c2e;
+  --rojo-mal: #c63d2f;
+}
 
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--crema);
+  color: var(--texto);
+  font-family: 'Lora', Georgia, serif;
+  font-size: 17px;
+  line-height: 1.78;
+  background-image:
+    radial-gradient(ellipse at 15% 0%, rgba(249,168,38,0.10) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 100%, rgba(198,61,47,0.06) 0%, transparent 50%);
+  min-height: 100vh;
+}
+
+/* ── CABECERA con gradiente de mango maduro ── */
+header {
+  background: linear-gradient(135deg, #f9a826 0%, #ff8c42 40%, #c63d2f 100%);
+  color: var(--crema-claro);
+  padding: 48px 32px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255,200,112,0.25) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(123,162,63,0.15) 0%, transparent 40%);
+  pointer-events: none;
+}
+.ornamento {
+  font-size: 1.4rem;
+  letter-spacing: 0.8rem;
+  margin-bottom: 12px;
+  opacity: 0.95;
+}
+header h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.01em;
+  margin-bottom: 6px;
+  text-shadow: 1px 2px 4px rgba(45,80,22,0.25);
+}
+header .autor {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: #fff;
+  margin-bottom: 14px;
+  opacity: 0.95;
+}
+header .subtitulo {
+  font-size: 0.88rem;
+  color: var(--crema-claro);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.92;
+}
+
+/* ── NAVEGACIÓN RÁPIDA ── */
+.nav-rapida {
+  background: var(--crema-sombra);
+  border-bottom: 1px solid var(--estela);
+  padding: 14px 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+.nav-rapida a {
+  background: var(--crema);
+  color: var(--mango-piel);
+  text-decoration: none;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  border: 1px solid var(--estela);
+  transition: all 0.2s;
+  font-weight: 600;
+}
+.nav-rapida a:hover {
+  background: var(--mango-piel);
+  color: #fff;
+  border-color: var(--mango-piel);
+}
+
+/* ── CONTENEDOR PRINCIPAL ── */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+}
+
+/* ── INTRO ── */
+.intro-bloque {
+  background: linear-gradient(135deg, var(--crema-sombra) 0%, #fff5d8 100%);
+  border: 1px solid var(--estela);
+  border-left: 4px solid var(--mango-amarillo);
+  border-radius: 8px;
+  padding: 24px 28px;
+  margin-bottom: 40px;
+}
+.intro-bloque h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: var(--mango-piel);
+  margin-bottom: 12px;
+}
+.intro-bloque p {
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+}
+.intro-bloque p:last-child { margin-bottom: 0; }
+.intro-bloque strong { color: var(--mango-hoja); }
+
+/* ── TÍTULOS DE BLOQUE ── */
+.bloque-titulo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.55rem;
+  color: var(--mango-piel);
+  border-bottom: 2px solid var(--estela);
+  padding-bottom: 10px;
+  margin: 44px 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.bloque-titulo .icono { font-size: 1.4rem; }
+
+/* ── SECCIONES (viñetas) ── */
+details.viñeta {
+  background: #fff;
+  border: 1px solid var(--estela);
+  border-radius: 10px;
+  margin-bottom: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(58,36,24,0.05);
+  transition: all 0.25s;
+}
+details.viñeta[open] {
+  border-color: var(--mango-naranja);
+  box-shadow: 0 4px 14px rgba(255,140,66,0.15);
+}
+details.viñeta > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 16px 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: linear-gradient(90deg, var(--crema-sombra) 0%, #fff 100%);
+  transition: background 0.2s;
+}
+details.viñeta[open] > summary {
+  background: linear-gradient(90deg, #ffd89a 0%, #fff5d8 100%);
+  border-bottom: 1px solid var(--estela);
+}
+details.viñeta > summary:hover {
+  background: linear-gradient(90deg, #ffd89a 0%, #fff5d8 100%);
+}
+details.viñeta > summary::-webkit-details-marker { display: none; }
+details.viñeta > summary::marker { display: none; }
+
+.sec-num {
+  background: var(--mango-amarillo);
+  color: var(--mango-hoja);
+  font-family: 'Playfair Display', serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 2px;
+  letter-spacing: 0.06em;
+}
+details.viñeta[open] .sec-num {
+  background: var(--mango-piel);
+  color: #fff;
+}
+.sec-texto { flex: 1; }
+.sec-titulo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  color: var(--texto);
+  font-weight: 600;
+  font-style: italic;
+}
+.sec-desc {
+  font-size: 0.82rem;
+  color: var(--texto-claro);
+  margin-top: 2px;
+}
+.sec-flecha {
+  color: var(--mango-piel);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: transform 0.25s;
+}
+details.viñeta[open] .sec-flecha {
+  transform: rotate(90deg);
+}
+
+.cuerpo-viñeta {
+  padding: 4px 24px 22px;
+}
+
+/* ── TEXTO LITERARIO ── */
+.texto-literario {
+  background: var(--crema-claro);
+  border-left: 3px solid var(--mango-amarillo);
+  border-radius: 4px;
+  padding: 20px 24px;
+  margin: 16px 0;
+  font-size: 0.96rem;
+  line-height: 1.85;
+  color: var(--texto);
+}
+.texto-literario p { margin-bottom: 14px; }
+.texto-literario p:last-child { margin-bottom: 0; }
+.texto-literario em, .texto-literario i {
+  color: var(--mango-piel);
+  font-style: italic;
+}
+.texto-literario strong {
+  color: var(--mango-hoja);
+}
+.texto-literario .ingles {
+  font-style: italic;
+  color: var(--mango-verde);
+  font-weight: 600;
+}
+
+/* ── VOCABULARIO ── */
+.vocabulario {
+  margin-top: 20px;
+  padding: 14px 18px;
+  background: linear-gradient(135deg, #f0f7e0 0%, #e8efd0 100%);
+  border: 1px solid #c9d99a;
+  border-radius: 8px;
+}
+.vocabulario-titulo {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mango-hoja);
+  margin-bottom: 8px;
+}
+.vocab-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.vocab-palabra {
+  background: #fff;
+  border: 1px solid var(--mango-verde);
+  color: var(--mango-hoja);
+  font-size: 0.82rem;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-style: italic;
+}
+
+/* ── REFLEXIÓN ── */
+.reflexion {
+  margin-top: 16px;
+  padding: 14px 18px;
+  background: linear-gradient(135deg, #fdecea 0%, #fce4d6 100%);
+  border: 1px solid #f0b8a8;
+  border-radius: 8px;
+  font-size: 0.93rem;
+  color: var(--texto);
+}
+.reflexion-titulo {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mango-piel);
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* ── COMPRENSIÓN GLOBAL ── */
+.temas-resumen {
+  background: linear-gradient(135deg, var(--crema-sombra), var(--crema-claro));
+  border-left: 4px solid var(--mango-naranja);
+  border-radius: 0 8px 8px 0;
+  padding: 18px 22px;
+  margin: 16px 0;
+}
+.temas-resumen p {
+  margin-bottom: 0.8rem;
+  font-size: 0.97rem;
+  color: var(--texto);
+}
+.temas-resumen ul {
+  margin-left: 22px;
+  margin-top: 8px;
+}
+.temas-resumen li {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  color: var(--texto);
+}
+.nota-comprension {
+  margin-top: 16px;
+  padding: 14px 18px;
+  background: rgba(123,162,63,0.08);
+  border: 1px dashed var(--mango-verde);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+}
+.nota-comprension strong {
+  color: var(--mango-hoja);
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ── PREGUNTAS MC ── */
+.pregunta-mc {
+  background: #fff;
+  border: 1px solid var(--estela);
+  border-radius: 10px;
+  padding: 18px 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 4px rgba(58,36,24,0.04);
+}
+.pregunta-mc .enunciado {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--texto);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+.opcion {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  font-size: 0.94rem;
+  background: var(--crema-claro);
+  border: 1px solid var(--estela);
+  color: var(--texto);
+  transition: all 0.18s;
+  font-family: 'Lora', serif;
+}
+.opcion:hover {
+  background: #ffd89a;
+  border-color: var(--mango-naranja);
+}
+.opcion.seleccionada {
+  background: #ffd89a;
+  border-color: var(--mango-piel);
+  border-width: 2px;
+  font-weight: 600;
+  box-shadow: inset 4px 0 0 var(--mango-piel);
+}
+.opcion.correcta {
+  background: #e0f0d0;
+  border-color: var(--verde-ok);
+  color: #2d4f1c;
+  font-weight: 600;
+}
+.opcion.incorrecta {
+  background: #fce0dc;
+  border-color: var(--rojo-mal);
+  color: #7a2820;
+}
+.opcion-letra {
+  background: var(--mango-piel);
+  color: #fff;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.82rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  font-family: 'Playfair Display', serif;
+}
+.btn-verificar {
+  background: var(--mango-piel);
+  color: #fff;
+  border: none;
+  padding: 9px 22px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 10px;
+  letter-spacing: 0.08em;
+  font-family: 'Raleway', sans-serif;
+  text-transform: uppercase;
+  transition: background 0.2s;
+}
+.btn-verificar:hover { background: var(--mango-piel-claro); }
+.feedback {
+  margin-top: 12px;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 0.92rem;
+  display: none;
+  line-height: 1.65;
+}
+.feedback.correcto {
+  background: #e0f0d0;
+  color: #2d4f1c;
+  border-left: 4px solid var(--verde-ok);
+}
+.feedback.incorrecto {
+  background: #fce0dc;
+  color: #7a2820;
+  border-left: 4px solid var(--rojo-mal);
+}
+
+/* ── PIE ── */
+footer {
+  background: linear-gradient(135deg, var(--mango-hoja) 0%, #1a3009 100%);
+  color: var(--crema);
+  text-align: center;
+  padding: 24px 16px;
+  font-size: 0.86rem;
+  letter-spacing: 0.06em;
+}
+footer a {
+  color: var(--mango-amarillo-suave);
+  text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  header { padding: 32px 20px 28px; }
+  main { padding: 20px 14px 48px; }
+  .sec-desc { display: none; }
+  .nav-rapida { padding: 10px 16px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="ornamento">🥭 🥭 🥭</div>
+  <h1>La casa en Mango Street</h1>
+  <div class="autor">Sandra Cisneros &nbsp;·&nbsp; 1984</div>
+  <div class="subtitulo">Guía de lectura y preparación para el GED &nbsp;·&nbsp; Razonamiento a través de las artes del lenguaje<br>Creado por José M. Fernández con Claude Opus 4.7</div>
+</header>
+
+<nav class="nav-rapida" aria-label="Navegación rápida">
+  <a href="#texto">Las viñetas</a>
+  <a href="#comprension">Comprensión global</a>
+  <a href="#opcion-multiple">Preguntas GED</a>
+</nav>
+
+<main>
+
+<!-- INTRODUCCIÓN -->
+<div class="intro-bloque">
+  <h2>🥭 Contexto del texto</h2>
+  <p><strong>Sandra Cisneros</strong> (nacida en 1954 en Chicago) es una de las voces más importantes de la literatura chicana de Estados Unidos. Hija de padre mexicano y madre mexicoamericana, creció entre Chicago y la Ciudad de México. <em>The House on Mango Street</em> (1984) es su obra más conocida — un libro breve compuesto por 44 viñetas que narran la vida de Esperanza Cordero, una niña latina de unos doce años que crece en un barrio pobre del oeste de Chicago.</p>
+  <p><strong>Las viñetas</strong> son textos cortos, casi poemas en prosa, donde cada uno funciona como una estampa independiente pero que juntas forman el retrato de un barrio, una familia y, sobre todo, la voz de una niña que sueña con escapar y, al mismo tiempo, sabe que tendrá que volver.</p>
+  <p><strong>Esta guía</strong> trabaja 7 viñetas seleccionadas del libro: la inicial (que da título), la del nombre, dos sobre identidad de barrio, dos sobre mujeres que viven «junto a la ventana» y las dos finales sobre el sueño de una casa propia y la promesa del regreso.</p>
+  <p><strong>Para tus estudiantes hispanos en Chicago:</strong> este libro habla de su ciudad, sus barrios, sus madres y abuelas. Pocas obras literarias retratan tan bien la experiencia latina urbana en Estados Unidos.</p>
+</div>
+
+<!-- ════════════════ LAS VIÑETAS ════════════════ -->
+<h2 class="bloque-titulo" id="texto"><span class="icono">📖</span> Las viñetas: 7 estampas</h2>
+
+<!-- VIÑETA 1 -->
+<details class="viñeta">
+  <summary>
+    <span class="sec-num">§ 01</span>
+    <span class="sec-texto">
+      <span class="sec-titulo">La casa en Mango Street</span>
+      <span class="sec-desc">La casa esperada y la casa real. La vergüenza ante la monja.</span>
+    </span>
+    <span class="sec-flecha">▶</span>
+  </summary>
+  <div class="cuerpo-viñeta">
+    <div class="texto-literario">
+      <p>No siempre hemos vivido en Mango Street. Antes vivimos en el tercer piso de Loomis, y antes de allí vivimos en Keeler. Antes de Keeler fue en Paulina y de más antes ni me acuerdo, pero de lo que sí me acuerdo es de un montón de mudanzas. Y de lo que en cada una éramos uno más. Ya para cuando llegamos a Mango Street éramos seis: Mamá, Papá, Carlos, Kiki, mi hermana Nenny y yo.</p>
+      <p>La casa en Mango Street es nuestra y no tenemos que pagarle renta a nadie, ni compartir el patio con los de abajo, ni cuidarnos de hacer mucho ruido, y no hay propietario que golpee el techo con una escoba. Pero aún así <strong>no es la casa que hubiéramos querido</strong>.</p>
+      <p>Siempre decían que algún día nos mudaríamos a una casa, una casa de verdad, que fuera nuestra para siempre, de la que no tuviéramos que salir cada año, y nuestra casa tendría agua corriente y tubos que sirvieran. Y escaleras interiores propias, como las casas de la tele. Y tendríamos un sótano, y por lo menos tres baños para no tener que avisarle a todo el mundo cada vez que nos bañáramos. Nuestra casa sería blanca, rodeada de árboles, un jardín enorme y el pasto crecido sin cerca. Esa es la casa de la que hablaba Papá cuando tenía un billete de lotería y esa es la casa que Mamá soñaba en los cuentos que nos contaba antes de dormir.</p>
+      <p>Pero la casa de Mango Street no es de ningún modo como ellos la contaron. Es pequeña y roja, con escalones apretados al frente y unas ventanitas tan chicas que parecen guardar la respiración. Los ladrillos se hacen pedazos en algunas partes y la puerta del frente se ha hinchado tanto que uno tiene que empujar fuerte para entrar. No hay jardín al frente sino cuatro olmos chiquititos que la ciudad plantó en la banqueta.</p>
+      <p>Una vez, cuando vivíamos en Loomis, pasó una monja de mi escuela y me vio jugando enfrente. La lavandería del piso bajo había sido cerrada con tablas arriba por un robo dos días antes, y el dueño había pintado en la madera <span class="ingles">SÍ, ESTÁ ABIERTO</span>, para no perder clientela.</p>
+      <p>—¿Dónde vives? preguntó.</p>
+      <p>—Allí, dije señalando arriba, al tercer piso.</p>
+      <p>—¿Vives <em>allí</em>?</p>
+      <p><em>Allí</em>. Tuve que mirar a donde ella señalaba. El tercer piso, la pintura descarapelada, los barrotes que Papá clavó en las ventanas para que no nos cayéramos. <em>¿Vives allí?</em> El modito en que lo dijo me hizo sentirme una nada. <em>Allí. Yo vivo allí</em>. Moví la cabeza asintiendo.</p>
+      <p><strong>Desde ese momento supe que debía tener una casa</strong>. Una que pudiera señalar. La casa en Mango Street no. Por mientras, dice Mamá. Es temporario, dice Papá. Pero yo sé cómo son esas cosas.</p>
+    </div>
+    <div class="vocabulario">
+      <div class="vocabulario-titulo">Vocabulario clave</div>
+      <div class="vocab-lista">
+        <span class="vocab-palabra">propietario</span>
+        <span class="vocab-palabra">banqueta</span>
+        <span class="vocab-palabra">olmos</span>
+        <span class="vocab-palabra">descarapelada</span>
+        <span class="vocab-palabra">hinchada (puerta)</span>
+        <span class="vocab-palabra">monja</span>
+        <span class="vocab-palabra">temporario</span>
+        <span class="vocab-palabra">recámaras</span>
+      </div>
+    </div>
+    <div class="reflexion">
+      <span class="reflexion-titulo">🔍 Para reflexionar</span>
+      ¿Por qué el «modito» de la monja al decir <em>«¿Vives allí?»</em> hace que Esperanza se sienta «una nada»? ¿Has sentido vergüenza de un lugar al que pertenecías? ¿Qué hace que un lugar sea, o no sea, «una casa de verdad»?
+    </div>
+  </div>
+</details>
+
+<!-- VIÑETA 2 -->
+<details class="viñeta">
+  <summary>
+    <span class="sec-num">§ 02</span>
+    <span class="sec-texto">
+      <span class="sec-titulo">Mi nombre</span>
+      <span class="sec-desc">Esperanza, la bisabuela, y el deseo de un nuevo nombre.</span>
+    </span>
+    <span class="sec-flecha">▶</span>
+  </summary>
+  <div class="cuerpo-viñeta">
+    <div class="texto-literario">
+      <p>En inglés mi nombre quiere decir esperanza. En español tiene demasiadas letras. Quiere decir tristeza, decir espera. Es como el número nueve, como un color lodoso. Es los discos mexicanos que toca mi padre los domingos en la mañana cuando se rasura, canciones como sollozos.</p>
+      <p>Era el nombre de mi bisabuela y ahora es mío. Una mujer caballo nacida como yo en el año chino del caballo —que se supone es de mala suerte si naces mujer— pero creo que esa es una mentira china porque a los chinos, como a los mexicanos, no les gusta que sus mujeres sean fuertes.</p>
+      <p>Mi bisabuela. Me habría gustado conocerla, un caballo salvaje de mujer, tan salvaje que no se casó sino hasta que mi bisabuelo la echó de cabeza a un costal y así se la llevó nomás, como si fuera un candelabro elegante, así lo hizo.</p>
+      <p>Dice la historia que ella jamás lo perdonó. <strong>Toda su vida miró por la ventana hacia afuera, del mismo modo en que muchas mujeres apoyan su tristeza en su codo</strong>. Yo me pregunto si ella hizo lo mejor que pudo con lo que le tocó, o si estaba arrepentida porque no fue todas las cosas que quiso ser. Esperanza. <strong>Heredé su nombre, pero no quiero heredar su lugar junto a la ventana</strong>.</p>
+      <p>En la escuela pronuncian raro mi nombre, como si las sílabas estuvieran hechas de hojalata y lastimaran el techo de la boca. Pero en español mi nombre está hecho de algo más suave, como la plata, no tan grueso como el de mi hermanita —Magdalena— que es más feo que el mío. Magdalena, que por lo menos puede llegar a casa y hacerse Nenny. Pero yo siempre soy Esperanza.</p>
+      <p>Me gustaría bautizarme yo misma con un nombre nuevo, un nombre más parecido a mí, a la de a de veras, a la que nadie ve. Esperanza como Lisandra o Maritza o Zezé la X. Sí, algo así como Zezé la X estaría bien.</p>
+    </div>
+    <div class="vocabulario">
+      <div class="vocabulario-titulo">Vocabulario clave</div>
+      <div class="vocab-lista">
+        <span class="vocab-palabra">bisabuela</span>
+        <span class="vocab-palabra">hojalata</span>
+        <span class="vocab-palabra">candelabro</span>
+        <span class="vocab-palabra">sollozos</span>
+        <span class="vocab-palabra">año del caballo</span>
+        <span class="vocab-palabra">heredar</span>
+        <span class="vocab-palabra">bautizarse</span>
+      </div>
+    </div>
+    <div class="reflexion">
+      <span class="reflexion-titulo">🔍 Para reflexionar</span>
+      Esperanza dice que su nombre significa «esperanza» en inglés pero «tristeza» y «espera» en español. ¿Por qué un mismo nombre puede tener significados tan distintos en dos idiomas? ¿Por qué quiere ella heredar el nombre pero no «el lugar junto a la ventana» de la bisabuela?
+    </div>
+  </div>
+</details>
+
+<!-- VIÑETA 3 -->
+<details class="viñeta">
+  <summary>
+    <span class="sec-num">§ 03</span>
+    <span class="sec-texto">
+      <span class="sec-titulo">Los que no</span>
+      <span class="sec-desc">Dos miradas sobre un barrio: la del que vive en él y la del que pasa de visita.</span>
+    </span>
+    <span class="sec-flecha">▶</span>
+  </summary>
+  <div class="cuerpo-viñeta">
+    <div class="texto-literario">
+      <p>Los que no saben llegan a nuestro barrio asustados. Creen que somos peligrosos. Piensan que los vamos a asaltar con navajas brilladoras. Son tontos que se han perdido y caen aquí por equivocación.</p>
+      <p>Pero <strong>no tenemos miedo</strong>. Conocemos al muchacho con el ojo chueco; es el hermano de Davey the Baby, y el Altote junto a él con sombrero panameño es el Eddie V. de Rosa, y el grandote que parece un viejo zonzo es el Fat Boy, aunque ya no esté gordo ni sea niño.</p>
+      <p>Todo moreno por todos lados, estamos seguros. <strong>Pero en un barrio de otro color nuestras rodillas comienzan a temblar traca traca</strong> y subimos las ventanillas de nuestros carros hasta arriba y nuestros ojos miran al frente. Sí, así es.</p>
+    </div>
+    <div class="vocabulario">
+      <div class="vocabulario-titulo">Vocabulario clave</div>
+      <div class="vocab-lista">
+        <span class="vocab-palabra">barrio</span>
+        <span class="vocab-palabra">navajas brilladoras</span>
+        <span class="vocab-palabra">moreno (sentido étnico)</span>
+        <span class="vocab-palabra">traca traca (onomatopeya)</span>
+        <span class="vocab-palabra">ojo chueco</span>
+        <span class="vocab-palabra">zonzo</span>
+      </div>
+    </div>
+    <div class="reflexion">
+      <span class="reflexion-titulo">🔍 Para reflexionar</span>
+      Esta viñeta tan corta hace algo poderoso: invierte la perspectiva. Primero «los que no» son los visitantes blancos que tienen miedo del barrio latino. Después, «los que no» son los del barrio latino cuando entran a un barrio blanco. ¿Qué quiere decir Cisneros con esa simetría? ¿El miedo es siempre del mismo lado?
+    </div>
+  </div>
+</details>
+
+<!-- VIÑETA 4 -->
+<details class="viñeta">
+  <summary>
+    <span class="sec-num">§ 04</span>
+    <span class="sec-texto">
+      <span class="sec-titulo">Alicia que ve ratones</span>
+      <span class="sec-desc">La hija huérfana de madre que estudia para no terminar tras un rodillo.</span>
+    </span>
+    <span class="sec-flecha">▶</span>
+  </summary>
+  <div class="cuerpo-viñeta">
+    <div class="texto-literario">
+      <p>Cierra los ojos y verás que se van, le dice su padre, tú nomás imaginas. Además, la obligación de la mujer es dormir para que pueda levantarse temprano con la estrella de la tortilla, la que sale justo al tiempo que te levantas y en el rincón de tus ojos alcanzas a ver unas patitas traseras que se ocultan detrás del fregadero, debajo de la bañera de cuatro garras, bajo las duelas hinchadas que nadie compone.</p>
+      <p>Alicia, huérfana de madre, lamenta que no haya alguien mayor que se levante a hacer las tortillas para el lonche. Alicia, que de su madre heredó el rodillo de amasar y lo dormilona, es joven y lista y estudia por primera vez en la universidad. <strong>Dos trenes y un autobús, porque no quiere pasar su vida en una fábrica o tras un rodillo de amasar</strong>.</p>
+      <p>Es una buena chica, mi amiga, estudia toda la noche y ve ratones, lo que su padre dice que no existen. <strong>No le tiene miedo a nada, excepto a esas pielecitas de cuatro patas. Y a los papás</strong>.</p>
+    </div>
+    <div class="vocabulario">
+      <div class="vocabulario-titulo">Vocabulario clave</div>
+      <div class="vocab-lista">
+        <span class="vocab-palabra">huérfana</span>
+        <span class="vocab-palabra">rodillo de amasar</span>
+        <span class="vocab-palabra">lonche</span>
+        <span class="vocab-palabra">duelas</span>
+        <span class="vocab-palabra">estrella de la tortilla</span>
+        <span class="vocab-palabra">fregadero</span>
+        <span class="vocab-palabra">dormilona</span>
+      </div>
+    </div>
+    <div class="reflexion">
+      <span class="reflexion-titulo">🔍 Para reflexionar</span>
+      Cisneros cierra la viñeta con una frase potente: Alicia «no le tiene miedo a nada, excepto a esas pielecitas de cuatro patas. Y a los papás». ¿Por qué los ratones y los padres aparecen como dos miedos paralelos? ¿Qué representan los papás en esta historia: protección, autoridad, control, las tres cosas?
+    </div>
+  </div>
+</details>
+
+<!-- VIÑETA 5 -->
+<details class="viñeta">
+  <summary>
+    <span class="sec-num">§ 05</span>
+    <span class="sec-texto">
+      <span class="sec-titulo">No speak English</span>
+      <span class="sec-desc">Mamacita encerrada por el idioma. El comercial de la Pepsi rompe su corazón.</span>
+    </span>
+    <span class="sec-flecha">▶</span>
+  </summary>
+  <div class="cuerpo-viñeta">
+    <div class="texto-literario">
+      <p>Mamacita es la mujer enorme del hombre al cruzar la calle, tercer piso al frente. Rachel dice que su nombre debería ser Mamasota, pero yo creo que eso es malo.</p>
+      <p>El hombre ahorró su dinero para traerla. Ahorró y ahorró porque ella estaba sola con el nene-niño en aquel país. Él trabajó en dos trabajos. Llegó noche a casa y salió tempranito. Todos los días.</p>
+      <p>Y luego un día Mamacita y el nene-niño llegaron en un taxi amarillo. La puerta del taxi se abrió como el brazo de un mesero. Y va saliendo un zapatito color de rosa, un pie suavecito como la oreja de un conejo, luego el tobillo grueso, una agitación de caderas, unas rosas fucsia y un perfume verde. El hombre tuvo que jalarla, el chofer del taxi empujarla. Empuja, jala. Empuja, jala. ¡Puf!</p>
+      <p>Arriba, arriba, arriba subió con su nene-niño en una cobija azul, el hombre cargándole las maletas, sus sombrereras color lavanda, una docena de cajas de zapatos de satín de tacón alto. <strong>Y luego ya no la vimos</strong>.</p>
+      <p>Alguien dijo que porque ella es muy gorda, alguien que por los tres tramos de escaleras, pero <strong>yo creo que ella no sale porque tiene miedo de hablar en inglés</strong>, sí, puede ser eso, porque sólo conoce ocho palabras: sabe decir <span class="ingles">He not here</span> cuando llega el propietario, <span class="ingles">No speak English</span> cuando llega cualquier otro y <span class="ingles">Holy smokes</span>.</p>
+      <p>Cualesquiera sean sus razones, si porque es gorda, o no puede subir las escaleras, o tiene miedo al idioma, ella no baja. <strong>Todo el día se sienta junto a la ventana</strong> y sintoniza el radio en un programa en español y canta todas las canciones nostálgicas de su tierra con voz que suena a gaviota.</p>
+      <p>Hogar. Hogar. Hogar es una casa en una fotografía, una casa color de rosa, rosa como geranio con un chorro de luz azorada. El hombre pinta de color de rosa las paredes de su departamento, pero no es lo mismo, sabes. Todavía suspira por su casa color de rosa y entonces, creo, se pone a chillar. Yo también lloraría.</p>
+      <p>Algunas veces el hombre se harta. Comienza a gritar y puede uno oírlo calle abajo. <em>Ay, dice ella, ella está triste. Oh, no, dice él, no otra vez. ¿Cuándo, cuándo, cuándo?, pregunta ella. ¡Ay, caray! Estamos en casa. Esta es tu casa. Aquí estoy y aquí me quedo. ¡Habla inglés!, speak English, ¡por Dios!</em></p>
+      <p>¡Ay!, Mamacita, que no es de aquí, de vez en cuando deja salir un grito, alto, histérico, como si él hubiera roto el delgado hilito que la mantiene viva, <strong>el único camino de regreso a aquel país</strong>.</p>
+      <p>Y entonces, para romper su corazón para siempre, el nene-niño, que ha comenzado a hablar, empieza a cantar el comercial de la Pepsi que aprendió de la tele.</p>
+      <p><em>No speak English</em>, le dice ella al nene-niño que canta en un idioma que suena a hoja de lata. <em>No speak English, no speak English. No, no, no</em>. Y rompe a llorar.</p>
+    </div>
+    <div class="vocabulario">
+      <div class="vocabulario-titulo">Vocabulario clave</div>
+      <div class="vocab-lista">
+        <span class="vocab-palabra">Mamacita / Mamasota</span>
+        <span class="vocab-palabra">sombrerera</span>
+        <span class="vocab-palabra">gaviota</span>
+        <span class="vocab-palabra">geranio</span>
+        <span class="vocab-palabra">sintonizar</span>
+        <span class="vocab-palabra">azorada (luz)</span>
+        <span class="vocab-palabra">chillar</span>
+        <span class="vocab-palabra">hoja de lata</span>
+      </div>
+    </div>
+    <div class="reflexion">
+      <span class="reflexion-titulo">🔍 Para reflexionar</span>
+      Mamacita repite «no speak English» al esposo (al exterior) y al hijo (al futuro). Las dos negativas significan cosas distintas. ¿Qué pierde Mamacita cuando su hijo canta el comercial de la Pepsi en inglés? ¿Conoces a alguna persona mayor que sienta así el idioma como una pared o como un puente cortado?
+    </div>
+  </div>
+</details>
+
+<!-- VIÑETA 6 -->
+<details class="viñeta">
+  <summary>
+    <span class="sec-num">§ 06</span>
+    <span class="sec-texto">
+      <span class="sec-titulo">Una casa propia</span>
+      <span class="sec-desc">No la casa de un hombre, ni de un papá. Una casa solo mía.</span>
+    </span>
+    <span class="sec-flecha">▶</span>
+  </summary>
+  <div class="cuerpo-viñeta">
+    <div class="texto-literario">
+      <p>No un piso. No un departamento interior. <strong>No la casa de un hombre. Ni la de un papacito</strong>. Una casa que sea mía. Con mi porche y mi almohada, mis bonitas petunias púrpura. Mis libros y mis cuentos. Mis dos zapatos esperando junto a la cama. <strong>Nadie a quien amenazar con un palo. Nada que recogerle a nadie</strong>.</p>
+      <p>Sólo una casa callada como la nieve, un espacio al cual llegar, limpia como la hoja antes del poema.</p>
+    </div>
+    <div class="vocabulario">
+      <div class="vocabulario-titulo">Vocabulario clave</div>
+      <div class="vocab-lista">
+        <span class="vocab-palabra">papacito (sentido de control)</span>
+        <span class="vocab-palabra">petunias</span>
+        <span class="vocab-palabra">porche</span>
+        <span class="vocab-palabra">callada como la nieve (metáfora)</span>
+        <span class="vocab-palabra">hoja antes del poema (metáfora)</span>
+      </div>
+    </div>
+    <div class="reflexion">
+      <span class="reflexion-titulo">🔍 Para reflexionar</span>
+      Esta viñeta brevísima ecoa el ensayo de Virginia Woolf <em>«Una habitación propia»</em> (1929), donde se argumenta que toda mujer necesita un espacio propio para crear. ¿Por qué Esperanza dice «no la casa de un hombre, ni la de un papacito»? ¿Qué tipo de libertad busca? ¿Solo dejar Mango Street, o también algo más profundo?
+    </div>
+  </div>
+</details>
+
+<!-- VIÑETA 7 -->
+<details class="viñeta">
+  <summary>
+    <span class="sec-num">§ 07</span>
+    <span class="sec-texto">
+      <span class="sec-titulo">A veces Mango dice adiós</span>
+      <span class="sec-desc">La escritura libera. Me iré para volver por los que no.</span>
+    </span>
+    <span class="sec-flecha">▶</span>
+  </summary>
+  <div class="cuerpo-viñeta">
+    <div class="texto-literario">
+      <p>Me gusta contar cuentos. Los cuento dentro de mi cabeza. Los cuento después de que el cartero dice: aquí está su correo. Aquí está su correo, dice.</p>
+      <p>Escribo un cuento para mi vida, para cada paso que dan mis zapatos cafés. Digo: <em>«Y subió penosamente los escalones de madera, sus tristes zapatos cafés llevándola a la casa que nunca le gustó»</em>.</p>
+      <p>Me gusta contar cuentos. <strong>Voy a contarte el cuento de una niña que no quería pertenecer</strong>.</p>
+      <p>No siempre hemos vivido en Mango Street. Antes vivimos en el tercer piso de Loomis, y antes de allí vivimos en Keeler. Antes de Keeler fue Paulina, pero lo que más recuerdo es Mango Street, triste casa roja, <strong>la casa a la que pertenezco sin pertenecerle</strong>.</p>
+      <p>Lo escribo en el papel y entonces el fantasma no duele tanto. Lo escribo y Mango me dice adiós algunas veces. No me retiene en sus brazos. Me pone en libertad.</p>
+      <p>Un día llenaré mis maletas de libros y papel. Algún día le diré adiós a Mango. Soy demasiado fuerte para que me retenga. Un día me iré.</p>
+      <p>Amigos y vecinos dirán, ¿qué le pasó a esa Esperanza?, ¿a dónde fue con todos esos libros y papel?, ¿por qué se marchó tan lejos?</p>
+      <p>No sabrán, por ahora, que <strong>me he ido para volver. Volver por los que se quedaron. Por los que no</strong>.</p>
+    </div>
+    <div class="vocabulario">
+      <div class="vocabulario-titulo">Vocabulario clave</div>
+      <div class="vocab-lista">
+        <span class="vocab-palabra">pertenecer / pertenencia</span>
+        <span class="vocab-palabra">fantasma (metáfora)</span>
+        <span class="vocab-palabra">retener / liberar</span>
+        <span class="vocab-palabra">los que / los que no</span>
+        <span class="vocab-palabra">escribir como acto de libertad</span>
+      </div>
+    </div>
+    <div class="reflexion">
+      <span class="reflexion-titulo">🔍 Para reflexionar</span>
+      La viñeta cierra con la frase más importante del libro: <em>«Me he ido para volver. Volver por los que se quedaron. Por los que no.»</em> ¿Qué se compromete a hacer Esperanza? ¿Para qué le sirve la escritura — solo para escapar, o también para regresar? Conecta esta viñeta con la viñeta 3 (los que / los que no): ¿quiénes son ahora «los que no»?
+    </div>
+  </div>
+</details>
+
+
+<!-- ════════════════ COMPRENSIÓN GLOBAL ════════════════ -->
+<h2 class="bloque-titulo" id="comprension"><span class="icono">🎯</span> Comprensión global del libro</h2>
+
+<details class="viñeta">
+  <summary>
+    <span class="sec-num">📖</span>
+    <span class="sec-texto">
+      <span class="sec-titulo">¿Cuál es la idea central del libro?</span>
+      <span class="sec-desc">Síntesis temática · Preparación para el examen</span>
+    </span>
+    <span class="sec-flecha">▶</span>
+  </summary>
+  <div class="cuerpo-viñeta">
+    <p style="margin: 14px 0; font-size: 0.97rem;">Antes de hacer las preguntas tipo GED, reflexiona sobre la idea central del libro. Una buena respuesta abarca <em>todas</em> las viñetas — desde la vergüenza ante la monja en la primera hasta la promesa del regreso en la última — no solo una parte.</p>
+    <div class="temas-resumen">
+      <p><strong>Temas principales del libro (todos están presentes — ¿cuál domina?):</strong></p>
+      <ul>
+        <li>La búsqueda de una identidad propia (nombre, casa, voz) en una niña latina de Chicago</li>
+        <li>La experiencia bilingüe y bicultural: vivir entre dos idiomas y dos mundos</li>
+        <li>La condición de las mujeres latinas: la ventana, el rodillo de amasar, la tristeza apoyada en el codo</li>
+        <li>El barrio como hogar y como prisión: pertenecer sin pertenecer</li>
+        <li>La escritura como acto de liberación y como deber con la comunidad</li>
+      </ul>
+    </div>
+    <div class="nota-comprension">
+      <strong>🔍 Para el estudiante</strong>
+      La respuesta correcta a «idea central» en el GED siempre tiene que funcionar como tema de un ensayo sobre el libro completo. El libro abre con una niña avergonzada porque una monja la hizo señalar su casa, y cierra con la promesa de irse para volver «por los que se quedaron». Esa estructura te da la clave del tema dominante: encontrar voz propia para luego volver a darla a quienes no pudieron salir. La niña promete convertirse en escritora — y de hecho la novela que estás leyendo <em>es</em> el cumplimiento de esa promesa.
+    </div>
+  </div>
+</details>
+
+
+<!-- ════════════════ 12 PREGUNTAS TIPO GED ════════════════ -->
+<h2 class="bloque-titulo" id="opcion-multiple"><span class="icono">✅</span> Preguntas tipo GED (selección múltiple)</h2>
+
+<details class="viñeta" id="ged-preguntas">
+  <summary>
+    <span class="sec-num">📝</span>
+    <span class="sec-texto">
+      <span class="sec-titulo">12 preguntas de selección múltiple</span>
+      <span class="sec-desc">Haz clic para verificar tus respuestas con feedback explicativo</span>
+    </span>
+    <span class="sec-flecha">▶</span>
+  </summary>
+  <div class="cuerpo-viñeta">
+    <p style="margin: 14px 0 22px; font-size: 0.95rem; color: var(--texto-suave);">Haz clic en una opción para seleccionarla y luego presiona <strong>Verificar</strong>. Las respuestas correctas se marcan en verde; las incorrectas en rojo, con explicación.</p>
+
+    <!-- P1 -->
+    <div class="pregunta-mc" id="q1">
+      <div class="enunciado">1. ¿Cuál es la idea central de las viñetas de <em>La casa en Mango Street</em>?</div>
+      <div class="opcion" onclick="seleccionar(this,'q1','a')"><span class="opcion-letra">a</span>Las dificultades de vivir en Chicago en los años 1960</div>
+      <div class="opcion" onclick="seleccionar(this,'q1','b')"><span class="opcion-letra">b</span>La búsqueda de identidad de una niña latina que sueña con tener una voz propia, una casa propia, y vuelve un día por las mujeres que se quedaron atrás</div>
+      <div class="opcion" onclick="seleccionar(this,'q1','c')"><span class="opcion-letra">c</span>Una guía de los mejores barrios de Chicago para vivir</div>
+      <div class="opcion" onclick="seleccionar(this,'q1','d')"><span class="opcion-letra">d</span>La historia de la inmigración mexicana a Estados Unidos</div>
+      <button class="btn-verificar" onclick="verificar('q1','b')">Verificar</button>
+      <div class="feedback" id="fb-q1-correcto correcto">✅ Correcto. La idea central abarca todo: el sueño de la casa de verdad (viñeta 1), el deseo de un nombre propio (viñeta 2), la observación de las mujeres atrapadas (viñetas 2, 4, 5), el sueño de una casa propia (viñeta 6) y la promesa final del regreso (viñeta 7). Todo apunta a la formación de una voz propia con vocación de retorno.</div>
+      <div class="feedback" id="fb-q1-incorrecto incorrecto">❌ Revisa. La idea central debe conectar TODAS las viñetas: la vergüenza por la casa, el nombre heredado, las mujeres en la ventana, Mamacita encerrada, el sueño de una casa propia, y la promesa final. ¿Qué hilo une todos esos temas?</div>
+    </div>
+
+    <!-- P2 -->
+    <div class="pregunta-mc" id="q2">
+      <div class="enunciado">2. ¿Qué simboliza «la casa en Mango Street» en el libro?</div>
+      <div class="opcion" onclick="seleccionar(this,'q2','a')"><span class="opcion-letra">a</span>Una inversión inmobiliaria de la familia</div>
+      <div class="opcion" onclick="seleccionar(this,'q2','b')"><span class="opcion-letra">b</span>El contraste entre el sueño americano prometido (casa blanca, jardín, tres baños) y la realidad de las familias latinas pobres, y por extensión la identidad incompleta de Esperanza</div>
+      <div class="opcion" onclick="seleccionar(this,'q2','c')"><span class="opcion-letra">c</span>Un edificio histórico de Chicago</div>
+      <div class="opcion" onclick="seleccionar(this,'q2','d')"><span class="opcion-letra">d</span>El lugar donde Esperanza nació</div>
+      <button class="btn-verificar" onclick="verificar('q2','b')">Verificar</button>
+      <div class="feedback" id="fb-q2-correcto correcto">✅ Correcto. Cisneros usa la casa con doble significado: literal (la familia mejoró de inquilinos a dueños, pero la casa real está lejos del sueño) y simbólico (la identidad de Esperanza también es ese «pertenecer sin pertenecer»). La casa que sueñan tiene tres baños, jardín, escaleras interiores: la casa que tienen es roja, pequeña, con ventanas que «parecen guardar la respiración».</div>
+      <div class="feedback" id="fb-q2-incorrecto incorrecto">❌ Revisa. La casa aparece dos veces: la que sueñan los papás (descrita con detalle en la viñeta 1) y la que tienen. ¿Qué simboliza ese contraste? ¿Qué dice del sueño americano para las familias latinas?</div>
+    </div>
+
+    <!-- P3 -->
+    <div class="pregunta-mc" id="q3">
+      <div class="enunciado">3. Cuando la monja le dice «¿Vives <em>allí</em>?» y Esperanza dice que se sintió «una nada», ¿qué describe esta escena?</div>
+      <div class="opcion" onclick="seleccionar(this,'q3','a')"><span class="opcion-letra">a</span>La timidez normal de los niños frente a los adultos</div>
+      <div class="opcion" onclick="seleccionar(this,'q3','b')"><span class="opcion-letra">b</span>La forma en que una mirada o un tono pueden hacer que alguien sienta vergüenza por su clase social y le marquen el deseo de cambiar de vida</div>
+      <div class="opcion" onclick="seleccionar(this,'q3','c')"><span class="opcion-letra">c</span>El miedo a las monjas en la religión católica</div>
+      <div class="opcion" onclick="seleccionar(this,'q3','d')"><span class="opcion-letra">d</span>Una mala experiencia escolar sin importancia</div>
+      <button class="btn-verificar" onclick="verificar('q3','b')">Verificar</button>
+      <div class="feedback" id="fb-q3-correcto correcto">✅ Correcto. La escena es minúscula y devastadora a la vez. La monja no la insulta — solo el «modito» con que dijo «allí» la hizo sentir «una nada». Esa es la fuerza del clasismo cotidiano: no necesita ser agresivo para herir. Y desde ese momento, Esperanza supo que «debía tener una casa». La vergüenza social se convierte en motor de la ambición.</div>
+      <div class="feedback" id="fb-q3-incorrecto incorrecto">❌ Revisa. La frase clave es «el modito en que lo dijo me hizo sentirme una nada». No es lo que dijo la monja sino cómo lo dijo. ¿Qué fenómeno social describe esa escena pequeña pero potente?</div>
+    </div>
+
+    <!-- P4 -->
+    <div class="pregunta-mc" id="q4">
+      <div class="enunciado">4. ¿Por qué Esperanza dice que su nombre en inglés significa «esperanza» pero en español significa «tristeza» y «espera»?</div>
+      <div class="opcion" onclick="seleccionar(this,'q4','a')"><span class="opcion-letra">a</span>Por un error de traducción</div>
+      <div class="opcion" onclick="seleccionar(this,'q4','b')"><span class="opcion-letra">b</span>Porque la experiencia bilingüe le permite ver que un mismo nombre carga significados culturales distintos: en Estados Unidos es promesa de futuro; en la historia familiar mexicana es la herencia de las mujeres que esperaron toda su vida junto a la ventana</div>
+      <div class="opcion" onclick="seleccionar(this,'q4','c')"><span class="opcion-letra">c</span>Porque odia su nombre</div>
+      <div class="opcion" onclick="seleccionar(this,'q4','d')"><span class="opcion-letra">d</span>Porque su padre se lo explicó así</div>
+      <button class="btn-verificar" onclick="verificar('q4','b')">Verificar</button>
+      <div class="feedback" id="fb-q4-correcto correcto">✅ Correcto. La viñeta del nombre es una de las más profundas del libro. Esperanza ve su nombre desde dos ángulos: en inglés es la palabra «esperanza» en sentido positivo (hope); en español arrastra el peso de «esperar» (to wait, las mujeres que esperan toda la vida). Por eso quiere bautizarse de nuevo: para escapar a esa herencia femenina de la espera.</div>
+      <div class="feedback" id="fb-q4-incorrecto incorrecto">❌ Revisa. Esperanza compara su nombre con la bisabuela que «toda su vida miró por la ventana hacia afuera». ¿Qué herencia cultural lleva su nombre en español que no lleva en inglés? Piensa en el verbo «esperar».</div>
+    </div>
+
+    <!-- P5 -->
+    <div class="pregunta-mc" id="q5">
+      <div class="enunciado">5. La frase de Esperanza «heredé su nombre, pero no quiero heredar su lugar junto a la ventana» significa que:</div>
+      <div class="opcion" onclick="seleccionar(this,'q5','a')"><span class="opcion-letra">a</span>No quiere vivir en una casa con ventanas</div>
+      <div class="opcion" onclick="seleccionar(this,'q5','b')"><span class="opcion-letra">b</span>No quiere repetir el destino de las mujeres anteriores de su familia, que vivieron tristes, encerradas, mirando la vida pasar sin poder participar en ella</div>
+      <div class="opcion" onclick="seleccionar(this,'q5','c')"><span class="opcion-letra">c</span>Quiere un dormitorio con balcón</div>
+      <div class="opcion" onclick="seleccionar(this,'q5','d')"><span class="opcion-letra">d</span>No le gusta la luz natural</div>
+      <button class="btn-verificar" onclick="verificar('q5','b')">Verificar</button>
+      <div class="feedback" id="fb-q5-correcto correcto">✅ Correcto. La ventana es el símbolo recurrente más potente del libro. La bisabuela mira por la ventana toda su vida tras ser secuestrada al matrimonio. Mamacita pasa todo el día junto a la ventana. Muchas mujeres del libro están «junto a la ventana». Esperanza rechaza esa herencia: quiere salir, no mirar. Quiere actuar, no esperar.</div>
+      <div class="feedback" id="fb-q5-incorrecto incorrecto">❌ Revisa. La «ventana» aparece varias veces en el libro: la bisabuela mira por la ventana, Mamacita mira por la ventana. ¿Qué simboliza esa imagen recurrente? ¿Qué significa «vivir junto a la ventana» para una mujer?</div>
+    </div>
+
+    <!-- P6 -->
+    <div class="pregunta-mc" id="q6">
+      <div class="enunciado">6. La viñeta «Los que no» tiene una estructura especial: empieza describiendo a los visitantes blancos que tienen miedo del barrio, y termina describiendo cómo los del barrio tienen miedo cuando entran a otros barrios. ¿Cuál es el efecto de esa simetría?</div>
+      <div class="opcion" onclick="seleccionar(this,'q6','a')"><span class="opcion-letra">a</span>Cisneros se contradice y no sabe qué quiere decir</div>
+      <div class="opcion" onclick="seleccionar(this,'q6','b')"><span class="opcion-letra">b</span>Demuestra que el miedo y la otredad son recíprocos: cada grupo es «los otros» para el grupo contrario, y nadie está libre de prejuicios</div>
+      <div class="opcion" onclick="seleccionar(this,'q6','c')"><span class="opcion-letra">c</span>Quiere que los lectores tengan miedo de viajar</div>
+      <div class="opcion" onclick="seleccionar(this,'q6','d')"><span class="opcion-letra">d</span>Critica solo a los blancos</div>
+      <button class="btn-verificar" onclick="verificar('q6','b')">Verificar</button>
+      <div class="feedback" id="fb-q6-correcto correcto">✅ Correcto. Cisneros es honesta: no convierte a su grupo en víctima inocente. «Los que no» son los de afuera, sí — pero su grupo también tiene «los que no» en su mente. El miedo a lo distinto cruza las líneas raciales en ambos sentidos. Esto le da al libro una madurez ética poco común en literatura testimonial.</div>
+      <div class="feedback" id="fb-q6-incorrecto incorrecto">❌ Revisa. La viñeta tiene dos partes paralelas: «los que no saben» que vienen de afuera... y al final, «en un barrio de otro color nuestras rodillas comienzan a temblar». ¿Qué quiere mostrar Cisneros al poner las dos cosas juntas?</div>
+    </div>
+
+    <!-- P7 -->
+    <div class="pregunta-mc" id="q7">
+      <div class="enunciado">7. ¿Qué representa Mamacita en la viñeta «No speak English»?</div>
+      <div class="opcion" onclick="seleccionar(this,'q7','a')"><span class="opcion-letra">a</span>Una mujer perezosa que no quiere trabajar</div>
+      <div class="opcion" onclick="seleccionar(this,'q7','b')"><span class="opcion-letra">b</span>El drama del inmigrante que pierde su tierra dos veces: primero al emigrar, y después al ver que sus propios hijos se incorporan al nuevo idioma y dejan de pertenecer al de su madre</div>
+      <div class="opcion" onclick="seleccionar(this,'q7','c')"><span class="opcion-letra">c</span>Una mujer obesa que no puede subir las escaleras</div>
+      <div class="opcion" onclick="seleccionar(this,'q7','d')"><span class="opcion-letra">d</span>Una persona maleducada con su esposo</div>
+      <button class="btn-verificar" onclick="verificar('q7','b')">Verificar</button>
+      <div class="feedback" id="fb-q7-correcto correcto">✅ Correcto. Mamacita es uno de los personajes más conmovedores del libro. Pierde su tierra al emigrar (suspira por su «casa color de rosa»), pero el golpe definitivo viene cuando su hijo, que ella crió, empieza a cantar el comercial de la Pepsi en inglés. El último hilo que la unía a su mundo se rompe. Cisneros muestra que la inmigración no es solo geográfica: es también la pérdida del idioma propio en la siguiente generación.</div>
+      <div class="feedback" id="fb-q7-incorrecto incorrecto">❌ Revisa. Mamacita no baja del apartamento. ¿Por qué? Esperanza propone tres razones: gordura, escaleras, miedo al inglés. ¿Cuál es la más profunda? ¿Y por qué llora cuando su hijo canta en inglés?</div>
+    </div>
+
+    <!-- P8 -->
+    <div class="pregunta-mc" id="q8">
+      <div class="enunciado">8. ¿Qué tienen en común la bisabuela (viñeta 2), Alicia (viñeta 4) y Mamacita (viñeta 5)?</div>
+      <div class="opcion" onclick="seleccionar(this,'q8','a')"><span class="opcion-letra">a</span>Las tres son mexicanas</div>
+      <div class="opcion" onclick="seleccionar(this,'q8','b')"><span class="opcion-letra">b</span>Las tres representan a mujeres atrapadas por circunstancias familiares (matrimonio forzado, padre autoritario, idioma inalcanzable) y las tres están confinadas — la bisabuela y Mamacita junto a la ventana, Alicia entre los ratones y el rodillo de amasar</div>
+      <div class="opcion" onclick="seleccionar(this,'q8','c')"><span class="opcion-letra">c</span>Las tres son personajes secundarios sin importancia</div>
+      <div class="opcion" onclick="seleccionar(this,'q8','d')"><span class="opcion-letra">d</span>Las tres son amigas de Esperanza</div>
+      <button class="btn-verificar" onclick="verificar('q8','b')">Verificar</button>
+      <div class="feedback" id="fb-q8-correcto correcto">✅ Correcto. Esta es la clave temática del libro: las tres mujeres son retratos de destinos que Esperanza observa y rechaza para sí. La bisabuela en la ventana, Mamacita en la ventana, Alicia entre los ratones y los papás. Esperanza usa cada retrato como advertencia y como motivo para construir su propio destino diferente.</div>
+      <div class="feedback" id="fb-q8-incorrecto incorrecto">❌ Revisa. Compara las tres viñetas: ¿qué hace cada mujer? ¿Dónde está? ¿Qué quiere y qué le impide tenerlo? ¿Por qué Esperanza dedica viñetas separadas a estas tres mujeres y no a otras?</div>
+    </div>
+
+    <!-- P9 -->
+    <div class="pregunta-mc" id="q9">
+      <div class="enunciado">9. ¿A qué obra clásica se refiere implícitamente la viñeta «Una casa propia»?</div>
+      <div class="opcion" onclick="seleccionar(this,'q9','a')"><span class="opcion-letra">a</span>«La casa de Bernarda Alba» de García Lorca</div>
+      <div class="opcion" onclick="seleccionar(this,'q9','b')"><span class="opcion-letra">b</span>«Una habitación propia» de Virginia Woolf (1929), ensayo feminista clave que argumenta que toda mujer necesita espacio propio (físico y económico) para crear arte</div>
+      <div class="opcion" onclick="seleccionar(this,'q9','c')"><span class="opcion-letra">c</span>«La casa de los espíritus» de Isabel Allende</div>
+      <div class="opcion" onclick="seleccionar(this,'q9','d')"><span class="opcion-letra">d</span>No se refiere a ninguna obra</div>
+      <button class="btn-verificar" onclick="verificar('q9','b')">Verificar</button>
+      <div class="feedback" id="fb-q9-correcto correcto">✅ Correcto. La referencia es directa: Virginia Woolf escribió en 1929 que una mujer necesita «dinero y una habitación propia» para escribir. Cisneros, 55 años después, le da una voz latina a esa misma idea: una niña chicana en Chicago entiende lo mismo que la intelectual inglesa de Bloomsbury. Las preocupaciones del feminismo cruzan culturas.</div>
+      <div class="feedback" id="fb-q9-incorrecto incorrecto">❌ Revisa. Esperanza dice «no la casa de un hombre, ni la de un papacito. Una casa que sea mía... con mis libros y mis cuentos». ¿Te suena familiar esa idea? Hay un ensayo feminista famoso del siglo XX que defiende exactamente eso para las mujeres escritoras.</div>
+    </div>
+
+    <!-- P10 -->
+    <div class="pregunta-mc" id="q10">
+      <div class="enunciado">10. ¿Qué papel cumple la escritura para Esperanza al final del libro?</div>
+      <div class="opcion" onclick="seleccionar(this,'q10','a')"><span class="opcion-letra">a</span>Una distracción para pasar el tiempo</div>
+      <div class="opcion" onclick="seleccionar(this,'q10','b')"><span class="opcion-letra">b</span>Es a la vez liberación personal («Mango me dice adiós, me pone en libertad») y deber social («me he ido para volver por los que se quedaron»)</div>
+      <div class="opcion" onclick="seleccionar(this,'q10','c')"><span class="opcion-letra">c</span>Una manera de ganar dinero</div>
+      <div class="opcion" onclick="seleccionar(this,'q10','d')"><span class="opcion-letra">d</span>Un castigo escolar</div>
+      <button class="btn-verificar" onclick="verificar('q10','b')">Verificar</button>
+      <div class="feedback" id="fb-q10-correcto correcto">✅ Correcto. La escritura tiene dos dimensiones en la viñeta final. Es libertad personal: «lo escribo y el fantasma no duele tanto». Y es responsabilidad colectiva: «me he ido para volver por los que se quedaron». Sandra Cisneros, autora real, cumplió las dos: escribió este libro. La novela que estás leyendo <em>es</em> ese regreso.</div>
+      <div class="feedback" id="fb-q10-incorrecto incorrecto">❌ Revisa la viñeta final. Esperanza dice dos cosas sobre la escritura: una sobre ella misma («el fantasma no duele tanto») y otra sobre las demás mujeres («volver por las que se quedaron»). ¿Cuál es la doble función?</div>
+    </div>
+
+    <!-- P11 -->
+    <div class="pregunta-mc" id="q11">
+      <div class="enunciado">11. ¿Qué tipo de narrador tiene el libro y qué efecto produce?</div>
+      <div class="opcion" onclick="seleccionar(this,'q11','a')"><span class="opcion-letra">a</span>Narrador omnisciente en tercera persona</div>
+      <div class="opcion" onclick="seleccionar(this,'q11','b')"><span class="opcion-letra">b</span>Narrador en primera persona — una niña de unos doce años (Esperanza) — con voz fresca, observadora, mezclando español e inglés, que ve cosas adultas sin entenderlas todas, lo que crea ternura y verdad poética</div>
+      <div class="opcion" onclick="seleccionar(this,'q11','c')"><span class="opcion-letra">c</span>Narrador adulto que recuerda su infancia</div>
+      <div class="opcion" onclick="seleccionar(this,'q11','d')"><span class="opcion-letra">d</span>Narrador colectivo en plural</div>
+      <button class="btn-verificar" onclick="verificar('q11','b')">Verificar</button>
+      <div class="feedback" id="fb-q11-correcto correcto">✅ Correcto. La voz infantil es la decisión literaria clave del libro. Esperanza ve cosas duras (Mamacita atrapada, Alicia con miedo, las mujeres en la ventana) pero las cuenta con sintaxis sencilla, metáforas frescas («como un color lodoso», «como gaviota») y observaciones que mezclan inocencia y agudeza. Si el narrador fuera adulto, el libro sería denuncia. Como es niña, es poesía.</div>
+      <div class="feedback" id="fb-q11-incorrecto incorrecto">❌ Revisa la voz: dice «yo», es claramente una niña (no entiende del todo lo que ve), mezcla español con inglés, hace comparaciones infantiles («el número nueve», «un color lodoso»). ¿Qué efecto crea esa elección?</div>
+    </div>
+
+    <!-- P12 -->
+    <div class="pregunta-mc" id="q12">
+      <div class="enunciado">12. ¿Por qué se considera a Sandra Cisneros una autora clave de la literatura chicana?</div>
+      <div class="opcion" onclick="seleccionar(this,'q12','a')"><span class="opcion-letra">a</span>Porque escribe en inglés y español sin avergonzarse de mezclarlos</div>
+      <div class="opcion" onclick="seleccionar(this,'q12','b')"><span class="opcion-letra">b</span>Porque dio voz literaria a la experiencia de las niñas y mujeres latinas en Estados Unidos — una experiencia que durante décadas no tuvo representación en la literatura «mainstream» americana</div>
+      <div class="opcion" onclick="seleccionar(this,'q12','c')"><span class="opcion-letra">c</span>Porque vive en Texas</div>
+      <div class="opcion" onclick="seleccionar(this,'q12','d')"><span class="opcion-letra">d</span>Porque su libro vendió muchas copias</div>
+      <button class="btn-verificar" onclick="verificar('q12','b')">Verificar</button>
+      <div class="feedback" id="fb-q12-correcto correcto">✅ Correcto. Antes de Cisneros, las niñas y mujeres latinas eran casi invisibles en la literatura estadounidense. La casa en Mango Street se publicó en 1984 y se ha convertido en lectura obligatoria en miles de escuelas y universidades de Estados Unidos. Es la respuesta chicana a la pregunta «¿quién cuenta nuestras historias?». Junto con Ana Castillo, Helena María Viramontes y Cherríe Moraga, Cisneros fundó una tradición literaria que sigue creciendo.</div>
+      <div class="feedback" id="fb-q12-incorrecto incorrecto">❌ Revisa. ¿Qué hizo Cisneros que antes no se había hecho mucho en la literatura americana? ¿Quiénes son los personajes centrales de su libro? ¿Habían tenido voz literaria antes en Estados Unidos?</div>
+    </div>
+
+  </div>
+</details>
+
+</main>
+
+<footer>
+  <p><em>«La casa en Mango Street»</em> — Sandra Cisneros &nbsp;·&nbsp; 1984</p>
+  <p style="margin-top:6px;">ASE Artes del Lenguaje &nbsp;·&nbsp; <a href="https://gedparahispanos.com" target="_blank">GEDparaHispanos.com</a> &nbsp;·&nbsp; José M. Fernández · City Colleges of Chicago</p>
+</footer>
+
+<script>
+function seleccionar(el, qid, letra) {
+  document.querySelectorAll('#' + qid + ' .opcion').forEach(o => {
+    o.classList.remove('correcta', 'incorrecta', 'seleccionada');
+  });
+  el.classList.add('seleccionada');
+  el.dataset.seleccion = letra;
+  document.getElementById(qid).dataset.seleccion = letra;
+  document.getElementById(qid).querySelectorAll('.feedback').forEach(f => f.style.display = 'none');
+}
+
+function verificar(qid, correcta) {
+  const q = document.getElementById(qid);
+  const sel = q.dataset.seleccion;
+  q.querySelectorAll('.feedback').forEach(f => f.style.display = 'none');
+  q.querySelectorAll('.opcion').forEach(o => o.classList.remove('correcta', 'incorrecta'));
+  if (!sel) {
+    alert('Por favor, seleccione una opción antes de verificar.');
+    return;
+  }
+  q.querySelectorAll('.opcion').forEach(o => {
+    const letra = o.querySelector('.opcion-letra').textContent.toLowerCase();
+    if (letra === correcta) o.classList.add('correcta');
+    else if (letra === sel && sel !== correcta) o.classList.add('incorrecta');
+  });
+  const fbId = sel === correcta ? 'fb-' + qid + '-correcto' : 'fb-' + qid + '-incorrecto';
+  const fb = document.getElementById(fbId);
+  if (fb) {
+    fb.style.display = 'block';
+    fb.className = 'feedback ' + (sel === correcta ? 'correcto' : 'incorrecto');
+  }
+}
+</script>
+
+</body>
+</html>
