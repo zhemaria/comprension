@@ -513,6 +513,81 @@ details.actividad[open] > summary { border-bottom: 1px solid var(--estela); }
   .sec-desc { display: none; }
   .nav-rapida { padding: 10px 16px; }
 }
+/* ==== Quizzes MC — El retrato oval ==== */
+.pregunta-mc .opcion {
+  cursor: pointer;
+  padding: 0.6em 0.9em;
+  margin: 0.3em 0;
+  border: 2px solid var(--estela);
+  border-radius: 8px;
+  background: var(--castillo);
+  color: var(--texto);
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.pregunta-mc .opcion:hover {
+  background: var(--piedra);
+  border-color: var(--oro);
+  color: var(--oro-suave);
+}
+
+.pregunta-mc .opcion.seleccionada {
+  background: var(--piedra);
+  border-color: var(--oro);
+  color: var(--oro-suave);
+  font-weight: 600;
+}
+
+.pregunta-mc .opcion.correcta {
+  background: #2a3a25;
+  border-color: var(--verde-ok);
+  color: var(--pergamino);
+  font-weight: 600;
+}
+
+.pregunta-mc .opcion.incorrecta {
+  background: #3a1f24;
+  border-color: var(--rojo-alerta);
+  color: var(--pergamino);
+}
+
+/* Botón Verificar */
+.pregunta-mc .btn-verificar {
+  background: var(--oro);
+  color: var(--noche);
+  border: none;
+  padding: 0.5em 1.2em;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0.5em;
+  transition: background 0.2s;
+}
+
+.pregunta-mc .btn-verificar:hover {
+  background: var(--oro-suave);
+}
+
+/* Feedback */
+.pregunta-mc .feedback {
+  margin-top: 0.6em;
+  padding: 0.6em 0.9em;
+  border-radius: 6px;
+  border-left: 4px solid;
+}
+
+.pregunta-mc .feedback.correcto {
+  background: #2a3a25;
+  border-left-color: var(--verde-ok);
+  color: var(--pergamino);
+}
+
+.pregunta-mc .feedback.incorrecto {
+  background: #3a1f24;
+  border-left-color: var(--rojo-alerta);
+  color: var(--pergamino);
+}
+  
 </style>
 </head>
 <body>
