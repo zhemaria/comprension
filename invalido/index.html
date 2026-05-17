@@ -533,6 +533,82 @@ details.actividad[open] > summary { border-bottom: 1px solid var(--estela); }
   .sec-desc { display: none; }
   .nav-rapida { padding: 10px 16px; }
 }
+/* ==== Quizzes MC — El inválido ==== */
+.pregunta-mc .opcion {
+  cursor: pointer;
+  padding: 0.6em 0.9em;
+  margin: 0.3em 0;
+  border: 2px solid var(--estela);
+  border-radius: 8px;
+  background: var(--pergamino-claro);
+  color: var(--tinta);
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.pregunta-mc .opcion:hover {
+  background: var(--pergamino);
+  border-color: var(--mostaza);
+  color: var(--tinta-suave);
+}
+
+.pregunta-mc .opcion.seleccionada {
+  background: var(--sombra);
+  border-color: var(--mostaza);
+  color: var(--tinta);
+  font-weight: 600;
+}
+
+.pregunta-mc .opcion.correcta {
+  background: #e8f0e0;
+  border-color: var(--salvia);
+  color: var(--tinta);
+  font-weight: 600;
+}
+
+.pregunta-mc .opcion.incorrecta {
+  background: #f8dad6;
+  border-color: var(--cereza);
+  color: var(--tinta);
+}
+
+/* Botón Verificar */
+.pregunta-mc .btn-verificar {
+  background: var(--mostaza);
+  color: var(--crema);
+  border: none;
+  padding: 0.5em 1.2em;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0.5em;
+  transition: background 0.2s;
+}
+
+.pregunta-mc .btn-verificar:hover {
+  background: var(--mostaza-suave);
+}
+
+/* Feedback */
+.pregunta-mc .feedback {
+  margin-top: 0.6em;
+  padding: 0.6em 0.9em;
+  border-radius: 6px;
+  border-left: 4px solid;
+}
+
+.pregunta-mc .feedback.correcto {
+  background: #e8f0e0;
+  border-left-color: var(--salvia);
+  color: var(--tinta);
+}
+
+.pregunta-mc .feedback.incorrecto {
+  background: #f8dad6;
+  border-left-color: var(--cereza);
+  color: var(--tinta);
+}
+
+  
 </style>
 </head>
 <body>
