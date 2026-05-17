@@ -733,6 +733,41 @@
   color: #b71c1c;
   border-left: 4px solid #c62828;
 }
+/* Estado por defecto de cada opción */
+.opcion {
+  cursor: pointer;
+  padding: 0.6em 0.9em;
+  margin: 0.3em 0;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.opcion:hover {
+  background: #f0f4ff;
+  border-color: #99b3ff;
+}
+
+/* Opción seleccionada (antes de verificar) */
+.opcion.seleccionada {
+  background: #e7f1ff;
+  border-color: #0089cd;
+  font-weight: 600;
+}
+
+/* Tras verificar respuesta */
+.opcion.correcta {
+  background: #d4edda;
+  border-color: #28a745;
+  color: #155724;
+}
+
+.opcion.incorrecta {
+  background: #f8d7da;
+  border-color: #dc3545;
+  color: #721c24;
+}
     </style>
   </head>
   <body>
