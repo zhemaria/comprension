@@ -519,7 +519,72 @@ details.actividad[open] > summary { border-bottom: 1px solid var(--estela); }
   main { padding: 20px 14px 48px; }
   .sec-desc { display: none; }
   .nav-rapida { padding: 10px 16px; }
+}/* Estado por defecto de cada opción */
+.opcion {
+  cursor: pointer;
+  padding: 0.6em 0.9em;
+  margin: 0.3em 0;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+  transition: background 0.2s, border-color 0.2s;
 }
+
+.opcion:hover {
+  background: #f0f4ff;
+  border-color: #99b3ff;
+}
+
+/* Opción seleccionada (antes de verificar) */
+.opcion.seleccionada {
+  background: #e7f1ff;
+  border-color: #0089cd;
+  font-weight: 600;
+}
+
+/* Tras verificar respuesta */
+.opcion.correcta {
+  background: #d4edda;
+  border-color: #28a745;
+  color: #155724;
+}
+
+.opcion.incorrecta {
+  background: #f8d7da;
+  border-color: #dc3545;
+  color: #721c24;
+}
+  
+</style>
+  <style>
+  .pregunta-mc .opcion {
+    cursor: pointer;
+    padding: 0.6em 0.9em;
+    margin: 0.3em 0;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background: #fff;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .pregunta-mc .opcion:hover {
+    background: #f0f4ff;
+    border-color: #99b3ff;
+  }
+  .pregunta-mc .opcion.seleccionada {
+    background: #e7f1ff;
+    border-color: #0089cd;
+    font-weight: 600;
+  }
+  .pregunta-mc .opcion.correcta {
+    background: #d4edda;
+    border-color: #28a745;
+    color: #155724;
+  }
+  .pregunta-mc .opcion.incorrecta {
+    background: #f8d7da;
+    border-color: #dc3545;
+    color: #721c24;
+  }
 </style>
 </head>
 <body>
