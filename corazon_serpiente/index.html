@@ -555,36 +555,80 @@ details.actividad[open] > summary { border-bottom: 1px solid var(--estela); }
   color: #721c24;
 }
   
-</style>
-  <style>
-  .pregunta-mc .opcion {
-    cursor: pointer;
-    padding: 0.6em 0.9em;
-    margin: 0.3em 0;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    background: #fff;
-    transition: background 0.2s, border-color 0.2s;
-  }
-  .pregunta-mc .opcion:hover {
-    background: #f0f4ff;
-    border-color: #99b3ff;
-  }
-  .pregunta-mc .opcion.seleccionada {
-    background: #e7f1ff;
-    border-color: #0089cd;
-    font-weight: 600;
-  }
-  .pregunta-mc .opcion.correcta {
-    background: #d4edda;
-    border-color: #28a745;
-    color: #155724;
-  }
-  .pregunta-mc .opcion.incorrecta {
-    background: #f8d7da;
-    border-color: #dc3545;
-    color: #721c24;
-  }
+/* ==== Quizzes MC — Corazón de la serpiente ==== */
+.pregunta-mc .opcion {
+  cursor: pointer;
+  padding: 0.6em 0.9em;
+  margin: 0.3em 0;
+  border: 2px solid var(--estela);
+  border-radius: 8px;
+  background: var(--nebula);
+  color: var(--texto);
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.pregunta-mc .opcion:hover {
+  background: var(--estela);
+  border-color: var(--teal);
+  color: var(--teal-claro);
+}
+
+.pregunta-mc .opcion.seleccionada {
+  background: var(--estela);
+  border-color: var(--teal);
+  color: var(--teal-claro);
+  font-weight: 600;
+}
+
+.pregunta-mc .opcion.correcta {
+  background: #1a3a2a;
+  border-color: var(--verde-ok);
+  color: var(--blanco);
+  font-weight: 600;
+}
+
+.pregunta-mc .opcion.incorrecta {
+  background: #3a1a1a;
+  border-color: var(--rojo-alerta);
+  color: var(--blanco);
+}
+
+/* Botón Verificar */
+.pregunta-mc .btn-verificar {
+  background: var(--teal);
+  color: var(--espacio);
+  border: none;
+  padding: 0.5em 1.2em;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0.5em;
+  transition: background 0.2s;
+}
+
+.pregunta-mc .btn-verificar:hover {
+  background: var(--teal-claro);
+}
+
+/* Feedback */
+.pregunta-mc .feedback {
+  margin-top: 0.6em;
+  padding: 0.6em 0.9em;
+  border-radius: 6px;
+  border-left: 4px solid;
+}
+
+.pregunta-mc .feedback.correcto {
+  background: #1a3a2a;
+  border-left-color: var(--verde-ok);
+  color: var(--blanco);
+}
+
+.pregunta-mc .feedback.incorrecto {
+  background: #3a1a1a;
+  border-left-color: var(--rojo-alerta);
+  color: var(--blanco);
+}
 </style>
 </head>
 <body>
